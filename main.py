@@ -1,6 +1,7 @@
 import argparse
 import os
 import logging
+import shutil
 from src.letter_detector import LetterDetector
 from src.word_solver import WordSolver
 from src.android_automator import AndroidAutomator
@@ -42,12 +43,24 @@ def main():
         default="adb",
         help="Path to the ADB executable.",
     )
+    parser.add_argument(
+        "--debug",
+        action="store_true",
+        help="Enable debug mode to capture screenshots of swipes."
+    )
     args = parser.parse_args()
+
+    if args.debug:
+        debug_dir = "debug_screenshots"
+        if os.path.exists(debug_dir):
+            shutil.rmtree(debug_dir)
+        os.makedirs(debug_dir)
+        logging.info(f"Debug mode enabled. Screenshots will be saved in '{debug_dir}'")
 
     # Initialize components
     letter_detector = LetterDetector()
     word_solver = WordSolver(args.words)
-    android_automator = AndroidAutomator(args.adb_path)
+    android_automator = AndroidAutomator(args.adb_path, debug=args.debug)
 
     # Run the bot
     try:
@@ -65,11 +78,11 @@ def main():
 
         logging.info("Swiping words...")
         letter_coords = {letter: coords for letter, coords in letters_with_coords}
-        for word in words:
+        for word in sorted(list(words)):
             coordinates = [letter_coords[char] for char in word if char in letter_coords]
             if len(coordinates) == len(word):
                 logging.info(f"Swiping: {word}")
-                android_automator.swipe_word(coordinates)
+                android_automator.swipe_word(coordinates, word)
 
         logging.info("Done!")
 
