@@ -45,24 +45,24 @@ class AndroidAutomator:
         self._run_command(["pull", "/sdcard/screen.png", output_path])
         self._run_command(["shell", "rm", "/sdcard/screen.png"])
 
-    def swipe_word(self, coordinates: List[Tuple[int, int]], duration_ms: int = 300):
+    def swipe_word(self, coordinates: List[Tuple[int, int]], duration_per_segment_ms: int = 50):
         """
-        Swipes a word on the screen.
+        Swipes a word on the screen by chaining multiple swipe commands.
 
         Args:
             coordinates: A list of (x, y) coordinates to swipe through.
-            duration_ms: The duration of the swipe in milliseconds.
+            duration_per_segment_ms: The duration for each segment of the swipe.
         """
-        if not coordinates:
+        if len(coordinates) < 2:
             return
 
-        start_x, start_y = coordinates[0]
-        command = ["shell", "input", "swipe", str(start_x), str(start_y), str(start_x), str(start_y), str(duration_ms)]
-
-        for i in range(1, len(coordinates)):
-            end_x, end_y = coordinates[i]
-            command[4] = str(end_x)
-            command[5] = str(end_y)
-            self._run_command(command)
-            start_x, start_y = end_x, end_y
-            time.sleep(duration_ms / 1000)
+        commands = []
+        for i in range(len(coordinates) - 1):
+            start_x, start_y = coordinates[i]
+            end_x, end_y = coordinates[i+1]
+            commands.append(
+                f"input swipe {start_x} {start_y} {end_x} {end_y} {duration_per_segment_ms}"
+            )
+        
+        full_command = "; ".join(commands)
+        self._run_command(["shell", full_command])
