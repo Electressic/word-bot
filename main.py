@@ -3,9 +3,11 @@ import os
 import logging
 import shutil
 import keyboard
+import cv2
 from src.letter_detector import LetterDetector
 from src.word_solver import WordSolver
 from src.pc_automator import PCAutomator
+from src.layout_matcher import LayoutMatcher
 
 # Global flag to stop the bot
 stop_bot = False
@@ -87,6 +89,7 @@ def main():
         debug=args.debug,
         debug_dir=debug_dir
     )
+    layout_matcher = LayoutMatcher()
 
     # Run the bot
     try:
@@ -103,22 +106,59 @@ def main():
 
         logging.info("Detecting letters...")
         letters_with_coords = letter_detector.detect_letters(processed_image)
-        
-        if stop_bot:
-            logging.info("Bot stopped after letter detection")
+
+        # If not enough letters are visible there is a good chance an overlay
+        # or level-complete screen is hiding the game board. In that case try
+        # to close the popup and stop this run – the user may launch us again
+        # or we can later loop.
+        if len(letters_with_coords) < 3:
+            logging.warning("Very few letters detected – likely a pop-up/overlay. Attempting to close it.")
+            pc_automator.try_close_popup()
             return
-        
-        # Adjust coordinates to be relative to the original screen
+
+        # Adjust coordinates to be relative to the original screen for layout matching
         adjusted_letters_with_coords = [
             (letter, (x + crop_x, y + crop_y))
             for letter, (x, y) in letters_with_coords
         ]
 
-        detected_letters = [letter for letter, coords in adjusted_letters_with_coords]
+        # Layout matching to enforce exactly one letter per slot (if template exists)
+        matched_letters_with_coords = layout_matcher.match(
+            adjusted_letters_with_coords,
+            wheel_size=6  # TODO: derive dynamically if needed
+        )
+
+        # ------------------------------------------------------------------
+        # Debug: visualise detected letters on the processed image
+        # ------------------------------------------------------------------
+        if args.debug and debug_dir:
+            annotated = cv2.cvtColor(processed_image.copy(), cv2.COLOR_GRAY2BGR)
+            # Draw template slots for debugging (blue)
+            # The slots are in absolute screen coordinates, so we need to adjust them
+            # for the cropped debug image.
+            for (x_s, y_s) in layout_matcher.get_last_slots():
+                cv2.circle(annotated, (int(x_s - crop_x), int(y_s - crop_y)), 50, (255, 0, 0), 1)
+
+            # Draw matched letters, which are also in absolute screen coordinates.
+            for letter, (x, y) in matched_letters_with_coords:
+                # Adjust coordinates for the cropped debug image.
+                x_adj, y_adj = x - crop_x, y - crop_y
+                # Outer circle shows duplicate-suppression radius (debug aid)
+                cv2.circle(annotated, (x_adj, y_adj), 50, (0, 255, 255), 1)  # yellow-ish
+                # Inner circle marks the detection centre
+                cv2.circle(annotated, (x_adj, y_adj), 12, (0, 255, 0), 2)
+                cv2.putText(annotated, letter, (x_adj - 10, y_adj - 15), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (0, 0, 255), 2)
+            cv2.imwrite(os.path.join(debug_dir, "3_detected_letters.png"), annotated)
+
+        if stop_bot:
+            logging.info("Bot stopped after letter detection")
+            return
+        
+        detected_letters = [letter for letter, coords in matched_letters_with_coords]
         logging.info(f"Detected letters: {', '.join(detected_letters)}")
 
         if stop_bot:
-            logging.info("Bot stopped after coordinate adjustment")
+            logging.info("Bot stopped after letter detection")
             return
 
         logging.info("Finding words...")
@@ -130,7 +170,7 @@ def main():
             return
 
         logging.info("Swiping words...")
-        letter_coords = {letter: coords for letter, coords in adjusted_letters_with_coords}
+        letter_coords = {letter: coords for letter, coords in matched_letters_with_coords}
         for word in sorted(list(words)):
             if stop_bot:
                 logging.info(f"Bot stopped before swiping word: {word}")

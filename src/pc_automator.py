@@ -7,6 +7,7 @@ import pygetwindow as gw
 
 import cv2
 import numpy as np
+import logging
 
 class PCAutomator:
     """
@@ -55,8 +56,11 @@ class PCAutomator:
             
             # Crop and preprocess the image
             height, width, _ = img.shape
-            crop_x, crop_y = int(width * 0.2), int(height * 0.63)
-            crop_width, crop_height = int(width * 0.6), int(height * 0.25)
+            # The letter wheel sometimes sits slightly higher than the
+            # previous crop assumed.  Start 5 % higher and capture 5 % more
+            # height so both the top and bottom rows remain visible.
+            crop_x, crop_y = int(width * 0.2), int(height * 0.625)
+            crop_width, crop_height = int(width * 0.6), int(height * 0.275)
             cropped_image = img[crop_y:crop_y+crop_height, crop_x:crop_x+crop_width]
             
             gray = cv2.cvtColor(cropped_image, cv2.COLOR_BGR2GRAY)
@@ -154,3 +158,50 @@ class PCAutomator:
                 sct_img = sct.grab(monitor)
                 img_array = np.array(sct_img)
                 cv2.imwrite(debug_screenshot_path, img_array)
+
+    # ------------------------------------------------------------------
+    # Popup handling helpers
+    # ------------------------------------------------------------------
+
+    def _click_absolute(self, abs_x: int, abs_y: int):
+        """Move the mouse to an absolute screen coordinate and click."""
+        pyautogui.moveTo(abs_x, abs_y)
+        pyautogui.click()
+
+    def try_close_popup(self) -> bool:
+        """Attempt to close common in-game pop-ups.
+
+        This method is intentionally heuristic – it simply clicks a few
+        well-known close / continue areas:
+
+        1. The small ⓧ icon that most overlays display in the top-right
+           (~95 % width, ~10 % height inside the game window).
+        2. The big green "NEXT LEVEL" button that appears after finishing
+           a round (~50 % width, ~85 % height).
+
+        Returns True if at least one click was performed.
+        """
+        if self.window is None:
+            # Safety – should not happen because we set it in __init__
+            return False
+
+        performed_click = False
+
+        # Coordinates relative to window
+        w, h = self.window.width, self.window.height
+
+        candidates = [
+            (int(w * 0.95), int(h * 0.08)),   # typical small X icon
+            (int(w * 0.5),  int(h * 0.88)),   # NEXT LEVEL / CONTINUE button
+        ]
+
+        for rel_x, rel_y in candidates:
+            abs_x = self.window.left + rel_x
+            abs_y = self.window.top  + rel_y
+            logging.info(f"Attempting to close popup by clicking at ({abs_x}, {abs_y})")
+            self._click_absolute(abs_x, abs_y)
+            performed_click = True
+            # Give UI a brief moment to react
+            time.sleep(0.3)
+
+        return performed_click

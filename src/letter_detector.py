@@ -1,7 +1,7 @@
 import easyocr
 import cv2
 import numpy as np
-from typing import List, Tuple
+from typing import List, Tuple, Dict
 import os
 import logging
 
@@ -10,7 +10,7 @@ class LetterDetector:
     Detects letters and their positions from an image.
     """
 
-    def __init__(self, lang: str = 'en', min_confidence: float = 0.6):
+    def __init__(self, lang: str = 'en', min_confidence: float = 0.8):
         """
         Initializes the LetterDetector.
 
@@ -42,6 +42,13 @@ class LetterDetector:
             'G': 0.4,  # Can be confused with other letters
             'P': 0.4,  # Can be confused with other letters
             'R': 0.4,  # Can be confused with other letters
+            # Require higher certainty for the more reliably detected letters
+            'A': 0.8,
+            'E': 0.8,
+            'T': 0.8,
+            'J': 0.8,
+            'K': 0.8,
+            'C': 0.8,
         }
 
     def _map_char(self, ch: str) -> str:
@@ -79,7 +86,8 @@ class LetterDetector:
         normalized_chars = [self._map_char(c) for c in text]
         clean_text = ''.join(c for c in normalized_chars if c)
         
-        if len(clean_text) <= 1:
+        # Skip low-confidence multi-letter boxes altogether
+        if len(clean_text) <= 1 or confidence < 0.6:
             return []
         
         # Calculate the bounding box dimensions
@@ -120,7 +128,8 @@ class LetterDetector:
             A list of tuples, where each tuple contains the detected letter
             and its center coordinates (x, y).
         """
-        all_letters = []
+        # a list of tuples, each containing (letter, (x,y), confidence)
+        all_letters: List[Tuple[str, Tuple[int, int], float]] = []
         
         # Create a dilated version of the image to make letters thicker
         kernel = np.ones((2,2), np.uint8)
@@ -166,10 +175,10 @@ class LetterDetector:
                     
                     # Calculate position for logging
                     if len(bbox) >= 4:
-                        top_left = tuple(map(int, bbox[0]))
-                        bottom_right = tuple(map(int, bbox[2]))
-                        center_x = (top_left[0] + bottom_right[0]) // 2
-                        center_y = (top_left[1] + bottom_right[1]) // 2
+                        xs = [p[0] for p in bbox]
+                        ys = [p[1] for p in bbox]
+                        center_x = int(sum(xs) / len(xs))
+                        center_y = int(sum(ys) / len(ys))
                         
                         logging.info(f"  Result {j+1}: Text='{text}', Confidence={confidence:.3f}, Position=({center_x}, {center_y})")
                         
@@ -189,15 +198,15 @@ class LetterDetector:
                             if confidence >= required_confidence:
                                 # Check if this letter is already detected nearby
                                 duplicate = False
-                                for existing_letter, (existing_x, existing_y) in all_letters:
-                                    if (abs(center_x - existing_x) < 20 and 
-                                        abs(center_y - existing_y) < 20 and 
+                                for existing_letter, (existing_x, existing_y), _ in all_letters:
+                                    if (abs(center_x - existing_x) < 30 and 
+                                        abs(center_y - existing_y) < 30 and 
                                         existing_letter == letter_upper):
                                         duplicate = True
                                         break
                                 
                                 if not duplicate:
-                                    all_letters.append((letter_upper, (center_x, center_y)))
+                                    all_letters.append((letter_upper, (center_x, center_y), confidence))
                                     logging.info(f"ACCEPTED (Set {i+1}): '{letter_upper}' with confidence {confidence:.3f} (threshold: {required_confidence:.3f})")
                         
                         # Handle multi-letter detections (like "ON", "AB", etc.)
@@ -210,15 +219,15 @@ class LetterDetector:
                             for letter, position in individual_letters:
                                 # Check for duplicates
                                 duplicate = False
-                                for existing_letter, (existing_x, existing_y) in all_letters:
-                                    if (abs(position[0] - existing_x) < 20 and 
-                                        abs(position[1] - existing_y) < 20 and 
+                                for existing_letter, (existing_x, existing_y), _ in all_letters:
+                                    if (abs(position[0] - existing_x) < 30 and 
+                                        abs(position[1] - existing_y) < 30 and 
                                         existing_letter == letter):
                                         duplicate = True
                                         break
                                 
                                 if not duplicate:
-                                    all_letters.append((letter, position))
+                                    all_letters.append((letter, position, confidence))
                         
                         # Also log any text that might be N or O related
                         if any(char in text.upper() for char in ['N', 'O', 'C', 'D', 'Q', 'G', 'P', 'R']):
@@ -250,10 +259,10 @@ class LetterDetector:
                     confidence = float(prob) if isinstance(prob, (int, float, str)) else 0.0
                     
                     if len(bbox) >= 4:
-                        top_left = tuple(map(int, bbox[0]))
-                        bottom_right = tuple(map(int, bbox[2]))
-                        center_x = (top_left[0] + bottom_right[0]) // 2
-                        center_y = (top_left[1] + bottom_right[1]) // 2
+                        xs = [p[0] for p in bbox]
+                        ys = [p[1] for p in bbox]
+                        center_x = int(sum(xs) / len(xs))
+                        center_y = int(sum(ys) / len(ys))
                         
                         logging.info(f"  Ultra Result {j+1}: Text='{text}', Confidence={confidence:.3f}, Position=({center_x}, {center_y})")
                     
@@ -270,28 +279,28 @@ class LetterDetector:
                             if confidence >= ultra_threshold:
                                 # Duplicate check identical to earlier
                                 duplicate = False
-                                for existing_letter, (existing_x, existing_y) in all_letters:
-                                    if (abs(center_x - existing_x) < 20 and 
-                                        abs(center_y - existing_y) < 20 and 
+                                for existing_letter, (existing_x, existing_y), _ in all_letters:
+                                    if (abs(center_x - existing_x) < 30 and 
+                                        abs(center_y - existing_y) < 30 and 
                                         existing_letter == mapped):
                                         duplicate = True
                                         break
                                 if not duplicate:
-                                    all_letters.append((mapped, (center_x, center_y)))
+                                    all_letters.append((mapped, (center_x, center_y), confidence))
                                     logging.info(f"ACCEPTED (Ultra): '{mapped}' with confidence {confidence:.3f}")
                         else:
                             # Handle multi-letter in ultra mode too
                             individual_letters = self._split_multi_letter_detection(bbox, text, confidence)
                             for letter, position in individual_letters:
                                 duplicate = False
-                                for existing_letter, (existing_x, existing_y) in all_letters:
-                                    if (abs(position[0] - existing_x) < 20 and 
-                                        abs(position[1] - existing_y) < 20 and 
+                                for existing_letter, (existing_x, existing_y), _ in all_letters:
+                                    if (abs(position[0] - existing_x) < 30 and 
+                                        abs(position[1] - existing_y) < 30 and 
                                         existing_letter == letter):
                                         duplicate = True
                                         break
                                 if not duplicate:
-                                    all_letters.append((letter, position))
+                                    all_letters.append((letter, position, confidence))
                                     logging.info(f"ACCEPTED (Ultra Split): '{letter}' at {position}")
                                 
             except Exception as e:
@@ -316,10 +325,10 @@ class LetterDetector:
                 confidence = float(prob) if isinstance(prob, (int, float, str)) else 0.0
                 
                 if len(bbox) >= 4:
-                    top_left = tuple(map(int, bbox[0]))
-                    bottom_right = tuple(map(int, bbox[2]))
-                    center_x = (top_left[0] + bottom_right[0]) // 2
-                    center_y = (top_left[1] + bottom_right[1]) // 2
+                    xs = [p[0] for p in bbox]
+                    ys = [p[1] for p in bbox]
+                    center_x = int(sum(xs) / len(xs))
+                    center_y = int(sum(ys) / len(ys))
                     
                     logging.info(f"  No-allowlist Result {j+1}: Text='{text}', Confidence={confidence:.3f}, Position=({center_x}, {center_y})")
                     
@@ -332,30 +341,123 @@ class LetterDetector:
                             req_conf = self.letter_confidence_thresholds.get(mapped, self.min_confidence)
                             if confidence >= req_conf:
                                 duplicate = False
-                                for existing_letter, (existing_x, existing_y) in all_letters:
-                                    if (abs(center_x - existing_x) < 20 and 
-                                        abs(center_y - existing_y) < 20 and 
+                                for existing_letter, (existing_x, existing_y), _ in all_letters:
+                                    if (abs(center_x - existing_x) < 30 and 
+                                        abs(center_y - existing_y) < 30 and 
                                         existing_letter == mapped):
                                         duplicate = True
                                         break
                                 if not duplicate:
-                                    all_letters.append((mapped, (center_x, center_y)))
+                                    all_letters.append((mapped, (center_x, center_y), confidence))
                                     logging.info(f"ACCEPTED (No-Allowlist): '{mapped}' with confidence {confidence:.3f}")
                         else:
                             letters = self._split_multi_letter_detection(bbox, text, confidence)
                             for letter, position in letters:
                                 duplicate = False
-                                for existing_letter, (existing_x, existing_y) in all_letters:
-                                    if (abs(position[0] - existing_x) < 20 and 
-                                        abs(position[1] - existing_y) < 20 and 
+                                for existing_letter, (existing_x, existing_y), _ in all_letters:
+                                    if (abs(position[0] - existing_x) < 30 and 
+                                        abs(position[1] - existing_y) < 30 and 
                                         existing_letter == letter):
                                         duplicate = True
                                         break
                                 if not duplicate:
-                                    all_letters.append((letter, position))
+                                    all_letters.append((letter, position, confidence))
                                     logging.info(f"ACCEPTED (No-Allowlist Split): '{letter}' at {position}")
 
         except Exception as e:
             logging.warning(f"No-allowlist attempt failed: {e}")
 
-        return all_letters
+        unique_letters = set()
+        for letter, coords, conf in all_letters:
+            unique_letters.add((letter, coords, conf))
+
+        # Final de-duplication pass
+        final_detections = []
+        # Sort by x, then y to process close detections together
+        unique_letters = sorted(list(unique_letters), key=lambda item: (item[1][0], item[1][1]))
+        
+        i = 0
+        while i < len(unique_letters):
+            # Find a cluster of detections that are close to each other
+            cluster = [unique_letters[i]]
+            j = i + 1
+            while j < len(unique_letters):
+                dist = self._distance(unique_letters[i][1], unique_letters[j][1])
+                if dist < 30: # 30px proximity threshold
+                    cluster.append(unique_letters[j])
+                    j += 1
+                else:
+                    break
+            
+            # From that cluster, choose the one with the highest confidence
+            best_in_cluster = max(cluster, key=lambda item: item[2]) # item[2] is confidence
+            final_detections.append((best_in_cluster[0], best_in_cluster[1]))
+            
+            # Move index past the processed cluster
+            i = j
+            
+        logging.info("Deduplicated letters: %s", ", ".join([d[0] for d in final_detections]))
+        return final_detections
+
+    def _get_params(self, image: np.ndarray) -> List[Dict]:
+        return [
+            # Dilated image with permissive settings
+            {'image': cv2.dilate(image, np.ones((2,2), np.uint8), iterations=1), 'text_threshold': 0.4, 'low_text': 0.2, 'link_threshold': 0.2, 'width_ths': 0.5, 'height_ths': 0.5},
+            
+            # Default-ish CRAFT parameters on original image
+            {'image': image, 'text_threshold': 0.7, 'low_text': 0.4, 'link_threshold': 0.4, 'width_ths': 0.7, 'height_ths': 0.7},
+            
+            # More permissive on original image
+            {'image': image, 'text_threshold': 0.4, 'low_text': 0.2, 'link_threshold': 0.4, 'width_ths': 0.7, 'height_ths': 0.7},
+
+            # Try magnification on original image
+            {'image': image, 'text_threshold': 0.4, 'low_text': 0.2, 'link_threshold': 0.4, 'width_ths': 0.7, 'height_ths': 0.7, 'mag_ratio': 1.5},
+        ]
+
+    # ------------------------------------------------------------------
+    # Duplicate filtering
+    # ------------------------------------------------------------------
+    def _filter_duplicates(self,
+                           letters: List[Tuple[str, Tuple[int, int], float]],
+                           radius: int) -> List[Tuple[str, Tuple[int, int], float]]:
+        """Collapse multiple detections that fall within a radius.
+
+        By default we treat *any* detections closer than the radius as the
+        same letter regardless of their label – this catches situations where
+        two different letters are predicted inside one glyph (e.g. both 'T'
+        and 'I' inside the central letter).
+        """
+        to_remove = set()
+        for i in range(len(letters)):
+            if i in to_remove:
+                continue
+            for j in range(i + 1, len(letters)):
+                dist = self._distance(letters[i][1], letters[j][1])
+                if dist < radius:
+                    # Keep the one with higher confidence
+                    if letters[i][2] > letters[j][2]:
+                        to_remove.add(j)
+                    else:
+                        to_remove.add(i)
+        
+        filtered = []
+        for i, letter_data in enumerate(letters):
+            if i not in to_remove:
+                filtered.append(letter_data)
+        return filtered
+
+    def _distance(self, point1: Tuple[int, int], point2: Tuple[int, int]) -> float:
+        """Calculate the Euclidean distance between two points."""
+        return np.sqrt((point1[0] - point2[0])**2 + (point1[1] - point2[1])**2)
+
+    def _split_and_filter(self, text: str, bbox: np.ndarray, conf: float) -> List[Tuple[str, Tuple[int, int], float]]:
+        # ...
+        # (Make sure this function returns the confidence score in each tuple)
+        letters: List[Tuple[str, Tuple[int, int], float]] = []
+        if len(text) == 1:
+            return [(text, (center_x, center_y), conf)]
+        # ...
+        for i, char in enumerate(text):
+            split_x = int(bbox[0][0] + (i + 0.5) * letter_width)
+            letters.append((char, (split_x, center_y), conf))
+        return letters
