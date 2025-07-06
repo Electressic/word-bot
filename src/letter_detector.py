@@ -3,13 +3,14 @@ import cv2
 import numpy as np
 from typing import List, Tuple
 import os
+import logging
 
 class LetterDetector:
     """
     Detects letters and their positions from an image.
     """
 
-    def __init__(self, lang: str = 'en', min_confidence: float = 0.8):
+    def __init__(self, lang: str = 'en', min_confidence: float = 0.6):
         """
         Initializes the LetterDetector.
 
@@ -19,6 +20,63 @@ class LetterDetector:
         """
         self.reader = easyocr.Reader([lang], gpu=True)
         self.min_confidence = min_confidence
+        
+        # Lower confidence thresholds for problematic letters
+        self.letter_confidence_thresholds = {
+            'N': 0.3,  # Even lower threshold for N
+            'O': 0.3,  # Even lower threshold for O
+            'C': 0.4,  # O and C can be confused
+            'D': 0.4,  # O and D can be confused
+            'Q': 0.4,  # O and Q can be confused
+            'G': 0.4,  # Can be confused with other letters
+            'P': 0.4,  # Can be confused with other letters
+            'R': 0.4,  # Can be confused with other letters
+        }
+
+    def _split_multi_letter_detection(self, bbox, text: str, confidence: float) -> List[Tuple[str, Tuple[int, int]]]:
+        """
+        Split a multi-letter detection into individual letters with estimated positions.
+        
+        Args:
+            bbox: The bounding box of the multi-letter detection
+            text: The detected text (e.g., "ON", "AB")
+            confidence: The confidence of the detection
+            
+        Returns:
+            List of individual letter detections with estimated positions
+        """
+        # Filter out non-alphabetic characters and convert to uppercase
+        clean_text = ''.join(char.upper() for char in text if char.isalpha())
+        
+        if len(clean_text) <= 1:
+            return []
+        
+        # Calculate the bounding box dimensions
+        top_left = tuple(map(int, bbox[0]))
+        bottom_right = tuple(map(int, bbox[2]))
+        total_width = bottom_right[0] - top_left[0]
+        total_height = bottom_right[1] - top_left[1]
+        
+        individual_letters = []
+        num_letters = len(clean_text)
+        
+        # Estimate individual letter positions by dividing the total width
+        for i, letter in enumerate(clean_text):
+            # Calculate the center position for this letter
+            # Assume letters are evenly distributed across the width
+            letter_width = total_width / num_letters
+            letter_center_x = top_left[0] + (i + 0.5) * letter_width
+            letter_center_y = top_left[1] + total_height / 2
+            
+            # Use the same confidence as the original detection
+            # but apply letter-specific thresholds
+            required_confidence = self.letter_confidence_thresholds.get(letter, self.min_confidence)
+            
+            if confidence >= required_confidence:
+                individual_letters.append((letter, (int(letter_center_x), int(letter_center_y))))
+                logging.info(f"SPLIT LETTER: '{letter}' at ({int(letter_center_x)}, {int(letter_center_y)}) from '{text}' with confidence {confidence:.3f}")
+        
+        return individual_letters
 
     def detect_letters(self, image: np.ndarray) -> List[Tuple[str, Tuple[int, int]]]:
         """
@@ -31,18 +89,195 @@ class LetterDetector:
             A list of tuples, where each tuple contains the detected letter
             and its center coordinates (x, y).
         """
-        results = self.reader.readtext(
-            image,
-            allowlist='ABCDEFGHIJKLMNOPQRSTUVWXYZ'
-        )
+        all_letters = []
+        
+        # Try multiple parameter combinations to catch difficult letters
+        parameter_sets = [
+            # Conservative settings (current approach)
+            {'width_ths': 0.7, 'height_ths': 0.7},
+            
+            # More permissive settings
+            {'width_ths': 0.3, 'height_ths': 0.3},
+            
+            # High detail settings for small letters
+            {'width_ths': 0.5, 'height_ths': 0.5},
+            
+            # Very permissive settings
+            {'width_ths': 0.1, 'height_ths': 0.1},
+        ]
+        
+        for i, params in enumerate(parameter_sets):
+            logging.info(f"Trying parameter set {i+1}: {params}")
+            
+            try:
+                results = self.reader.readtext(
+                    image,
+                    allowlist='ABCDEFGHIJKLMNOPQRSTUVWXYZ',
+                    paragraph=False,
+                    width_ths=params['width_ths'],
+                    height_ths=params['height_ths']
+                )
+                
+                logging.info(f"Parameter set {i+1} returned {len(results)} results")
+                
+                # Log ALL detections for debugging, regardless of confidence
+                for j, (bbox, text, prob) in enumerate(results):
+                    confidence = float(prob) if isinstance(prob, (int, float, str)) else 0.0
+                    
+                    # Calculate position for logging
+                    if len(bbox) >= 4:
+                        top_left = tuple(map(int, bbox[0]))
+                        bottom_right = tuple(map(int, bbox[2]))
+                        center_x = (top_left[0] + bottom_right[0]) // 2
+                        center_y = (top_left[1] + bottom_right[1]) // 2
+                        
+                        logging.info(f"  Result {j+1}: Text='{text}', Confidence={confidence:.3f}, Position=({center_x}, {center_y})")
+                        
+                        # Handle single letters
+                        if len(text) == 1 and text.isalpha():
+                            logging.info(f"    -> SINGLE LETTER: '{text}' at ({center_x}, {center_y}) with confidence {confidence:.3f}")
+                            
+                            letter_upper = text.upper()
+                            required_confidence = self.letter_confidence_thresholds.get(
+                                letter_upper, self.min_confidence
+                            )
+                            
+                            if confidence >= required_confidence:
+                                # Check if this letter is already detected nearby
+                                duplicate = False
+                                for existing_letter, (existing_x, existing_y) in all_letters:
+                                    if (abs(center_x - existing_x) < 20 and 
+                                        abs(center_y - existing_y) < 20 and 
+                                        existing_letter == letter_upper):
+                                        duplicate = True
+                                        break
+                                
+                                if not duplicate:
+                                    all_letters.append((letter_upper, (center_x, center_y)))
+                                    logging.info(f"ACCEPTED (Set {i+1}): '{letter_upper}' with confidence {confidence:.3f} (threshold: {required_confidence:.3f})")
+                        
+                        # Handle multi-letter detections (like "ON", "AB", etc.)
+                        elif len(text) > 1 and text.isalpha():
+                            logging.info(f"    -> MULTI-LETTER: '{text}' - attempting to split")
+                            
+                            # Split the multi-letter detection into individual letters
+                            individual_letters = self._split_multi_letter_detection(bbox, text, confidence)
+                            
+                            for letter, position in individual_letters:
+                                # Check for duplicates
+                                duplicate = False
+                                for existing_letter, (existing_x, existing_y) in all_letters:
+                                    if (abs(position[0] - existing_x) < 20 and 
+                                        abs(position[1] - existing_y) < 20 and 
+                                        existing_letter == letter):
+                                        duplicate = True
+                                        break
+                                
+                                if not duplicate:
+                                    all_letters.append((letter, position))
+                        
+                        # Also log any text that might be N or O related
+                        if any(char in text.upper() for char in ['N', 'O', 'C', 'D', 'Q', 'G', 'P', 'R']):
+                            logging.info(f"    -> CONTAINS TARGET LETTERS: '{text}' might be relevant")
+                            
+            except Exception as e:
+                logging.warning(f"Parameter set {i+1} failed: {e}")
+                continue
+        
+        # If we found very few letters, try one more time with even more aggressive settings
+        if len(all_letters) < 4:
+            logging.info("Very few letters detected, trying ultra-permissive settings...")
+            try:
+                results = self.reader.readtext(
+                    image,
+                    allowlist='ABCDEFGHIJKLMNOPQRSTUVWXYZ',
+                    paragraph=False,
+                    width_ths=0.05,
+                    height_ths=0.05
+                )
+                
+                logging.info(f"Ultra-permissive mode returned {len(results)} results")
+                
+                for j, (bbox, text, prob) in enumerate(results):
+                    confidence = float(prob) if isinstance(prob, (int, float, str)) else 0.0
+                    
+                    if len(bbox) >= 4:
+                        top_left = tuple(map(int, bbox[0]))
+                        bottom_right = tuple(map(int, bbox[2]))
+                        center_x = (top_left[0] + bottom_right[0]) // 2
+                        center_y = (top_left[1] + bottom_right[1]) // 2
+                        
+                        logging.info(f"  Ultra Result {j+1}: Text='{text}', Confidence={confidence:.3f}, Position=({center_x}, {center_y})")
+                    
+                    # Handle both single and multi-letter detections in ultra mode
+                    if len(text) >= 1 and text.isalpha():
+                        if len(text) == 1:
+                            logging.info(f"DEBUG (Ultra): Detected '{text}' with confidence {confidence:.3f}")
+                            
+                            # Use even lower thresholds for ultra mode
+                            ultra_threshold = 0.1  # Very low threshold to catch everything
+                            if confidence >= ultra_threshold:
+                                top_left = tuple(map(int, bbox[0]))
+                                bottom_right = tuple(map(int, bbox[2]))
+                                center_x = (top_left[0] + bottom_right[0]) // 2
+                                center_y = (top_left[1] + bottom_right[1]) // 2
+                                
+                                # Check for duplicates
+                                duplicate = False
+                                for existing_letter, (existing_x, existing_y) in all_letters:
+                                    if (abs(center_x - existing_x) < 20 and 
+                                        abs(center_y - existing_y) < 20 and 
+                                        existing_letter == text.upper()):
+                                        duplicate = True
+                                        break
+                                
+                                if not duplicate:
+                                    all_letters.append((text.upper(), (center_x, center_y)))
+                                    logging.info(f"ACCEPTED (Ultra): '{text.upper()}' with confidence {confidence:.3f}")
+                        else:
+                            # Handle multi-letter in ultra mode too
+                            individual_letters = self._split_multi_letter_detection(bbox, text, confidence)
+                            for letter, position in individual_letters:
+                                # Check for duplicates
+                                duplicate = False
+                                for existing_letter, (existing_x, existing_y) in all_letters:
+                                    if (abs(position[0] - existing_x) < 20 and 
+                                        abs(position[1] - existing_y) < 20 and 
+                                        existing_letter == letter):
+                                        duplicate = True
+                                        break
+                                
+                                if not duplicate:
+                                    all_letters.append((letter, position))
+                                    logging.info(f"ACCEPTED (Ultra Split): '{letter}' at {position}")
+                                
+            except Exception as e:
+                logging.warning(f"Ultra-permissive attempt failed: {e}")
+        
+        # Also try without any allowlist to see what EasyOCR detects freely
+        logging.info("Testing without allowlist to see all possible detections...")
+        try:
+            results = self.reader.readtext(
+                image,
+                paragraph=False,
+                width_ths=0.3,
+                height_ths=0.3
+            )
+            
+            logging.info(f"No-allowlist mode returned {len(results)} results")
+            
+            for j, (bbox, text, prob) in enumerate(results):
+                confidence = float(prob) if isinstance(prob, (int, float, str)) else 0.0
+                
+                if len(bbox) >= 4:
+                    top_left = tuple(map(int, bbox[0]))
+                    bottom_right = tuple(map(int, bbox[2]))
+                    center_x = (top_left[0] + bottom_right[0]) // 2
+                    center_y = (top_left[1] + bottom_right[1]) // 2
+                    
+                    logging.info(f"  No-allowlist Result {j+1}: Text='{text}', Confidence={confidence:.3f}, Position=({center_x}, {center_y})")
+                    
+        except Exception as e:
+            logging.warning(f"No-allowlist attempt failed: {e}")
 
-        letters = []
-        for (bbox, text, prob) in results:
-            if prob >= self.min_confidence and len(text) == 1 and text.isalpha():
-                top_left = tuple(map(int, bbox[0]))
-                bottom_right = tuple(map(int, bbox[2]))
-                center_x = (top_left[0] + bottom_right[0]) // 2
-                center_y = (top_left[1] + bottom_right[1]) // 2
-                letters.append((text.upper(), (center_x, center_y)))
-
-        return letters
+        return all_letters

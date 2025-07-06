@@ -60,19 +60,62 @@ class PCAutomator:
             cropped_image = img[crop_y:crop_y+crop_height, crop_x:crop_x+crop_width]
             
             gray = cv2.cvtColor(cropped_image, cv2.COLOR_BGR2GRAY)
-            blurred = cv2.GaussianBlur(gray, (5, 5), 0)
-            processed_image = cv2.adaptiveThreshold(blurred, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY_INV, 31, 10)
             
-            kernel = np.ones((2,2), np.uint8)
-            dilated_image = cv2.dilate(processed_image, kernel, iterations = 1)
+            # Improved preprocessing for better N and O detection
+            # Apply light denoising first
+            denoised = cv2.fastNlMeansDenoising(gray, None, 10, 7, 21)
+            
+            # Try multiple preprocessing approaches with gentler settings
+            # Approach 1: Adaptive threshold with larger block size (better for circular letters)
+            blurred1 = cv2.GaussianBlur(denoised, (3, 3), 0)
+            processed_image1 = cv2.adaptiveThreshold(
+                blurred1, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, 
+                cv2.THRESH_BINARY_INV, 21, 10  # Larger block size, more conservative
+            )
+            
+            # Approach 2: OTSU threshold (good for varying lighting)
+            blurred2 = cv2.GaussianBlur(denoised, (3, 3), 0)
+            _, processed_image2 = cv2.threshold(
+                blurred2, 0, 255, cv2.THRESH_BINARY_INV + cv2.THRESH_OTSU
+            )
+            
+            # Approach 3: Gentler manual threshold
+            _, processed_image3 = cv2.threshold(denoised, 140, 255, cv2.THRESH_BINARY_INV)
+            
+            # Approach 4: Conservative threshold for light text
+            _, processed_image4 = cv2.threshold(denoised, 160, 255, cv2.THRESH_BINARY_INV)
+            
+            # Combine approaches more carefully - start with most conservative
+            processed_image = cv2.bitwise_or(processed_image2, processed_image3)
+            processed_image = cv2.bitwise_or(processed_image, processed_image4)
+            
+            # Add some of the adaptive threshold results but more selectively
+            # Use opening to clean up noise first
+            kernel_clean = np.ones((2,2), np.uint8)
+            processed_image1_cleaned = cv2.morphologyEx(processed_image1, cv2.MORPH_OPEN, kernel_clean)
+            
+            # Only add adaptive threshold pixels that are part of larger structures
+            kernel_dilate = np.ones((3,3), np.uint8)
+            processed_image1_dilated = cv2.dilate(processed_image1_cleaned, kernel_dilate, iterations=1)
+            processed_image1_filtered = cv2.bitwise_and(processed_image1_cleaned, processed_image1_dilated)
+            
+            processed_image = cv2.bitwise_or(processed_image, processed_image1_filtered)
+            
+            # Very light morphological closing to connect small gaps without destroying letter shapes
+            kernel_close = np.ones((2,2), np.uint8)
+            final_image = cv2.morphologyEx(processed_image, cv2.MORPH_CLOSE, kernel_close)
+            
+            # Light opening to remove very small noise
+            kernel_open = np.ones((1,1), np.uint8) 
+            final_image = cv2.morphologyEx(final_image, cv2.MORPH_OPEN, kernel_open)
 
             if self.debug:
                 if not os.path.exists(self.debug_dir):
                     os.makedirs(self.debug_dir)
                 cv2.imwrite(os.path.join(self.debug_dir, "1_cropped_screenshot.png"), cropped_image)
-                cv2.imwrite(os.path.join(self.debug_dir, "2_processed_screenshot.png"), dilated_image)
+                cv2.imwrite(os.path.join(self.debug_dir, "2_processed_screenshot.png"), final_image)
 
-            return dilated_image, (crop_x, crop_y)
+            return final_image, (crop_x, crop_y)
 
     def swipe_word(self, coordinates: List[Tuple[int, int]], word: str):
         """
@@ -109,4 +152,5 @@ class PCAutomator:
                     "height": self.window.height,
                 }
                 sct_img = sct.grab(monitor)
-                mss.tools.to_png(sct_img.rgb, sct_img.size, output=debug_screenshot_path)
+                img_array = np.array(sct_img)
+                cv2.imwrite(debug_screenshot_path, img_array)

@@ -242,3 +242,236 @@
 2025-07-06 22:17:49,728 [INFO] Swiping: TAB
 2025-07-06 22:17:50,541 [INFO] Swiping: TAN
 2025-07-06 22:17:51,367 [INFO] Done!
+2025-07-06 22:23:45,454 [INFO] Debug mode enabled. Screenshots will be saved in 'debug_screenshots'
+2025-07-06 22:23:47,061 [INFO] Getting processed screenshot...
+2025-07-06 22:23:47,105 [INFO] Detecting letters...
+2025-07-06 22:23:47,341 [INFO] DEBUG: Detected 'T' with confidence 0.996
+2025-07-06 22:23:47,342 [INFO] DEBUG: Detected 'A' with confidence 1.000
+2025-07-06 22:23:47,342 [INFO] DEBUG: Detected 'B' with confidence 1.000
+2025-07-06 22:23:47,342 [INFO] Detected letters: T, A, B
+2025-07-06 22:23:47,342 [INFO] Finding words...
+2025-07-06 22:23:47,342 [INFO] Found 3 words: BAT, TAB, ABT
+2025-07-06 22:23:47,342 [INFO] Swiping words...
+2025-07-06 22:23:47,342 [INFO] Swiping: ABT
+2025-07-06 22:23:48,102 [INFO] Swiping: BAT
+2025-07-06 22:23:48,854 [INFO] Swiping: TAB
+2025-07-06 22:23:49,604 [INFO] Done!
+2025-07-06 22:27:55,650 [INFO] Debug mode enabled. Screenshots will be saved in 'debug_screenshots'
+2025-07-06 22:27:57,262 [INFO] Getting processed screenshot...
+2025-07-06 22:27:57,440 [INFO] Detecting letters...
+2025-07-06 22:27:57,681 [INFO] DEBUG: Detected 'T' with confidence 0.997
+2025-07-06 22:27:57,681 [INFO] ACCEPTED: 'T' with confidence 0.997 (threshold: 0.600)
+2025-07-06 22:27:57,682 [INFO] DEBUG: Detected 'A' with confidence 1.000
+2025-07-06 22:27:57,682 [INFO] ACCEPTED: 'A' with confidence 1.000 (threshold: 0.600)
+2025-07-06 22:27:57,682 [INFO] DEBUG: Detected 'B' with confidence 1.000
+2025-07-06 22:27:57,682 [INFO] ACCEPTED: 'B' with confidence 1.000 (threshold: 0.600)
+2025-07-06 22:27:57,682 [INFO] Detected letters: T, A, B
+2025-07-06 22:27:57,682 [INFO] Finding words...
+2025-07-06 22:27:57,682 [INFO] Found 3 words: TAB, BAT, ABT
+2025-07-06 22:27:57,682 [INFO] Swiping words...
+2025-07-06 22:27:57,682 [INFO] Swiping: ABT
+2025-07-06 22:27:58,449 [INFO] Swiping: BAT
+2025-07-06 22:27:59,192 [INFO] Swiping: TAB
+2025-07-06 22:27:59,934 [INFO] Done!
+2025-07-06 22:34:51,698 [INFO] Debug mode enabled. Screenshots will be saved in 'debug_screenshots'
+2025-07-06 22:34:53,444 [INFO] Getting processed screenshot...
+2025-07-06 22:34:53,626 [INFO] Detecting letters...
+2025-07-06 22:34:53,626 [INFO] Trying parameter set 1: {'width_ths': 0.7, 'height_ths': 0.7, 'detail': 0}
+2025-07-06 22:34:53,875 [WARNING] Parameter set 1 failed: not enough values to unpack (expected 3, got 1)
+2025-07-06 22:34:53,875 [INFO] Trying parameter set 2: {'width_ths': 0.3, 'height_ths': 0.3, 'detail': 0}
+2025-07-06 22:34:53,916 [WARNING] Parameter set 2 failed: not enough values to unpack (expected 3, got 1)
+2025-07-06 22:34:53,916 [INFO] Trying parameter set 3: {'width_ths': 0.5, 'height_ths': 0.5, 'detail': 1}
+2025-07-06 22:34:53,953 [INFO] DEBUG (Set 3): Detected 'T' with confidence 0.996
+2025-07-06 22:34:53,953 [INFO] ACCEPTED (Set 3): 'T' with confidence 0.996 (threshold: 0.600)
+2025-07-06 22:34:53,953 [INFO] DEBUG (Set 3): Detected 'A' with confidence 1.000
+2025-07-06 22:34:53,953 [INFO] ACCEPTED (Set 3): 'A' with confidence 1.000 (threshold: 0.600)
+2025-07-06 22:34:53,953 [INFO] DEBUG (Set 3): Detected 'B' with confidence 1.000
+2025-07-06 22:34:53,953 [INFO] ACCEPTED (Set 3): 'B' with confidence 1.000 (threshold: 0.600)
+2025-07-06 22:34:53,954 [INFO] Trying parameter set 4: {'width_ths': 0.1, 'height_ths': 0.1, 'detail': 1}
+2025-07-06 22:34:53,996 [INFO] DEBUG (Set 4): Detected 'T' with confidence 0.996
+2025-07-06 22:34:53,996 [INFO] DEBUG (Set 4): Detected 'A' with confidence 1.000
+2025-07-06 22:34:53,996 [INFO] DEBUG (Set 4): Detected 'B' with confidence 1.000
+2025-07-06 22:34:53,996 [INFO] Trying parameter set 5: {'width_ths': 0.2, 'height_ths': 0.2, 'detail': 0, 'paragraph': True}
+2025-07-06 22:34:54,044 [WARNING] Parameter set 5 failed: too many values to unpack (expected 3)
+2025-07-06 22:34:54,044 [INFO] Detected letters: T, A, B
+2025-07-06 22:34:54,044 [INFO] Finding words...
+2025-07-06 22:34:54,044 [INFO] Found 3 words: ABT, TAB, BAT
+2025-07-06 22:34:54,044 [INFO] Swiping words...
+2025-07-06 22:34:54,045 [INFO] Swiping: ABT
+2025-07-06 22:34:54,791 [INFO] Swiping: BAT
+2025-07-06 22:34:55,547 [INFO] Swiping: TAB
+2025-07-06 22:34:56,290 [INFO] Done!
+2025-07-06 22:38:35,399 [INFO] Debug mode enabled. Screenshots will be saved in 'debug_screenshots'
+2025-07-06 22:38:37,200 [INFO] Getting processed screenshot...
+2025-07-06 22:38:37,395 [INFO] Detecting letters...
+2025-07-06 22:38:37,395 [INFO] Trying parameter set 1: {'width_ths': 0.7, 'height_ths': 0.7}
+2025-07-06 22:38:37,632 [INFO] Parameter set 1 returned 4 results
+2025-07-06 22:38:37,633 [INFO]   Result 1: Text='T', Confidence=0.996, Position=(219, 40)
+2025-07-06 22:38:37,633 [INFO]     -> SINGLE LETTER: 'T' at (219, 40) with confidence 0.996
+2025-07-06 22:38:37,633 [INFO] ACCEPTED (Set 1): 'T' with confidence 0.996 (threshold: 0.600)
+2025-07-06 22:38:37,633 [INFO]   Result 2: Text='A', Confidence=1.000, Position=(70, 130)
+2025-07-06 22:38:37,633 [INFO]     -> SINGLE LETTER: 'A' at (70, 130) with confidence 1.000
+2025-07-06 22:38:37,633 [INFO] ACCEPTED (Set 1): 'A' with confidence 1.000 (threshold: 0.600)
+2025-07-06 22:38:37,633 [INFO]   Result 3: Text='B', Confidence=1.000, Position=(316, 132)
+2025-07-06 22:38:37,633 [INFO]     -> SINGLE LETTER: 'B' at (316, 132) with confidence 1.000
+2025-07-06 22:38:37,634 [INFO] ACCEPTED (Set 1): 'B' with confidence 1.000 (threshold: 0.600)
+2025-07-06 22:38:37,634 [INFO]   Result 4: Text='ON', Confidence=0.997, Position=(195, 273)
+2025-07-06 22:38:37,634 [INFO]     -> CONTAINS TARGET LETTERS: 'ON' might be relevant
+2025-07-06 22:38:37,634 [INFO] Trying parameter set 2: {'width_ths': 0.3, 'height_ths': 0.3}
+2025-07-06 22:38:37,684 [INFO] Parameter set 2 returned 4 results
+2025-07-06 22:38:37,684 [INFO]   Result 1: Text='T', Confidence=0.996, Position=(219, 40)
+2025-07-06 22:38:37,684 [INFO]     -> SINGLE LETTER: 'T' at (219, 40) with confidence 0.996
+2025-07-06 22:38:37,684 [INFO]   Result 2: Text='A', Confidence=1.000, Position=(70, 130)
+2025-07-06 22:38:37,684 [INFO]     -> SINGLE LETTER: 'A' at (70, 130) with confidence 1.000
+2025-07-06 22:38:37,684 [INFO]   Result 3: Text='B', Confidence=1.000, Position=(316, 132)
+2025-07-06 22:38:37,684 [INFO]     -> SINGLE LETTER: 'B' at (316, 132) with confidence 1.000
+2025-07-06 22:38:37,685 [INFO]   Result 4: Text='ON', Confidence=0.997, Position=(195, 273)
+2025-07-06 22:38:37,685 [INFO]     -> CONTAINS TARGET LETTERS: 'ON' might be relevant
+2025-07-06 22:38:37,685 [INFO] Trying parameter set 3: {'width_ths': 0.5, 'height_ths': 0.5}
+2025-07-06 22:38:37,725 [INFO] Parameter set 3 returned 4 results
+2025-07-06 22:38:37,725 [INFO]   Result 1: Text='T', Confidence=0.996, Position=(219, 40)
+2025-07-06 22:38:37,726 [INFO]     -> SINGLE LETTER: 'T' at (219, 40) with confidence 0.996
+2025-07-06 22:38:37,726 [INFO]   Result 2: Text='A', Confidence=1.000, Position=(70, 130)
+2025-07-06 22:38:37,726 [INFO]     -> SINGLE LETTER: 'A' at (70, 130) with confidence 1.000
+2025-07-06 22:38:37,726 [INFO]   Result 3: Text='B', Confidence=1.000, Position=(316, 132)
+2025-07-06 22:38:37,726 [INFO]     -> SINGLE LETTER: 'B' at (316, 132) with confidence 1.000
+2025-07-06 22:38:37,726 [INFO]   Result 4: Text='ON', Confidence=0.997, Position=(195, 273)
+2025-07-06 22:38:37,726 [INFO]     -> CONTAINS TARGET LETTERS: 'ON' might be relevant
+2025-07-06 22:38:37,726 [INFO] Trying parameter set 4: {'width_ths': 0.1, 'height_ths': 0.1}
+2025-07-06 22:38:37,770 [INFO] Parameter set 4 returned 4 results
+2025-07-06 22:38:37,770 [INFO]   Result 1: Text='T', Confidence=0.996, Position=(219, 40)
+2025-07-06 22:38:37,770 [INFO]     -> SINGLE LETTER: 'T' at (219, 40) with confidence 0.996
+2025-07-06 22:38:37,770 [INFO]   Result 2: Text='A', Confidence=1.000, Position=(70, 130)
+2025-07-06 22:38:37,770 [INFO]     -> SINGLE LETTER: 'A' at (70, 130) with confidence 1.000
+2025-07-06 22:38:37,770 [INFO]   Result 3: Text='B', Confidence=1.000, Position=(316, 132)
+2025-07-06 22:38:37,771 [INFO]     -> SINGLE LETTER: 'B' at (316, 132) with confidence 1.000
+2025-07-06 22:38:37,771 [INFO]   Result 4: Text='ON', Confidence=0.997, Position=(195, 273)
+2025-07-06 22:38:37,771 [INFO]     -> CONTAINS TARGET LETTERS: 'ON' might be relevant
+2025-07-06 22:38:37,771 [INFO] Very few letters detected, trying ultra-permissive settings...
+2025-07-06 22:38:37,811 [INFO] Ultra-permissive mode returned 4 results
+2025-07-06 22:38:37,811 [INFO]   Ultra Result 1: Text='T', Confidence=0.996, Position=(219, 40)
+2025-07-06 22:38:37,811 [INFO] DEBUG (Ultra): Detected 'T' with confidence 0.996
+2025-07-06 22:38:37,811 [INFO]   Ultra Result 2: Text='A', Confidence=1.000, Position=(70, 130)
+2025-07-06 22:38:37,811 [INFO] DEBUG (Ultra): Detected 'A' with confidence 1.000
+2025-07-06 22:38:37,811 [INFO]   Ultra Result 3: Text='B', Confidence=1.000, Position=(316, 132)
+2025-07-06 22:38:37,812 [INFO] DEBUG (Ultra): Detected 'B' with confidence 1.000
+2025-07-06 22:38:37,812 [INFO]   Ultra Result 4: Text='ON', Confidence=0.997, Position=(195, 273)
+2025-07-06 22:38:37,812 [INFO] Testing without allowlist to see all possible detections...
+2025-07-06 22:38:37,854 [INFO] No-allowlist mode returned 4 results
+2025-07-06 22:38:37,854 [INFO]   No-allowlist Result 1: Text='T', Confidence=0.898, Position=(219, 40)
+2025-07-06 22:38:37,854 [INFO]   No-allowlist Result 2: Text='A', Confidence=0.998, Position=(70, 130)
+2025-07-06 22:38:37,854 [INFO]   No-allowlist Result 3: Text='B', Confidence=0.995, Position=(316, 132)
+2025-07-06 22:38:37,854 [INFO]   No-allowlist Result 4: Text='0 N', Confidence=0.998, Position=(195, 273)
+2025-07-06 22:38:37,854 [INFO] Detected letters: T, A, B
+2025-07-06 22:38:37,854 [INFO] Finding words...
+2025-07-06 22:38:37,854 [INFO] Found 3 words: TAB, BAT, ABT
+2025-07-06 22:38:37,854 [INFO] Swiping words...
+2025-07-06 22:38:37,855 [INFO] Swiping: ABT
+2025-07-06 22:38:38,616 [INFO] Swiping: BAT
+2025-07-06 22:38:39,367 [INFO] Swiping: TAB
+2025-07-06 22:38:40,111 [INFO] Done!
+2025-07-06 22:42:01,577 [INFO] Debug mode enabled. Screenshots will be saved in 'debug_screenshots'
+2025-07-06 22:42:03,336 [INFO] Getting processed screenshot...
+2025-07-06 22:42:03,517 [INFO] Detecting letters...
+2025-07-06 22:42:03,517 [INFO] Trying parameter set 1: {'width_ths': 0.7, 'height_ths': 0.7}
+2025-07-06 22:42:03,765 [INFO] Parameter set 1 returned 4 results
+2025-07-06 22:42:03,765 [INFO]   Result 1: Text='T', Confidence=0.997, Position=(220, 40)
+2025-07-06 22:42:03,765 [INFO]     -> SINGLE LETTER: 'T' at (220, 40) with confidence 0.997
+2025-07-06 22:42:03,765 [INFO] ACCEPTED (Set 1): 'T' with confidence 0.997 (threshold: 0.600)
+2025-07-06 22:42:03,765 [INFO]   Result 2: Text='A', Confidence=1.000, Position=(70, 130)
+2025-07-06 22:42:03,765 [INFO]     -> SINGLE LETTER: 'A' at (70, 130) with confidence 1.000
+2025-07-06 22:42:03,765 [INFO] ACCEPTED (Set 1): 'A' with confidence 1.000 (threshold: 0.600)
+2025-07-06 22:42:03,765 [INFO]   Result 3: Text='B', Confidence=1.000, Position=(316, 132)
+2025-07-06 22:42:03,766 [INFO]     -> SINGLE LETTER: 'B' at (316, 132) with confidence 1.000
+2025-07-06 22:42:03,766 [INFO] ACCEPTED (Set 1): 'B' with confidence 1.000 (threshold: 0.600)
+2025-07-06 22:42:03,766 [INFO]   Result 4: Text='ON', Confidence=0.997, Position=(195, 273)
+2025-07-06 22:42:03,766 [INFO]     -> MULTI-LETTER: 'ON' - attempting to split
+2025-07-06 22:42:03,766 [INFO] SPLIT LETTER: 'O' at (137, 273) from 'ON' with confidence 0.997
+2025-07-06 22:42:03,766 [INFO] SPLIT LETTER: 'N' at (252, 273) from 'ON' with confidence 0.997
+2025-07-06 22:42:03,766 [INFO]     -> CONTAINS TARGET LETTERS: 'ON' might be relevant
+2025-07-06 22:42:03,766 [INFO] Trying parameter set 2: {'width_ths': 0.3, 'height_ths': 0.3}
+2025-07-06 22:42:03,814 [INFO] Parameter set 2 returned 4 results
+2025-07-06 22:42:03,814 [INFO]   Result 1: Text='T', Confidence=0.997, Position=(220, 40)
+2025-07-06 22:42:03,814 [INFO]     -> SINGLE LETTER: 'T' at (220, 40) with confidence 0.997
+2025-07-06 22:42:03,814 [INFO]   Result 2: Text='A', Confidence=1.000, Position=(70, 130)
+2025-07-06 22:42:03,814 [INFO]     -> SINGLE LETTER: 'A' at (70, 130) with confidence 1.000
+2025-07-06 22:42:03,814 [INFO]   Result 3: Text='B', Confidence=1.000, Position=(316, 132)
+2025-07-06 22:42:03,814 [INFO]     -> SINGLE LETTER: 'B' at (316, 132) with confidence 1.000
+2025-07-06 22:42:03,814 [INFO]   Result 4: Text='ON', Confidence=0.997, Position=(195, 273)
+2025-07-06 22:42:03,814 [INFO]     -> MULTI-LETTER: 'ON' - attempting to split
+2025-07-06 22:42:03,814 [INFO] SPLIT LETTER: 'O' at (137, 273) from 'ON' with confidence 0.997
+2025-07-06 22:42:03,815 [INFO] SPLIT LETTER: 'N' at (252, 273) from 'ON' with confidence 0.997
+2025-07-06 22:42:03,815 [INFO]     -> CONTAINS TARGET LETTERS: 'ON' might be relevant
+2025-07-06 22:42:03,815 [INFO] Trying parameter set 3: {'width_ths': 0.5, 'height_ths': 0.5}
+2025-07-06 22:42:03,862 [INFO] Parameter set 3 returned 4 results
+2025-07-06 22:42:03,862 [INFO]   Result 1: Text='T', Confidence=0.997, Position=(220, 40)
+2025-07-06 22:42:03,862 [INFO]     -> SINGLE LETTER: 'T' at (220, 40) with confidence 0.997
+2025-07-06 22:42:03,862 [INFO]   Result 2: Text='A', Confidence=1.000, Position=(70, 130)
+2025-07-06 22:42:03,862 [INFO]     -> SINGLE LETTER: 'A' at (70, 130) with confidence 1.000
+2025-07-06 22:42:03,862 [INFO]   Result 3: Text='B', Confidence=1.000, Position=(316, 132)
+2025-07-06 22:42:03,863 [INFO]     -> SINGLE LETTER: 'B' at (316, 132) with confidence 1.000
+2025-07-06 22:42:03,863 [INFO]   Result 4: Text='ON', Confidence=0.997, Position=(195, 273)
+2025-07-06 22:42:03,863 [INFO]     -> MULTI-LETTER: 'ON' - attempting to split
+2025-07-06 22:42:03,863 [INFO] SPLIT LETTER: 'O' at (137, 273) from 'ON' with confidence 0.997
+2025-07-06 22:42:03,863 [INFO] SPLIT LETTER: 'N' at (252, 273) from 'ON' with confidence 0.997
+2025-07-06 22:42:03,863 [INFO]     -> CONTAINS TARGET LETTERS: 'ON' might be relevant
+2025-07-06 22:42:03,863 [INFO] Trying parameter set 4: {'width_ths': 0.1, 'height_ths': 0.1}
+2025-07-06 22:42:03,918 [INFO] Parameter set 4 returned 4 results
+2025-07-06 22:42:03,919 [INFO]   Result 1: Text='T', Confidence=0.997, Position=(220, 40)
+2025-07-06 22:42:03,919 [INFO]     -> SINGLE LETTER: 'T' at (220, 40) with confidence 0.997
+2025-07-06 22:42:03,919 [INFO]   Result 2: Text='A', Confidence=1.000, Position=(70, 130)
+2025-07-06 22:42:03,919 [INFO]     -> SINGLE LETTER: 'A' at (70, 130) with confidence 1.000
+2025-07-06 22:42:03,919 [INFO]   Result 3: Text='B', Confidence=1.000, Position=(316, 132)
+2025-07-06 22:42:03,919 [INFO]     -> SINGLE LETTER: 'B' at (316, 132) with confidence 1.000
+2025-07-06 22:42:03,919 [INFO]   Result 4: Text='ON', Confidence=0.997, Position=(195, 273)
+2025-07-06 22:42:03,919 [INFO]     -> MULTI-LETTER: 'ON' - attempting to split
+2025-07-06 22:42:03,919 [INFO] SPLIT LETTER: 'O' at (137, 273) from 'ON' with confidence 0.997
+2025-07-06 22:42:03,920 [INFO] SPLIT LETTER: 'N' at (252, 273) from 'ON' with confidence 0.997
+2025-07-06 22:42:03,920 [INFO]     -> CONTAINS TARGET LETTERS: 'ON' might be relevant
+2025-07-06 22:42:03,920 [INFO] Testing without allowlist to see all possible detections...
+2025-07-06 22:42:03,964 [INFO] No-allowlist mode returned 4 results
+2025-07-06 22:42:03,964 [INFO]   No-allowlist Result 1: Text='T', Confidence=0.871, Position=(220, 40)
+2025-07-06 22:42:03,965 [INFO]   No-allowlist Result 2: Text='A', Confidence=0.998, Position=(70, 130)
+2025-07-06 22:42:03,965 [INFO]   No-allowlist Result 3: Text='B', Confidence=0.994, Position=(316, 132)
+2025-07-06 22:42:03,965 [INFO]   No-allowlist Result 4: Text='0 N', Confidence=0.998, Position=(195, 273)
+2025-07-06 22:42:03,965 [INFO] Detected letters: T, A, B, O, N
+2025-07-06 22:42:03,965 [INFO] Finding words...
+2025-07-06 22:42:03,965 [INFO] Found 36 words: ABN, BOTAN, TOBA, TAO, BATON, TON, ABO, BOA, ONT, NATO, OAT, BANT, NOTA, TANO, ANT, NOA, BAN, BOT, ONA, TOB, NAT, OBA, BON, TAN, NOB, BAT, BOTA, BONA, NAB, OBAN, NOT, TOA, ABT, TAB, AOB, BOAT
+2025-07-06 22:42:03,965 [INFO] Swiping words...
+2025-07-06 22:42:03,966 [INFO] Swiping: ABN
+2025-07-06 22:42:04,714 [INFO] Swiping: ABO
+2025-07-06 22:42:05,462 [INFO] Swiping: ABT
+2025-07-06 22:42:06,206 [INFO] Swiping: ANT
+2025-07-06 22:42:06,955 [INFO] Swiping: AOB
+2025-07-06 22:42:07,712 [INFO] Swiping: BAN
+2025-07-06 22:42:08,454 [INFO] Swiping: BANT
+2025-07-06 22:42:09,298 [INFO] Swiping: BAT
+2025-07-06 22:42:10,056 [INFO] Swiping: BATON
+2025-07-06 22:42:10,998 [INFO] Swiping: BOA
+2025-07-06 22:42:11,747 [INFO] Swiping: BOAT
+2025-07-06 22:42:12,604 [INFO] Swiping: BON
+2025-07-06 22:42:13,371 [INFO] Swiping: BONA
+2025-07-06 22:42:14,233 [INFO] Swiping: BOT
+2025-07-06 22:42:14,998 [INFO] Swiping: BOTA
+2025-07-06 22:42:15,852 [INFO] Swiping: BOTAN
+2025-07-06 22:42:16,815 [INFO] Swiping: NAB
+2025-07-06 22:42:17,570 [INFO] Swiping: NAT
+2025-07-06 22:42:18,324 [INFO] Swiping: NATO
+2025-07-06 22:42:19,179 [INFO] Swiping: NOA
+2025-07-06 22:42:19,926 [INFO] Swiping: NOB
+2025-07-06 22:42:20,677 [INFO] Swiping: NOT
+2025-07-06 22:42:21,433 [INFO] Swiping: NOTA
+2025-07-06 22:42:22,314 [INFO] Swiping: OAT
+2025-07-06 22:42:23,060 [INFO] Swiping: OBA
+2025-07-06 22:42:23,807 [INFO] Swiping: OBAN
+2025-07-06 22:42:24,658 [INFO] Swiping: ONA
+2025-07-06 22:42:25,407 [INFO] Swiping: ONT
+2025-07-06 22:42:26,156 [INFO] Swiping: TAB
+2025-07-06 22:42:26,907 [INFO] Swiping: TAN
+2025-07-06 22:42:27,650 [INFO] Swiping: TANO
+2025-07-06 22:42:28,499 [INFO] Swiping: TAO
+2025-07-06 22:42:29,254 [INFO] Swiping: TOA
+2025-07-06 22:42:29,999 [INFO] Swiping: TOB
+2025-07-06 22:42:30,761 [INFO] Swiping: TOBA
+2025-07-06 22:42:31,607 [INFO] Swiping: TON
+2025-07-06 22:42:32,349 [INFO] Done!
