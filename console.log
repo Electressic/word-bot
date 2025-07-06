@@ -475,3 +475,151 @@
 2025-07-06 22:42:30,761 [INFO] Swiping: TOBA
 2025-07-06 22:42:31,607 [INFO] Swiping: TON
 2025-07-06 22:42:32,349 [INFO] Done!
+2025-07-06 23:09:48,467 [INFO] Debug mode enabled. Screenshots will be saved in 'debug_screenshots'
+2025-07-06 23:09:50,237 [INFO] Getting processed screenshot...
+2025-07-06 23:09:50,419 [INFO] Detecting letters...
+2025-07-06 23:09:50,419 [INFO] Trying parameter set 1: {'width_ths': 0.7, 'height_ths': 0.7}
+2025-07-06 23:09:50,641 [INFO] Parameter set 1 returned 3 results
+2025-07-06 23:09:50,641 [INFO]   Result 1: Text='A', Confidence=0.999, Position=(68, 127)
+2025-07-06 23:09:50,641 [INFO]     -> SINGLE LETTER: 'A' at (68, 127) with confidence 0.999
+2025-07-06 23:09:50,641 [INFO] ACCEPTED (Set 1): 'A' with confidence 0.999 (threshold: 0.600)
+2025-07-06 23:09:50,641 [INFO]   Result 2: Text='N', Confidence=1.000, Position=(315, 132)
+2025-07-06 23:09:50,642 [INFO]     -> SINGLE LETTER: 'N' at (315, 132) with confidence 1.000
+2025-07-06 23:09:50,642 [INFO] ACCEPTED (Set 1): 'N' with confidence 1.000 (threshold: 0.300)
+2025-07-06 23:09:50,642 [INFO]     -> CONTAINS TARGET LETTERS: 'N' might be relevant
+2025-07-06 23:09:50,642 [INFO]   Result 3: Text='EL', Confidence=0.984, Position=(200, 257)
+2025-07-06 23:09:50,642 [INFO]     -> MULTI-LETTER: 'EL' - attempting to split
+2025-07-06 23:09:50,642 [INFO] SPLIT LETTER: 'E' at (139, 257) from 'EL' with confidence 0.984
+2025-07-06 23:09:50,642 [INFO] SPLIT LETTER: 'L' at (260, 257) from 'EL' with confidence 0.984
+2025-07-06 23:09:50,642 [INFO] Trying parameter set 2: {'width_ths': 0.3, 'height_ths': 0.3}
+2025-07-06 23:09:50,673 [INFO] Parameter set 2 returned 3 results
+2025-07-06 23:09:50,673 [INFO]   Result 1: Text='A', Confidence=0.999, Position=(68, 127)
+2025-07-06 23:09:50,673 [INFO]     -> SINGLE LETTER: 'A' at (68, 127) with confidence 0.999
+2025-07-06 23:09:50,673 [INFO]   Result 2: Text='N', Confidence=1.000, Position=(315, 132)
+2025-07-06 23:09:50,673 [INFO]     -> SINGLE LETTER: 'N' at (315, 132) with confidence 1.000
+2025-07-06 23:09:50,673 [INFO]     -> CONTAINS TARGET LETTERS: 'N' might be relevant
+2025-07-06 23:09:50,673 [INFO]   Result 3: Text='EL', Confidence=0.984, Position=(200, 257)
+2025-07-06 23:09:50,673 [INFO]     -> MULTI-LETTER: 'EL' - attempting to split
+2025-07-06 23:09:50,674 [INFO] SPLIT LETTER: 'E' at (139, 257) from 'EL' with confidence 0.984
+2025-07-06 23:09:50,674 [INFO] SPLIT LETTER: 'L' at (260, 257) from 'EL' with confidence 0.984
+2025-07-06 23:09:50,674 [INFO] Trying parameter set 3: {'width_ths': 0.5, 'height_ths': 0.5}
+2025-07-06 23:09:50,707 [INFO] Parameter set 3 returned 3 results
+2025-07-06 23:09:50,707 [INFO]   Result 1: Text='A', Confidence=0.999, Position=(68, 127)
+2025-07-06 23:09:50,708 [INFO]     -> SINGLE LETTER: 'A' at (68, 127) with confidence 0.999
+2025-07-06 23:09:50,708 [INFO]   Result 2: Text='N', Confidence=1.000, Position=(315, 132)
+2025-07-06 23:09:50,708 [INFO]     -> SINGLE LETTER: 'N' at (315, 132) with confidence 1.000
+2025-07-06 23:09:50,708 [INFO]     -> CONTAINS TARGET LETTERS: 'N' might be relevant
+2025-07-06 23:09:50,708 [INFO]   Result 3: Text='EL', Confidence=0.984, Position=(200, 257)
+2025-07-06 23:09:50,708 [INFO]     -> MULTI-LETTER: 'EL' - attempting to split
+2025-07-06 23:09:50,708 [INFO] SPLIT LETTER: 'E' at (139, 257) from 'EL' with confidence 0.984
+2025-07-06 23:09:50,708 [INFO] SPLIT LETTER: 'L' at (260, 257) from 'EL' with confidence 0.984
+2025-07-06 23:09:50,708 [INFO] Trying parameter set 4: {'width_ths': 0.1, 'height_ths': 0.1}
+2025-07-06 23:09:50,739 [INFO] Parameter set 4 returned 3 results
+2025-07-06 23:09:50,739 [INFO]   Result 1: Text='A', Confidence=0.999, Position=(68, 127)
+2025-07-06 23:09:50,739 [INFO]     -> SINGLE LETTER: 'A' at (68, 127) with confidence 0.999
+2025-07-06 23:09:50,739 [INFO]   Result 2: Text='N', Confidence=1.000, Position=(315, 132)
+2025-07-06 23:09:50,739 [INFO]     -> SINGLE LETTER: 'N' at (315, 132) with confidence 1.000
+2025-07-06 23:09:50,740 [INFO]     -> CONTAINS TARGET LETTERS: 'N' might be relevant
+2025-07-06 23:09:50,740 [INFO]   Result 3: Text='EL', Confidence=0.984, Position=(200, 257)
+2025-07-06 23:09:50,740 [INFO]     -> MULTI-LETTER: 'EL' - attempting to split
+2025-07-06 23:09:50,740 [INFO] SPLIT LETTER: 'E' at (139, 257) from 'EL' with confidence 0.984
+2025-07-06 23:09:50,740 [INFO] SPLIT LETTER: 'L' at (260, 257) from 'EL' with confidence 0.984
+2025-07-06 23:09:50,740 [INFO] Testing without allowlist to see all possible detections...
+2025-07-06 23:09:50,772 [INFO] No-allowlist mode returned 3 results
+2025-07-06 23:09:50,772 [INFO]   No-allowlist Result 1: Text='A', Confidence=0.980, Position=(68, 127)
+2025-07-06 23:09:50,772 [INFO]   No-allowlist Result 2: Text='N', Confidence=0.998, Position=(315, 132)
+2025-07-06 23:09:50,772 [INFO]   No-allowlist Result 3: Text='E L', Confidence=0.670, Position=(200, 257)
+2025-07-06 23:09:50,772 [INFO] Detected letters: A, N, E, L
+2025-07-06 23:09:50,772 [INFO] Finding words...
+2025-07-06 23:09:50,773 [INFO] Found 20 words: ALEN, ENL, LEAN, NAEL, NEA, LAN, LAEN, LEA, ELA, LENA, ALN, NALE, EAN, NAE, ANE, LANE, LEN, ELAN, NEAL, ALE
+2025-07-06 23:09:50,773 [INFO] Swiping words...
+2025-07-06 23:09:50,773 [INFO] Swiping: ALE
+2025-07-06 23:09:51,542 [INFO] Swiping: ALEN
+2025-07-06 23:09:52,389 [INFO] Swiping: ALN
+2025-07-06 23:09:53,138 [INFO] Swiping: ANE
+2025-07-06 23:09:53,890 [INFO] Swiping: EAN
+2025-07-06 23:09:54,646 [INFO] Swiping: ELA
+2025-07-06 23:09:55,397 [INFO] Swiping: ELAN
+2025-07-06 23:09:56,245 [INFO] Swiping: ENL
+2025-07-06 23:09:56,996 [INFO] Swiping: LAEN
+2025-07-06 23:09:57,848 [INFO] Swiping: LAN
+2025-07-06 23:09:58,606 [INFO] Swiping: LANE
+2025-07-06 23:09:59,475 [INFO] Swiping: LEA
+2025-07-06 23:10:00,240 [INFO] Swiping: LEAN
+2025-07-06 23:10:01,095 [INFO] Swiping: LEN
+2025-07-06 23:10:01,843 [INFO] Swiping: LENA
+2025-07-06 23:10:02,697 [INFO] Swiping: NAE
+2025-07-06 23:10:03,461 [INFO] Swiping: NAEL
+2025-07-06 23:10:04,308 [INFO] Swiping: NALE
+2025-07-06 23:10:05,156 [INFO] Swiping: NEA
+2025-07-06 23:10:05,903 [INFO] Swiping: NEAL
+2025-07-06 23:10:06,750 [INFO] Done!
+2025-07-06 23:12:47,415 [INFO] Hotkey registered: Ctrl+Shift+F8 to stop the bot
+2025-07-06 23:12:47,423 [INFO] Debug mode enabled. Screenshots will be saved in 'debug_screenshots'
+2025-07-06 23:12:49,078 [INFO] Getting processed screenshot...
+2025-07-06 23:12:49,255 [INFO] Detecting letters...
+2025-07-06 23:12:49,255 [INFO] Trying parameter set 1: {'width_ths': 0.7, 'height_ths': 0.7}
+2025-07-06 23:12:49,482 [INFO] Parameter set 1 returned 3 results
+2025-07-06 23:12:49,482 [INFO]   Result 1: Text='A', Confidence=1.000, Position=(69, 127)
+2025-07-06 23:12:49,482 [INFO]     -> SINGLE LETTER: 'A' at (69, 127) with confidence 1.000
+2025-07-06 23:12:49,482 [INFO] ACCEPTED (Set 1): 'A' with confidence 1.000 (threshold: 0.600)
+2025-07-06 23:12:49,482 [INFO]   Result 2: Text='N', Confidence=1.000, Position=(315, 132)
+2025-07-06 23:12:49,482 [INFO]     -> SINGLE LETTER: 'N' at (315, 132) with confidence 1.000
+2025-07-06 23:12:49,482 [INFO] ACCEPTED (Set 1): 'N' with confidence 1.000 (threshold: 0.300)
+2025-07-06 23:12:49,482 [INFO]     -> CONTAINS TARGET LETTERS: 'N' might be relevant
+2025-07-06 23:12:49,482 [INFO]   Result 3: Text='EL', Confidence=0.989, Position=(200, 258)
+2025-07-06 23:12:49,483 [INFO]     -> MULTI-LETTER: 'EL' - attempting to split
+2025-07-06 23:12:49,483 [INFO] SPLIT LETTER: 'E' at (139, 258) from 'EL' with confidence 0.989
+2025-07-06 23:12:49,483 [INFO] SPLIT LETTER: 'L' at (261, 258) from 'EL' with confidence 0.989
+2025-07-06 23:12:49,483 [INFO] Trying parameter set 2: {'width_ths': 0.3, 'height_ths': 0.3}
+2025-07-06 23:12:49,527 [INFO] Parameter set 2 returned 3 results
+2025-07-06 23:12:49,527 [INFO]   Result 1: Text='A', Confidence=1.000, Position=(69, 127)
+2025-07-06 23:12:49,527 [INFO]     -> SINGLE LETTER: 'A' at (69, 127) with confidence 1.000
+2025-07-06 23:12:49,528 [INFO]   Result 2: Text='N', Confidence=1.000, Position=(315, 132)
+2025-07-06 23:12:49,528 [INFO]     -> SINGLE LETTER: 'N' at (315, 132) with confidence 1.000
+2025-07-06 23:12:49,528 [INFO]     -> CONTAINS TARGET LETTERS: 'N' might be relevant
+2025-07-06 23:12:49,528 [INFO]   Result 3: Text='EL', Confidence=0.989, Position=(200, 258)
+2025-07-06 23:12:49,528 [INFO]     -> MULTI-LETTER: 'EL' - attempting to split
+2025-07-06 23:12:49,528 [INFO] SPLIT LETTER: 'E' at (139, 258) from 'EL' with confidence 0.989
+2025-07-06 23:12:49,528 [INFO] SPLIT LETTER: 'L' at (261, 258) from 'EL' with confidence 0.989
+2025-07-06 23:12:49,528 [INFO] Trying parameter set 3: {'width_ths': 0.5, 'height_ths': 0.5}
+2025-07-06 23:12:49,566 [INFO] Parameter set 3 returned 3 results
+2025-07-06 23:12:49,566 [INFO]   Result 1: Text='A', Confidence=1.000, Position=(69, 127)
+2025-07-06 23:12:49,567 [INFO]     -> SINGLE LETTER: 'A' at (69, 127) with confidence 1.000
+2025-07-06 23:12:49,567 [INFO]   Result 2: Text='N', Confidence=1.000, Position=(315, 132)
+2025-07-06 23:12:49,567 [INFO]     -> SINGLE LETTER: 'N' at (315, 132) with confidence 1.000
+2025-07-06 23:12:49,567 [INFO]     -> CONTAINS TARGET LETTERS: 'N' might be relevant
+2025-07-06 23:12:49,567 [INFO]   Result 3: Text='EL', Confidence=0.989, Position=(200, 258)
+2025-07-06 23:12:49,567 [INFO]     -> MULTI-LETTER: 'EL' - attempting to split
+2025-07-06 23:12:49,567 [INFO] SPLIT LETTER: 'E' at (139, 258) from 'EL' with confidence 0.989
+2025-07-06 23:12:49,568 [INFO] SPLIT LETTER: 'L' at (261, 258) from 'EL' with confidence 0.989
+2025-07-06 23:12:49,568 [INFO] Trying parameter set 4: {'width_ths': 0.1, 'height_ths': 0.1}
+2025-07-06 23:12:49,603 [INFO] Parameter set 4 returned 3 results
+2025-07-06 23:12:49,603 [INFO]   Result 1: Text='A', Confidence=1.000, Position=(69, 127)
+2025-07-06 23:12:49,603 [INFO]     -> SINGLE LETTER: 'A' at (69, 127) with confidence 1.000
+2025-07-06 23:12:49,603 [INFO]   Result 2: Text='N', Confidence=1.000, Position=(315, 132)
+2025-07-06 23:12:49,603 [INFO]     -> SINGLE LETTER: 'N' at (315, 132) with confidence 1.000
+2025-07-06 23:12:49,603 [INFO]     -> CONTAINS TARGET LETTERS: 'N' might be relevant
+2025-07-06 23:12:49,603 [INFO]   Result 3: Text='EL', Confidence=0.989, Position=(200, 258)
+2025-07-06 23:12:49,603 [INFO]     -> MULTI-LETTER: 'EL' - attempting to split
+2025-07-06 23:12:49,603 [INFO] SPLIT LETTER: 'E' at (139, 258) from 'EL' with confidence 0.989
+2025-07-06 23:12:49,604 [INFO] SPLIT LETTER: 'L' at (261, 258) from 'EL' with confidence 0.989
+2025-07-06 23:12:49,604 [INFO] Testing without allowlist to see all possible detections...
+2025-07-06 23:12:49,637 [INFO] No-allowlist mode returned 3 results
+2025-07-06 23:12:49,637 [INFO]   No-allowlist Result 1: Text='A', Confidence=0.998, Position=(69, 127)
+2025-07-06 23:12:49,637 [INFO]   No-allowlist Result 2: Text='N', Confidence=0.998, Position=(315, 132)
+2025-07-06 23:12:49,637 [INFO]   No-allowlist Result 3: Text='E L', Confidence=0.709, Position=(200, 258)
+2025-07-06 23:12:49,637 [INFO] Detected letters: A, N, E, L
+2025-07-06 23:12:49,637 [INFO] Finding words...
+2025-07-06 23:12:49,637 [INFO] Found 20 words: LANE, LEN, ALN, ELA, NEAL, LEAN, LENA, NAEL, ELAN, NAE, ANE, NEA, ALEN, LAEN, ENL, LAN, LEA, ALE, NALE, EAN
+2025-07-06 23:12:49,638 [INFO] Swiping words...
+2025-07-06 23:12:49,638 [INFO] Swiping: ALE
+2025-07-06 23:12:50,396 [INFO] Swiping: ALEN
+2025-07-06 23:12:51,244 [INFO] Swiping: ALN
+2025-07-06 23:12:51,987 [INFO] Swiping: ANE
+2025-07-06 23:12:52,739 [INFO] Swiping: EAN
+2025-07-06 23:12:53,489 [INFO] Swiping: ELA
+2025-07-06 23:12:54,241 [INFO] Swiping: ELAN
+2025-07-06 23:12:54,720 [INFO] STOP SIGNAL RECEIVED - Bot will stop after current operation!
+2025-07-06 23:12:55,091 [INFO] Bot stopped after swiping word: ELAN
+2025-07-06 23:12:55,092 [INFO] Bot stopped by user!

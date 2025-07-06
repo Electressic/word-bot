@@ -4,3 +4,4 @@ numpy
 pyautogui
 mss
 pygetwindow
+keyboard==0.13.5
