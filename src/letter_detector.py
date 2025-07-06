@@ -21,8 +21,19 @@ class LetterDetector:
         self.reader = easyocr.Reader([lang], gpu=True)
         self.min_confidence = min_confidence
         
+        # Mapping of visually similar characters to their intended letters
+        self.char_mapping = {
+            '1': 'I',  # Digit one -> I
+            '|': 'I',  # Vertical bar -> I
+            'l': 'I',  # Lower-case L -> I
+            'i': 'I',  # Lower-case i -> I (in case)
+            '0': 'O',  # Digit zero -> O
+            'o': 'O',  # Lower-case o -> O
+        }
+        
         # Lower confidence thresholds for problematic letters
         self.letter_confidence_thresholds = {
+            'I': 0.1,  # Very low threshold for 'I'
             'N': 0.3,  # Even lower threshold for N
             'O': 0.3,  # Even lower threshold for O
             'C': 0.4,  # O and C can be confused
@@ -32,6 +43,25 @@ class LetterDetector:
             'P': 0.4,  # Can be confused with other letters
             'R': 0.4,  # Can be confused with other letters
         }
+
+    def _map_char(self, ch: str) -> str:
+        """Map ambiguous OCR characters to their corresponding uppercase letter.
+
+        Args:
+            ch: Single character detected by OCR.
+
+        Returns:
+            Mapped uppercase letter if mapping exists or if the character is an
+            alphabetic letter. Returns an empty string if the character cannot
+            be mapped to a valid letter.
+        """
+        if not ch:
+            return ''
+        if ch in self.char_mapping:
+            return self.char_mapping[ch]
+        if ch.isalpha():
+            return ch.upper()
+        return ''
 
     def _split_multi_letter_detection(self, bbox, text: str, confidence: float) -> List[Tuple[str, Tuple[int, int]]]:
         """
@@ -45,8 +75,9 @@ class LetterDetector:
         Returns:
             List of individual letter detections with estimated positions
         """
-        # Filter out non-alphabetic characters and convert to uppercase
-        clean_text = ''.join(char.upper() for char in text if char.isalpha())
+        # Normalize each character using mapping and filter out invalid ones
+        normalized_chars = [self._map_char(c) for c in text]
+        clean_text = ''.join(c for c in normalized_chars if c)
         
         if len(clean_text) <= 1:
             return []
@@ -91,31 +122,40 @@ class LetterDetector:
         """
         all_letters = []
         
-        # Try multiple parameter combinations to catch difficult letters
+        # Create a dilated version of the image to make letters thicker
+        kernel = np.ones((2,2), np.uint8)
+        dilated_image = cv2.dilate(image, kernel, iterations=1)
+        
+        # Save dilated image for debugging if needed
+        # cv2.imwrite("debug_screenshots/dilated.png", dilated_image)
+        
+        # The first parameter set will run on the dilated image
         parameter_sets = [
-            # Conservative settings (current approach)
-            {'width_ths': 0.7, 'height_ths': 0.7},
+            # Dilated image with permissive settings
+            {'image': dilated_image, 'text_threshold': 0.4, 'low_text': 0.2, 'link_threshold': 0.2, 'width_ths': 0.5, 'height_ths': 0.5},
             
-            # More permissive settings
-            {'width_ths': 0.3, 'height_ths': 0.3},
+            # Default-ish CRAFT parameters on original image
+            {'image': image, 'text_threshold': 0.7, 'low_text': 0.4, 'link_threshold': 0.4, 'width_ths': 0.7, 'height_ths': 0.7},
             
-            # High detail settings for small letters
-            {'width_ths': 0.5, 'height_ths': 0.5},
-            
-            # Very permissive settings
-            {'width_ths': 0.1, 'height_ths': 0.1},
+            # More permissive on original image
+            {'image': image, 'text_threshold': 0.4, 'low_text': 0.2, 'link_threshold': 0.4, 'width_ths': 0.7, 'height_ths': 0.7},
+
+            # Try magnification on original image
+            {'image': image, 'text_threshold': 0.4, 'low_text': 0.2, 'link_threshold': 0.4, 'width_ths': 0.7, 'height_ths': 0.7, 'mag_ratio': 1.5},
         ]
         
         for i, params in enumerate(parameter_sets):
             logging.info(f"Trying parameter set {i+1}: {params}")
             
+            # Extract the image to be used for this run
+            current_image = params.pop('image')
+            
             try:
                 results = self.reader.readtext(
-                    image,
-                    allowlist='ABCDEFGHIJKLMNOPQRSTUVWXYZ',
+                    current_image,
+                    allowlist='ABCDEFGHIJKLMNOPQRSTUVWXYZ01',
                     paragraph=False,
-                    width_ths=params['width_ths'],
-                    height_ths=params['height_ths']
+                    **params
                 )
                 
                 logging.info(f"Parameter set {i+1} returned {len(results)} results")
@@ -134,10 +174,14 @@ class LetterDetector:
                         logging.info(f"  Result {j+1}: Text='{text}', Confidence={confidence:.3f}, Position=({center_x}, {center_y})")
                         
                         # Handle single letters
-                        if len(text) == 1 and text.isalpha():
+                        if len(text) == 1:
+                            # Map potentially ambiguous character to proper letter
+                            mapped = self._map_char(text)
+                            if not mapped:
+                                continue  # Skip unmappable character
                             logging.info(f"    -> SINGLE LETTER: '{text}' at ({center_x}, {center_y}) with confidence {confidence:.3f}")
                             
-                            letter_upper = text.upper()
+                            letter_upper = mapped
                             required_confidence = self.letter_confidence_thresholds.get(
                                 letter_upper, self.min_confidence
                             )
@@ -157,7 +201,7 @@ class LetterDetector:
                                     logging.info(f"ACCEPTED (Set {i+1}): '{letter_upper}' with confidence {confidence:.3f} (threshold: {required_confidence:.3f})")
                         
                         # Handle multi-letter detections (like "ON", "AB", etc.)
-                        elif len(text) > 1 and text.isalpha():
+                        elif len(text) > 1:
                             logging.info(f"    -> MULTI-LETTER: '{text}' - attempting to split")
                             
                             # Split the multi-letter detection into individual letters
@@ -190,10 +234,14 @@ class LetterDetector:
             try:
                 results = self.reader.readtext(
                     image,
-                    allowlist='ABCDEFGHIJKLMNOPQRSTUVWXYZ',
+                    allowlist='ABCDEFGHIJKLMNOPQRSTUVWXYZ01',
                     paragraph=False,
                     width_ths=0.05,
-                    height_ths=0.05
+                    height_ths=0.05,
+                    text_threshold=0.1,
+                    low_text=0.1,
+                    link_threshold=0.1,
+                    mag_ratio=2.0
                 )
                 
                 logging.info(f"Ultra-permissive mode returned {len(results)} results")
@@ -209,36 +257,32 @@ class LetterDetector:
                         
                         logging.info(f"  Ultra Result {j+1}: Text='{text}', Confidence={confidence:.3f}, Position=({center_x}, {center_y})")
                     
-                    # Handle both single and multi-letter detections in ultra mode
-                    if len(text) >= 1 and text.isalpha():
+                    # Handle both single and multi-letter detections in ultra mode (mapping aware)
+                    if len(text) >= 1:
                         if len(text) == 1:
-                            logging.info(f"DEBUG (Ultra): Detected '{text}' with confidence {confidence:.3f}")
-                            
+                            mapped = self._map_char(text)
+                            if not mapped:
+                                continue
+                            logging.info(f"DEBUG (Ultra): Detected '{text}' (mapped to '{mapped}') with confidence {confidence:.3f}")
+
                             # Use even lower thresholds for ultra mode
-                            ultra_threshold = 0.1  # Very low threshold to catch everything
+                            ultra_threshold = self.letter_confidence_thresholds.get(mapped, 0.1)
                             if confidence >= ultra_threshold:
-                                top_left = tuple(map(int, bbox[0]))
-                                bottom_right = tuple(map(int, bbox[2]))
-                                center_x = (top_left[0] + bottom_right[0]) // 2
-                                center_y = (top_left[1] + bottom_right[1]) // 2
-                                
-                                # Check for duplicates
+                                # Duplicate check identical to earlier
                                 duplicate = False
                                 for existing_letter, (existing_x, existing_y) in all_letters:
                                     if (abs(center_x - existing_x) < 20 and 
                                         abs(center_y - existing_y) < 20 and 
-                                        existing_letter == text.upper()):
+                                        existing_letter == mapped):
                                         duplicate = True
                                         break
-                                
                                 if not duplicate:
-                                    all_letters.append((text.upper(), (center_x, center_y)))
-                                    logging.info(f"ACCEPTED (Ultra): '{text.upper()}' with confidence {confidence:.3f}")
+                                    all_letters.append((mapped, (center_x, center_y)))
+                                    logging.info(f"ACCEPTED (Ultra): '{mapped}' with confidence {confidence:.3f}")
                         else:
                             # Handle multi-letter in ultra mode too
                             individual_letters = self._split_multi_letter_detection(bbox, text, confidence)
                             for letter, position in individual_letters:
-                                # Check for duplicates
                                 duplicate = False
                                 for existing_letter, (existing_x, existing_y) in all_letters:
                                     if (abs(position[0] - existing_x) < 20 and 
@@ -246,7 +290,6 @@ class LetterDetector:
                                         existing_letter == letter):
                                         duplicate = True
                                         break
-                                
                                 if not duplicate:
                                     all_letters.append((letter, position))
                                     logging.info(f"ACCEPTED (Ultra Split): '{letter}' at {position}")
@@ -261,7 +304,10 @@ class LetterDetector:
                 image,
                 paragraph=False,
                 width_ths=0.3,
-                height_ths=0.3
+                height_ths=0.3,
+                text_threshold=0.2,
+                low_text=0.2,
+                link_threshold=0.2
             )
             
             logging.info(f"No-allowlist mode returned {len(results)} results")
@@ -277,6 +323,38 @@ class LetterDetector:
                     
                     logging.info(f"  No-allowlist Result {j+1}: Text='{text}', Confidence={confidence:.3f}, Position=({center_x}, {center_y})")
                     
+                    # Process detections from no-allowlist run using same mapping logic
+                    if len(text) >= 1:
+                        if len(text) == 1:
+                            mapped = self._map_char(text)
+                            if not mapped:
+                                continue
+                            req_conf = self.letter_confidence_thresholds.get(mapped, self.min_confidence)
+                            if confidence >= req_conf:
+                                duplicate = False
+                                for existing_letter, (existing_x, existing_y) in all_letters:
+                                    if (abs(center_x - existing_x) < 20 and 
+                                        abs(center_y - existing_y) < 20 and 
+                                        existing_letter == mapped):
+                                        duplicate = True
+                                        break
+                                if not duplicate:
+                                    all_letters.append((mapped, (center_x, center_y)))
+                                    logging.info(f"ACCEPTED (No-Allowlist): '{mapped}' with confidence {confidence:.3f}")
+                        else:
+                            letters = self._split_multi_letter_detection(bbox, text, confidence)
+                            for letter, position in letters:
+                                duplicate = False
+                                for existing_letter, (existing_x, existing_y) in all_letters:
+                                    if (abs(position[0] - existing_x) < 20 and 
+                                        abs(position[1] - existing_y) < 20 and 
+                                        existing_letter == letter):
+                                        duplicate = True
+                                        break
+                                if not duplicate:
+                                    all_letters.append((letter, position))
+                                    logging.info(f"ACCEPTED (No-Allowlist Split): '{letter}' at {position}")
+
         except Exception as e:
             logging.warning(f"No-allowlist attempt failed: {e}")
 
