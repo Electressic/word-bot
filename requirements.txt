@@ -1,3 +1,6 @@
 easyocr
 opencv-python-headless
 numpy
+pyautogui
+mss
+pygetwindow

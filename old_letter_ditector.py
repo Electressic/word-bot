@@ -2,7 +2,6 @@ import easyocr
 import cv2
 import numpy as np
 from typing import List, Tuple
-import os
 
 class LetterDetector:
     """
@@ -20,19 +19,39 @@ class LetterDetector:
         self.reader = easyocr.Reader([lang], gpu=True)
         self.min_confidence = min_confidence
 
-    def detect_letters(self, image: np.ndarray) -> List[Tuple[str, Tuple[int, int]]]:
+    def _preprocess_image(self, image: np.ndarray) -> np.ndarray:
+        """
+        Preprocesses the image to improve letter detection.
+
+        Args:
+            image: The input image.
+
+        Returns:
+            The preprocessed image.
+        """
+        gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+        # Apply a binary threshold to make the letters stand out
+        _, thresh = cv2.threshold(gray, 150, 255, cv2.THRESH_BINARY)
+        return thresh
+
+    def detect_letters(self, image_path: str) -> List[Tuple[str, Tuple[int, int]]]:
         """
         Detects letters and their positions from an image.
 
         Args:
-            image: The pre-processed image.
+            image_path: The path to the image file.
 
         Returns:
             A list of tuples, where each tuple contains the detected letter
             and its center coordinates (x, y).
         """
+        image = cv2.imread(image_path)
+        if image is None:
+            raise FileNotFoundError(f"Image not found at {image_path}")
+
+        processed_image = self._preprocess_image(image)
         results = self.reader.readtext(
-            image,
+            processed_image,
             allowlist='ABCDEFGHIJKLMNOPQRSTUVWXYZ'
         )
 

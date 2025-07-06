@@ -4,7 +4,7 @@ import logging
 import shutil
 from src.letter_detector import LetterDetector
 from src.word_solver import WordSolver
-from src.android_automator import AndroidAutomator
+from src.pc_automator import PCAutomator
 
 def setup_logging():
     """
@@ -26,22 +26,16 @@ def main():
     setup_logging()
     parser = argparse.ArgumentParser(description="A bot to solve word games on Android.")
     parser.add_argument(
-        "--screenshot",
-        type=str,
-        default="screenshot.png",
-        help="Path to save the screenshot.",
-    )
-    parser.add_argument(
         "--words",
         type=str,
         default="words.txt",
         help="Path to the words file.",
     )
     parser.add_argument(
-        "--adb-path",
+        "--window-title",
         type=str,
-        default="adb",
-        help="Path to the ADB executable.",
+        default="SM-A346B",
+        help="The title of the game window.",
     )
     parser.add_argument(
         "--debug",
@@ -50,26 +44,39 @@ def main():
     )
     args = parser.parse_args()
 
+    debug_dir = "debug_screenshots"
     if args.debug:
-        debug_dir = "debug_screenshots"
         if os.path.exists(debug_dir):
             shutil.rmtree(debug_dir)
         os.makedirs(debug_dir)
         logging.info(f"Debug mode enabled. Screenshots will be saved in '{debug_dir}'")
+    else:
+        debug_dir = None
 
     # Initialize components
     letter_detector = LetterDetector()
     word_solver = WordSolver(args.words)
-    android_automator = AndroidAutomator(args.adb_path, debug=args.debug)
+    pc_automator = PCAutomator(
+        args.window_title,
+        debug=args.debug,
+        debug_dir=debug_dir
+    )
 
     # Run the bot
     try:
-        logging.info("Taking screenshot...")
-        android_automator.take_screenshot(args.screenshot)
+        logging.info("Getting processed screenshot...")
+        processed_image, (crop_x, crop_y) = pc_automator.get_processed_screenshot()
 
         logging.info("Detecting letters...")
-        letters_with_coords = letter_detector.detect_letters(args.screenshot)
-        detected_letters = [letter for letter, coords in letters_with_coords]
+        letters_with_coords = letter_detector.detect_letters(processed_image)
+        
+        # Adjust coordinates to be relative to the original screen
+        adjusted_letters_with_coords = [
+            (letter, (x + crop_x, y + crop_y))
+            for letter, (x, y) in letters_with_coords
+        ]
+
+        detected_letters = [letter for letter, coords in adjusted_letters_with_coords]
         logging.info(f"Detected letters: {', '.join(detected_letters)}")
 
         logging.info("Finding words...")
@@ -77,21 +84,18 @@ def main():
         logging.info(f"Found {len(words)} words: {', '.join(words)}")
 
         logging.info("Swiping words...")
-        letter_coords = {letter: coords for letter, coords in letters_with_coords}
+        letter_coords = {letter: coords for letter, coords in adjusted_letters_with_coords}
         for word in sorted(list(words)):
             coordinates = [letter_coords[char] for char in word if char in letter_coords]
             if len(coordinates) == len(word):
                 logging.info(f"Swiping: {word}")
-                android_automator.swipe_word(coordinates, word)
+                pc_automator.swipe_word(coordinates, word)
 
         logging.info("Done!")
 
     except (FileNotFoundError, RuntimeError) as e:
         logging.error(f"Error: {e}")
-    finally:
-        # Clean up the screenshot file
-        if os.path.exists(args.screenshot):
-            os.remove(args.screenshot)
+
 
 if __name__ == "__main__":
     main()
