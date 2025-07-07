@@ -8,6 +8,7 @@ from src.letter_detector import LetterDetector
 from src.word_solver import WordSolver
 from src.pc_automator import PCAutomator
 from src.layout_matcher import LayoutMatcher
+from collections import defaultdict
 
 # Global flag to stop the bot
 stop_bot = False
@@ -122,11 +123,43 @@ def main():
             for letter, (x, y) in letters_with_coords
         ]
 
-        # Layout matching to enforce exactly one letter per slot (if template exists)
-        matched_letters_with_coords = layout_matcher.match(
-            adjusted_letters_with_coords,
-            wheel_size=6  # TODO: derive dynamically if needed
-        )
+        # ------------------------------------------------------------------
+        # Pick the best wheel template by trying **all** known layouts and
+        # keeping the one that yields the largest number of slot matches.
+        # This is far more reliable than guessing the wheel size from the
+        # raw detection count which can be low if some letters were missed.
+        # ------------------------------------------------------------------
+        best_matches = []
+        best_size = None
+
+        for size_str in layout_matcher.layouts.keys():
+            size = int(size_str)
+            matches = layout_matcher.match(
+                adjusted_letters_with_coords,
+                wheel_size=size
+            )
+
+            # Prefer the template with the most matched detections.  If there
+            # is a tie, favour the *larger* wheel size because missing a slot
+            # is safer than over-merging two distinct letters into one slot.
+            if (len(matches) > len(best_matches)) or (
+                len(matches) == len(best_matches) and (best_size is None or size > best_size)
+            ):
+                best_matches = matches
+                best_size = size
+
+        # Re-run match on the chosen size so that LayoutMatcher stores the
+        # slot coordinates of the winning layout for later debugging output.
+        if best_size is not None:
+            matched_letters_with_coords = layout_matcher.match(
+                adjusted_letters_with_coords,
+                wheel_size=best_size
+            )
+            logging.info(f"Selected {best_size}-letter wheel template with {len(matched_letters_with_coords)} matched detections.")
+        else:
+            # Fallback – no template produced any matches within tolerance.
+            matched_letters_with_coords = adjusted_letters_with_coords
+            logging.warning("No template matched – using raw detections.")
 
         # ------------------------------------------------------------------
         # Debug: visualise detected letters on the processed image
@@ -170,17 +203,40 @@ def main():
             return
 
         logging.info("Swiping words...")
-        letter_coords = {letter: coords for letter, coords in matched_letters_with_coords}
+        # ------------------------------------------------------------------
+        # Build a mapping from each letter to *all* of its positions so we can
+        # handle words that contain the same letter multiple times (e.g.
+        # "ACCORD" with two Cs). A simple dict would overwrite duplicates;
+        # using lists preserves every occurrence.
+        # ------------------------------------------------------------------
+        letter_coords_map = defaultdict(list)  # letter -> list of (x, y)
+        for letter, coords in matched_letters_with_coords:
+            letter_coords_map[letter].append(coords)
+
         for word in sorted(list(words)):
             if stop_bot:
                 logging.info(f"Bot stopped before swiping word: {word}")
                 break
-                
-            coordinates = [letter_coords[char] for char in word if char in letter_coords]
-            if len(coordinates) == len(word):
+
+            # Build coordinate list while accounting for duplicate letters
+            temp_usage = defaultdict(int)  # how many times we've used each letter in this word
+            coordinates = []
+            valid = True
+            for char in word:
+                occurrences = letter_coords_map.get(char, [])
+                usage_idx = temp_usage[char]
+                if usage_idx < len(occurrences):
+                    coordinates.append(occurrences[usage_idx])
+                    temp_usage[char] += 1
+                else:
+                    # Not enough occurrences of this letter detected – skip the word
+                    valid = False
+                    break
+
+            if valid and len(coordinates) == len(word):
                 logging.info(f"Swiping: {word}")
                 pc_automator.swipe_word(coordinates, word)
-                
+
                 if stop_bot:
                     logging.info(f"Bot stopped after swiping word: {word}")
                     break
