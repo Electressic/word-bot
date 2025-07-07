@@ -2,6 +2,7 @@ import json
 import os
 import math
 from typing import List, Tuple
+import statistics
 
 class LayoutMatcher:
     """Maps raw OCR detections onto fixed wheel slots to remove duplicates / noise."""
@@ -35,8 +36,11 @@ class LayoutMatcher:
         ys = [y for _, (x, y) in detections]
         centre_x = sum(xs) / len(xs)
         centre_y = sum(ys) / len(ys)
-        # mean distance to centre = radius estimate
-        radius = sum(math.hypot(x - centre_x, y - centre_y) for x, y in zip(xs, ys)) / len(xs)
+        # Use median distance rather than mean so a single detection very close
+        # to the centre (e.g. missed outer letter) does not shrink the radius
+        # estimate and shift all template slots inward.
+        dists = [math.hypot(x - centre_x, y - centre_y) for x, y in zip(xs, ys)]
+        radius = statistics.median(dists)
         if radius == 0:
             return detections
 

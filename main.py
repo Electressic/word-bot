@@ -71,6 +71,12 @@ def main():
         action="store_true",
         help="Enable debug mode to capture screenshots of swipes."
     )
+    parser.add_argument(
+        "--wheel-size",
+        type=int,
+        default=None,
+        help="Force a specific wheel size (number of letters) for layout matching."
+    )
     args = parser.parse_args()
 
     debug_dir = "debug_screenshots"
@@ -124,42 +130,67 @@ def main():
         ]
 
         # ------------------------------------------------------------------
-        # Pick the best wheel template by trying **all** known layouts and
-        # keeping the one that yields the largest number of slot matches.
-        # This is far more reliable than guessing the wheel size from the
-        # raw detection count which can be low if some letters were missed.
+        # Layout selection: allow user override via --wheel-size. If provided,
+        # use that template directly; otherwise fall back to automatic
+        # selection logic.
         # ------------------------------------------------------------------
-        best_matches = []
-        best_size = None
-
-        for size_str in layout_matcher.layouts.keys():
-            size = int(size_str)
-            matches = layout_matcher.match(
-                adjusted_letters_with_coords,
-                wheel_size=size
-            )
-
-            # Prefer the template with the most matched detections.  If there
-            # is a tie, favour the *larger* wheel size because missing a slot
-            # is safer than over-merging two distinct letters into one slot.
-            if (len(matches) > len(best_matches)) or (
-                len(matches) == len(best_matches) and (best_size is None or size > best_size)
-            ):
-                best_matches = matches
-                best_size = size
-
-        # Re-run match on the chosen size so that LayoutMatcher stores the
-        # slot coordinates of the winning layout for later debugging output.
-        if best_size is not None:
+        if args.wheel_size is not None:
+            forced_size = args.wheel_size
+            if str(forced_size) not in layout_matcher.layouts:
+                logging.error(f"Wheel size {forced_size} not supported. Available: {', '.join(layout_matcher.layouts.keys())}")
+                return
             matched_letters_with_coords = layout_matcher.match(
                 adjusted_letters_with_coords,
-                wheel_size=best_size
+                wheel_size=forced_size
             )
-            logging.info(f"Selected {best_size}-letter wheel template with {len(matched_letters_with_coords)} matched detections.")
+            logging.info(f"Forced {forced_size}-letter wheel template with {len(matched_letters_with_coords)} matched detections.")
         else:
-            # Fallback – no template produced any matches within tolerance.
-            matched_letters_with_coords = adjusted_letters_with_coords
-            logging.warning("No template matched – using raw detections.")
+            # ------------------------------------------------------------------
+            # Automatic template selection (as implemented earlier)
+            # ------------------------------------------------------------------
+            best_layout = None
+            best_match_count = -1
+            min_size_diff = float('inf')
+
+            raw_detection_count = len(adjusted_letters_with_coords)
+
+            # Try all available layouts
+            for size_str in layout_matcher.layouts.keys():
+                size = int(size_str)
+                matches = layout_matcher.match(
+                    adjusted_letters_with_coords,
+                    wheel_size=size
+                )
+                num_matches = len(matches)
+
+                # The current layout is better if:
+                # 1. It matches more letters than the best one so far.
+                # 2. It matches the same number of letters, but its wheel size is
+                #    closer to the number of raw detections found by OCR.
+                size_diff = abs(size - raw_detection_count)
+                if num_matches > best_match_count or \
+                   (num_matches == best_match_count and size_diff < min_size_diff):
+                    best_match_count = num_matches
+                    min_size_diff = size_diff
+                    best_layout = {
+                        "size": size,
+                        "matches": matches
+                    }
+
+            # Re-run match on the chosen size so that LayoutMatcher stores the
+            # slot coordinates of the winning layout for later debugging output.
+            if best_layout and best_match_count > 0:
+                best_size = best_layout["size"]
+                # This re-run is for the side-effect of populating `layout_matcher.slots_abs`
+                matched_letters_with_coords = layout_matcher.match(
+                    adjusted_letters_with_coords,
+                    wheel_size=best_size
+                )
+                logging.info(f"Selected {best_size}-letter wheel template with {len(matched_letters_with_coords)} matched detections.")
+            else:
+                # Fallback – no template produced any matches within tolerance.
+                matched_letters_with_coords = adjusted_letters_with_coords
+                logging.warning("No template matched – using raw detections.")
 
         # ------------------------------------------------------------------
         # Debug: visualise detected letters on the processed image

@@ -86,9 +86,13 @@ class LetterDetector:
         normalized_chars = [self._map_char(c) for c in text]
         clean_text = ''.join(c for c in normalized_chars if c)
         
-        # Skip low-confidence multi-letter boxes altogether
-        if len(clean_text) <= 1 or confidence < 0.6:
+        # Discard if no real letters were extracted
+        if len(clean_text) <= 1:
             return []
+        # Do NOT discard based solely on overall confidence – individual
+        # letters will be filtered by their own thresholds below.  This keeps
+        # low-confidence groups like "iRE" so we can still rescue an isolated
+        # 'I'.
         
         # Calculate the bounding box dimensions
         top_left = tuple(map(int, bbox[0]))
@@ -160,9 +164,13 @@ class LetterDetector:
             current_image = params.pop('image')
             
             try:
+                # Build allowlist dynamically so that ambiguous characters we
+                # later map (e.g. 'i', 'l', '|', '0', 'o') are not discarded
+                # outright by EasyOCR.
+                allow_chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ' + ''.join(self.char_mapping.keys())
                 results = self.reader.readtext(
                     current_image,
-                    allowlist='ABCDEFGHIJKLMNOPQRSTUVWXYZ01',
+                    allowlist=allow_chars,
                     paragraph=False,
                     **params
                 )
@@ -241,9 +249,13 @@ class LetterDetector:
         if len(all_letters) < 4:
             logging.info("Very few letters detected, trying ultra-permissive settings...")
             try:
+                # Build allowlist dynamically so that ambiguous characters we
+                # later map (e.g. 'i', 'l', '|', '0', 'o') are not discarded
+                # outright by EasyOCR.
+                allow_chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ' + ''.join(self.char_mapping.keys())
                 results = self.reader.readtext(
                     image,
-                    allowlist='ABCDEFGHIJKLMNOPQRSTUVWXYZ01',
+                    allowlist=allow_chars,
                     paragraph=False,
                     width_ths=0.05,
                     height_ths=0.05,
@@ -309,8 +321,13 @@ class LetterDetector:
         # Also try without any allowlist to see what EasyOCR detects freely
         logging.info("Testing without allowlist to see all possible detections...")
         try:
+            # Build allowlist dynamically so that ambiguous characters we
+            # later map (e.g. 'i', 'l', '|', '0', 'o') are not discarded
+            # outright by EasyOCR.
+            allow_chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ' + ''.join(self.char_mapping.keys())
             results = self.reader.readtext(
                 image,
+                allowlist=allow_chars,
                 paragraph=False,
                 width_ths=0.3,
                 height_ths=0.3,

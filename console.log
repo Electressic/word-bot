@@ -6337,3 +6337,1351 @@
 2025-07-07 16:28:33,696 [INFO] Swiping: TOSK
 2025-07-07 16:28:34,548 [INFO] Swiping: TSK
 2025-07-07 16:28:35,298 [INFO] Done!
+2025-07-07 16:47:29,740 [INFO] Hotkey registered: Ctrl+Shift+F8 to stop the bot
+2025-07-07 16:47:29,745 [INFO] Debug mode enabled. Screenshots will be saved in 'debug_screenshots'
+2025-07-07 16:47:31,368 [INFO] Getting processed screenshot...
+2025-07-07 16:47:31,558 [INFO] Detecting letters...
+2025-07-07 16:47:31,559 [INFO] Trying parameter set 1: {'image': array([[  0,   0,   0, ...,   0, 255, 255],
+       [  0,   0,   0, ...,   0, 255, 255],
+       [  0,   0,   0, ...,   0, 255, 255],
+       ...,
+       [255, 255, 255, ..., 255, 255, 255],
+       [255, 255, 255, ..., 255, 255, 255],
+       [255, 255, 255, ..., 255, 255, 255]], shape=(380, 382), dtype=uint8), 'text_threshold': 0.4, 'low_text': 0.2, 'link_threshold': 0.2, 'width_ths': 0.5, 'height_ths': 0.5}
+2025-07-07 16:47:31,777 [INFO] Parameter set 1 returned 2 results
+2025-07-07 16:47:31,777 [INFO]   Result 1: Text='F', Confidence=0.998, Position=(90, 113)
+2025-07-07 16:47:31,778 [INFO]     -> SINGLE LETTER: 'F' at (90, 113) with confidence 0.998
+2025-07-07 16:47:31,778 [INFO] ACCEPTED (Set 1): 'F' with confidence 0.998 (threshold: 0.800)
+2025-07-07 16:47:31,778 [INFO]   Result 2: Text='FSR', Confidence=0.216, Position=(227, 235)
+2025-07-07 16:47:31,778 [INFO]     -> MULTI-LETTER: 'FSR' - attempting to split
+2025-07-07 16:47:31,778 [INFO]     -> CONTAINS TARGET LETTERS: 'FSR' might be relevant
+2025-07-07 16:47:31,778 [INFO] Trying parameter set 2: {'image': array([[  0,   0,   0, ...,   0, 255, 255],
+       [  0,   0,   0, ...,   0, 255, 255],
+       [  0,   0,   0, ...,   0, 255, 255],
+       ...,
+       [255, 255, 255, ..., 255, 255, 255],
+       [255, 255, 255, ..., 255, 255, 255],
+       [255, 255, 255, ..., 255, 255, 255]], shape=(380, 382), dtype=uint8), 'text_threshold': 0.7, 'low_text': 0.4, 'link_threshold': 0.4, 'width_ths': 0.7, 'height_ths': 0.7}
+2025-07-07 16:47:31,842 [INFO] Parameter set 2 returned 5 results
+2025-07-07 16:47:31,843 [INFO]   Result 1: Text='F', Confidence=0.999, Position=(74, 109)
+2025-07-07 16:47:31,843 [INFO]     -> SINGLE LETTER: 'F' at (74, 109) with confidence 0.999
+2025-07-07 16:47:31,843 [INFO]   Result 2: Text='E', Confidence=0.994, Position=(319, 110)
+2025-07-07 16:47:31,843 [INFO]     -> SINGLE LETTER: 'E' at (319, 110) with confidence 0.994
+2025-07-07 16:47:31,843 [INFO] ACCEPTED (Set 2): 'E' with confidence 0.994 (threshold: 0.800)
+2025-07-07 16:47:31,843 [INFO]   Result 3: Text='E0', Confidence=0.570, Position=(139, 260)
+2025-07-07 16:47:31,843 [INFO]     -> MULTI-LETTER: 'E0' - attempting to split
+2025-07-07 16:47:31,843 [INFO]   Result 4: Text='R', Confidence=1.000, Position=(315, 246)
+2025-07-07 16:47:31,843 [INFO]     -> SINGLE LETTER: 'R' at (315, 246) with confidence 1.000
+2025-07-07 16:47:31,843 [INFO] ACCEPTED (Set 2): 'R' with confidence 1.000 (threshold: 0.400)
+2025-07-07 16:47:31,844 [INFO]     -> CONTAINS TARGET LETTERS: 'R' might be relevant
+2025-07-07 16:47:31,844 [INFO]   Result 5: Text='C', Confidence=1.000, Position=(202, 318)
+2025-07-07 16:47:31,844 [INFO]     -> SINGLE LETTER: 'C' at (202, 318) with confidence 1.000
+2025-07-07 16:47:31,844 [INFO] ACCEPTED (Set 2): 'C' with confidence 1.000 (threshold: 0.800)
+2025-07-07 16:47:31,844 [INFO]     -> CONTAINS TARGET LETTERS: 'C' might be relevant
+2025-07-07 16:47:31,844 [INFO] Trying parameter set 3: {'image': array([[  0,   0,   0, ...,   0, 255, 255],
+       [  0,   0,   0, ...,   0, 255, 255],
+       [  0,   0,   0, ...,   0, 255, 255],
+       ...,
+       [255, 255, 255, ..., 255, 255, 255],
+       [255, 255, 255, ..., 255, 255, 255],
+       [255, 255, 255, ..., 255, 255, 255]], shape=(380, 382), dtype=uint8), 'text_threshold': 0.4, 'low_text': 0.2, 'link_threshold': 0.4, 'width_ths': 0.7, 'height_ths': 0.7}
+2025-07-07 16:47:31,886 [INFO] Parameter set 3 returned 4 results
+2025-07-07 16:47:31,886 [INFO]   Result 1: Text='F', Confidence=0.998, Position=(90, 112)
+2025-07-07 16:47:31,886 [INFO]     -> SINGLE LETTER: 'F' at (90, 112) with confidence 0.998
+2025-07-07 16:47:31,887 [INFO]   Result 2: Text='E', Confidence=0.999, Position=(317, 116)
+2025-07-07 16:47:31,887 [INFO]     -> SINGLE LETTER: 'E' at (317, 116) with confidence 0.999
+2025-07-07 16:47:31,887 [INFO]   Result 3: Text='EC', Confidence=0.969, Position=(149, 283)
+2025-07-07 16:47:31,887 [INFO]     -> MULTI-LETTER: 'EC' - attempting to split
+2025-07-07 16:47:31,887 [INFO] SPLIT LETTER: 'E' at (79, 283) from 'EC' with confidence 0.969
+2025-07-07 16:47:31,887 [INFO] SPLIT LETTER: 'C' at (219, 283) from 'EC' with confidence 0.969
+2025-07-07 16:47:31,887 [INFO]     -> CONTAINS TARGET LETTERS: 'EC' might be relevant
+2025-07-07 16:47:31,887 [INFO]   Result 4: Text='R', Confidence=0.988, Position=(317, 229)
+2025-07-07 16:47:31,887 [INFO]     -> SINGLE LETTER: 'R' at (317, 229) with confidence 0.988
+2025-07-07 16:47:31,887 [INFO]     -> CONTAINS TARGET LETTERS: 'R' might be relevant
+2025-07-07 16:47:31,888 [INFO] Trying parameter set 4: {'image': array([[  0,   0,   0, ...,   0, 255, 255],
+       [  0,   0,   0, ...,   0, 255, 255],
+       [  0,   0,   0, ...,   0, 255, 255],
+       ...,
+       [255, 255, 255, ..., 255, 255, 255],
+       [255, 255, 255, ..., 255, 255, 255],
+       [255, 255, 255, ..., 255, 255, 255]], shape=(380, 382), dtype=uint8), 'text_threshold': 0.4, 'low_text': 0.2, 'link_threshold': 0.4, 'width_ths': 0.7, 'height_ths': 0.7, 'mag_ratio': 1.5}
+2025-07-07 16:47:31,960 [INFO] Parameter set 4 returned 5 results
+2025-07-07 16:47:31,961 [INFO]   Result 1: Text='F', Confidence=0.999, Position=(70, 109)
+2025-07-07 16:47:31,961 [INFO]     -> SINGLE LETTER: 'F' at (70, 109) with confidence 0.999
+2025-07-07 16:47:31,961 [INFO]   Result 2: Text='E', Confidence=0.999, Position=(317, 108)
+2025-07-07 16:47:31,961 [INFO]     -> SINGLE LETTER: 'E' at (317, 108) with confidence 0.999
+2025-07-07 16:47:31,961 [INFO]   Result 3: Text='E', Confidence=0.993, Position=(71, 249)
+2025-07-07 16:47:31,961 [INFO]     -> SINGLE LETTER: 'E' at (71, 249) with confidence 0.993
+2025-07-07 16:47:31,961 [INFO] ACCEPTED (Set 4): 'E' with confidence 0.993 (threshold: 0.800)
+2025-07-07 16:47:31,961 [INFO]   Result 4: Text='R', Confidence=1.000, Position=(316, 250)
+2025-07-07 16:47:31,961 [INFO]     -> SINGLE LETTER: 'R' at (316, 250) with confidence 1.000
+2025-07-07 16:47:31,961 [INFO]     -> CONTAINS TARGET LETTERS: 'R' might be relevant
+2025-07-07 16:47:31,961 [INFO]   Result 5: Text='C', Confidence=1.000, Position=(193, 321)
+2025-07-07 16:47:31,961 [INFO]     -> SINGLE LETTER: 'C' at (193, 321) with confidence 1.000
+2025-07-07 16:47:31,962 [INFO]     -> CONTAINS TARGET LETTERS: 'C' might be relevant
+2025-07-07 16:47:31,962 [INFO] Testing without allowlist to see all possible detections...
+2025-07-07 16:47:32,013 [INFO] No-allowlist mode returned 3 results
+2025-07-07 16:47:32,013 [INFO]   No-allowlist Result 1: Text='', Confidence=0.000, Position=(32, 16)
+2025-07-07 16:47:32,013 [INFO]   No-allowlist Result 2: Text='F', Confidence=0.997, Position=(90, 112)
+2025-07-07 16:47:32,014 [INFO]   No-allowlist Result 3: Text='ec Re', Confidence=0.322, Position=(226, 234)
+2025-07-07 16:47:32,014 [INFO] Deduplicated letters: E, E, F, C, C, R, E
+2025-07-07 16:47:32,014 [INFO] Selected 7-letter wheel template with 5 matched detections.
+2025-07-07 16:47:32,016 [INFO] Detected letters: E, R, C, E, F
+2025-07-07 16:47:32,016 [INFO] Finding words...
+2025-07-07 16:47:32,016 [INFO] Found 17 words: REEF, FREE, FEER, ERE, CRE, FEE, REF, CEE, FER, ERF, REE, FEC, CREE, REC, CERE, FERE, EER
+2025-07-07 16:47:32,016 [INFO] Swiping words...
+2025-07-07 16:47:32,016 [INFO] Swiping: CEE
+2025-07-07 16:47:32,778 [INFO] Swiping: CERE
+2025-07-07 16:47:32,909 [INFO] STOP SIGNAL RECEIVED - Bot will stop after current operation!
+2025-07-07 16:47:33,634 [INFO] Bot stopped after swiping word: CERE
+2025-07-07 16:47:33,634 [INFO] Bot stopped by user!
+2025-07-07 16:55:35,315 [INFO] Hotkey registered: Ctrl+Shift+F8 to stop the bot
+2025-07-07 16:55:35,318 [INFO] Debug mode enabled. Screenshots will be saved in 'debug_screenshots'
+2025-07-07 16:55:36,948 [INFO] Getting processed screenshot...
+2025-07-07 16:55:37,147 [INFO] Detecting letters...
+2025-07-07 16:55:37,147 [INFO] Trying parameter set 1: {'image': array([[  0,   0,   0, ...,   0, 255, 255],
+       [  0,   0,   0, ...,   0, 255, 255],
+       [  0,   0,   0, ...,   0, 255, 255],
+       ...,
+       [255, 255, 255, ..., 255, 255, 255],
+       [255, 255, 255, ..., 255, 255, 255],
+       [255, 255, 255, ..., 255, 255, 255]], shape=(380, 382), dtype=uint8), 'text_threshold': 0.4, 'low_text': 0.2, 'link_threshold': 0.2, 'width_ths': 0.5, 'height_ths': 0.5}
+2025-07-07 16:55:37,376 [INFO] Parameter set 1 returned 2 results
+2025-07-07 16:55:37,377 [INFO]   Result 1: Text='F', Confidence=0.998, Position=(90, 113)
+2025-07-07 16:55:37,377 [INFO]     -> SINGLE LETTER: 'F' at (90, 113) with confidence 0.998
+2025-07-07 16:55:37,377 [INFO] ACCEPTED (Set 1): 'F' with confidence 0.998 (threshold: 0.800)
+2025-07-07 16:55:37,377 [INFO]   Result 2: Text='FSR', Confidence=0.216, Position=(227, 235)
+2025-07-07 16:55:37,377 [INFO]     -> MULTI-LETTER: 'FSR' - attempting to split
+2025-07-07 16:55:37,377 [INFO]     -> CONTAINS TARGET LETTERS: 'FSR' might be relevant
+2025-07-07 16:55:37,377 [INFO] Trying parameter set 2: {'image': array([[  0,   0,   0, ...,   0, 255, 255],
+       [  0,   0,   0, ...,   0, 255, 255],
+       [  0,   0,   0, ...,   0, 255, 255],
+       ...,
+       [255, 255, 255, ..., 255, 255, 255],
+       [255, 255, 255, ..., 255, 255, 255],
+       [255, 255, 255, ..., 255, 255, 255]], shape=(380, 382), dtype=uint8), 'text_threshold': 0.7, 'low_text': 0.4, 'link_threshold': 0.4, 'width_ths': 0.7, 'height_ths': 0.7}
+2025-07-07 16:55:37,446 [INFO] Parameter set 2 returned 5 results
+2025-07-07 16:55:37,447 [INFO]   Result 1: Text='F', Confidence=0.999, Position=(74, 109)
+2025-07-07 16:55:37,447 [INFO]     -> SINGLE LETTER: 'F' at (74, 109) with confidence 0.999
+2025-07-07 16:55:37,447 [INFO]   Result 2: Text='E', Confidence=0.994, Position=(319, 110)
+2025-07-07 16:55:37,447 [INFO]     -> SINGLE LETTER: 'E' at (319, 110) with confidence 0.994
+2025-07-07 16:55:37,447 [INFO] ACCEPTED (Set 2): 'E' with confidence 0.994 (threshold: 0.800)
+2025-07-07 16:55:37,447 [INFO]   Result 3: Text='E0', Confidence=0.570, Position=(139, 260)
+2025-07-07 16:55:37,447 [INFO]     -> MULTI-LETTER: 'E0' - attempting to split
+2025-07-07 16:55:37,447 [INFO]   Result 4: Text='R', Confidence=1.000, Position=(315, 246)
+2025-07-07 16:55:37,448 [INFO]     -> SINGLE LETTER: 'R' at (315, 246) with confidence 1.000
+2025-07-07 16:55:37,448 [INFO] ACCEPTED (Set 2): 'R' with confidence 1.000 (threshold: 0.400)
+2025-07-07 16:55:37,448 [INFO]     -> CONTAINS TARGET LETTERS: 'R' might be relevant
+2025-07-07 16:55:37,448 [INFO]   Result 5: Text='C', Confidence=1.000, Position=(202, 318)
+2025-07-07 16:55:37,448 [INFO]     -> SINGLE LETTER: 'C' at (202, 318) with confidence 1.000
+2025-07-07 16:55:37,448 [INFO] ACCEPTED (Set 2): 'C' with confidence 1.000 (threshold: 0.800)
+2025-07-07 16:55:37,448 [INFO]     -> CONTAINS TARGET LETTERS: 'C' might be relevant
+2025-07-07 16:55:37,448 [INFO] Trying parameter set 3: {'image': array([[  0,   0,   0, ...,   0, 255, 255],
+       [  0,   0,   0, ...,   0, 255, 255],
+       [  0,   0,   0, ...,   0, 255, 255],
+       ...,
+       [255, 255, 255, ..., 255, 255, 255],
+       [255, 255, 255, ..., 255, 255, 255],
+       [255, 255, 255, ..., 255, 255, 255]], shape=(380, 382), dtype=uint8), 'text_threshold': 0.4, 'low_text': 0.2, 'link_threshold': 0.4, 'width_ths': 0.7, 'height_ths': 0.7}
+2025-07-07 16:55:37,491 [INFO] Parameter set 3 returned 4 results
+2025-07-07 16:55:37,491 [INFO]   Result 1: Text='F', Confidence=0.998, Position=(90, 112)
+2025-07-07 16:55:37,491 [INFO]     -> SINGLE LETTER: 'F' at (90, 112) with confidence 0.998
+2025-07-07 16:55:37,491 [INFO]   Result 2: Text='E', Confidence=0.999, Position=(317, 116)
+2025-07-07 16:55:37,491 [INFO]     -> SINGLE LETTER: 'E' at (317, 116) with confidence 0.999
+2025-07-07 16:55:37,491 [INFO]   Result 3: Text='EC', Confidence=0.969, Position=(149, 283)
+2025-07-07 16:55:37,491 [INFO]     -> MULTI-LETTER: 'EC' - attempting to split
+2025-07-07 16:55:37,491 [INFO] SPLIT LETTER: 'E' at (79, 283) from 'EC' with confidence 0.969
+2025-07-07 16:55:37,491 [INFO] SPLIT LETTER: 'C' at (219, 283) from 'EC' with confidence 0.969
+2025-07-07 16:55:37,492 [INFO]     -> CONTAINS TARGET LETTERS: 'EC' might be relevant
+2025-07-07 16:55:37,492 [INFO]   Result 4: Text='R', Confidence=0.988, Position=(317, 229)
+2025-07-07 16:55:37,492 [INFO]     -> SINGLE LETTER: 'R' at (317, 229) with confidence 0.988
+2025-07-07 16:55:37,492 [INFO]     -> CONTAINS TARGET LETTERS: 'R' might be relevant
+2025-07-07 16:55:37,492 [INFO] Trying parameter set 4: {'image': array([[  0,   0,   0, ...,   0, 255, 255],
+       [  0,   0,   0, ...,   0, 255, 255],
+       [  0,   0,   0, ...,   0, 255, 255],
+       ...,
+       [255, 255, 255, ..., 255, 255, 255],
+       [255, 255, 255, ..., 255, 255, 255],
+       [255, 255, 255, ..., 255, 255, 255]], shape=(380, 382), dtype=uint8), 'text_threshold': 0.4, 'low_text': 0.2, 'link_threshold': 0.4, 'width_ths': 0.7, 'height_ths': 0.7, 'mag_ratio': 1.5}
+2025-07-07 16:55:37,572 [INFO] Parameter set 4 returned 5 results
+2025-07-07 16:55:37,572 [INFO]   Result 1: Text='F', Confidence=0.999, Position=(70, 109)
+2025-07-07 16:55:37,573 [INFO]     -> SINGLE LETTER: 'F' at (70, 109) with confidence 0.999
+2025-07-07 16:55:37,573 [INFO]   Result 2: Text='E', Confidence=0.999, Position=(317, 108)
+2025-07-07 16:55:37,573 [INFO]     -> SINGLE LETTER: 'E' at (317, 108) with confidence 0.999
+2025-07-07 16:55:37,573 [INFO]   Result 3: Text='E', Confidence=0.993, Position=(71, 249)
+2025-07-07 16:55:37,573 [INFO]     -> SINGLE LETTER: 'E' at (71, 249) with confidence 0.993
+2025-07-07 16:55:37,573 [INFO] ACCEPTED (Set 4): 'E' with confidence 0.993 (threshold: 0.800)
+2025-07-07 16:55:37,573 [INFO]   Result 4: Text='R', Confidence=1.000, Position=(316, 250)
+2025-07-07 16:55:37,573 [INFO]     -> SINGLE LETTER: 'R' at (316, 250) with confidence 1.000
+2025-07-07 16:55:37,573 [INFO]     -> CONTAINS TARGET LETTERS: 'R' might be relevant
+2025-07-07 16:55:37,574 [INFO]   Result 5: Text='C', Confidence=1.000, Position=(193, 321)
+2025-07-07 16:55:37,574 [INFO]     -> SINGLE LETTER: 'C' at (193, 321) with confidence 1.000
+2025-07-07 16:55:37,574 [INFO]     -> CONTAINS TARGET LETTERS: 'C' might be relevant
+2025-07-07 16:55:37,574 [INFO] Testing without allowlist to see all possible detections...
+2025-07-07 16:55:37,611 [INFO] No-allowlist mode returned 3 results
+2025-07-07 16:55:37,611 [INFO]   No-allowlist Result 1: Text='', Confidence=0.000, Position=(32, 16)
+2025-07-07 16:55:37,611 [INFO]   No-allowlist Result 2: Text='F', Confidence=0.997, Position=(90, 112)
+2025-07-07 16:55:37,611 [INFO]   No-allowlist Result 3: Text='ec Re', Confidence=0.322, Position=(226, 234)
+2025-07-07 16:55:37,611 [INFO] Deduplicated letters: E, E, F, C, C, R, E
+2025-07-07 16:55:37,612 [INFO] Selected 7-letter wheel template with 5 matched detections.
+2025-07-07 16:55:37,614 [INFO] Detected letters: E, R, C, E, F
+2025-07-07 16:55:37,614 [INFO] Finding words...
+2025-07-07 16:55:37,614 [INFO] Found 17 words: REF, REE, CERE, ERF, FREE, ERE, CREE, REC, CEE, REEF, EER, FERE, FEER, FEC, FER, FEE, CRE
+2025-07-07 16:55:37,614 [INFO] Swiping words...
+2025-07-07 16:55:37,614 [INFO] Swiping: CEE
+2025-07-07 16:55:38,362 [INFO] Swiping: CERE
+2025-07-07 16:55:39,211 [INFO] Swiping: CRE
+2025-07-07 16:55:39,954 [INFO] Swiping: CREE
+2025-07-07 16:55:40,795 [INFO] Swiping: EER
+2025-07-07 16:55:41,290 [INFO] STOP SIGNAL RECEIVED - Bot will stop after current operation!
+2025-07-07 16:55:41,539 [INFO] Bot stopped after swiping word: EER
+2025-07-07 16:55:41,539 [INFO] Bot stopped by user!
+2025-07-07 17:03:50,998 [INFO] Hotkey registered: Ctrl+Shift+F8 to stop the bot
+2025-07-07 17:03:51,002 [INFO] Debug mode enabled. Screenshots will be saved in 'debug_screenshots'
+2025-07-07 17:03:52,618 [INFO] Getting processed screenshot...
+2025-07-07 17:03:52,820 [INFO] Detecting letters...
+2025-07-07 17:03:52,820 [INFO] Trying parameter set 1: {'image': array([[  0,   0,   0, ...,   0, 255, 255],
+       [  0,   0,   0, ...,   0, 255, 255],
+       [  0,   0,   0, ...,   0, 255, 255],
+       ...,
+       [255, 255, 255, ..., 255, 255, 255],
+       [255, 255, 255, ..., 255, 255, 255],
+       [255, 255, 255, ..., 255, 255, 255]], shape=(380, 382), dtype=uint8), 'text_threshold': 0.4, 'low_text': 0.2, 'link_threshold': 0.2, 'width_ths': 0.5, 'height_ths': 0.5}
+2025-07-07 17:03:53,057 [INFO] Parameter set 1 returned 2 results
+2025-07-07 17:03:53,057 [INFO]   Result 1: Text='F', Confidence=0.999, Position=(90, 113)
+2025-07-07 17:03:53,057 [INFO]     -> SINGLE LETTER: 'F' at (90, 113) with confidence 0.999
+2025-07-07 17:03:53,057 [INFO] ACCEPTED (Set 1): 'F' with confidence 0.999 (threshold: 0.800)
+2025-07-07 17:03:53,057 [INFO]   Result 2: Text='FSRE', Confidence=0.048, Position=(227, 235)
+2025-07-07 17:03:53,057 [INFO]     -> MULTI-LETTER: 'FSRE' - attempting to split
+2025-07-07 17:03:53,057 [INFO]     -> CONTAINS TARGET LETTERS: 'FSRE' might be relevant
+2025-07-07 17:03:53,058 [INFO] Trying parameter set 2: {'image': array([[  0,   0,   0, ...,   0, 255, 255],
+       [  0,   0,   0, ...,   0, 255, 255],
+       [  0,   0,   0, ...,   0, 255, 255],
+       ...,
+       [255, 255, 255, ..., 255, 255, 255],
+       [255, 255, 255, ..., 255, 255, 255],
+       [255, 255, 255, ..., 255, 255, 255]], shape=(380, 382), dtype=uint8), 'text_threshold': 0.7, 'low_text': 0.4, 'link_threshold': 0.4, 'width_ths': 0.7, 'height_ths': 0.7}
+2025-07-07 17:03:53,130 [INFO] Parameter set 2 returned 5 results
+2025-07-07 17:03:53,130 [INFO]   Result 1: Text='F', Confidence=0.999, Position=(74, 109)
+2025-07-07 17:03:53,130 [INFO]     -> SINGLE LETTER: 'F' at (74, 109) with confidence 0.999
+2025-07-07 17:03:53,130 [INFO]   Result 2: Text='E', Confidence=0.994, Position=(319, 110)
+2025-07-07 17:03:53,130 [INFO]     -> SINGLE LETTER: 'E' at (319, 110) with confidence 0.994
+2025-07-07 17:03:53,130 [INFO] ACCEPTED (Set 2): 'E' with confidence 0.994 (threshold: 0.800)
+2025-07-07 17:03:53,130 [INFO]   Result 3: Text='E0', Confidence=0.640, Position=(139, 261)
+2025-07-07 17:03:53,131 [INFO]     -> MULTI-LETTER: 'E0' - attempting to split
+2025-07-07 17:03:53,131 [INFO] SPLIT LETTER: 'O' at (191, 261) from 'E0' with confidence 0.640
+2025-07-07 17:03:53,131 [INFO]   Result 4: Text='R', Confidence=1.000, Position=(316, 246)
+2025-07-07 17:03:53,131 [INFO]     -> SINGLE LETTER: 'R' at (316, 246) with confidence 1.000
+2025-07-07 17:03:53,131 [INFO] ACCEPTED (Set 2): 'R' with confidence 1.000 (threshold: 0.400)
+2025-07-07 17:03:53,131 [INFO]     -> CONTAINS TARGET LETTERS: 'R' might be relevant
+2025-07-07 17:03:53,131 [INFO]   Result 5: Text='C', Confidence=1.000, Position=(202, 318)
+2025-07-07 17:03:53,132 [INFO]     -> SINGLE LETTER: 'C' at (202, 318) with confidence 1.000
+2025-07-07 17:03:53,132 [INFO] ACCEPTED (Set 2): 'C' with confidence 1.000 (threshold: 0.800)
+2025-07-07 17:03:53,132 [INFO]     -> CONTAINS TARGET LETTERS: 'C' might be relevant
+2025-07-07 17:03:53,132 [INFO] Trying parameter set 3: {'image': array([[  0,   0,   0, ...,   0, 255, 255],
+       [  0,   0,   0, ...,   0, 255, 255],
+       [  0,   0,   0, ...,   0, 255, 255],
+       ...,
+       [255, 255, 255, ..., 255, 255, 255],
+       [255, 255, 255, ..., 255, 255, 255],
+       [255, 255, 255, ..., 255, 255, 255]], shape=(380, 382), dtype=uint8), 'text_threshold': 0.4, 'low_text': 0.2, 'link_threshold': 0.4, 'width_ths': 0.7, 'height_ths': 0.7}
+2025-07-07 17:03:53,165 [INFO] Parameter set 3 returned 2 results
+2025-07-07 17:03:53,165 [INFO]   Result 1: Text='F', Confidence=0.998, Position=(90, 112)
+2025-07-07 17:03:53,165 [INFO]     -> SINGLE LETTER: 'F' at (90, 112) with confidence 0.998
+2025-07-07 17:03:53,165 [INFO]   Result 2: Text='E0R', Confidence=0.297, Position=(190, 209)
+2025-07-07 17:03:53,166 [INFO]     -> MULTI-LETTER: 'E0R' - attempting to split
+2025-07-07 17:03:53,166 [INFO]     -> CONTAINS TARGET LETTERS: 'E0R' might be relevant
+2025-07-07 17:03:53,166 [INFO] Trying parameter set 4: {'image': array([[  0,   0,   0, ...,   0, 255, 255],
+       [  0,   0,   0, ...,   0, 255, 255],
+       [  0,   0,   0, ...,   0, 255, 255],
+       ...,
+       [255, 255, 255, ..., 255, 255, 255],
+       [255, 255, 255, ..., 255, 255, 255],
+       [255, 255, 255, ..., 255, 255, 255]], shape=(380, 382), dtype=uint8), 'text_threshold': 0.4, 'low_text': 0.2, 'link_threshold': 0.4, 'width_ths': 0.7, 'height_ths': 0.7, 'mag_ratio': 1.5}
+2025-07-07 17:03:53,240 [INFO] Parameter set 4 returned 5 results
+2025-07-07 17:03:53,241 [INFO]   Result 1: Text='F', Confidence=0.999, Position=(70, 109)
+2025-07-07 17:03:53,241 [INFO]     -> SINGLE LETTER: 'F' at (70, 109) with confidence 0.999
+2025-07-07 17:03:53,241 [INFO]   Result 2: Text='E', Confidence=0.999, Position=(317, 108)
+2025-07-07 17:03:53,241 [INFO]     -> SINGLE LETTER: 'E' at (317, 108) with confidence 0.999
+2025-07-07 17:03:53,241 [INFO]   Result 3: Text='E', Confidence=0.993, Position=(71, 249)
+2025-07-07 17:03:53,241 [INFO]     -> SINGLE LETTER: 'E' at (71, 249) with confidence 0.993
+2025-07-07 17:03:53,241 [INFO] ACCEPTED (Set 4): 'E' with confidence 0.993 (threshold: 0.800)
+2025-07-07 17:03:53,241 [INFO]   Result 4: Text='R', Confidence=1.000, Position=(316, 250)
+2025-07-07 17:03:53,241 [INFO]     -> SINGLE LETTER: 'R' at (316, 250) with confidence 1.000
+2025-07-07 17:03:53,241 [INFO]     -> CONTAINS TARGET LETTERS: 'R' might be relevant
+2025-07-07 17:03:53,242 [INFO]   Result 5: Text='C', Confidence=1.000, Position=(193, 321)
+2025-07-07 17:03:53,242 [INFO]     -> SINGLE LETTER: 'C' at (193, 321) with confidence 1.000
+2025-07-07 17:03:53,242 [INFO]     -> CONTAINS TARGET LETTERS: 'C' might be relevant
+2025-07-07 17:03:53,242 [INFO] Testing without allowlist to see all possible detections...
+2025-07-07 17:03:53,289 [INFO] No-allowlist mode returned 3 results
+2025-07-07 17:03:53,289 [INFO]   No-allowlist Result 1: Text='', Confidence=0.000, Position=(33, 16)
+2025-07-07 17:03:53,289 [INFO]   No-allowlist Result 2: Text='F', Confidence=0.997, Position=(90, 112)
+2025-07-07 17:03:53,289 [INFO]   No-allowlist Result 3: Text='6c R', Confidence=0.663, Position=(226, 234)
+2025-07-07 17:03:53,289 [INFO] SPLIT LETTER: 'R' at (345, 233) from '6c R' with confidence 0.663
+2025-07-07 17:03:53,289 [INFO] Deduplicated letters: E, F, O, C, R, E
+2025-07-07 17:03:53,290 [INFO] Forced 6-letter wheel template with 3 matched detections.
+2025-07-07 17:03:53,305 [INFO] Detected letters: F, E, C
+2025-07-07 17:03:53,305 [INFO] Finding words...
+2025-07-07 17:03:53,305 [INFO] Found 1 words: FEC
+2025-07-07 17:03:53,305 [INFO] Swiping words...
+2025-07-07 17:03:53,305 [INFO] Swiping: FEC
+2025-07-07 17:03:54,058 [INFO] Done!
+2025-07-07 17:04:53,567 [INFO] Hotkey registered: Ctrl+Shift+F8 to stop the bot
+2025-07-07 17:04:53,569 [INFO] Debug mode enabled. Screenshots will be saved in 'debug_screenshots'
+2025-07-07 17:04:55,212 [INFO] Getting processed screenshot...
+2025-07-07 17:04:55,395 [INFO] Detecting letters...
+2025-07-07 17:04:55,395 [INFO] Trying parameter set 1: {'image': array([[  0,   0,   0, ...,   0, 255, 255],
+       [  0,   0,   0, ...,   0, 255, 255],
+       [  0,   0,   0, ...,   0, 255, 255],
+       ...,
+       [255, 255, 255, ..., 255, 255, 255],
+       [255, 255, 255, ..., 255, 255, 255],
+       [255, 255, 255, ..., 255, 255, 255]], shape=(380, 382), dtype=uint8), 'text_threshold': 0.4, 'low_text': 0.2, 'link_threshold': 0.2, 'width_ths': 0.5, 'height_ths': 0.5}
+2025-07-07 17:04:55,611 [INFO] Parameter set 1 returned 2 results
+2025-07-07 17:04:55,612 [INFO]   Result 1: Text='F', Confidence=0.998, Position=(90, 113)
+2025-07-07 17:04:55,612 [INFO]     -> SINGLE LETTER: 'F' at (90, 113) with confidence 0.998
+2025-07-07 17:04:55,612 [INFO] ACCEPTED (Set 1): 'F' with confidence 0.998 (threshold: 0.800)
+2025-07-07 17:04:55,612 [INFO]   Result 2: Text='FSR', Confidence=0.216, Position=(227, 235)
+2025-07-07 17:04:55,612 [INFO]     -> MULTI-LETTER: 'FSR' - attempting to split
+2025-07-07 17:04:55,612 [INFO]     -> CONTAINS TARGET LETTERS: 'FSR' might be relevant
+2025-07-07 17:04:55,612 [INFO] Trying parameter set 2: {'image': array([[  0,   0,   0, ...,   0, 255, 255],
+       [  0,   0,   0, ...,   0, 255, 255],
+       [  0,   0,   0, ...,   0, 255, 255],
+       ...,
+       [255, 255, 255, ..., 255, 255, 255],
+       [255, 255, 255, ..., 255, 255, 255],
+       [255, 255, 255, ..., 255, 255, 255]], shape=(380, 382), dtype=uint8), 'text_threshold': 0.7, 'low_text': 0.4, 'link_threshold': 0.4, 'width_ths': 0.7, 'height_ths': 0.7}
+2025-07-07 17:04:55,678 [INFO] Parameter set 2 returned 5 results
+2025-07-07 17:04:55,678 [INFO]   Result 1: Text='F', Confidence=0.999, Position=(74, 109)
+2025-07-07 17:04:55,678 [INFO]     -> SINGLE LETTER: 'F' at (74, 109) with confidence 0.999
+2025-07-07 17:04:55,678 [INFO]   Result 2: Text='E', Confidence=0.994, Position=(319, 110)
+2025-07-07 17:04:55,678 [INFO]     -> SINGLE LETTER: 'E' at (319, 110) with confidence 0.994
+2025-07-07 17:04:55,678 [INFO] ACCEPTED (Set 2): 'E' with confidence 0.994 (threshold: 0.800)
+2025-07-07 17:04:55,678 [INFO]   Result 3: Text='E0', Confidence=0.570, Position=(139, 260)
+2025-07-07 17:04:55,678 [INFO]     -> MULTI-LETTER: 'E0' - attempting to split
+2025-07-07 17:04:55,679 [INFO]   Result 4: Text='R', Confidence=1.000, Position=(315, 246)
+2025-07-07 17:04:55,679 [INFO]     -> SINGLE LETTER: 'R' at (315, 246) with confidence 1.000
+2025-07-07 17:04:55,679 [INFO] ACCEPTED (Set 2): 'R' with confidence 1.000 (threshold: 0.400)
+2025-07-07 17:04:55,679 [INFO]     -> CONTAINS TARGET LETTERS: 'R' might be relevant
+2025-07-07 17:04:55,679 [INFO]   Result 5: Text='C', Confidence=1.000, Position=(202, 318)
+2025-07-07 17:04:55,679 [INFO]     -> SINGLE LETTER: 'C' at (202, 318) with confidence 1.000
+2025-07-07 17:04:55,679 [INFO] ACCEPTED (Set 2): 'C' with confidence 1.000 (threshold: 0.800)
+2025-07-07 17:04:55,679 [INFO]     -> CONTAINS TARGET LETTERS: 'C' might be relevant
+2025-07-07 17:04:55,679 [INFO] Trying parameter set 3: {'image': array([[  0,   0,   0, ...,   0, 255, 255],
+       [  0,   0,   0, ...,   0, 255, 255],
+       [  0,   0,   0, ...,   0, 255, 255],
+       ...,
+       [255, 255, 255, ..., 255, 255, 255],
+       [255, 255, 255, ..., 255, 255, 255],
+       [255, 255, 255, ..., 255, 255, 255]], shape=(380, 382), dtype=uint8), 'text_threshold': 0.4, 'low_text': 0.2, 'link_threshold': 0.4, 'width_ths': 0.7, 'height_ths': 0.7}
+2025-07-07 17:04:55,720 [INFO] Parameter set 3 returned 4 results
+2025-07-07 17:04:55,721 [INFO]   Result 1: Text='F', Confidence=0.998, Position=(90, 112)
+2025-07-07 17:04:55,721 [INFO]     -> SINGLE LETTER: 'F' at (90, 112) with confidence 0.998
+2025-07-07 17:04:55,721 [INFO]   Result 2: Text='E', Confidence=0.999, Position=(317, 116)
+2025-07-07 17:04:55,721 [INFO]     -> SINGLE LETTER: 'E' at (317, 116) with confidence 0.999
+2025-07-07 17:04:55,721 [INFO]   Result 3: Text='EC', Confidence=0.969, Position=(149, 283)
+2025-07-07 17:04:55,721 [INFO]     -> MULTI-LETTER: 'EC' - attempting to split
+2025-07-07 17:04:55,721 [INFO] SPLIT LETTER: 'E' at (79, 283) from 'EC' with confidence 0.969
+2025-07-07 17:04:55,721 [INFO] SPLIT LETTER: 'C' at (219, 283) from 'EC' with confidence 0.969
+2025-07-07 17:04:55,721 [INFO]     -> CONTAINS TARGET LETTERS: 'EC' might be relevant
+2025-07-07 17:04:55,721 [INFO]   Result 4: Text='R', Confidence=0.988, Position=(317, 229)
+2025-07-07 17:04:55,722 [INFO]     -> SINGLE LETTER: 'R' at (317, 229) with confidence 0.988
+2025-07-07 17:04:55,722 [INFO]     -> CONTAINS TARGET LETTERS: 'R' might be relevant
+2025-07-07 17:04:55,722 [INFO] Trying parameter set 4: {'image': array([[  0,   0,   0, ...,   0, 255, 255],
+       [  0,   0,   0, ...,   0, 255, 255],
+       [  0,   0,   0, ...,   0, 255, 255],
+       ...,
+       [255, 255, 255, ..., 255, 255, 255],
+       [255, 255, 255, ..., 255, 255, 255],
+       [255, 255, 255, ..., 255, 255, 255]], shape=(380, 382), dtype=uint8), 'text_threshold': 0.4, 'low_text': 0.2, 'link_threshold': 0.4, 'width_ths': 0.7, 'height_ths': 0.7, 'mag_ratio': 1.5}
+2025-07-07 17:04:55,792 [INFO] Parameter set 4 returned 5 results
+2025-07-07 17:04:55,793 [INFO]   Result 1: Text='F', Confidence=0.999, Position=(70, 109)
+2025-07-07 17:04:55,793 [INFO]     -> SINGLE LETTER: 'F' at (70, 109) with confidence 0.999
+2025-07-07 17:04:55,793 [INFO]   Result 2: Text='E', Confidence=0.999, Position=(317, 108)
+2025-07-07 17:04:55,793 [INFO]     -> SINGLE LETTER: 'E' at (317, 108) with confidence 0.999
+2025-07-07 17:04:55,793 [INFO]   Result 3: Text='E', Confidence=0.993, Position=(71, 249)
+2025-07-07 17:04:55,793 [INFO]     -> SINGLE LETTER: 'E' at (71, 249) with confidence 0.993
+2025-07-07 17:04:55,793 [INFO] ACCEPTED (Set 4): 'E' with confidence 0.993 (threshold: 0.800)
+2025-07-07 17:04:55,793 [INFO]   Result 4: Text='R', Confidence=1.000, Position=(316, 250)
+2025-07-07 17:04:55,794 [INFO]     -> SINGLE LETTER: 'R' at (316, 250) with confidence 1.000
+2025-07-07 17:04:55,794 [INFO]     -> CONTAINS TARGET LETTERS: 'R' might be relevant
+2025-07-07 17:04:55,794 [INFO]   Result 5: Text='C', Confidence=1.000, Position=(193, 321)
+2025-07-07 17:04:55,794 [INFO]     -> SINGLE LETTER: 'C' at (193, 321) with confidence 1.000
+2025-07-07 17:04:55,794 [INFO]     -> CONTAINS TARGET LETTERS: 'C' might be relevant
+2025-07-07 17:04:55,794 [INFO] Testing without allowlist to see all possible detections...
+2025-07-07 17:04:55,845 [INFO] No-allowlist mode returned 3 results
+2025-07-07 17:04:55,847 [INFO]   No-allowlist Result 1: Text='', Confidence=0.000, Position=(32, 16)
+2025-07-07 17:04:55,847 [INFO]   No-allowlist Result 2: Text='F', Confidence=0.997, Position=(90, 112)
+2025-07-07 17:04:55,847 [INFO]   No-allowlist Result 3: Text='ec Re', Confidence=0.322, Position=(226, 234)
+2025-07-07 17:04:55,848 [INFO] Deduplicated letters: E, E, F, C, C, R, E
+2025-07-07 17:04:55,848 [INFO] Forced 6-letter wheel template with 2 matched detections.
+2025-07-07 17:04:55,859 [INFO] Detected letters: E, C
+2025-07-07 17:04:55,861 [INFO] Finding words...
+2025-07-07 17:04:55,861 [INFO] Found 0 words: 
+2025-07-07 17:04:55,861 [INFO] Swiping words...
+2025-07-07 17:04:55,862 [INFO] Done!
+2025-07-07 17:05:19,656 [INFO] Hotkey registered: Ctrl+Shift+F8 to stop the bot
+2025-07-07 17:05:19,658 [INFO] Debug mode enabled. Screenshots will be saved in 'debug_screenshots'
+2025-07-07 17:05:21,276 [INFO] Getting processed screenshot...
+2025-07-07 17:05:21,458 [INFO] Detecting letters...
+2025-07-07 17:05:21,458 [INFO] Trying parameter set 1: {'image': array([[  0,   0,   0, ...,   0, 255, 255],
+       [  0,   0,   0, ...,   0, 255, 255],
+       [  0,   0,   0, ...,   0, 255, 255],
+       ...,
+       [255, 255, 255, ..., 255, 255, 255],
+       [255, 255, 255, ..., 255, 255, 255],
+       [255, 255, 255, ..., 255, 255, 255]], shape=(380, 382), dtype=uint8), 'text_threshold': 0.4, 'low_text': 0.2, 'link_threshold': 0.2, 'width_ths': 0.5, 'height_ths': 0.5}
+2025-07-07 17:05:21,671 [INFO] Parameter set 1 returned 2 results
+2025-07-07 17:05:21,672 [INFO]   Result 1: Text='F', Confidence=0.998, Position=(90, 113)
+2025-07-07 17:05:21,672 [INFO]     -> SINGLE LETTER: 'F' at (90, 113) with confidence 0.998
+2025-07-07 17:05:21,672 [INFO] ACCEPTED (Set 1): 'F' with confidence 0.998 (threshold: 0.800)
+2025-07-07 17:05:21,672 [INFO]   Result 2: Text='FSR', Confidence=0.216, Position=(227, 235)
+2025-07-07 17:05:21,672 [INFO]     -> MULTI-LETTER: 'FSR' - attempting to split
+2025-07-07 17:05:21,672 [INFO]     -> CONTAINS TARGET LETTERS: 'FSR' might be relevant
+2025-07-07 17:05:21,672 [INFO] Trying parameter set 2: {'image': array([[  0,   0,   0, ...,   0, 255, 255],
+       [  0,   0,   0, ...,   0, 255, 255],
+       [  0,   0,   0, ...,   0, 255, 255],
+       ...,
+       [255, 255, 255, ..., 255, 255, 255],
+       [255, 255, 255, ..., 255, 255, 255],
+       [255, 255, 255, ..., 255, 255, 255]], shape=(380, 382), dtype=uint8), 'text_threshold': 0.7, 'low_text': 0.4, 'link_threshold': 0.4, 'width_ths': 0.7, 'height_ths': 0.7}
+2025-07-07 17:05:21,728 [INFO] Parameter set 2 returned 5 results
+2025-07-07 17:05:21,728 [INFO]   Result 1: Text='F', Confidence=0.999, Position=(74, 109)
+2025-07-07 17:05:21,728 [INFO]     -> SINGLE LETTER: 'F' at (74, 109) with confidence 0.999
+2025-07-07 17:05:21,728 [INFO]   Result 2: Text='E', Confidence=0.994, Position=(319, 110)
+2025-07-07 17:05:21,729 [INFO]     -> SINGLE LETTER: 'E' at (319, 110) with confidence 0.994
+2025-07-07 17:05:21,729 [INFO] ACCEPTED (Set 2): 'E' with confidence 0.994 (threshold: 0.800)
+2025-07-07 17:05:21,729 [INFO]   Result 3: Text='E0', Confidence=0.570, Position=(139, 260)
+2025-07-07 17:05:21,729 [INFO]     -> MULTI-LETTER: 'E0' - attempting to split
+2025-07-07 17:05:21,729 [INFO]   Result 4: Text='R', Confidence=1.000, Position=(315, 246)
+2025-07-07 17:05:21,729 [INFO]     -> SINGLE LETTER: 'R' at (315, 246) with confidence 1.000
+2025-07-07 17:05:21,729 [INFO] ACCEPTED (Set 2): 'R' with confidence 1.000 (threshold: 0.400)
+2025-07-07 17:05:21,729 [INFO]     -> CONTAINS TARGET LETTERS: 'R' might be relevant
+2025-07-07 17:05:21,729 [INFO]   Result 5: Text='C', Confidence=1.000, Position=(202, 318)
+2025-07-07 17:05:21,729 [INFO]     -> SINGLE LETTER: 'C' at (202, 318) with confidence 1.000
+2025-07-07 17:05:21,730 [INFO] ACCEPTED (Set 2): 'C' with confidence 1.000 (threshold: 0.800)
+2025-07-07 17:05:21,730 [INFO]     -> CONTAINS TARGET LETTERS: 'C' might be relevant
+2025-07-07 17:05:21,730 [INFO] Trying parameter set 3: {'image': array([[  0,   0,   0, ...,   0, 255, 255],
+       [  0,   0,   0, ...,   0, 255, 255],
+       [  0,   0,   0, ...,   0, 255, 255],
+       ...,
+       [255, 255, 255, ..., 255, 255, 255],
+       [255, 255, 255, ..., 255, 255, 255],
+       [255, 255, 255, ..., 255, 255, 255]], shape=(380, 382), dtype=uint8), 'text_threshold': 0.4, 'low_text': 0.2, 'link_threshold': 0.4, 'width_ths': 0.7, 'height_ths': 0.7}
+2025-07-07 17:05:21,766 [INFO] Parameter set 3 returned 4 results
+2025-07-07 17:05:21,766 [INFO]   Result 1: Text='F', Confidence=0.998, Position=(90, 112)
+2025-07-07 17:05:21,766 [INFO]     -> SINGLE LETTER: 'F' at (90, 112) with confidence 0.998
+2025-07-07 17:05:21,766 [INFO]   Result 2: Text='E', Confidence=0.999, Position=(317, 116)
+2025-07-07 17:05:21,766 [INFO]     -> SINGLE LETTER: 'E' at (317, 116) with confidence 0.999
+2025-07-07 17:05:21,767 [INFO]   Result 3: Text='EC', Confidence=0.969, Position=(149, 283)
+2025-07-07 17:05:21,767 [INFO]     -> MULTI-LETTER: 'EC' - attempting to split
+2025-07-07 17:05:21,767 [INFO] SPLIT LETTER: 'E' at (79, 283) from 'EC' with confidence 0.969
+2025-07-07 17:05:21,767 [INFO] SPLIT LETTER: 'C' at (219, 283) from 'EC' with confidence 0.969
+2025-07-07 17:05:21,767 [INFO]     -> CONTAINS TARGET LETTERS: 'EC' might be relevant
+2025-07-07 17:05:21,767 [INFO]   Result 4: Text='R', Confidence=0.988, Position=(317, 229)
+2025-07-07 17:05:21,767 [INFO]     -> SINGLE LETTER: 'R' at (317, 229) with confidence 0.988
+2025-07-07 17:05:21,767 [INFO]     -> CONTAINS TARGET LETTERS: 'R' might be relevant
+2025-07-07 17:05:21,768 [INFO] Trying parameter set 4: {'image': array([[  0,   0,   0, ...,   0, 255, 255],
+       [  0,   0,   0, ...,   0, 255, 255],
+       [  0,   0,   0, ...,   0, 255, 255],
+       ...,
+       [255, 255, 255, ..., 255, 255, 255],
+       [255, 255, 255, ..., 255, 255, 255],
+       [255, 255, 255, ..., 255, 255, 255]], shape=(380, 382), dtype=uint8), 'text_threshold': 0.4, 'low_text': 0.2, 'link_threshold': 0.4, 'width_ths': 0.7, 'height_ths': 0.7, 'mag_ratio': 1.5}
+2025-07-07 17:05:21,844 [INFO] Parameter set 4 returned 5 results
+2025-07-07 17:05:21,844 [INFO]   Result 1: Text='F', Confidence=0.999, Position=(70, 109)
+2025-07-07 17:05:21,844 [INFO]     -> SINGLE LETTER: 'F' at (70, 109) with confidence 0.999
+2025-07-07 17:05:21,844 [INFO]   Result 2: Text='E', Confidence=0.999, Position=(317, 108)
+2025-07-07 17:05:21,844 [INFO]     -> SINGLE LETTER: 'E' at (317, 108) with confidence 0.999
+2025-07-07 17:05:21,844 [INFO]   Result 3: Text='E', Confidence=0.993, Position=(71, 249)
+2025-07-07 17:05:21,844 [INFO]     -> SINGLE LETTER: 'E' at (71, 249) with confidence 0.993
+2025-07-07 17:05:21,845 [INFO] ACCEPTED (Set 4): 'E' with confidence 0.993 (threshold: 0.800)
+2025-07-07 17:05:21,845 [INFO]   Result 4: Text='R', Confidence=1.000, Position=(316, 250)
+2025-07-07 17:05:21,845 [INFO]     -> SINGLE LETTER: 'R' at (316, 250) with confidence 1.000
+2025-07-07 17:05:21,845 [INFO]     -> CONTAINS TARGET LETTERS: 'R' might be relevant
+2025-07-07 17:05:21,845 [INFO]   Result 5: Text='C', Confidence=1.000, Position=(193, 321)
+2025-07-07 17:05:21,845 [INFO]     -> SINGLE LETTER: 'C' at (193, 321) with confidence 1.000
+2025-07-07 17:05:21,845 [INFO]     -> CONTAINS TARGET LETTERS: 'C' might be relevant
+2025-07-07 17:05:21,845 [INFO] Testing without allowlist to see all possible detections...
+2025-07-07 17:05:21,887 [INFO] No-allowlist mode returned 3 results
+2025-07-07 17:05:21,887 [INFO]   No-allowlist Result 1: Text='', Confidence=0.000, Position=(32, 16)
+2025-07-07 17:05:21,887 [INFO]   No-allowlist Result 2: Text='F', Confidence=0.997, Position=(90, 112)
+2025-07-07 17:05:21,887 [INFO]   No-allowlist Result 3: Text='ec Re', Confidence=0.322, Position=(226, 234)
+2025-07-07 17:05:21,887 [INFO] Deduplicated letters: E, E, F, C, C, R, E
+2025-07-07 17:05:21,888 [INFO] Forced 6-letter wheel template with 1 matched detections.
+2025-07-07 17:05:21,903 [INFO] Detected letters: E
+2025-07-07 17:05:21,903 [INFO] Finding words...
+2025-07-07 17:05:21,903 [INFO] Found 0 words: 
+2025-07-07 17:05:21,904 [INFO] Swiping words...
+2025-07-07 17:05:21,904 [INFO] Done!
+2025-07-07 17:09:20,271 [INFO] Hotkey registered: Ctrl+Shift+F8 to stop the bot
+2025-07-07 17:10:02,811 [INFO] Hotkey registered: Ctrl+Shift+F8 to stop the bot
+2025-07-07 17:10:02,813 [INFO] Debug mode enabled. Screenshots will be saved in 'debug_screenshots'
+2025-07-07 17:10:04,499 [INFO] Getting processed screenshot...
+2025-07-07 17:10:04,693 [INFO] Detecting letters...
+2025-07-07 17:10:04,693 [INFO] Trying parameter set 1: {'image': array([[  0,   0,   0, ...,   0, 255, 255],
+       [  0,   0,   0, ...,   0, 255, 255],
+       [  0,   0,   0, ...,   0, 255, 255],
+       ...,
+       [255, 255, 255, ..., 255, 255, 255],
+       [255, 255, 255, ..., 255, 255, 255],
+       [255, 255, 255, ..., 255, 255, 255]], shape=(380, 382), dtype=uint8), 'text_threshold': 0.4, 'low_text': 0.2, 'link_threshold': 0.2, 'width_ths': 0.5, 'height_ths': 0.5}
+2025-07-07 17:10:04,910 [INFO] Parameter set 1 returned 2 results
+2025-07-07 17:10:04,910 [INFO]   Result 1: Text='F', Confidence=0.998, Position=(90, 113)
+2025-07-07 17:10:04,910 [INFO]     -> SINGLE LETTER: 'F' at (90, 113) with confidence 0.998
+2025-07-07 17:10:04,910 [INFO] ACCEPTED (Set 1): 'F' with confidence 0.998 (threshold: 0.800)
+2025-07-07 17:10:04,910 [INFO]   Result 2: Text='FSR', Confidence=0.216, Position=(227, 235)
+2025-07-07 17:10:04,911 [INFO]     -> MULTI-LETTER: 'FSR' - attempting to split
+2025-07-07 17:10:04,911 [INFO]     -> CONTAINS TARGET LETTERS: 'FSR' might be relevant
+2025-07-07 17:10:04,911 [INFO] Trying parameter set 2: {'image': array([[  0,   0,   0, ...,   0, 255, 255],
+       [  0,   0,   0, ...,   0, 255, 255],
+       [  0,   0,   0, ...,   0, 255, 255],
+       ...,
+       [255, 255, 255, ..., 255, 255, 255],
+       [255, 255, 255, ..., 255, 255, 255],
+       [255, 255, 255, ..., 255, 255, 255]], shape=(380, 382), dtype=uint8), 'text_threshold': 0.7, 'low_text': 0.4, 'link_threshold': 0.4, 'width_ths': 0.7, 'height_ths': 0.7}
+2025-07-07 17:10:04,970 [INFO] Parameter set 2 returned 5 results
+2025-07-07 17:10:04,970 [INFO]   Result 1: Text='F', Confidence=0.999, Position=(74, 109)
+2025-07-07 17:10:04,970 [INFO]     -> SINGLE LETTER: 'F' at (74, 109) with confidence 0.999
+2025-07-07 17:10:04,970 [INFO]   Result 2: Text='E', Confidence=0.994, Position=(319, 110)
+2025-07-07 17:10:04,970 [INFO]     -> SINGLE LETTER: 'E' at (319, 110) with confidence 0.994
+2025-07-07 17:10:04,971 [INFO] ACCEPTED (Set 2): 'E' with confidence 0.994 (threshold: 0.800)
+2025-07-07 17:10:04,971 [INFO]   Result 3: Text='E0', Confidence=0.570, Position=(139, 260)
+2025-07-07 17:10:04,971 [INFO]     -> MULTI-LETTER: 'E0' - attempting to split
+2025-07-07 17:10:04,971 [INFO]   Result 4: Text='R', Confidence=1.000, Position=(315, 246)
+2025-07-07 17:10:04,971 [INFO]     -> SINGLE LETTER: 'R' at (315, 246) with confidence 1.000
+2025-07-07 17:10:04,971 [INFO] ACCEPTED (Set 2): 'R' with confidence 1.000 (threshold: 0.400)
+2025-07-07 17:10:04,971 [INFO]     -> CONTAINS TARGET LETTERS: 'R' might be relevant
+2025-07-07 17:10:04,971 [INFO]   Result 5: Text='C', Confidence=1.000, Position=(202, 318)
+2025-07-07 17:10:04,972 [INFO]     -> SINGLE LETTER: 'C' at (202, 318) with confidence 1.000
+2025-07-07 17:10:04,972 [INFO] ACCEPTED (Set 2): 'C' with confidence 1.000 (threshold: 0.800)
+2025-07-07 17:10:04,972 [INFO]     -> CONTAINS TARGET LETTERS: 'C' might be relevant
+2025-07-07 17:10:04,972 [INFO] Trying parameter set 3: {'image': array([[  0,   0,   0, ...,   0, 255, 255],
+       [  0,   0,   0, ...,   0, 255, 255],
+       [  0,   0,   0, ...,   0, 255, 255],
+       ...,
+       [255, 255, 255, ..., 255, 255, 255],
+       [255, 255, 255, ..., 255, 255, 255],
+       [255, 255, 255, ..., 255, 255, 255]], shape=(380, 382), dtype=uint8), 'text_threshold': 0.4, 'low_text': 0.2, 'link_threshold': 0.4, 'width_ths': 0.7, 'height_ths': 0.7}
+2025-07-07 17:10:05,013 [INFO] Parameter set 3 returned 4 results
+2025-07-07 17:10:05,013 [INFO]   Result 1: Text='F', Confidence=0.998, Position=(90, 112)
+2025-07-07 17:10:05,013 [INFO]     -> SINGLE LETTER: 'F' at (90, 112) with confidence 0.998
+2025-07-07 17:10:05,013 [INFO]   Result 2: Text='E', Confidence=0.999, Position=(317, 116)
+2025-07-07 17:10:05,013 [INFO]     -> SINGLE LETTER: 'E' at (317, 116) with confidence 0.999
+2025-07-07 17:10:05,014 [INFO]   Result 3: Text='EC', Confidence=0.969, Position=(149, 283)
+2025-07-07 17:10:05,014 [INFO]     -> MULTI-LETTER: 'EC' - attempting to split
+2025-07-07 17:10:05,014 [INFO] SPLIT LETTER: 'E' at (79, 283) from 'EC' with confidence 0.969
+2025-07-07 17:10:05,014 [INFO] SPLIT LETTER: 'C' at (219, 283) from 'EC' with confidence 0.969
+2025-07-07 17:10:05,014 [INFO]     -> CONTAINS TARGET LETTERS: 'EC' might be relevant
+2025-07-07 17:10:05,014 [INFO]   Result 4: Text='R', Confidence=0.988, Position=(317, 229)
+2025-07-07 17:10:05,014 [INFO]     -> SINGLE LETTER: 'R' at (317, 229) with confidence 0.988
+2025-07-07 17:10:05,014 [INFO]     -> CONTAINS TARGET LETTERS: 'R' might be relevant
+2025-07-07 17:10:05,014 [INFO] Trying parameter set 4: {'image': array([[  0,   0,   0, ...,   0, 255, 255],
+       [  0,   0,   0, ...,   0, 255, 255],
+       [  0,   0,   0, ...,   0, 255, 255],
+       ...,
+       [255, 255, 255, ..., 255, 255, 255],
+       [255, 255, 255, ..., 255, 255, 255],
+       [255, 255, 255, ..., 255, 255, 255]], shape=(380, 382), dtype=uint8), 'text_threshold': 0.4, 'low_text': 0.2, 'link_threshold': 0.4, 'width_ths': 0.7, 'height_ths': 0.7, 'mag_ratio': 1.5}
+2025-07-07 17:10:05,085 [INFO] Parameter set 4 returned 5 results
+2025-07-07 17:10:05,085 [INFO]   Result 1: Text='F', Confidence=0.999, Position=(70, 109)
+2025-07-07 17:10:05,085 [INFO]     -> SINGLE LETTER: 'F' at (70, 109) with confidence 0.999
+2025-07-07 17:10:05,085 [INFO]   Result 2: Text='E', Confidence=0.999, Position=(317, 108)
+2025-07-07 17:10:05,085 [INFO]     -> SINGLE LETTER: 'E' at (317, 108) with confidence 0.999
+2025-07-07 17:10:05,086 [INFO]   Result 3: Text='E', Confidence=0.993, Position=(71, 249)
+2025-07-07 17:10:05,086 [INFO]     -> SINGLE LETTER: 'E' at (71, 249) with confidence 0.993
+2025-07-07 17:10:05,086 [INFO] ACCEPTED (Set 4): 'E' with confidence 0.993 (threshold: 0.800)
+2025-07-07 17:10:05,086 [INFO]   Result 4: Text='R', Confidence=1.000, Position=(316, 250)
+2025-07-07 17:10:05,086 [INFO]     -> SINGLE LETTER: 'R' at (316, 250) with confidence 1.000
+2025-07-07 17:10:05,086 [INFO]     -> CONTAINS TARGET LETTERS: 'R' might be relevant
+2025-07-07 17:10:05,086 [INFO]   Result 5: Text='C', Confidence=1.000, Position=(193, 321)
+2025-07-07 17:10:05,086 [INFO]     -> SINGLE LETTER: 'C' at (193, 321) with confidence 1.000
+2025-07-07 17:10:05,086 [INFO]     -> CONTAINS TARGET LETTERS: 'C' might be relevant
+2025-07-07 17:10:05,086 [INFO] Testing without allowlist to see all possible detections...
+2025-07-07 17:10:05,130 [INFO] No-allowlist mode returned 3 results
+2025-07-07 17:10:05,131 [INFO]   No-allowlist Result 1: Text='', Confidence=0.000, Position=(32, 16)
+2025-07-07 17:10:05,131 [INFO]   No-allowlist Result 2: Text='F', Confidence=0.997, Position=(90, 112)
+2025-07-07 17:10:05,131 [INFO]   No-allowlist Result 3: Text='ec Re', Confidence=0.322, Position=(226, 234)
+2025-07-07 17:10:05,131 [INFO] Deduplicated letters: E, E, F, C, C, R, E
+2025-07-07 17:10:05,131 [INFO] Forced 6-letter wheel template with 2 matched detections.
+2025-07-07 17:10:05,147 [INFO] Detected letters: E, E
+2025-07-07 17:10:05,147 [INFO] Finding words...
+2025-07-07 17:10:05,147 [INFO] Found 0 words: 
+2025-07-07 17:10:05,147 [INFO] Swiping words...
+2025-07-07 17:10:05,147 [INFO] Done!
+2025-07-07 17:10:52,103 [INFO] Hotkey registered: Ctrl+Shift+F8 to stop the bot
+2025-07-07 17:10:52,105 [INFO] Debug mode enabled. Screenshots will be saved in 'debug_screenshots'
+2025-07-07 17:10:53,748 [INFO] Getting processed screenshot...
+2025-07-07 17:10:53,940 [INFO] Detecting letters...
+2025-07-07 17:10:53,940 [INFO] Trying parameter set 1: {'image': array([[  0,   0,   0, ...,   0, 255, 255],
+       [  0,   0,   0, ...,   0, 255, 255],
+       [  0,   0,   0, ...,   0, 255, 255],
+       ...,
+       [255, 255, 255, ..., 255, 255, 255],
+       [255, 255, 255, ..., 255, 255, 255],
+       [255, 255, 255, ..., 255, 255, 255]], shape=(380, 382), dtype=uint8), 'text_threshold': 0.4, 'low_text': 0.2, 'link_threshold': 0.2, 'width_ths': 0.5, 'height_ths': 0.5}
+2025-07-07 17:10:54,170 [INFO] Parameter set 1 returned 2 results
+2025-07-07 17:10:54,170 [INFO]   Result 1: Text='F', Confidence=0.998, Position=(90, 113)
+2025-07-07 17:10:54,170 [INFO]     -> SINGLE LETTER: 'F' at (90, 113) with confidence 0.998
+2025-07-07 17:10:54,171 [INFO] ACCEPTED (Set 1): 'F' with confidence 0.998 (threshold: 0.800)
+2025-07-07 17:10:54,171 [INFO]   Result 2: Text='FSR', Confidence=0.216, Position=(227, 235)
+2025-07-07 17:10:54,171 [INFO]     -> MULTI-LETTER: 'FSR' - attempting to split
+2025-07-07 17:10:54,171 [INFO]     -> CONTAINS TARGET LETTERS: 'FSR' might be relevant
+2025-07-07 17:10:54,171 [INFO] Trying parameter set 2: {'image': array([[  0,   0,   0, ...,   0, 255, 255],
+       [  0,   0,   0, ...,   0, 255, 255],
+       [  0,   0,   0, ...,   0, 255, 255],
+       ...,
+       [255, 255, 255, ..., 255, 255, 255],
+       [255, 255, 255, ..., 255, 255, 255],
+       [255, 255, 255, ..., 255, 255, 255]], shape=(380, 382), dtype=uint8), 'text_threshold': 0.7, 'low_text': 0.4, 'link_threshold': 0.4, 'width_ths': 0.7, 'height_ths': 0.7}
+2025-07-07 17:10:54,233 [INFO] Parameter set 2 returned 5 results
+2025-07-07 17:10:54,233 [INFO]   Result 1: Text='F', Confidence=0.999, Position=(74, 109)
+2025-07-07 17:10:54,233 [INFO]     -> SINGLE LETTER: 'F' at (74, 109) with confidence 0.999
+2025-07-07 17:10:54,233 [INFO]   Result 2: Text='E', Confidence=0.994, Position=(319, 110)
+2025-07-07 17:10:54,233 [INFO]     -> SINGLE LETTER: 'E' at (319, 110) with confidence 0.994
+2025-07-07 17:10:54,233 [INFO] ACCEPTED (Set 2): 'E' with confidence 0.994 (threshold: 0.800)
+2025-07-07 17:10:54,234 [INFO]   Result 3: Text='E0', Confidence=0.570, Position=(139, 260)
+2025-07-07 17:10:54,234 [INFO]     -> MULTI-LETTER: 'E0' - attempting to split
+2025-07-07 17:10:54,234 [INFO]   Result 4: Text='R', Confidence=1.000, Position=(315, 246)
+2025-07-07 17:10:54,234 [INFO]     -> SINGLE LETTER: 'R' at (315, 246) with confidence 1.000
+2025-07-07 17:10:54,234 [INFO] ACCEPTED (Set 2): 'R' with confidence 1.000 (threshold: 0.400)
+2025-07-07 17:10:54,234 [INFO]     -> CONTAINS TARGET LETTERS: 'R' might be relevant
+2025-07-07 17:10:54,234 [INFO]   Result 5: Text='C', Confidence=1.000, Position=(202, 318)
+2025-07-07 17:10:54,234 [INFO]     -> SINGLE LETTER: 'C' at (202, 318) with confidence 1.000
+2025-07-07 17:10:54,234 [INFO] ACCEPTED (Set 2): 'C' with confidence 1.000 (threshold: 0.800)
+2025-07-07 17:10:54,235 [INFO]     -> CONTAINS TARGET LETTERS: 'C' might be relevant
+2025-07-07 17:10:54,235 [INFO] Trying parameter set 3: {'image': array([[  0,   0,   0, ...,   0, 255, 255],
+       [  0,   0,   0, ...,   0, 255, 255],
+       [  0,   0,   0, ...,   0, 255, 255],
+       ...,
+       [255, 255, 255, ..., 255, 255, 255],
+       [255, 255, 255, ..., 255, 255, 255],
+       [255, 255, 255, ..., 255, 255, 255]], shape=(380, 382), dtype=uint8), 'text_threshold': 0.4, 'low_text': 0.2, 'link_threshold': 0.4, 'width_ths': 0.7, 'height_ths': 0.7}
+2025-07-07 17:10:54,283 [INFO] Parameter set 3 returned 4 results
+2025-07-07 17:10:54,283 [INFO]   Result 1: Text='F', Confidence=0.998, Position=(90, 112)
+2025-07-07 17:10:54,284 [INFO]     -> SINGLE LETTER: 'F' at (90, 112) with confidence 0.998
+2025-07-07 17:10:54,284 [INFO]   Result 2: Text='E', Confidence=0.999, Position=(317, 116)
+2025-07-07 17:10:54,284 [INFO]     -> SINGLE LETTER: 'E' at (317, 116) with confidence 0.999
+2025-07-07 17:10:54,284 [INFO]   Result 3: Text='EC', Confidence=0.969, Position=(149, 283)
+2025-07-07 17:10:54,284 [INFO]     -> MULTI-LETTER: 'EC' - attempting to split
+2025-07-07 17:10:54,284 [INFO] SPLIT LETTER: 'E' at (79, 283) from 'EC' with confidence 0.969
+2025-07-07 17:10:54,284 [INFO] SPLIT LETTER: 'C' at (219, 283) from 'EC' with confidence 0.969
+2025-07-07 17:10:54,284 [INFO]     -> CONTAINS TARGET LETTERS: 'EC' might be relevant
+2025-07-07 17:10:54,285 [INFO]   Result 4: Text='R', Confidence=0.988, Position=(317, 229)
+2025-07-07 17:10:54,285 [INFO]     -> SINGLE LETTER: 'R' at (317, 229) with confidence 0.988
+2025-07-07 17:10:54,285 [INFO]     -> CONTAINS TARGET LETTERS: 'R' might be relevant
+2025-07-07 17:10:54,285 [INFO] Trying parameter set 4: {'image': array([[  0,   0,   0, ...,   0, 255, 255],
+       [  0,   0,   0, ...,   0, 255, 255],
+       [  0,   0,   0, ...,   0, 255, 255],
+       ...,
+       [255, 255, 255, ..., 255, 255, 255],
+       [255, 255, 255, ..., 255, 255, 255],
+       [255, 255, 255, ..., 255, 255, 255]], shape=(380, 382), dtype=uint8), 'text_threshold': 0.4, 'low_text': 0.2, 'link_threshold': 0.4, 'width_ths': 0.7, 'height_ths': 0.7, 'mag_ratio': 1.5}
+2025-07-07 17:10:54,363 [INFO] Parameter set 4 returned 5 results
+2025-07-07 17:10:54,363 [INFO]   Result 1: Text='F', Confidence=0.999, Position=(70, 109)
+2025-07-07 17:10:54,364 [INFO]     -> SINGLE LETTER: 'F' at (70, 109) with confidence 0.999
+2025-07-07 17:10:54,364 [INFO]   Result 2: Text='E', Confidence=0.999, Position=(317, 108)
+2025-07-07 17:10:54,364 [INFO]     -> SINGLE LETTER: 'E' at (317, 108) with confidence 0.999
+2025-07-07 17:10:54,364 [INFO]   Result 3: Text='E', Confidence=0.993, Position=(71, 249)
+2025-07-07 17:10:54,364 [INFO]     -> SINGLE LETTER: 'E' at (71, 249) with confidence 0.993
+2025-07-07 17:10:54,364 [INFO] ACCEPTED (Set 4): 'E' with confidence 0.993 (threshold: 0.800)
+2025-07-07 17:10:54,364 [INFO]   Result 4: Text='R', Confidence=1.000, Position=(316, 250)
+2025-07-07 17:10:54,364 [INFO]     -> SINGLE LETTER: 'R' at (316, 250) with confidence 1.000
+2025-07-07 17:10:54,364 [INFO]     -> CONTAINS TARGET LETTERS: 'R' might be relevant
+2025-07-07 17:10:54,365 [INFO]   Result 5: Text='C', Confidence=1.000, Position=(193, 321)
+2025-07-07 17:10:54,365 [INFO]     -> SINGLE LETTER: 'C' at (193, 321) with confidence 1.000
+2025-07-07 17:10:54,365 [INFO]     -> CONTAINS TARGET LETTERS: 'C' might be relevant
+2025-07-07 17:10:54,365 [INFO] Testing without allowlist to see all possible detections...
+2025-07-07 17:10:54,411 [INFO] No-allowlist mode returned 3 results
+2025-07-07 17:10:54,411 [INFO]   No-allowlist Result 1: Text='', Confidence=0.000, Position=(32, 16)
+2025-07-07 17:10:54,411 [INFO]   No-allowlist Result 2: Text='F', Confidence=0.997, Position=(90, 112)
+2025-07-07 17:10:54,411 [INFO]   No-allowlist Result 3: Text='ec Re', Confidence=0.322, Position=(226, 234)
+2025-07-07 17:10:54,411 [INFO] Deduplicated letters: E, E, F, C, C, R, E
+2025-07-07 17:10:54,412 [INFO] Forced 6-letter wheel template with 1 matched detections.
+2025-07-07 17:10:54,427 [INFO] Detected letters: E
+2025-07-07 17:10:54,427 [INFO] Finding words...
+2025-07-07 17:10:54,427 [INFO] Found 0 words: 
+2025-07-07 17:10:54,427 [INFO] Swiping words...
+2025-07-07 17:10:54,427 [INFO] Done!
+2025-07-07 17:12:00,456 [INFO] Hotkey registered: Ctrl+Shift+F8 to stop the bot
+2025-07-07 17:12:00,458 [INFO] Debug mode enabled. Screenshots will be saved in 'debug_screenshots'
+2025-07-07 17:12:02,065 [INFO] Getting processed screenshot...
+2025-07-07 17:12:02,262 [INFO] Detecting letters...
+2025-07-07 17:12:02,263 [INFO] Trying parameter set 1: {'image': array([[  0,   0,   0, ...,   0, 255, 255],
+       [  0,   0,   0, ...,   0, 255, 255],
+       [  0,   0,   0, ...,   0, 255, 255],
+       ...,
+       [255, 255, 255, ..., 255, 255, 255],
+       [255, 255, 255, ..., 255, 255, 255],
+       [255, 255, 255, ..., 255, 255, 255]], shape=(380, 382), dtype=uint8), 'text_threshold': 0.4, 'low_text': 0.2, 'link_threshold': 0.2, 'width_ths': 0.5, 'height_ths': 0.5}
+2025-07-07 17:12:02,489 [INFO] Parameter set 1 returned 2 results
+2025-07-07 17:12:02,489 [INFO]   Result 1: Text='F', Confidence=0.998, Position=(90, 113)
+2025-07-07 17:12:02,489 [INFO]     -> SINGLE LETTER: 'F' at (90, 113) with confidence 0.998
+2025-07-07 17:12:02,489 [INFO] ACCEPTED (Set 1): 'F' with confidence 0.998 (threshold: 0.800)
+2025-07-07 17:12:02,489 [INFO]   Result 2: Text='FSR', Confidence=0.216, Position=(227, 235)
+2025-07-07 17:12:02,490 [INFO]     -> MULTI-LETTER: 'FSR' - attempting to split
+2025-07-07 17:12:02,490 [INFO]     -> CONTAINS TARGET LETTERS: 'FSR' might be relevant
+2025-07-07 17:12:02,490 [INFO] Trying parameter set 2: {'image': array([[  0,   0,   0, ...,   0, 255, 255],
+       [  0,   0,   0, ...,   0, 255, 255],
+       [  0,   0,   0, ...,   0, 255, 255],
+       ...,
+       [255, 255, 255, ..., 255, 255, 255],
+       [255, 255, 255, ..., 255, 255, 255],
+       [255, 255, 255, ..., 255, 255, 255]], shape=(380, 382), dtype=uint8), 'text_threshold': 0.7, 'low_text': 0.4, 'link_threshold': 0.4, 'width_ths': 0.7, 'height_ths': 0.7}
+2025-07-07 17:12:02,556 [INFO] Parameter set 2 returned 5 results
+2025-07-07 17:12:02,556 [INFO]   Result 1: Text='F', Confidence=0.999, Position=(74, 109)
+2025-07-07 17:12:02,556 [INFO]     -> SINGLE LETTER: 'F' at (74, 109) with confidence 0.999
+2025-07-07 17:12:02,557 [INFO]   Result 2: Text='E', Confidence=0.994, Position=(319, 110)
+2025-07-07 17:12:02,557 [INFO]     -> SINGLE LETTER: 'E' at (319, 110) with confidence 0.994
+2025-07-07 17:12:02,557 [INFO] ACCEPTED (Set 2): 'E' with confidence 0.994 (threshold: 0.800)
+2025-07-07 17:12:02,557 [INFO]   Result 3: Text='E0', Confidence=0.570, Position=(139, 260)
+2025-07-07 17:12:02,557 [INFO]     -> MULTI-LETTER: 'E0' - attempting to split
+2025-07-07 17:12:02,557 [INFO]   Result 4: Text='R', Confidence=1.000, Position=(315, 246)
+2025-07-07 17:12:02,557 [INFO]     -> SINGLE LETTER: 'R' at (315, 246) with confidence 1.000
+2025-07-07 17:12:02,557 [INFO] ACCEPTED (Set 2): 'R' with confidence 1.000 (threshold: 0.400)
+2025-07-07 17:12:02,557 [INFO]     -> CONTAINS TARGET LETTERS: 'R' might be relevant
+2025-07-07 17:12:02,557 [INFO]   Result 5: Text='C', Confidence=1.000, Position=(202, 318)
+2025-07-07 17:12:02,558 [INFO]     -> SINGLE LETTER: 'C' at (202, 318) with confidence 1.000
+2025-07-07 17:12:02,558 [INFO] ACCEPTED (Set 2): 'C' with confidence 1.000 (threshold: 0.800)
+2025-07-07 17:12:02,558 [INFO]     -> CONTAINS TARGET LETTERS: 'C' might be relevant
+2025-07-07 17:12:02,558 [INFO] Trying parameter set 3: {'image': array([[  0,   0,   0, ...,   0, 255, 255],
+       [  0,   0,   0, ...,   0, 255, 255],
+       [  0,   0,   0, ...,   0, 255, 255],
+       ...,
+       [255, 255, 255, ..., 255, 255, 255],
+       [255, 255, 255, ..., 255, 255, 255],
+       [255, 255, 255, ..., 255, 255, 255]], shape=(380, 382), dtype=uint8), 'text_threshold': 0.4, 'low_text': 0.2, 'link_threshold': 0.4, 'width_ths': 0.7, 'height_ths': 0.7}
+2025-07-07 17:12:02,604 [INFO] Parameter set 3 returned 4 results
+2025-07-07 17:12:02,605 [INFO]   Result 1: Text='F', Confidence=0.998, Position=(90, 112)
+2025-07-07 17:12:02,605 [INFO]     -> SINGLE LETTER: 'F' at (90, 112) with confidence 0.998
+2025-07-07 17:12:02,605 [INFO]   Result 2: Text='E', Confidence=0.999, Position=(317, 116)
+2025-07-07 17:12:02,605 [INFO]     -> SINGLE LETTER: 'E' at (317, 116) with confidence 0.999
+2025-07-07 17:12:02,605 [INFO]   Result 3: Text='EC', Confidence=0.969, Position=(149, 283)
+2025-07-07 17:12:02,605 [INFO]     -> MULTI-LETTER: 'EC' - attempting to split
+2025-07-07 17:12:02,605 [INFO] SPLIT LETTER: 'E' at (79, 283) from 'EC' with confidence 0.969
+2025-07-07 17:12:02,605 [INFO] SPLIT LETTER: 'C' at (219, 283) from 'EC' with confidence 0.969
+2025-07-07 17:12:02,605 [INFO]     -> CONTAINS TARGET LETTERS: 'EC' might be relevant
+2025-07-07 17:12:02,606 [INFO]   Result 4: Text='R', Confidence=0.988, Position=(317, 229)
+2025-07-07 17:12:02,606 [INFO]     -> SINGLE LETTER: 'R' at (317, 229) with confidence 0.988
+2025-07-07 17:12:02,606 [INFO]     -> CONTAINS TARGET LETTERS: 'R' might be relevant
+2025-07-07 17:12:02,607 [INFO] Trying parameter set 4: {'image': array([[  0,   0,   0, ...,   0, 255, 255],
+       [  0,   0,   0, ...,   0, 255, 255],
+       [  0,   0,   0, ...,   0, 255, 255],
+       ...,
+       [255, 255, 255, ..., 255, 255, 255],
+       [255, 255, 255, ..., 255, 255, 255],
+       [255, 255, 255, ..., 255, 255, 255]], shape=(380, 382), dtype=uint8), 'text_threshold': 0.4, 'low_text': 0.2, 'link_threshold': 0.4, 'width_ths': 0.7, 'height_ths': 0.7, 'mag_ratio': 1.5}
+2025-07-07 17:12:02,683 [INFO] Parameter set 4 returned 5 results
+2025-07-07 17:12:02,683 [INFO]   Result 1: Text='F', Confidence=0.999, Position=(70, 109)
+2025-07-07 17:12:02,683 [INFO]     -> SINGLE LETTER: 'F' at (70, 109) with confidence 0.999
+2025-07-07 17:12:02,684 [INFO]   Result 2: Text='E', Confidence=0.999, Position=(317, 108)
+2025-07-07 17:12:02,684 [INFO]     -> SINGLE LETTER: 'E' at (317, 108) with confidence 0.999
+2025-07-07 17:12:02,684 [INFO]   Result 3: Text='E', Confidence=0.993, Position=(71, 249)
+2025-07-07 17:12:02,684 [INFO]     -> SINGLE LETTER: 'E' at (71, 249) with confidence 0.993
+2025-07-07 17:12:02,684 [INFO] ACCEPTED (Set 4): 'E' with confidence 0.993 (threshold: 0.800)
+2025-07-07 17:12:02,684 [INFO]   Result 4: Text='R', Confidence=1.000, Position=(316, 250)
+2025-07-07 17:12:02,684 [INFO]     -> SINGLE LETTER: 'R' at (316, 250) with confidence 1.000
+2025-07-07 17:12:02,684 [INFO]     -> CONTAINS TARGET LETTERS: 'R' might be relevant
+2025-07-07 17:12:02,684 [INFO]   Result 5: Text='C', Confidence=1.000, Position=(193, 321)
+2025-07-07 17:12:02,685 [INFO]     -> SINGLE LETTER: 'C' at (193, 321) with confidence 1.000
+2025-07-07 17:12:02,685 [INFO]     -> CONTAINS TARGET LETTERS: 'C' might be relevant
+2025-07-07 17:12:02,685 [INFO] Testing without allowlist to see all possible detections...
+2025-07-07 17:12:02,738 [INFO] No-allowlist mode returned 3 results
+2025-07-07 17:12:02,738 [INFO]   No-allowlist Result 1: Text='', Confidence=0.000, Position=(32, 16)
+2025-07-07 17:12:02,738 [INFO]   No-allowlist Result 2: Text='F', Confidence=0.997, Position=(90, 112)
+2025-07-07 17:12:02,738 [INFO]   No-allowlist Result 3: Text='ec Re', Confidence=0.322, Position=(226, 234)
+2025-07-07 17:12:02,738 [INFO] Deduplicated letters: E, E, F, C, C, R, E
+2025-07-07 17:12:02,738 [INFO] Forced 6-letter wheel template with 1 matched detections.
+2025-07-07 17:12:02,746 [INFO] Detected letters: E
+2025-07-07 17:12:02,746 [INFO] Finding words...
+2025-07-07 17:12:02,746 [INFO] Found 0 words: 
+2025-07-07 17:12:02,746 [INFO] Swiping words...
+2025-07-07 17:12:02,746 [INFO] Done!
+2025-07-07 17:12:22,499 [INFO] Hotkey registered: Ctrl+Shift+F8 to stop the bot
+2025-07-07 17:12:22,501 [INFO] Debug mode enabled. Screenshots will be saved in 'debug_screenshots'
+2025-07-07 17:12:24,171 [INFO] Getting processed screenshot...
+2025-07-07 17:12:24,366 [INFO] Detecting letters...
+2025-07-07 17:12:24,367 [INFO] Trying parameter set 1: {'image': array([[  0,   0,   0, ...,   0, 255, 255],
+       [  0,   0,   0, ...,   0, 255, 255],
+       [  0,   0,   0, ...,   0, 255, 255],
+       ...,
+       [255, 255, 255, ..., 255, 255, 255],
+       [255, 255, 255, ..., 255, 255, 255],
+       [255, 255, 255, ..., 255, 255, 255]], shape=(380, 382), dtype=uint8), 'text_threshold': 0.4, 'low_text': 0.2, 'link_threshold': 0.2, 'width_ths': 0.5, 'height_ths': 0.5}
+2025-07-07 17:12:24,593 [INFO] Parameter set 1 returned 2 results
+2025-07-07 17:12:24,593 [INFO]   Result 1: Text='F', Confidence=0.998, Position=(90, 113)
+2025-07-07 17:12:24,593 [INFO]     -> SINGLE LETTER: 'F' at (90, 113) with confidence 0.998
+2025-07-07 17:12:24,593 [INFO] ACCEPTED (Set 1): 'F' with confidence 0.998 (threshold: 0.800)
+2025-07-07 17:12:24,593 [INFO]   Result 2: Text='FSR', Confidence=0.216, Position=(227, 235)
+2025-07-07 17:12:24,593 [INFO]     -> MULTI-LETTER: 'FSR' - attempting to split
+2025-07-07 17:12:24,593 [INFO]     -> CONTAINS TARGET LETTERS: 'FSR' might be relevant
+2025-07-07 17:12:24,593 [INFO] Trying parameter set 2: {'image': array([[  0,   0,   0, ...,   0, 255, 255],
+       [  0,   0,   0, ...,   0, 255, 255],
+       [  0,   0,   0, ...,   0, 255, 255],
+       ...,
+       [255, 255, 255, ..., 255, 255, 255],
+       [255, 255, 255, ..., 255, 255, 255],
+       [255, 255, 255, ..., 255, 255, 255]], shape=(380, 382), dtype=uint8), 'text_threshold': 0.7, 'low_text': 0.4, 'link_threshold': 0.4, 'width_ths': 0.7, 'height_ths': 0.7}
+2025-07-07 17:12:24,652 [INFO] Parameter set 2 returned 5 results
+2025-07-07 17:12:24,653 [INFO]   Result 1: Text='F', Confidence=0.999, Position=(74, 109)
+2025-07-07 17:12:24,653 [INFO]     -> SINGLE LETTER: 'F' at (74, 109) with confidence 0.999
+2025-07-07 17:12:24,653 [INFO]   Result 2: Text='E', Confidence=0.994, Position=(319, 110)
+2025-07-07 17:12:24,653 [INFO]     -> SINGLE LETTER: 'E' at (319, 110) with confidence 0.994
+2025-07-07 17:12:24,653 [INFO] ACCEPTED (Set 2): 'E' with confidence 0.994 (threshold: 0.800)
+2025-07-07 17:12:24,653 [INFO]   Result 3: Text='E0', Confidence=0.570, Position=(139, 260)
+2025-07-07 17:12:24,653 [INFO]     -> MULTI-LETTER: 'E0' - attempting to split
+2025-07-07 17:12:24,653 [INFO]   Result 4: Text='R', Confidence=1.000, Position=(315, 246)
+2025-07-07 17:12:24,653 [INFO]     -> SINGLE LETTER: 'R' at (315, 246) with confidence 1.000
+2025-07-07 17:12:24,654 [INFO] ACCEPTED (Set 2): 'R' with confidence 1.000 (threshold: 0.400)
+2025-07-07 17:12:24,654 [INFO]     -> CONTAINS TARGET LETTERS: 'R' might be relevant
+2025-07-07 17:12:24,654 [INFO]   Result 5: Text='C', Confidence=1.000, Position=(202, 318)
+2025-07-07 17:12:24,654 [INFO]     -> SINGLE LETTER: 'C' at (202, 318) with confidence 1.000
+2025-07-07 17:12:24,654 [INFO] ACCEPTED (Set 2): 'C' with confidence 1.000 (threshold: 0.800)
+2025-07-07 17:12:24,654 [INFO]     -> CONTAINS TARGET LETTERS: 'C' might be relevant
+2025-07-07 17:12:24,654 [INFO] Trying parameter set 3: {'image': array([[  0,   0,   0, ...,   0, 255, 255],
+       [  0,   0,   0, ...,   0, 255, 255],
+       [  0,   0,   0, ...,   0, 255, 255],
+       ...,
+       [255, 255, 255, ..., 255, 255, 255],
+       [255, 255, 255, ..., 255, 255, 255],
+       [255, 255, 255, ..., 255, 255, 255]], shape=(380, 382), dtype=uint8), 'text_threshold': 0.4, 'low_text': 0.2, 'link_threshold': 0.4, 'width_ths': 0.7, 'height_ths': 0.7}
+2025-07-07 17:12:24,693 [INFO] Parameter set 3 returned 4 results
+2025-07-07 17:12:24,693 [INFO]   Result 1: Text='F', Confidence=0.998, Position=(90, 112)
+2025-07-07 17:12:24,693 [INFO]     -> SINGLE LETTER: 'F' at (90, 112) with confidence 0.998
+2025-07-07 17:12:24,693 [INFO]   Result 2: Text='E', Confidence=0.999, Position=(317, 116)
+2025-07-07 17:12:24,693 [INFO]     -> SINGLE LETTER: 'E' at (317, 116) with confidence 0.999
+2025-07-07 17:12:24,694 [INFO]   Result 3: Text='EC', Confidence=0.969, Position=(149, 283)
+2025-07-07 17:12:24,694 [INFO]     -> MULTI-LETTER: 'EC' - attempting to split
+2025-07-07 17:12:24,694 [INFO] SPLIT LETTER: 'E' at (79, 283) from 'EC' with confidence 0.969
+2025-07-07 17:12:24,694 [INFO] SPLIT LETTER: 'C' at (219, 283) from 'EC' with confidence 0.969
+2025-07-07 17:12:24,694 [INFO]     -> CONTAINS TARGET LETTERS: 'EC' might be relevant
+2025-07-07 17:12:24,694 [INFO]   Result 4: Text='R', Confidence=0.988, Position=(317, 229)
+2025-07-07 17:12:24,694 [INFO]     -> SINGLE LETTER: 'R' at (317, 229) with confidence 0.988
+2025-07-07 17:12:24,694 [INFO]     -> CONTAINS TARGET LETTERS: 'R' might be relevant
+2025-07-07 17:12:24,694 [INFO] Trying parameter set 4: {'image': array([[  0,   0,   0, ...,   0, 255, 255],
+       [  0,   0,   0, ...,   0, 255, 255],
+       [  0,   0,   0, ...,   0, 255, 255],
+       ...,
+       [255, 255, 255, ..., 255, 255, 255],
+       [255, 255, 255, ..., 255, 255, 255],
+       [255, 255, 255, ..., 255, 255, 255]], shape=(380, 382), dtype=uint8), 'text_threshold': 0.4, 'low_text': 0.2, 'link_threshold': 0.4, 'width_ths': 0.7, 'height_ths': 0.7, 'mag_ratio': 1.5}
+2025-07-07 17:12:24,774 [INFO] Parameter set 4 returned 5 results
+2025-07-07 17:12:24,774 [INFO]   Result 1: Text='F', Confidence=0.999, Position=(70, 109)
+2025-07-07 17:12:24,774 [INFO]     -> SINGLE LETTER: 'F' at (70, 109) with confidence 0.999
+2025-07-07 17:12:24,774 [INFO]   Result 2: Text='E', Confidence=0.999, Position=(317, 108)
+2025-07-07 17:12:24,774 [INFO]     -> SINGLE LETTER: 'E' at (317, 108) with confidence 0.999
+2025-07-07 17:12:24,774 [INFO]   Result 3: Text='E', Confidence=0.993, Position=(71, 249)
+2025-07-07 17:12:24,775 [INFO]     -> SINGLE LETTER: 'E' at (71, 249) with confidence 0.993
+2025-07-07 17:12:24,775 [INFO] ACCEPTED (Set 4): 'E' with confidence 0.993 (threshold: 0.800)
+2025-07-07 17:12:24,775 [INFO]   Result 4: Text='R', Confidence=1.000, Position=(316, 250)
+2025-07-07 17:12:24,775 [INFO]     -> SINGLE LETTER: 'R' at (316, 250) with confidence 1.000
+2025-07-07 17:12:24,775 [INFO]     -> CONTAINS TARGET LETTERS: 'R' might be relevant
+2025-07-07 17:12:24,775 [INFO]   Result 5: Text='C', Confidence=1.000, Position=(193, 321)
+2025-07-07 17:12:24,775 [INFO]     -> SINGLE LETTER: 'C' at (193, 321) with confidence 1.000
+2025-07-07 17:12:24,775 [INFO]     -> CONTAINS TARGET LETTERS: 'C' might be relevant
+2025-07-07 17:12:24,775 [INFO] Testing without allowlist to see all possible detections...
+2025-07-07 17:12:24,818 [INFO] No-allowlist mode returned 3 results
+2025-07-07 17:12:24,818 [INFO]   No-allowlist Result 1: Text='', Confidence=0.000, Position=(32, 16)
+2025-07-07 17:12:24,818 [INFO]   No-allowlist Result 2: Text='F', Confidence=0.997, Position=(90, 112)
+2025-07-07 17:12:24,818 [INFO]   No-allowlist Result 3: Text='ec Re', Confidence=0.322, Position=(226, 234)
+2025-07-07 17:12:24,819 [INFO] Deduplicated letters: E, E, F, C, C, R, E
+2025-07-07 17:12:24,819 [INFO] Forced 6-letter wheel template with 2 matched detections.
+2025-07-07 17:12:24,829 [INFO] Detected letters: F, E
+2025-07-07 17:12:24,829 [INFO] Finding words...
+2025-07-07 17:12:24,830 [INFO] Found 0 words: 
+2025-07-07 17:12:24,830 [INFO] Swiping words...
+2025-07-07 17:12:24,830 [INFO] Done!
+2025-07-07 17:12:56,683 [INFO] Hotkey registered: Ctrl+Shift+F8 to stop the bot
+2025-07-07 17:12:56,685 [INFO] Debug mode enabled. Screenshots will be saved in 'debug_screenshots'
+2025-07-07 17:12:58,269 [INFO] Getting processed screenshot...
+2025-07-07 17:12:58,469 [INFO] Detecting letters...
+2025-07-07 17:12:58,469 [INFO] Trying parameter set 1: {'image': array([[  0,   0,   0, ...,   0, 255, 255],
+       [  0,   0,   0, ...,   0, 255, 255],
+       [  0,   0,   0, ...,   0, 255, 255],
+       ...,
+       [255, 255, 255, ..., 255, 255, 255],
+       [255, 255, 255, ..., 255, 255, 255],
+       [255, 255, 255, ..., 255, 255, 255]], shape=(380, 382), dtype=uint8), 'text_threshold': 0.4, 'low_text': 0.2, 'link_threshold': 0.2, 'width_ths': 0.5, 'height_ths': 0.5}
+2025-07-07 17:12:58,690 [INFO] Parameter set 1 returned 2 results
+2025-07-07 17:12:58,691 [INFO]   Result 1: Text='F', Confidence=0.998, Position=(90, 113)
+2025-07-07 17:12:58,691 [INFO]     -> SINGLE LETTER: 'F' at (90, 113) with confidence 0.998
+2025-07-07 17:12:58,691 [INFO] ACCEPTED (Set 1): 'F' with confidence 0.998 (threshold: 0.800)
+2025-07-07 17:12:58,691 [INFO]   Result 2: Text='FSR', Confidence=0.216, Position=(227, 235)
+2025-07-07 17:12:58,691 [INFO]     -> MULTI-LETTER: 'FSR' - attempting to split
+2025-07-07 17:12:58,691 [INFO]     -> CONTAINS TARGET LETTERS: 'FSR' might be relevant
+2025-07-07 17:12:58,691 [INFO] Trying parameter set 2: {'image': array([[  0,   0,   0, ...,   0, 255, 255],
+       [  0,   0,   0, ...,   0, 255, 255],
+       [  0,   0,   0, ...,   0, 255, 255],
+       ...,
+       [255, 255, 255, ..., 255, 255, 255],
+       [255, 255, 255, ..., 255, 255, 255],
+       [255, 255, 255, ..., 255, 255, 255]], shape=(380, 382), dtype=uint8), 'text_threshold': 0.7, 'low_text': 0.4, 'link_threshold': 0.4, 'width_ths': 0.7, 'height_ths': 0.7}
+2025-07-07 17:12:58,752 [INFO] Parameter set 2 returned 5 results
+2025-07-07 17:12:58,752 [INFO]   Result 1: Text='F', Confidence=0.999, Position=(74, 109)
+2025-07-07 17:12:58,752 [INFO]     -> SINGLE LETTER: 'F' at (74, 109) with confidence 0.999
+2025-07-07 17:12:58,752 [INFO]   Result 2: Text='E', Confidence=0.994, Position=(319, 110)
+2025-07-07 17:12:58,753 [INFO]     -> SINGLE LETTER: 'E' at (319, 110) with confidence 0.994
+2025-07-07 17:12:58,753 [INFO] ACCEPTED (Set 2): 'E' with confidence 0.994 (threshold: 0.800)
+2025-07-07 17:12:58,753 [INFO]   Result 3: Text='E0', Confidence=0.570, Position=(139, 260)
+2025-07-07 17:12:58,753 [INFO]     -> MULTI-LETTER: 'E0' - attempting to split
+2025-07-07 17:12:58,753 [INFO]   Result 4: Text='R', Confidence=1.000, Position=(315, 246)
+2025-07-07 17:12:58,753 [INFO]     -> SINGLE LETTER: 'R' at (315, 246) with confidence 1.000
+2025-07-07 17:12:58,753 [INFO] ACCEPTED (Set 2): 'R' with confidence 1.000 (threshold: 0.400)
+2025-07-07 17:12:58,753 [INFO]     -> CONTAINS TARGET LETTERS: 'R' might be relevant
+2025-07-07 17:12:58,753 [INFO]   Result 5: Text='C', Confidence=1.000, Position=(202, 318)
+2025-07-07 17:12:58,753 [INFO]     -> SINGLE LETTER: 'C' at (202, 318) with confidence 1.000
+2025-07-07 17:12:58,754 [INFO] ACCEPTED (Set 2): 'C' with confidence 1.000 (threshold: 0.800)
+2025-07-07 17:12:58,754 [INFO]     -> CONTAINS TARGET LETTERS: 'C' might be relevant
+2025-07-07 17:12:58,754 [INFO] Trying parameter set 3: {'image': array([[  0,   0,   0, ...,   0, 255, 255],
+       [  0,   0,   0, ...,   0, 255, 255],
+       [  0,   0,   0, ...,   0, 255, 255],
+       ...,
+       [255, 255, 255, ..., 255, 255, 255],
+       [255, 255, 255, ..., 255, 255, 255],
+       [255, 255, 255, ..., 255, 255, 255]], shape=(380, 382), dtype=uint8), 'text_threshold': 0.4, 'low_text': 0.2, 'link_threshold': 0.4, 'width_ths': 0.7, 'height_ths': 0.7}
+2025-07-07 17:12:58,795 [INFO] Parameter set 3 returned 4 results
+2025-07-07 17:12:58,795 [INFO]   Result 1: Text='F', Confidence=0.998, Position=(90, 112)
+2025-07-07 17:12:58,795 [INFO]     -> SINGLE LETTER: 'F' at (90, 112) with confidence 0.998
+2025-07-07 17:12:58,795 [INFO]   Result 2: Text='E', Confidence=0.999, Position=(317, 116)
+2025-07-07 17:12:58,796 [INFO]     -> SINGLE LETTER: 'E' at (317, 116) with confidence 0.999
+2025-07-07 17:12:58,796 [INFO]   Result 3: Text='EC', Confidence=0.969, Position=(149, 283)
+2025-07-07 17:12:58,796 [INFO]     -> MULTI-LETTER: 'EC' - attempting to split
+2025-07-07 17:12:58,796 [INFO] SPLIT LETTER: 'E' at (79, 283) from 'EC' with confidence 0.969
+2025-07-07 17:12:58,796 [INFO] SPLIT LETTER: 'C' at (219, 283) from 'EC' with confidence 0.969
+2025-07-07 17:12:58,796 [INFO]     -> CONTAINS TARGET LETTERS: 'EC' might be relevant
+2025-07-07 17:12:58,796 [INFO]   Result 4: Text='R', Confidence=0.988, Position=(317, 229)
+2025-07-07 17:12:58,796 [INFO]     -> SINGLE LETTER: 'R' at (317, 229) with confidence 0.988
+2025-07-07 17:12:58,796 [INFO]     -> CONTAINS TARGET LETTERS: 'R' might be relevant
+2025-07-07 17:12:58,797 [INFO] Trying parameter set 4: {'image': array([[  0,   0,   0, ...,   0, 255, 255],
+       [  0,   0,   0, ...,   0, 255, 255],
+       [  0,   0,   0, ...,   0, 255, 255],
+       ...,
+       [255, 255, 255, ..., 255, 255, 255],
+       [255, 255, 255, ..., 255, 255, 255],
+       [255, 255, 255, ..., 255, 255, 255]], shape=(380, 382), dtype=uint8), 'text_threshold': 0.4, 'low_text': 0.2, 'link_threshold': 0.4, 'width_ths': 0.7, 'height_ths': 0.7, 'mag_ratio': 1.5}
+2025-07-07 17:12:58,875 [INFO] Parameter set 4 returned 5 results
+2025-07-07 17:12:58,876 [INFO]   Result 1: Text='F', Confidence=0.999, Position=(70, 109)
+2025-07-07 17:12:58,876 [INFO]     -> SINGLE LETTER: 'F' at (70, 109) with confidence 0.999
+2025-07-07 17:12:58,876 [INFO]   Result 2: Text='E', Confidence=0.999, Position=(317, 108)
+2025-07-07 17:12:58,876 [INFO]     -> SINGLE LETTER: 'E' at (317, 108) with confidence 0.999
+2025-07-07 17:12:58,876 [INFO]   Result 3: Text='E', Confidence=0.993, Position=(71, 249)
+2025-07-07 17:12:58,876 [INFO]     -> SINGLE LETTER: 'E' at (71, 249) with confidence 0.993
+2025-07-07 17:12:58,876 [INFO] ACCEPTED (Set 4): 'E' with confidence 0.993 (threshold: 0.800)
+2025-07-07 17:12:58,876 [INFO]   Result 4: Text='R', Confidence=1.000, Position=(316, 250)
+2025-07-07 17:12:58,876 [INFO]     -> SINGLE LETTER: 'R' at (316, 250) with confidence 1.000
+2025-07-07 17:12:58,877 [INFO]     -> CONTAINS TARGET LETTERS: 'R' might be relevant
+2025-07-07 17:12:58,877 [INFO]   Result 5: Text='C', Confidence=1.000, Position=(193, 321)
+2025-07-07 17:12:58,877 [INFO]     -> SINGLE LETTER: 'C' at (193, 321) with confidence 1.000
+2025-07-07 17:12:58,877 [INFO]     -> CONTAINS TARGET LETTERS: 'C' might be relevant
+2025-07-07 17:12:58,877 [INFO] Testing without allowlist to see all possible detections...
+2025-07-07 17:12:58,922 [INFO] No-allowlist mode returned 3 results
+2025-07-07 17:12:58,922 [INFO]   No-allowlist Result 1: Text='', Confidence=0.000, Position=(32, 16)
+2025-07-07 17:12:58,922 [INFO]   No-allowlist Result 2: Text='F', Confidence=0.997, Position=(90, 112)
+2025-07-07 17:12:58,923 [INFO]   No-allowlist Result 3: Text='ec Re', Confidence=0.322, Position=(226, 234)
+2025-07-07 17:12:58,923 [INFO] Deduplicated letters: E, E, F, C, C, R, E
+2025-07-07 17:12:58,923 [INFO] Forced 6-letter wheel template with 3 matched detections.
+2025-07-07 17:12:58,938 [INFO] Detected letters: F, E, E
+2025-07-07 17:12:58,938 [INFO] Finding words...
+2025-07-07 17:12:58,938 [INFO] Found 1 words: FEE
+2025-07-07 17:12:58,938 [INFO] Swiping words...
+2025-07-07 17:12:58,938 [INFO] Swiping: FEE
+2025-07-07 17:12:59,559 [INFO] STOP SIGNAL RECEIVED - Bot will stop after current operation!
+2025-07-07 17:12:59,697 [INFO] Bot stopped after swiping word: FEE
+2025-07-07 17:12:59,697 [INFO] Bot stopped by user!
+2025-07-07 17:13:26,806 [INFO] Hotkey registered: Ctrl+Shift+F8 to stop the bot
+2025-07-07 17:13:26,809 [INFO] Debug mode enabled. Screenshots will be saved in 'debug_screenshots'
+2025-07-07 17:13:28,427 [INFO] Getting processed screenshot...
+2025-07-07 17:13:28,622 [INFO] Detecting letters...
+2025-07-07 17:13:28,623 [INFO] Trying parameter set 1: {'image': array([[  0,   0,   0, ...,   0, 255, 255],
+       [  0,   0,   0, ...,   0, 255, 255],
+       [  0,   0,   0, ...,   0, 255, 255],
+       ...,
+       [255, 255, 255, ..., 255, 255, 255],
+       [255, 255, 255, ..., 255, 255, 255],
+       [255, 255, 255, ..., 255, 255, 255]], shape=(380, 382), dtype=uint8), 'text_threshold': 0.4, 'low_text': 0.2, 'link_threshold': 0.2, 'width_ths': 0.5, 'height_ths': 0.5}
+2025-07-07 17:13:28,862 [INFO] Parameter set 1 returned 2 results
+2025-07-07 17:13:28,862 [INFO]   Result 1: Text='F', Confidence=0.998, Position=(90, 113)
+2025-07-07 17:13:28,862 [INFO]     -> SINGLE LETTER: 'F' at (90, 113) with confidence 0.998
+2025-07-07 17:13:28,863 [INFO] ACCEPTED (Set 1): 'F' with confidence 0.998 (threshold: 0.800)
+2025-07-07 17:13:28,863 [INFO]   Result 2: Text='FSR', Confidence=0.216, Position=(227, 235)
+2025-07-07 17:13:28,863 [INFO]     -> MULTI-LETTER: 'FSR' - attempting to split
+2025-07-07 17:13:28,863 [INFO]     -> CONTAINS TARGET LETTERS: 'FSR' might be relevant
+2025-07-07 17:13:28,863 [INFO] Trying parameter set 2: {'image': array([[  0,   0,   0, ...,   0, 255, 255],
+       [  0,   0,   0, ...,   0, 255, 255],
+       [  0,   0,   0, ...,   0, 255, 255],
+       ...,
+       [255, 255, 255, ..., 255, 255, 255],
+       [255, 255, 255, ..., 255, 255, 255],
+       [255, 255, 255, ..., 255, 255, 255]], shape=(380, 382), dtype=uint8), 'text_threshold': 0.7, 'low_text': 0.4, 'link_threshold': 0.4, 'width_ths': 0.7, 'height_ths': 0.7}
+2025-07-07 17:13:28,924 [INFO] Parameter set 2 returned 5 results
+2025-07-07 17:13:28,924 [INFO]   Result 1: Text='F', Confidence=0.999, Position=(74, 109)
+2025-07-07 17:13:28,924 [INFO]     -> SINGLE LETTER: 'F' at (74, 109) with confidence 0.999
+2025-07-07 17:13:28,925 [INFO]   Result 2: Text='E', Confidence=0.994, Position=(319, 110)
+2025-07-07 17:13:28,925 [INFO]     -> SINGLE LETTER: 'E' at (319, 110) with confidence 0.994
+2025-07-07 17:13:28,925 [INFO] ACCEPTED (Set 2): 'E' with confidence 0.994 (threshold: 0.800)
+2025-07-07 17:13:28,925 [INFO]   Result 3: Text='E0', Confidence=0.570, Position=(139, 260)
+2025-07-07 17:13:28,925 [INFO]     -> MULTI-LETTER: 'E0' - attempting to split
+2025-07-07 17:13:28,925 [INFO]   Result 4: Text='R', Confidence=1.000, Position=(315, 246)
+2025-07-07 17:13:28,925 [INFO]     -> SINGLE LETTER: 'R' at (315, 246) with confidence 1.000
+2025-07-07 17:13:28,925 [INFO] ACCEPTED (Set 2): 'R' with confidence 1.000 (threshold: 0.400)
+2025-07-07 17:13:28,925 [INFO]     -> CONTAINS TARGET LETTERS: 'R' might be relevant
+2025-07-07 17:13:28,925 [INFO]   Result 5: Text='C', Confidence=1.000, Position=(202, 318)
+2025-07-07 17:13:28,926 [INFO]     -> SINGLE LETTER: 'C' at (202, 318) with confidence 1.000
+2025-07-07 17:13:28,926 [INFO] ACCEPTED (Set 2): 'C' with confidence 1.000 (threshold: 0.800)
+2025-07-07 17:13:28,926 [INFO]     -> CONTAINS TARGET LETTERS: 'C' might be relevant
+2025-07-07 17:13:28,926 [INFO] Trying parameter set 3: {'image': array([[  0,   0,   0, ...,   0, 255, 255],
+       [  0,   0,   0, ...,   0, 255, 255],
+       [  0,   0,   0, ...,   0, 255, 255],
+       ...,
+       [255, 255, 255, ..., 255, 255, 255],
+       [255, 255, 255, ..., 255, 255, 255],
+       [255, 255, 255, ..., 255, 255, 255]], shape=(380, 382), dtype=uint8), 'text_threshold': 0.4, 'low_text': 0.2, 'link_threshold': 0.4, 'width_ths': 0.7, 'height_ths': 0.7}
+2025-07-07 17:13:28,965 [INFO] Parameter set 3 returned 4 results
+2025-07-07 17:13:28,965 [INFO]   Result 1: Text='F', Confidence=0.998, Position=(90, 112)
+2025-07-07 17:13:28,965 [INFO]     -> SINGLE LETTER: 'F' at (90, 112) with confidence 0.998
+2025-07-07 17:13:28,965 [INFO]   Result 2: Text='E', Confidence=0.999, Position=(317, 116)
+2025-07-07 17:13:28,966 [INFO]     -> SINGLE LETTER: 'E' at (317, 116) with confidence 0.999
+2025-07-07 17:13:28,966 [INFO]   Result 3: Text='EC', Confidence=0.969, Position=(149, 283)
+2025-07-07 17:13:28,966 [INFO]     -> MULTI-LETTER: 'EC' - attempting to split
+2025-07-07 17:13:28,966 [INFO] SPLIT LETTER: 'E' at (79, 283) from 'EC' with confidence 0.969
+2025-07-07 17:13:28,966 [INFO] SPLIT LETTER: 'C' at (219, 283) from 'EC' with confidence 0.969
+2025-07-07 17:13:28,966 [INFO]     -> CONTAINS TARGET LETTERS: 'EC' might be relevant
+2025-07-07 17:13:28,966 [INFO]   Result 4: Text='R', Confidence=0.988, Position=(317, 229)
+2025-07-07 17:13:28,966 [INFO]     -> SINGLE LETTER: 'R' at (317, 229) with confidence 0.988
+2025-07-07 17:13:28,967 [INFO]     -> CONTAINS TARGET LETTERS: 'R' might be relevant
+2025-07-07 17:13:28,967 [INFO] Trying parameter set 4: {'image': array([[  0,   0,   0, ...,   0, 255, 255],
+       [  0,   0,   0, ...,   0, 255, 255],
+       [  0,   0,   0, ...,   0, 255, 255],
+       ...,
+       [255, 255, 255, ..., 255, 255, 255],
+       [255, 255, 255, ..., 255, 255, 255],
+       [255, 255, 255, ..., 255, 255, 255]], shape=(380, 382), dtype=uint8), 'text_threshold': 0.4, 'low_text': 0.2, 'link_threshold': 0.4, 'width_ths': 0.7, 'height_ths': 0.7, 'mag_ratio': 1.5}
+2025-07-07 17:13:29,043 [INFO] Parameter set 4 returned 5 results
+2025-07-07 17:13:29,043 [INFO]   Result 1: Text='F', Confidence=0.999, Position=(70, 109)
+2025-07-07 17:13:29,043 [INFO]     -> SINGLE LETTER: 'F' at (70, 109) with confidence 0.999
+2025-07-07 17:13:29,044 [INFO]   Result 2: Text='E', Confidence=0.999, Position=(317, 108)
+2025-07-07 17:13:29,044 [INFO]     -> SINGLE LETTER: 'E' at (317, 108) with confidence 0.999
+2025-07-07 17:13:29,044 [INFO]   Result 3: Text='E', Confidence=0.993, Position=(71, 249)
+2025-07-07 17:13:29,044 [INFO]     -> SINGLE LETTER: 'E' at (71, 249) with confidence 0.993
+2025-07-07 17:13:29,044 [INFO] ACCEPTED (Set 4): 'E' with confidence 0.993 (threshold: 0.800)
+2025-07-07 17:13:29,044 [INFO]   Result 4: Text='R', Confidence=1.000, Position=(316, 250)
+2025-07-07 17:13:29,044 [INFO]     -> SINGLE LETTER: 'R' at (316, 250) with confidence 1.000
+2025-07-07 17:13:29,044 [INFO]     -> CONTAINS TARGET LETTERS: 'R' might be relevant
+2025-07-07 17:13:29,044 [INFO]   Result 5: Text='C', Confidence=1.000, Position=(193, 321)
+2025-07-07 17:13:29,044 [INFO]     -> SINGLE LETTER: 'C' at (193, 321) with confidence 1.000
+2025-07-07 17:13:29,044 [INFO]     -> CONTAINS TARGET LETTERS: 'C' might be relevant
+2025-07-07 17:13:29,045 [INFO] Testing without allowlist to see all possible detections...
+2025-07-07 17:13:29,086 [INFO] No-allowlist mode returned 3 results
+2025-07-07 17:13:29,086 [INFO]   No-allowlist Result 1: Text='', Confidence=0.000, Position=(32, 16)
+2025-07-07 17:13:29,086 [INFO]   No-allowlist Result 2: Text='F', Confidence=0.997, Position=(90, 112)
+2025-07-07 17:13:29,086 [INFO]   No-allowlist Result 3: Text='ec Re', Confidence=0.322, Position=(226, 234)
+2025-07-07 17:13:29,086 [INFO] Deduplicated letters: E, E, F, C, C, R, E
+2025-07-07 17:13:29,086 [INFO] Forced 6-letter wheel template with 5 matched detections.
+2025-07-07 17:13:29,089 [INFO] Detected letters: F, E, R, C, E
+2025-07-07 17:13:29,089 [INFO] Finding words...
+2025-07-07 17:13:29,089 [INFO] Found 17 words: REF, FEER, EER, FER, CRE, FERE, ERE, REEF, REE, ERF, REC, FREE, FEC, CERE, FEE, CEE, CREE
+2025-07-07 17:13:29,089 [INFO] Swiping words...
+2025-07-07 17:13:29,089 [INFO] Swiping: CEE
+2025-07-07 17:13:29,841 [INFO] Swiping: CERE
+2025-07-07 17:13:30,694 [INFO] Swiping: CRE
+2025-07-07 17:13:31,441 [INFO] Swiping: CREE
+2025-07-07 17:13:31,694 [INFO] STOP SIGNAL RECEIVED - Bot will stop after current operation!
+2025-07-07 17:13:32,284 [INFO] Bot stopped after swiping word: CREE
+2025-07-07 17:13:32,284 [INFO] Bot stopped by user!
+2025-07-07 17:16:05,486 [INFO] Hotkey registered: Ctrl+Shift+F8 to stop the bot
+2025-07-07 17:16:05,490 [INFO] Debug mode enabled. Screenshots will be saved in 'debug_screenshots'
+2025-07-07 17:16:07,186 [INFO] Getting processed screenshot...
+2025-07-07 17:16:07,380 [INFO] Detecting letters...
+2025-07-07 17:16:07,381 [INFO] Trying parameter set 1: {'image': array([[  0,   0,   0, ...,   0, 255, 255],
+       [  0,   0,   0, ...,   0, 255, 255],
+       [  0,   0,   0, ...,   0, 255, 255],
+       ...,
+       [255, 255, 255, ..., 255, 255, 255],
+       [255, 255, 255, ..., 255, 255, 255],
+       [255, 255, 255, ..., 255, 255, 255]], shape=(380, 382), dtype=uint8), 'text_threshold': 0.4, 'low_text': 0.2, 'link_threshold': 0.2, 'width_ths': 0.5, 'height_ths': 0.5}
+2025-07-07 17:16:07,601 [INFO] Parameter set 1 returned 2 results
+2025-07-07 17:16:07,601 [INFO]   Result 1: Text='F', Confidence=0.998, Position=(90, 113)
+2025-07-07 17:16:07,601 [INFO]     -> SINGLE LETTER: 'F' at (90, 113) with confidence 0.998
+2025-07-07 17:16:07,601 [INFO] ACCEPTED (Set 1): 'F' with confidence 0.998 (threshold: 0.800)
+2025-07-07 17:16:07,601 [INFO]   Result 2: Text='FSR', Confidence=0.216, Position=(227, 235)
+2025-07-07 17:16:07,601 [INFO]     -> MULTI-LETTER: 'FSR' - attempting to split
+2025-07-07 17:16:07,601 [INFO]     -> CONTAINS TARGET LETTERS: 'FSR' might be relevant
+2025-07-07 17:16:07,602 [INFO] Trying parameter set 2: {'image': array([[  0,   0,   0, ...,   0, 255, 255],
+       [  0,   0,   0, ...,   0, 255, 255],
+       [  0,   0,   0, ...,   0, 255, 255],
+       ...,
+       [255, 255, 255, ..., 255, 255, 255],
+       [255, 255, 255, ..., 255, 255, 255],
+       [255, 255, 255, ..., 255, 255, 255]], shape=(380, 382), dtype=uint8), 'text_threshold': 0.7, 'low_text': 0.4, 'link_threshold': 0.4, 'width_ths': 0.7, 'height_ths': 0.7}
+2025-07-07 17:16:07,664 [INFO] Parameter set 2 returned 5 results
+2025-07-07 17:16:07,665 [INFO]   Result 1: Text='F', Confidence=0.999, Position=(74, 109)
+2025-07-07 17:16:07,665 [INFO]     -> SINGLE LETTER: 'F' at (74, 109) with confidence 0.999
+2025-07-07 17:16:07,665 [INFO]   Result 2: Text='E', Confidence=0.994, Position=(319, 110)
+2025-07-07 17:16:07,665 [INFO]     -> SINGLE LETTER: 'E' at (319, 110) with confidence 0.994
+2025-07-07 17:16:07,665 [INFO] ACCEPTED (Set 2): 'E' with confidence 0.994 (threshold: 0.800)
+2025-07-07 17:16:07,665 [INFO]   Result 3: Text='E0', Confidence=0.570, Position=(139, 260)
+2025-07-07 17:16:07,665 [INFO]     -> MULTI-LETTER: 'E0' - attempting to split
+2025-07-07 17:16:07,665 [INFO]   Result 4: Text='R', Confidence=1.000, Position=(315, 246)
+2025-07-07 17:16:07,665 [INFO]     -> SINGLE LETTER: 'R' at (315, 246) with confidence 1.000
+2025-07-07 17:16:07,666 [INFO] ACCEPTED (Set 2): 'R' with confidence 1.000 (threshold: 0.400)
+2025-07-07 17:16:07,666 [INFO]     -> CONTAINS TARGET LETTERS: 'R' might be relevant
+2025-07-07 17:16:07,666 [INFO]   Result 5: Text='C', Confidence=1.000, Position=(202, 318)
+2025-07-07 17:16:07,666 [INFO]     -> SINGLE LETTER: 'C' at (202, 318) with confidence 1.000
+2025-07-07 17:16:07,666 [INFO] ACCEPTED (Set 2): 'C' with confidence 1.000 (threshold: 0.800)
+2025-07-07 17:16:07,666 [INFO]     -> CONTAINS TARGET LETTERS: 'C' might be relevant
+2025-07-07 17:16:07,666 [INFO] Trying parameter set 3: {'image': array([[  0,   0,   0, ...,   0, 255, 255],
+       [  0,   0,   0, ...,   0, 255, 255],
+       [  0,   0,   0, ...,   0, 255, 255],
+       ...,
+       [255, 255, 255, ..., 255, 255, 255],
+       [255, 255, 255, ..., 255, 255, 255],
+       [255, 255, 255, ..., 255, 255, 255]], shape=(380, 382), dtype=uint8), 'text_threshold': 0.4, 'low_text': 0.2, 'link_threshold': 0.4, 'width_ths': 0.7, 'height_ths': 0.7}
+2025-07-07 17:16:07,707 [INFO] Parameter set 3 returned 4 results
+2025-07-07 17:16:07,707 [INFO]   Result 1: Text='F', Confidence=0.998, Position=(90, 112)
+2025-07-07 17:16:07,707 [INFO]     -> SINGLE LETTER: 'F' at (90, 112) with confidence 0.998
+2025-07-07 17:16:07,707 [INFO]   Result 2: Text='E', Confidence=0.999, Position=(317, 116)
+2025-07-07 17:16:07,707 [INFO]     -> SINGLE LETTER: 'E' at (317, 116) with confidence 0.999
+2025-07-07 17:16:07,707 [INFO]   Result 3: Text='EC', Confidence=0.969, Position=(149, 283)
+2025-07-07 17:16:07,708 [INFO]     -> MULTI-LETTER: 'EC' - attempting to split
+2025-07-07 17:16:07,708 [INFO] SPLIT LETTER: 'E' at (79, 283) from 'EC' with confidence 0.969
+2025-07-07 17:16:07,708 [INFO] SPLIT LETTER: 'C' at (219, 283) from 'EC' with confidence 0.969
+2025-07-07 17:16:07,708 [INFO]     -> CONTAINS TARGET LETTERS: 'EC' might be relevant
+2025-07-07 17:16:07,708 [INFO]   Result 4: Text='R', Confidence=0.988, Position=(317, 229)
+2025-07-07 17:16:07,708 [INFO]     -> SINGLE LETTER: 'R' at (317, 229) with confidence 0.988
+2025-07-07 17:16:07,708 [INFO]     -> CONTAINS TARGET LETTERS: 'R' might be relevant
+2025-07-07 17:16:07,708 [INFO] Trying parameter set 4: {'image': array([[  0,   0,   0, ...,   0, 255, 255],
+       [  0,   0,   0, ...,   0, 255, 255],
+       [  0,   0,   0, ...,   0, 255, 255],
+       ...,
+       [255, 255, 255, ..., 255, 255, 255],
+       [255, 255, 255, ..., 255, 255, 255],
+       [255, 255, 255, ..., 255, 255, 255]], shape=(380, 382), dtype=uint8), 'text_threshold': 0.4, 'low_text': 0.2, 'link_threshold': 0.4, 'width_ths': 0.7, 'height_ths': 0.7, 'mag_ratio': 1.5}
+2025-07-07 17:16:07,780 [INFO] Parameter set 4 returned 5 results
+2025-07-07 17:16:07,781 [INFO]   Result 1: Text='F', Confidence=0.999, Position=(70, 109)
+2025-07-07 17:16:07,781 [INFO]     -> SINGLE LETTER: 'F' at (70, 109) with confidence 0.999
+2025-07-07 17:16:07,781 [INFO]   Result 2: Text='E', Confidence=0.999, Position=(317, 108)
+2025-07-07 17:16:07,781 [INFO]     -> SINGLE LETTER: 'E' at (317, 108) with confidence 0.999
+2025-07-07 17:16:07,781 [INFO]   Result 3: Text='E', Confidence=0.993, Position=(71, 249)
+2025-07-07 17:16:07,781 [INFO]     -> SINGLE LETTER: 'E' at (71, 249) with confidence 0.993
+2025-07-07 17:16:07,781 [INFO] ACCEPTED (Set 4): 'E' with confidence 0.993 (threshold: 0.800)
+2025-07-07 17:16:07,781 [INFO]   Result 4: Text='R', Confidence=1.000, Position=(316, 250)
+2025-07-07 17:16:07,781 [INFO]     -> SINGLE LETTER: 'R' at (316, 250) with confidence 1.000
+2025-07-07 17:16:07,781 [INFO]     -> CONTAINS TARGET LETTERS: 'R' might be relevant
+2025-07-07 17:16:07,782 [INFO]   Result 5: Text='C', Confidence=1.000, Position=(193, 321)
+2025-07-07 17:16:07,782 [INFO]     -> SINGLE LETTER: 'C' at (193, 321) with confidence 1.000
+2025-07-07 17:16:07,782 [INFO]     -> CONTAINS TARGET LETTERS: 'C' might be relevant
+2025-07-07 17:16:07,782 [INFO] Testing without allowlist to see all possible detections...
+2025-07-07 17:16:07,826 [INFO] No-allowlist mode returned 3 results
+2025-07-07 17:16:07,826 [INFO]   No-allowlist Result 1: Text='', Confidence=0.000, Position=(32, 16)
+2025-07-07 17:16:07,826 [INFO]   No-allowlist Result 2: Text='F', Confidence=0.997, Position=(90, 112)
+2025-07-07 17:16:07,826 [INFO]   No-allowlist Result 3: Text='ec Re', Confidence=0.322, Position=(226, 234)
+2025-07-07 17:16:07,826 [INFO] Deduplicated letters: E, E, F, C, C, R, E
+2025-07-07 17:16:07,826 [INFO] Forced 6-letter wheel template with 5 matched detections.
+2025-07-07 17:16:07,842 [INFO] Detected letters: F, E, R, C, E
+2025-07-07 17:16:07,842 [INFO] Finding words...
+2025-07-07 17:16:07,842 [INFO] Found 17 words: FER, FEC, ERF, REF, CREE, CERE, FEE, EER, FERE, CRE, REC, REEF, REE, FREE, ERE, FEER, CEE
+2025-07-07 17:16:07,842 [INFO] Swiping words...
+2025-07-07 17:16:07,842 [INFO] Swiping: CEE
+2025-07-07 17:16:08,589 [INFO] Swiping: CERE
+2025-07-07 17:16:08,805 [INFO] STOP SIGNAL RECEIVED - Bot will stop after current operation!
+2025-07-07 17:16:09,438 [INFO] Bot stopped after swiping word: CERE
+2025-07-07 17:16:09,438 [INFO] Bot stopped by user!
+2025-07-07 17:19:01,106 [INFO] Hotkey registered: Ctrl+Shift+F8 to stop the bot
+2025-07-07 17:19:01,109 [INFO] Debug mode enabled. Screenshots will be saved in 'debug_screenshots'
+2025-07-07 17:19:02,750 [INFO] Getting processed screenshot...
+2025-07-07 17:19:02,941 [INFO] Detecting letters...
+2025-07-07 17:19:02,941 [INFO] Trying parameter set 1: {'image': array([[  0,   0,   0, ...,   0, 255, 255],
+       [  0,   0,   0, ...,   0, 255, 255],
+       [  0,   0,   0, ...,   0, 255, 255],
+       ...,
+       [255, 255, 255, ..., 255, 255, 255],
+       [255, 255, 255, ..., 255, 255, 255],
+       [255, 255, 255, ..., 255, 255, 255]], shape=(380, 382), dtype=uint8), 'text_threshold': 0.4, 'low_text': 0.2, 'link_threshold': 0.2, 'width_ths': 0.5, 'height_ths': 0.5}
+2025-07-07 17:19:03,165 [INFO] Parameter set 1 returned 2 results
+2025-07-07 17:19:03,166 [INFO]   Result 1: Text='F', Confidence=0.998, Position=(90, 113)
+2025-07-07 17:19:03,166 [INFO]     -> SINGLE LETTER: 'F' at (90, 113) with confidence 0.998
+2025-07-07 17:19:03,166 [INFO] ACCEPTED (Set 1): 'F' with confidence 0.998 (threshold: 0.800)
+2025-07-07 17:19:03,166 [INFO]   Result 2: Text='FSR', Confidence=0.117, Position=(227, 235)
+2025-07-07 17:19:03,166 [INFO]     -> MULTI-LETTER: 'FSR' - attempting to split
+2025-07-07 17:19:03,166 [INFO]     -> CONTAINS TARGET LETTERS: 'FSR' might be relevant
+2025-07-07 17:19:03,166 [INFO] Trying parameter set 2: {'image': array([[  0,   0,   0, ...,   0, 255, 255],
+       [  0,   0,   0, ...,   0, 255, 255],
+       [  0,   0,   0, ...,   0, 255, 255],
+       ...,
+       [255, 255, 255, ..., 255, 255, 255],
+       [255, 255, 255, ..., 255, 255, 255],
+       [255, 255, 255, ..., 255, 255, 255]], shape=(380, 382), dtype=uint8), 'text_threshold': 0.7, 'low_text': 0.4, 'link_threshold': 0.4, 'width_ths': 0.7, 'height_ths': 0.7}
+2025-07-07 17:19:03,222 [INFO] Parameter set 2 returned 5 results
+2025-07-07 17:19:03,223 [INFO]   Result 1: Text='F', Confidence=0.999, Position=(74, 109)
+2025-07-07 17:19:03,223 [INFO]     -> SINGLE LETTER: 'F' at (74, 109) with confidence 0.999
+2025-07-07 17:19:03,223 [INFO]   Result 2: Text='E', Confidence=0.994, Position=(319, 110)
+2025-07-07 17:19:03,223 [INFO]     -> SINGLE LETTER: 'E' at (319, 110) with confidence 0.994
+2025-07-07 17:19:03,223 [INFO] ACCEPTED (Set 2): 'E' with confidence 0.994 (threshold: 0.800)
+2025-07-07 17:19:03,223 [INFO]   Result 3: Text='E0', Confidence=0.513, Position=(139, 260)
+2025-07-07 17:19:03,223 [INFO]     -> MULTI-LETTER: 'E0' - attempting to split
+2025-07-07 17:19:03,223 [INFO]   Result 4: Text='R', Confidence=1.000, Position=(315, 246)
+2025-07-07 17:19:03,224 [INFO]     -> SINGLE LETTER: 'R' at (315, 246) with confidence 1.000
+2025-07-07 17:19:03,224 [INFO] ACCEPTED (Set 2): 'R' with confidence 1.000 (threshold: 0.400)
+2025-07-07 17:19:03,224 [INFO]     -> CONTAINS TARGET LETTERS: 'R' might be relevant
+2025-07-07 17:19:03,224 [INFO]   Result 5: Text='C', Confidence=1.000, Position=(202, 318)
+2025-07-07 17:19:03,224 [INFO]     -> SINGLE LETTER: 'C' at (202, 318) with confidence 1.000
+2025-07-07 17:19:03,224 [INFO] ACCEPTED (Set 2): 'C' with confidence 1.000 (threshold: 0.800)
+2025-07-07 17:19:03,224 [INFO]     -> CONTAINS TARGET LETTERS: 'C' might be relevant
+2025-07-07 17:19:03,225 [INFO] Trying parameter set 3: {'image': array([[  0,   0,   0, ...,   0, 255, 255],
+       [  0,   0,   0, ...,   0, 255, 255],
+       [  0,   0,   0, ...,   0, 255, 255],
+       ...,
+       [255, 255, 255, ..., 255, 255, 255],
+       [255, 255, 255, ..., 255, 255, 255],
+       [255, 255, 255, ..., 255, 255, 255]], shape=(380, 382), dtype=uint8), 'text_threshold': 0.4, 'low_text': 0.2, 'link_threshold': 0.4, 'width_ths': 0.7, 'height_ths': 0.7}
+2025-07-07 17:19:03,265 [INFO] Parameter set 3 returned 4 results
+2025-07-07 17:19:03,265 [INFO]   Result 1: Text='F', Confidence=0.998, Position=(90, 112)
+2025-07-07 17:19:03,265 [INFO]     -> SINGLE LETTER: 'F' at (90, 112) with confidence 0.998
+2025-07-07 17:19:03,266 [INFO]   Result 2: Text='E', Confidence=0.999, Position=(317, 116)
+2025-07-07 17:19:03,266 [INFO]     -> SINGLE LETTER: 'E' at (317, 116) with confidence 0.999
+2025-07-07 17:19:03,266 [INFO]   Result 3: Text='EC', Confidence=0.968, Position=(149, 283)
+2025-07-07 17:19:03,266 [INFO]     -> MULTI-LETTER: 'EC' - attempting to split
+2025-07-07 17:19:03,266 [INFO] SPLIT LETTER: 'E' at (79, 283) from 'EC' with confidence 0.968
+2025-07-07 17:19:03,266 [INFO] SPLIT LETTER: 'C' at (219, 283) from 'EC' with confidence 0.968
+2025-07-07 17:19:03,266 [INFO]     -> CONTAINS TARGET LETTERS: 'EC' might be relevant
+2025-07-07 17:19:03,266 [INFO]   Result 4: Text='R', Confidence=0.988, Position=(317, 229)
+2025-07-07 17:19:03,266 [INFO]     -> SINGLE LETTER: 'R' at (317, 229) with confidence 0.988
+2025-07-07 17:19:03,266 [INFO]     -> CONTAINS TARGET LETTERS: 'R' might be relevant
+2025-07-07 17:19:03,267 [INFO] Trying parameter set 4: {'image': array([[  0,   0,   0, ...,   0, 255, 255],
+       [  0,   0,   0, ...,   0, 255, 255],
+       [  0,   0,   0, ...,   0, 255, 255],
+       ...,
+       [255, 255, 255, ..., 255, 255, 255],
+       [255, 255, 255, ..., 255, 255, 255],
+       [255, 255, 255, ..., 255, 255, 255]], shape=(380, 382), dtype=uint8), 'text_threshold': 0.4, 'low_text': 0.2, 'link_threshold': 0.4, 'width_ths': 0.7, 'height_ths': 0.7, 'mag_ratio': 1.5}
+2025-07-07 17:19:03,343 [INFO] Parameter set 4 returned 5 results
+2025-07-07 17:19:03,343 [INFO]   Result 1: Text='F', Confidence=0.999, Position=(70, 109)
+2025-07-07 17:19:03,343 [INFO]     -> SINGLE LETTER: 'F' at (70, 109) with confidence 0.999
+2025-07-07 17:19:03,343 [INFO]   Result 2: Text='E', Confidence=0.999, Position=(317, 108)
+2025-07-07 17:19:03,343 [INFO]     -> SINGLE LETTER: 'E' at (317, 108) with confidence 0.999
+2025-07-07 17:19:03,343 [INFO]   Result 3: Text='E', Confidence=0.993, Position=(71, 249)
+2025-07-07 17:19:03,344 [INFO]     -> SINGLE LETTER: 'E' at (71, 249) with confidence 0.993
+2025-07-07 17:19:03,344 [INFO] ACCEPTED (Set 4): 'E' with confidence 0.993 (threshold: 0.800)
+2025-07-07 17:19:03,344 [INFO]   Result 4: Text='R', Confidence=1.000, Position=(316, 250)
+2025-07-07 17:19:03,344 [INFO]     -> SINGLE LETTER: 'R' at (316, 250) with confidence 1.000
+2025-07-07 17:19:03,344 [INFO]     -> CONTAINS TARGET LETTERS: 'R' might be relevant
+2025-07-07 17:19:03,344 [INFO]   Result 5: Text='C', Confidence=1.000, Position=(193, 321)
+2025-07-07 17:19:03,344 [INFO]     -> SINGLE LETTER: 'C' at (193, 321) with confidence 1.000
+2025-07-07 17:19:03,344 [INFO]     -> CONTAINS TARGET LETTERS: 'C' might be relevant
+2025-07-07 17:19:03,344 [INFO] Testing without allowlist to see all possible detections...
+2025-07-07 17:19:03,386 [INFO] No-allowlist mode returned 3 results
+2025-07-07 17:19:03,387 [INFO]   No-allowlist Result 1: Text='', Confidence=0.000, Position=(32, 16)
+2025-07-07 17:19:03,387 [INFO]   No-allowlist Result 2: Text='F', Confidence=0.998, Position=(90, 112)
+2025-07-07 17:19:03,387 [INFO]   No-allowlist Result 3: Text='iRE', Confidence=0.144, Position=(226, 234)
+2025-07-07 17:19:03,387 [INFO] Deduplicated letters: E, E, F, C, C, R, E
+2025-07-07 17:19:03,387 [INFO] Forced 6-letter wheel template with 5 matched detections.
+2025-07-07 17:19:03,389 [INFO] Detected letters: F, E, R, C, E
+2025-07-07 17:19:03,389 [INFO] Finding words...
+2025-07-07 17:19:03,389 [INFO] Found 17 words: ERE, ERF, CERE, FREE, FERE, FEC, REC, CEE, REF, CREE, FER, EER, CRE, FEE, REE, REEF, FEER
+2025-07-07 17:19:03,389 [INFO] Swiping words...
+2025-07-07 17:19:03,389 [INFO] Swiping: CEE
+2025-07-07 17:19:04,139 [INFO] Swiping: CERE
+2025-07-07 17:19:04,261 [INFO] STOP SIGNAL RECEIVED - Bot will stop after current operation!
+2025-07-07 17:19:04,987 [INFO] Bot stopped after swiping word: CERE
+2025-07-07 17:19:04,987 [INFO] Bot stopped by user!
+2025-07-07 17:20:36,587 [INFO] Hotkey registered: Ctrl+Shift+F8 to stop the bot
+2025-07-07 17:20:36,590 [INFO] Debug mode enabled. Screenshots will be saved in 'debug_screenshots'
+2025-07-07 17:20:38,490 [INFO] Getting processed screenshot...
+2025-07-07 17:20:38,721 [INFO] Detecting letters...
+2025-07-07 17:20:38,721 [INFO] Trying parameter set 1: {'image': array([[  0,   0,   0, ...,   0, 255, 255],
+       [  0,   0,   0, ...,   0, 255, 255],
+       [  0,   0,   0, ...,   0, 255, 255],
+       ...,
+       [255, 255, 255, ..., 255, 255, 255],
+       [255, 255, 255, ..., 255, 255, 255],
+       [255, 255, 255, ..., 255, 255, 255]], shape=(380, 382), dtype=uint8), 'text_threshold': 0.4, 'low_text': 0.2, 'link_threshold': 0.2, 'width_ths': 0.5, 'height_ths': 0.5}
+2025-07-07 17:20:39,001 [INFO] Parameter set 1 returned 2 results
+2025-07-07 17:20:39,001 [INFO]   Result 1: Text='F', Confidence=0.998, Position=(90, 113)
+2025-07-07 17:20:39,001 [INFO]     -> SINGLE LETTER: 'F' at (90, 113) with confidence 0.998
+2025-07-07 17:20:39,001 [INFO] ACCEPTED (Set 1): 'F' with confidence 0.998 (threshold: 0.800)
+2025-07-07 17:20:39,001 [INFO]   Result 2: Text='FSR', Confidence=0.117, Position=(227, 235)
+2025-07-07 17:20:39,002 [INFO]     -> MULTI-LETTER: 'FSR' - attempting to split
+2025-07-07 17:20:39,002 [INFO]     -> CONTAINS TARGET LETTERS: 'FSR' might be relevant
+2025-07-07 17:20:39,002 [INFO] Trying parameter set 2: {'image': array([[  0,   0,   0, ...,   0, 255, 255],
+       [  0,   0,   0, ...,   0, 255, 255],
+       [  0,   0,   0, ...,   0, 255, 255],
+       ...,
+       [255, 255, 255, ..., 255, 255, 255],
+       [255, 255, 255, ..., 255, 255, 255],
+       [255, 255, 255, ..., 255, 255, 255]], shape=(380, 382), dtype=uint8), 'text_threshold': 0.7, 'low_text': 0.4, 'link_threshold': 0.4, 'width_ths': 0.7, 'height_ths': 0.7}
+2025-07-07 17:20:39,080 [INFO] Parameter set 2 returned 5 results
+2025-07-07 17:20:39,080 [INFO]   Result 1: Text='F', Confidence=0.999, Position=(74, 109)
+2025-07-07 17:20:39,080 [INFO]     -> SINGLE LETTER: 'F' at (74, 109) with confidence 0.999
+2025-07-07 17:20:39,081 [INFO]   Result 2: Text='E', Confidence=0.994, Position=(319, 110)
+2025-07-07 17:20:39,081 [INFO]     -> SINGLE LETTER: 'E' at (319, 110) with confidence 0.994
+2025-07-07 17:20:39,081 [INFO] ACCEPTED (Set 2): 'E' with confidence 0.994 (threshold: 0.800)
+2025-07-07 17:20:39,081 [INFO]   Result 3: Text='E0', Confidence=0.513, Position=(139, 260)
+2025-07-07 17:20:39,081 [INFO]     -> MULTI-LETTER: 'E0' - attempting to split
+2025-07-07 17:20:39,081 [INFO] SPLIT LETTER: 'O' at (191, 260) from 'E0' with confidence 0.513
+2025-07-07 17:20:39,081 [INFO]   Result 4: Text='R', Confidence=1.000, Position=(315, 246)
+2025-07-07 17:20:39,081 [INFO]     -> SINGLE LETTER: 'R' at (315, 246) with confidence 1.000
+2025-07-07 17:20:39,082 [INFO] ACCEPTED (Set 2): 'R' with confidence 1.000 (threshold: 0.400)
+2025-07-07 17:20:39,082 [INFO]     -> CONTAINS TARGET LETTERS: 'R' might be relevant
+2025-07-07 17:20:39,082 [INFO]   Result 5: Text='C', Confidence=1.000, Position=(202, 318)
+2025-07-07 17:20:39,082 [INFO]     -> SINGLE LETTER: 'C' at (202, 318) with confidence 1.000
+2025-07-07 17:20:39,082 [INFO] ACCEPTED (Set 2): 'C' with confidence 1.000 (threshold: 0.800)
+2025-07-07 17:20:39,082 [INFO]     -> CONTAINS TARGET LETTERS: 'C' might be relevant
+2025-07-07 17:20:39,082 [INFO] Trying parameter set 3: {'image': array([[  0,   0,   0, ...,   0, 255, 255],
+       [  0,   0,   0, ...,   0, 255, 255],
+       [  0,   0,   0, ...,   0, 255, 255],
+       ...,
+       [255, 255, 255, ..., 255, 255, 255],
+       [255, 255, 255, ..., 255, 255, 255],
+       [255, 255, 255, ..., 255, 255, 255]], shape=(380, 382), dtype=uint8), 'text_threshold': 0.4, 'low_text': 0.2, 'link_threshold': 0.4, 'width_ths': 0.7, 'height_ths': 0.7}
+2025-07-07 17:20:39,140 [INFO] Parameter set 3 returned 4 results
+2025-07-07 17:20:39,140 [INFO]   Result 1: Text='F', Confidence=0.998, Position=(90, 112)
+2025-07-07 17:20:39,141 [INFO]     -> SINGLE LETTER: 'F' at (90, 112) with confidence 0.998
+2025-07-07 17:20:39,141 [INFO]   Result 2: Text='E', Confidence=0.999, Position=(317, 116)
+2025-07-07 17:20:39,141 [INFO]     -> SINGLE LETTER: 'E' at (317, 116) with confidence 0.999
+2025-07-07 17:20:39,141 [INFO]   Result 3: Text='EC', Confidence=0.968, Position=(149, 283)
+2025-07-07 17:20:39,141 [INFO]     -> MULTI-LETTER: 'EC' - attempting to split
+2025-07-07 17:20:39,141 [INFO] SPLIT LETTER: 'E' at (79, 283) from 'EC' with confidence 0.968
+2025-07-07 17:20:39,141 [INFO] SPLIT LETTER: 'C' at (219, 283) from 'EC' with confidence 0.968
+2025-07-07 17:20:39,141 [INFO]     -> CONTAINS TARGET LETTERS: 'EC' might be relevant
+2025-07-07 17:20:39,141 [INFO]   Result 4: Text='R', Confidence=0.988, Position=(317, 229)
+2025-07-07 17:20:39,142 [INFO]     -> SINGLE LETTER: 'R' at (317, 229) with confidence 0.988
+2025-07-07 17:20:39,142 [INFO]     -> CONTAINS TARGET LETTERS: 'R' might be relevant
+2025-07-07 17:20:39,142 [INFO] Trying parameter set 4: {'image': array([[  0,   0,   0, ...,   0, 255, 255],
+       [  0,   0,   0, ...,   0, 255, 255],
+       [  0,   0,   0, ...,   0, 255, 255],
+       ...,
+       [255, 255, 255, ..., 255, 255, 255],
+       [255, 255, 255, ..., 255, 255, 255],
+       [255, 255, 255, ..., 255, 255, 255]], shape=(380, 382), dtype=uint8), 'text_threshold': 0.4, 'low_text': 0.2, 'link_threshold': 0.4, 'width_ths': 0.7, 'height_ths': 0.7, 'mag_ratio': 1.5}
+2025-07-07 17:20:39,246 [INFO] Parameter set 4 returned 5 results
+2025-07-07 17:20:39,246 [INFO]   Result 1: Text='F', Confidence=0.999, Position=(70, 109)
+2025-07-07 17:20:39,246 [INFO]     -> SINGLE LETTER: 'F' at (70, 109) with confidence 0.999
+2025-07-07 17:20:39,246 [INFO]   Result 2: Text='E', Confidence=0.999, Position=(317, 108)
+2025-07-07 17:20:39,246 [INFO]     -> SINGLE LETTER: 'E' at (317, 108) with confidence 0.999
+2025-07-07 17:20:39,246 [INFO]   Result 3: Text='E', Confidence=0.993, Position=(71, 249)
+2025-07-07 17:20:39,246 [INFO]     -> SINGLE LETTER: 'E' at (71, 249) with confidence 0.993
+2025-07-07 17:20:39,247 [INFO] ACCEPTED (Set 4): 'E' with confidence 0.993 (threshold: 0.800)
+2025-07-07 17:20:39,247 [INFO]   Result 4: Text='R', Confidence=1.000, Position=(316, 250)
+2025-07-07 17:20:39,247 [INFO]     -> SINGLE LETTER: 'R' at (316, 250) with confidence 1.000
+2025-07-07 17:20:39,247 [INFO]     -> CONTAINS TARGET LETTERS: 'R' might be relevant
+2025-07-07 17:20:39,247 [INFO]   Result 5: Text='C', Confidence=1.000, Position=(193, 321)
+2025-07-07 17:20:39,247 [INFO]     -> SINGLE LETTER: 'C' at (193, 321) with confidence 1.000
+2025-07-07 17:20:39,247 [INFO]     -> CONTAINS TARGET LETTERS: 'C' might be relevant
+2025-07-07 17:20:39,247 [INFO] Testing without allowlist to see all possible detections...
+2025-07-07 17:20:39,300 [INFO] No-allowlist mode returned 3 results
+2025-07-07 17:20:39,301 [INFO]   No-allowlist Result 1: Text='', Confidence=0.000, Position=(32, 16)
+2025-07-07 17:20:39,301 [INFO]   No-allowlist Result 2: Text='F', Confidence=0.998, Position=(90, 112)
+2025-07-07 17:20:39,301 [INFO]   No-allowlist Result 3: Text='iRE', Confidence=0.144, Position=(226, 234)
+2025-07-07 17:20:39,301 [INFO] SPLIT LETTER: 'I' at (65, 234) from 'iRE' with confidence 0.144
+2025-07-07 17:20:39,301 [INFO] ACCEPTED (No-Allowlist Split): 'I' at (65, 234)
+2025-07-07 17:20:39,301 [INFO] Deduplicated letters: E, E, F, O, C, C, R, E
+2025-07-07 17:20:39,301 [INFO] Forced 6-letter wheel template with 5 matched detections.
+2025-07-07 17:20:39,304 [INFO] Detected letters: F, E, R, C, E
+2025-07-07 17:20:39,304 [INFO] Finding words...
+2025-07-07 17:20:39,304 [INFO] Found 17 words: REF, ERF, CERE, ERE, CEE, FEER, FER, FREE, REC, FERE, REE, REEF, CREE, FEE, EER, CRE, FEC
+2025-07-07 17:20:39,304 [INFO] Swiping words...
+2025-07-07 17:20:39,304 [INFO] Swiping: CEE
+2025-07-07 17:20:40,056 [INFO] Swiping: CERE
+2025-07-07 17:20:40,715 [INFO] STOP SIGNAL RECEIVED - Bot will stop after current operation!
+2025-07-07 17:20:40,913 [INFO] Bot stopped after swiping word: CERE
+2025-07-07 17:20:40,914 [INFO] Bot stopped by user!
