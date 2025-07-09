@@ -101,6 +101,21 @@ class LayoutMatcher:
         if wheel_size is None:
             wheel_size = self._estimate_wheel_size(len(detections))
         
+        # Special handling for forced wheel sizes with many detections
+        if wheel_size and len(detections) > wheel_size * 2:
+            self.logger.warning(f"Many detections ({len(detections)}) for wheel size {wheel_size}. "
+                               "Trying progressive tolerance matching.")
+            
+            # Try increasing tolerances until we get a good match
+            for tolerance_multiplier in [1.0, 1.5, 2.0, 3.0]:
+                temp_tolerance = int(self.config.tolerance_px * tolerance_multiplier)
+                matches = self._match_with_tolerance(detections, wheel_size, temp_tolerance)
+                
+                if len(matches) >= wheel_size:
+                    self.logger.info(f"Found good match with {tolerance_multiplier}x tolerance "
+                                   f"({temp_tolerance}px): {len(matches)} letters")
+                    return matches[:wheel_size]  # Take first N matches
+        
         # If we don't have a layout for this size, generate one
         if wheel_size not in self.layouts:
             self.logger.warning(f"No layout for wheel size {wheel_size}, generating one")
@@ -212,13 +227,28 @@ class LayoutMatcher:
         # Create distance matrix
         distances = np.full((num_detections, num_slots), np.inf)
         
-        for i, (_, det_pos) in enumerate(detections):
+        # Log all detections and their distances to slots
+        self.logger.info(f"Analyzing {num_detections} detections for {num_slots} slots:")
+        
+        for i, (letter, det_pos) in enumerate(detections):
+            min_distance = float('inf')
+            closest_slot = -1
+            
             for j, slot_pos in enumerate(slots):
                 dist = math.hypot(det_pos[0] - slot_pos[0], 
                                 det_pos[1] - slot_pos[1])
+                if dist < min_distance:
+                    min_distance = dist
+                    closest_slot = j
+                    
                 if dist <= self.config.tolerance_px:
                     distances[i, j] = dist
-        
+            
+            # Log each detection with its closest slot distance
+            status = "ACCEPTED" if min_distance <= self.config.tolerance_px else "REJECTED"
+            self.logger.info(f"  Detection {i}: '{letter}' at {det_pos} -> closest slot {closest_slot} "
+                            f"(dist: {min_distance:.1f}px) [{status}]")
+
         # Simple greedy assignment (can be replaced with scipy.optimize.linear_sum_assignment)
         matches = []
         used_detections = set()
@@ -242,7 +272,12 @@ class LayoutMatcher:
                 used_detections.add(det_idx)
                 used_slots.add(slot_idx)
                 
-                self.logger.debug(f"Matched '{letter}' to slot {slot_idx} (distance: {dist:.1f})")
+                self.logger.info(f"MATCHED '{letter}' to slot {slot_idx} (distance: {dist:.1f})")
+
+        # Log which detections were not matched
+        for i, (letter, pos) in enumerate(detections):
+            if i not in used_detections:
+                self.logger.warning(f"UNMATCHED detection: '{letter}' at {pos}")
         
         # Sort matches by slot order to maintain consistency
         if matches:
@@ -260,6 +295,45 @@ class LayoutMatcher:
             matches.sort(key=lambda m: match_to_slot.get(m, float('inf')))
         
         return matches
+    
+    def _match_with_tolerance(self, detections: List[Tuple[str, Tuple[int, int]]], 
+                              wheel_size: int, tolerance_px: int) -> List[Tuple[str, Tuple[int, int]]]:
+        """Helper method to match with specific tolerance."""
+        original_tolerance = self.config.tolerance_px
+        self.config.tolerance_px = tolerance_px
+        
+        try:
+            # Auto-detect wheel size if not specified
+            if wheel_size is None:
+                wheel_size = self._estimate_wheel_size(len(detections))
+            
+            # If we don't have a layout for this size, generate one
+            if wheel_size not in self.layouts:
+                self.logger.warning(f"No layout for wheel size {wheel_size}, generating one")
+                self._add_generated_layout(wheel_size)
+            
+            # Estimate wheel geometry
+            center, radius = self._estimate_wheel_geometry(detections)
+            if radius == 0:
+                return detections
+            
+            self.last_wheel_center = center
+            self.last_wheel_radius = radius
+            
+            # Get absolute slot positions
+            template = self.layouts[wheel_size]
+            slots = self._calculate_slot_positions(template, center, radius)
+            self.last_matched_slots = slots
+            
+            # Find optimal assignment
+            matches = self._optimal_assignment(detections, slots)
+            
+            self.logger.info(f"Matched {len(matches)}/{len(detections)} detections to {wheel_size}-letter wheel "
+                            f"with {tolerance_px}px tolerance")
+            
+            return matches
+        finally:
+            self.config.tolerance_px = original_tolerance
     
     def get_debug_info(self) -> Dict:
         """Get debug information about the last match."""

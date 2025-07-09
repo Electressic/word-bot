@@ -75,7 +75,7 @@
     ]
   },
   "layout": {
-    "tolerance_px": 60,
+    "tolerance_px": 80,
     "deduplication_radius": 30,
     "layouts_file": "data/layouts.json"
   },

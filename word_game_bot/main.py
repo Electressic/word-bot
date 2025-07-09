@@ -35,6 +35,7 @@ class WordGameBot:
         self.config = config
         self.logger = logging.getLogger(__name__)
         self.stop_requested = False
+        self.pause_requested = False
         
         # Initialize components
         self._init_components()
@@ -68,19 +69,48 @@ class WordGameBot:
     def _setup_hotkeys(self):
         """Setup keyboard hotkeys."""
         try:
+            # Stop hotkey
             keyboard.add_hotkey(
                 self.config.stop_hotkey, 
                 self._request_stop,
                 suppress=True
             )
             self.logger.info(f"Press {self.config.stop_hotkey} to stop the bot")
+            
+            # Pause hotkey
+            pause_key = "ctrl+shift+f7"
+            keyboard.add_hotkey(
+                pause_key,
+                self._toggle_pause,
+                suppress=True
+            )
+            self.logger.info(f"Press {pause_key} to pause/resume the bot")
+            
         except Exception as e:
             self.logger.warning(f"Failed to setup hotkeys: {e}")
     
     def _request_stop(self):
         """Handle stop request."""
         self.stop_requested = True
-        self.logger.info("Stop requested - will halt after current operation")
+        self.logger.info("Stop requested - will halt immediately")
+    
+    def _toggle_pause(self):
+        """Toggle pause state."""
+        self.pause_requested = not self.pause_requested
+        state = "paused" if self.pause_requested else "resumed"
+        self.logger.info(f"Bot {state}")
+    
+    def _check_interrupts(self) -> bool:
+        """Check for stop/pause interrupts. Returns True if should stop."""
+        # Check for stop
+        if self.stop_requested:
+            return True
+            
+        # Handle pause
+        while self.pause_requested and not self.stop_requested:
+            time.sleep(0.1)
+            
+        return self.stop_requested
     
     def run_once(self) -> bool:
         """
@@ -94,7 +124,7 @@ class WordGameBot:
             self.logger.info("Capturing screenshot...")
             screenshot = self.screen_capture.capture_window(self.window.rect)
             
-            if self.stop_requested:
+            if self._check_interrupts():
                 return True
             
             # Step 2: Crop to game area
@@ -123,7 +153,7 @@ class WordGameBot:
                 self.popup_handler.try_close_popups()
                 return False  # Retry
             
-            if self.stop_requested:
+            if self._check_interrupts():
                 return True
             
             # Step 4: Match to layout
@@ -155,7 +185,7 @@ class WordGameBot:
                     debug_info
                 )
             
-            if self.stop_requested:
+            if self._check_interrupts():
                 return True
             
             # Step 5: Find words
@@ -189,8 +219,11 @@ class WordGameBot:
         # Sort words by length (longer first)
         sorted_words = sorted(words, key=len, reverse=True)
         
-        for word in sorted_words:
-            if self.stop_requested:
+        # Limit number of words to swipe to avoid repetition
+        max_words = min(len(sorted_words), 20)
+        
+        for i, word in enumerate(sorted_words[:max_words]):
+            if self._check_interrupts():
                 break
             
             # Build coordinate sequence
@@ -210,13 +243,17 @@ class WordGameBot:
                     break
             
             if valid and len(coords) == len(word):
-                self.logger.info(f"Swiping word: {word}")
+                self.logger.info(f"Swiping word: {word} ({i+1}/{max_words})")
                 success = self.mouse.swipe_word(coords, self.config.swipe_duration)
                 
                 if self.debug_viz and success:
                     time.sleep(0.2)
                     post_swipe = self.screen_capture.capture_window(self.window.rect)
                     self.debug_viz.save_screenshot(f"swipe_{word}", post_swipe)
+                
+                # Check for interrupts between words
+                if self._check_interrupts():
+                    break
                 
                 # Small delay between words
                 time.sleep(0.2)
@@ -241,7 +278,12 @@ class WordGameBot:
                 else:
                     # Wait before next round
                     self.logger.info("Waiting for next round...")
-                    time.sleep(3)
+                    
+                    # Check for interrupts during wait
+                    for _ in range(30):  # 3 seconds in 0.1s chunks
+                        if self._check_interrupts():
+                            break
+                        time.sleep(0.1)
                     
         except KeyboardInterrupt:
             self.logger.info("Interrupted by user")
