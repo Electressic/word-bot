@@ -116,6 +116,6 @@ class DebugVisualizer:
             cv2.putText(combined, name,
                        (x1 + 10, y1 + 30),
                        cv2.FONT_HERSHEY_SIMPLEX,
-                       0.6, 255, thickness=1)
+                       0.6, (255, 255, 255), thickness=1)
         
         self.save_screenshot("preprocessing_comparison", combined)

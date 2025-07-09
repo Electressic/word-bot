@@ -14,9 +14,9 @@ from src.core.config import OCRConfig
 class OCRResult:
     """Represents an OCR detection result."""
     text: str
-    bbox: List[List[float]]  # Changed to float to handle any numeric type
+    bbox: List[List[int]]
     confidence: float
-    center: Optional[Tuple[int, int]] = None
+    center: Optional[Tuple[int, int]]
     
     def __post_init__(self):
         """Calculate center if not provided."""
@@ -87,14 +87,22 @@ class OCREngine:
             
             results = []
             for bbox, text, confidence in raw_results:
-                if len(bbox) >= 4:
-                    result = OCRResult(
-                        text=text,
-                        bbox=bbox,
-                        confidence=float(confidence),
-                        center=None  # Will be calculated in __post_init__
-                    )
-                    results.append(result)
+                # Ensure bbox is in the correct format
+                if isinstance(bbox, list) and len(bbox) >= 4:
+                    # Convert bbox to List[List[int]] format if needed
+                    formatted_bbox = []
+                    for point in bbox:
+                        if isinstance(point, (list, tuple)) and len(point) >= 2:
+                            formatted_bbox.append([int(point[0]), int(point[1])])
+                    
+                    if len(formatted_bbox) >= 4:
+                        result = OCRResult(
+                            text=text,
+                            bbox=formatted_bbox,
+                            confidence=float(confidence),
+                            center=None  # Will be calculated in __post_init__
+                        )
+                        results.append(result)
             
             self.logger.info(f"OCR run returned {len(results)} results")
             return results
@@ -141,7 +149,7 @@ class OCREngine:
             # Close small gaps
             kernel = cv2.getStructuringElement(
                 cv2.MORPH_ELLIPSE, 
-                (2, 2)  # Use fixed kernel size
+                (3, 3)
             )
             closed = cv2.morphologyEx(binary, cv2.MORPH_CLOSE, kernel)
             
@@ -168,6 +176,10 @@ class OCREngine:
             # Check if too close to any already kept result
             too_close = False
             for kept in unique:
+                # Skip comparison if either center is None
+                if result.center is None or kept.center is None:
+                    continue
+                    
                 dist = np.hypot(
                     result.center[0] - kept.center[0],
                     result.center[1] - kept.center[1]

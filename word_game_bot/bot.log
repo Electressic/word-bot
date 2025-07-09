@@ -1,0 +1,239 @@
+2025-07-09 17:20:18 [root] INFO: Logging initialized
+2025-07-09 17:20:18 [src.automation.game_window] INFO: Found window: SM-A346B
+2025-07-09 17:20:20 [__main__] ERROR: Failed to initialize components: invalid literal for int() with base 10: 'circular_layout'
+2025-07-09 17:27:41 [root] INFO: Logging initialized
+2025-07-09 17:27:41 [src.automation.game_window] INFO: Found window: SM-A346B
+2025-07-09 17:27:43 [src.solving.layout_matcher] INFO: Loaded layouts for wheel sizes: [5, 6, 7, 8]
+2025-07-09 17:27:45 [src.solving.word_solver] INFO: Loaded 369652 words into solver
+2025-07-09 17:27:45 [src.utils.debug] INFO: Debug directory ready: debug_screenshots
+2025-07-09 17:27:45 [__main__] INFO: Press ctrl+shift+f8 to stop the bot
+2025-07-09 17:27:45 [__main__] INFO: Starting Word Game Bot...
+2025-07-09 17:27:45 [src.automation.game_window] WARNING: Could not focus window: Error code from Windows: 0 - Der Vorgang wurde erfolgreich beendet.
+2025-07-09 17:27:45 [__main__] INFO: Capturing screenshot...
+2025-07-09 17:27:45 [__main__] INFO: Detecting letters...
+2025-07-09 17:27:46 [src.detection.preprocessor] INFO: Created 6 preprocessed variants
+2025-07-09 17:27:46 [src.detection.letter_detector] INFO: Running OCR on preprocessing variant 1
+2025-07-09 17:27:46 [src.detection.ocr_engine] INFO: Trying OCR parameter set 1
+2025-07-09 17:27:46 [src.detection.ocr_engine] INFO: OCR run returned 9 results
+2025-07-09 17:27:46 [src.detection.ocr_engine] INFO: Trying OCR parameter set 2
+2025-07-09 17:27:46 [src.detection.ocr_engine] INFO: OCR run returned 5 results
+2025-07-09 17:27:46 [src.detection.ocr_engine] INFO: Trying OCR parameter set 3
+2025-07-09 17:27:46 [src.detection.ocr_engine] INFO: OCR run returned 5 results
+2025-07-09 17:27:46 [src.detection.ocr_engine] INFO: Trying OCR on enhanced image for thin letters
+2025-07-09 17:27:46 [src.detection.ocr_engine] INFO: OCR run returned 9 results
+2025-07-09 17:27:46 [src.detection.ocr_engine] INFO: Trying OCR on morphologically processed image
+2025-07-09 17:27:46 [src.detection.ocr_engine] INFO: OCR run returned 3 results
+2025-07-09 17:27:46 [src.detection.letter_detector] INFO: Splitting multi-character detection: 'EGR'
+2025-07-09 17:27:46 [src.detection.letter_detector] INFO: Splitting multi-character detection: 'JF'
+2025-07-09 17:27:46 [src.detection.letter_detector] INFO: Running OCR on preprocessing variant 2
+2025-07-09 17:27:46 [src.detection.ocr_engine] INFO: Trying OCR parameter set 1
+2025-07-09 17:27:46 [src.detection.ocr_engine] INFO: OCR run returned 6 results
+2025-07-09 17:27:46 [src.detection.ocr_engine] INFO: Trying OCR parameter set 2
+2025-07-09 17:27:46 [src.detection.ocr_engine] INFO: OCR run returned 2 results
+2025-07-09 17:27:46 [src.detection.ocr_engine] INFO: Trying OCR parameter set 3
+2025-07-09 17:27:46 [src.detection.ocr_engine] INFO: OCR run returned 5 results
+2025-07-09 17:27:46 [src.detection.ocr_engine] INFO: Trying OCR on enhanced image for thin letters
+2025-07-09 17:27:47 [src.detection.ocr_engine] INFO: OCR run returned 6 results
+2025-07-09 17:27:47 [src.detection.ocr_engine] INFO: Trying OCR on morphologically processed image
+2025-07-09 17:27:47 [src.detection.ocr_engine] INFO: OCR run returned 2 results
+2025-07-09 17:27:47 [src.detection.letter_detector] INFO: Splitting multi-character detection: 'E0R'
+2025-07-09 17:27:47 [src.detection.letter_detector] INFO: Splitting multi-character detection: 'EK'
+2025-07-09 17:27:47 [src.detection.letter_detector] INFO: Running OCR on preprocessing variant 3
+2025-07-09 17:27:47 [src.detection.ocr_engine] INFO: Trying OCR parameter set 1
+2025-07-09 17:27:47 [src.detection.ocr_engine] INFO: OCR run returned 6 results
+2025-07-09 17:27:47 [src.detection.ocr_engine] INFO: Trying OCR parameter set 2
+2025-07-09 17:27:47 [src.detection.ocr_engine] INFO: OCR run returned 2 results
+2025-07-09 17:27:47 [src.detection.ocr_engine] INFO: Trying OCR parameter set 3
+2025-07-09 17:27:47 [src.detection.ocr_engine] INFO: OCR run returned 4 results
+2025-07-09 17:27:47 [src.detection.ocr_engine] INFO: Trying OCR on enhanced image for thin letters
+2025-07-09 17:27:47 [src.detection.ocr_engine] INFO: OCR run returned 6 results
+2025-07-09 17:27:47 [src.detection.ocr_engine] INFO: Trying OCR on morphologically processed image
+2025-07-09 17:27:47 [src.detection.ocr_engine] INFO: OCR run returned 2 results
+2025-07-09 17:27:47 [src.detection.letter_detector] INFO: Splitting multi-character detection: 'E0R'
+2025-07-09 17:27:47 [src.detection.letter_detector] INFO: Splitting multi-character detection: 'E0R'
+2025-07-09 17:27:47 [src.detection.letter_detector] INFO: Running OCR on preprocessing variant 4
+2025-07-09 17:27:47 [src.detection.ocr_engine] INFO: Trying OCR parameter set 1
+2025-07-09 17:27:47 [src.detection.ocr_engine] INFO: OCR run returned 6 results
+2025-07-09 17:27:47 [src.detection.ocr_engine] INFO: Trying OCR parameter set 2
+2025-07-09 17:27:47 [src.detection.ocr_engine] INFO: OCR run returned 2 results
+2025-07-09 17:27:47 [src.detection.ocr_engine] INFO: Trying OCR parameter set 3
+2025-07-09 17:27:47 [src.detection.ocr_engine] INFO: OCR run returned 4 results
+2025-07-09 17:27:47 [src.detection.ocr_engine] INFO: Trying OCR on enhanced image for thin letters
+2025-07-09 17:27:47 [src.detection.ocr_engine] INFO: OCR run returned 6 results
+2025-07-09 17:27:47 [src.detection.ocr_engine] INFO: Trying OCR on morphologically processed image
+2025-07-09 17:27:47 [src.detection.ocr_engine] INFO: OCR run returned 2 results
+2025-07-09 17:27:47 [src.detection.letter_detector] INFO: Splitting multi-character detection: 'E0R'
+2025-07-09 17:27:47 [src.detection.letter_detector] INFO: Splitting multi-character detection: 'E0R'
+2025-07-09 17:27:47 [src.detection.letter_detector] INFO: Running OCR on preprocessing variant 5
+2025-07-09 17:27:47 [src.detection.ocr_engine] INFO: Trying OCR parameter set 1
+2025-07-09 17:27:47 [src.detection.ocr_engine] INFO: OCR run returned 6 results
+2025-07-09 17:27:47 [src.detection.ocr_engine] INFO: Trying OCR parameter set 2
+2025-07-09 17:27:47 [src.detection.ocr_engine] INFO: OCR run returned 2 results
+2025-07-09 17:27:47 [src.detection.ocr_engine] INFO: Trying OCR parameter set 3
+2025-07-09 17:27:47 [src.detection.ocr_engine] INFO: OCR run returned 5 results
+2025-07-09 17:27:47 [src.detection.ocr_engine] INFO: Trying OCR on enhanced image for thin letters
+2025-07-09 17:27:48 [src.detection.ocr_engine] INFO: OCR run returned 6 results
+2025-07-09 17:27:48 [src.detection.ocr_engine] INFO: Trying OCR on morphologically processed image
+2025-07-09 17:27:48 [src.detection.ocr_engine] INFO: OCR run returned 2 results
+2025-07-09 17:27:48 [src.detection.letter_detector] INFO: Splitting multi-character detection: 'E01'
+2025-07-09 17:27:48 [src.detection.letter_detector] INFO: Running OCR on preprocessing variant 6
+2025-07-09 17:27:48 [src.detection.ocr_engine] INFO: Trying OCR parameter set 1
+2025-07-09 17:27:48 [src.detection.ocr_engine] INFO: OCR run returned 7 results
+2025-07-09 17:27:48 [src.detection.ocr_engine] INFO: Trying OCR parameter set 2
+2025-07-09 17:27:48 [src.detection.ocr_engine] INFO: OCR run returned 2 results
+2025-07-09 17:27:48 [src.detection.ocr_engine] INFO: Trying OCR parameter set 3
+2025-07-09 17:27:48 [src.detection.ocr_engine] INFO: OCR run returned 5 results
+2025-07-09 17:27:48 [src.detection.ocr_engine] INFO: Trying OCR on enhanced image for thin letters
+2025-07-09 17:27:48 [src.detection.ocr_engine] INFO: OCR run returned 4 results
+2025-07-09 17:27:48 [src.detection.ocr_engine] INFO: Trying OCR on morphologically processed image
+2025-07-09 17:27:48 [src.detection.ocr_engine] INFO: OCR run returned 2 results
+2025-07-09 17:27:48 [src.detection.letter_detector] INFO: Splitting multi-character detection: 'AR'
+2025-07-09 17:27:48 [src.detection.letter_detector] INFO: Splitting multi-character detection: 'iR'
+2025-07-09 17:27:48 [src.detection.letter_detector] INFO: Final detected letters: ['E', 'E', 'E', 'E', 'R', 'C', 'F', 'I', 'O', 'I', 'I', 'I', 'O', 'R', 'O', 'I', 'R']
+2025-07-09 17:27:48 [__main__] INFO: Matching to wheel layout...
+2025-07-09 17:27:48 [src.solving.layout_matcher] INFO: Matched 6/17 detections to 6-letter wheel
+2025-07-09 17:27:48 [src.solving.layout_matcher] INFO: Matched 6/17 detections to 6-letter wheel
+2025-07-09 17:27:48 [src.solving.layout_matcher] INFO: Matched 6/17 detections to 6-letter wheel
+2025-07-09 17:27:48 [src.solving.layout_matcher] INFO: Matched 6/17 detections to 6-letter wheel
+2025-07-09 17:27:48 [__main__] INFO: Matched 6 letters
+2025-07-09 17:27:48 [__main__] INFO: Letters found: O E R C E F
+2025-07-09 17:27:48 [src.solving.word_solver] INFO: Found 42 words from 6 letters
+2025-07-09 17:27:48 [__main__] INFO: Found 42 valid words
+2025-07-09 17:27:48 [__main__] INFO: Swiping word: FEROCE
+2025-07-09 17:27:49 [__main__] INFO: Swiping word: FORCE
+2025-07-09 17:27:50 [__main__] INFO: Swiping word: COREE
+2025-07-09 17:27:51 [__main__] INFO: Swiping word: CORE
+2025-07-09 17:27:52 [__main__] INFO: Swiping word: FORE
+2025-07-09 17:27:53 [__main__] INFO: Swiping word: FROE
+2025-07-09 17:27:54 [__main__] INFO: Swiping word: ORFE
+2025-07-09 17:27:55 [__main__] INFO: Swiping word: OFER
+2025-07-09 17:27:56 [__main__] INFO: Swiping word: COEF
+2025-07-09 17:27:57 [__main__] INFO: Swiping word: FERE
+2025-07-09 17:27:58 [__main__] INFO: Swiping word: CERO
+2025-07-09 17:27:59 [__main__] INFO: Swiping word: REEF
+2025-07-09 17:28:00 [__main__] INFO: Swiping word: FEER
+2025-07-09 17:28:01 [__main__] INFO: Swiping word: CERE
+2025-07-09 17:28:02 [__main__] INFO: Swiping word: CREE
+2025-07-09 17:28:03 [__main__] INFO: Swiping word: CORF
+2025-07-09 17:28:04 [__main__] INFO: Swiping word: FREE
+2025-07-09 17:28:04 [__main__] INFO: Swiping word: FOE
+2025-07-09 17:28:05 [__main__] INFO: Swiping word: REF
+2025-07-09 17:28:06 [__main__] INFO: Swiping word: FER
+2025-07-09 17:28:07 [__main__] INFO: Swiping word: ORF
+2025-07-09 17:28:08 [__main__] INFO: Swiping word: ORC
+2025-07-09 17:28:09 [__main__] INFO: Swiping word: CRO
+2025-07-09 17:28:10 [__main__] INFO: Swiping word: COR
+2025-07-09 17:28:11 [__main__] INFO: Swiping word: ECO
+2025-07-09 17:28:12 [__main__] INFO: Swiping word: FRO
+2025-07-09 17:28:13 [__main__] INFO: Swiping word: COE
+2025-07-09 17:28:13 [__main__] INFO: Swiping word: ROC
+2025-07-09 17:28:14 [__main__] INFO: Swiping word: REE
+2025-07-09 17:28:15 [__main__] INFO: Swiping word: ROE
+2025-07-09 17:28:16 [__main__] INFO: Swiping word: FOR
+2025-07-09 17:28:17 [__main__] INFO: Swiping word: CEE
+2025-07-09 17:28:18 [__main__] INFO: Swiping word: ORE
+2025-07-09 17:28:19 [__main__] INFO: Swiping word: EER
+2025-07-09 17:28:20 [__main__] INFO: Swiping word: EOF
+2025-07-09 17:28:21 [__main__] INFO: Swiping word: FEE
+2025-07-09 17:28:21 [__main__] INFO: Swiping word: CRE
+2025-07-09 17:28:22 [__main__] INFO: Swiping word: FEC
+2025-07-09 17:28:23 [__main__] INFO: Swiping word: REC
+2025-07-09 17:28:24 [__main__] INFO: Swiping word: OER
+2025-07-09 17:28:25 [__main__] INFO: Swiping word: ERF
+2025-07-09 17:28:26 [__main__] INFO: Swiping word: ERE
+2025-07-09 17:28:27 [__main__] INFO: Waiting for next round...
+2025-07-09 17:28:30 [__main__] INFO: Capturing screenshot...
+2025-07-09 17:28:30 [__main__] INFO: Detecting letters...
+2025-07-09 17:28:30 [src.detection.preprocessor] INFO: Created 6 preprocessed variants
+2025-07-09 17:28:30 [src.detection.letter_detector] INFO: Running OCR on preprocessing variant 1
+2025-07-09 17:28:30 [src.detection.ocr_engine] INFO: Trying OCR parameter set 1
+2025-07-09 17:28:30 [src.detection.ocr_engine] INFO: OCR run returned 9 results
+2025-07-09 17:28:30 [src.detection.ocr_engine] INFO: Trying OCR parameter set 2
+2025-07-09 17:28:30 [src.detection.ocr_engine] INFO: OCR run returned 5 results
+2025-07-09 17:28:30 [src.detection.ocr_engine] INFO: Trying OCR parameter set 3
+2025-07-09 17:28:30 [src.detection.ocr_engine] INFO: OCR run returned 5 results
+2025-07-09 17:28:30 [src.detection.ocr_engine] INFO: Trying OCR on enhanced image for thin letters
+2025-07-09 17:28:31 [src.detection.ocr_engine] INFO: OCR run returned 9 results
+2025-07-09 17:28:31 [src.detection.ocr_engine] INFO: Trying OCR on morphologically processed image
+2025-07-09 17:28:31 [src.detection.ocr_engine] INFO: OCR run returned 3 results
+2025-07-09 17:28:31 [src.detection.letter_detector] INFO: Splitting multi-character detection: 'EGR'
+2025-07-09 17:28:31 [src.detection.letter_detector] INFO: Splitting multi-character detection: 'JF'
+2025-07-09 17:28:31 [src.detection.letter_detector] INFO: Running OCR on preprocessing variant 2
+2025-07-09 17:28:31 [src.detection.ocr_engine] INFO: Trying OCR parameter set 1
+2025-07-09 17:28:31 [src.detection.ocr_engine] INFO: OCR run returned 6 results
+2025-07-09 17:28:31 [src.detection.ocr_engine] INFO: Trying OCR parameter set 2
+2025-07-09 17:28:31 [src.detection.ocr_engine] INFO: OCR run returned 2 results
+2025-07-09 17:28:31 [src.detection.ocr_engine] INFO: Trying OCR parameter set 3
+2025-07-09 17:28:31 [src.detection.ocr_engine] INFO: OCR run returned 5 results
+2025-07-09 17:28:31 [src.detection.ocr_engine] INFO: Trying OCR on enhanced image for thin letters
+2025-07-09 17:28:31 [src.detection.ocr_engine] INFO: OCR run returned 6 results
+2025-07-09 17:28:31 [src.detection.ocr_engine] INFO: Trying OCR on morphologically processed image
+2025-07-09 17:28:31 [src.detection.ocr_engine] INFO: OCR run returned 2 results
+2025-07-09 17:28:31 [src.detection.letter_detector] INFO: Splitting multi-character detection: 'E0R'
+2025-07-09 17:28:31 [src.detection.letter_detector] INFO: Splitting multi-character detection: 'EK'
+2025-07-09 17:28:31 [src.detection.letter_detector] INFO: Running OCR on preprocessing variant 3
+2025-07-09 17:28:31 [src.detection.ocr_engine] INFO: Trying OCR parameter set 1
+2025-07-09 17:28:31 [src.detection.ocr_engine] INFO: OCR run returned 6 results
+2025-07-09 17:28:31 [src.detection.ocr_engine] INFO: Trying OCR parameter set 2
+2025-07-09 17:28:31 [src.detection.ocr_engine] INFO: OCR run returned 2 results
+2025-07-09 17:28:31 [src.detection.ocr_engine] INFO: Trying OCR parameter set 3
+2025-07-09 17:28:31 [src.detection.ocr_engine] INFO: OCR run returned 4 results
+2025-07-09 17:28:31 [src.detection.ocr_engine] INFO: Trying OCR on enhanced image for thin letters
+2025-07-09 17:28:31 [src.detection.ocr_engine] INFO: OCR run returned 6 results
+2025-07-09 17:28:31 [src.detection.ocr_engine] INFO: Trying OCR on morphologically processed image
+2025-07-09 17:28:31 [src.detection.ocr_engine] INFO: OCR run returned 2 results
+2025-07-09 17:28:31 [src.detection.letter_detector] INFO: Splitting multi-character detection: 'E0R'
+2025-07-09 17:28:31 [src.detection.letter_detector] INFO: Splitting multi-character detection: 'E0R'
+2025-07-09 17:28:31 [src.detection.letter_detector] INFO: Running OCR on preprocessing variant 4
+2025-07-09 17:28:31 [src.detection.ocr_engine] INFO: Trying OCR parameter set 1
+2025-07-09 17:28:31 [src.detection.ocr_engine] INFO: OCR run returned 6 results
+2025-07-09 17:28:31 [src.detection.ocr_engine] INFO: Trying OCR parameter set 2
+2025-07-09 17:28:31 [src.detection.ocr_engine] INFO: OCR run returned 2 results
+2025-07-09 17:28:31 [src.detection.ocr_engine] INFO: Trying OCR parameter set 3
+2025-07-09 17:28:31 [src.detection.ocr_engine] INFO: OCR run returned 4 results
+2025-07-09 17:28:31 [src.detection.ocr_engine] INFO: Trying OCR on enhanced image for thin letters
+2025-07-09 17:28:31 [src.detection.ocr_engine] INFO: OCR run returned 6 results
+2025-07-09 17:28:31 [src.detection.ocr_engine] INFO: Trying OCR on morphologically processed image
+2025-07-09 17:28:32 [src.detection.ocr_engine] INFO: OCR run returned 2 results
+2025-07-09 17:28:32 [src.detection.letter_detector] INFO: Splitting multi-character detection: 'E0R'
+2025-07-09 17:28:32 [src.detection.letter_detector] INFO: Splitting multi-character detection: 'E0R'
+2025-07-09 17:28:32 [src.detection.letter_detector] INFO: Splitting multi-character detection: 'FoR'
+2025-07-09 17:28:32 [src.detection.letter_detector] INFO: Running OCR on preprocessing variant 5
+2025-07-09 17:28:32 [src.detection.ocr_engine] INFO: Trying OCR parameter set 1
+2025-07-09 17:28:32 [src.detection.ocr_engine] INFO: OCR run returned 6 results
+2025-07-09 17:28:32 [src.detection.ocr_engine] INFO: Trying OCR parameter set 2
+2025-07-09 17:28:32 [src.detection.ocr_engine] INFO: OCR run returned 2 results
+2025-07-09 17:28:32 [src.detection.ocr_engine] INFO: Trying OCR parameter set 3
+2025-07-09 17:28:32 [src.detection.ocr_engine] INFO: OCR run returned 4 results
+2025-07-09 17:28:32 [src.detection.ocr_engine] INFO: Trying OCR on enhanced image for thin letters
+2025-07-09 17:28:32 [src.detection.ocr_engine] INFO: OCR run returned 6 results
+2025-07-09 17:28:32 [src.detection.ocr_engine] INFO: Trying OCR on morphologically processed image
+2025-07-09 17:28:32 [src.detection.ocr_engine] INFO: OCR run returned 2 results
+2025-07-09 17:28:32 [src.detection.letter_detector] INFO: Splitting multi-character detection: 'EGR'
+2025-07-09 17:28:32 [src.detection.letter_detector] INFO: Splitting multi-character detection: 'E01'
+2025-07-09 17:28:32 [src.detection.letter_detector] INFO: Running OCR on preprocessing variant 6
+2025-07-09 17:28:32 [src.detection.ocr_engine] INFO: Trying OCR parameter set 1
+2025-07-09 17:28:32 [src.detection.ocr_engine] INFO: OCR run returned 7 results
+2025-07-09 17:28:32 [src.detection.ocr_engine] INFO: Trying OCR parameter set 2
+2025-07-09 17:28:32 [src.detection.ocr_engine] INFO: OCR run returned 2 results
+2025-07-09 17:28:32 [src.detection.ocr_engine] INFO: Trying OCR parameter set 3
+2025-07-09 17:28:32 [src.detection.ocr_engine] INFO: OCR run returned 5 results
+2025-07-09 17:28:32 [src.detection.ocr_engine] INFO: Trying OCR on enhanced image for thin letters
+2025-07-09 17:28:32 [src.detection.ocr_engine] INFO: OCR run returned 4 results
+2025-07-09 17:28:32 [src.detection.ocr_engine] INFO: Trying OCR on morphologically processed image
+2025-07-09 17:28:32 [src.detection.ocr_engine] INFO: OCR run returned 2 results
+2025-07-09 17:28:32 [src.detection.letter_detector] INFO: Splitting multi-character detection: 'AR'
+2025-07-09 17:28:32 [src.detection.letter_detector] INFO: Splitting multi-character detection: 'iR'
+2025-07-09 17:28:32 [src.detection.letter_detector] INFO: Final detected letters: ['E', 'E', 'E', 'E', 'R', 'C', 'F', 'I', 'O', 'I', 'I', 'I', 'O', 'R', 'O', 'I', 'R']
+2025-07-09 17:28:32 [__main__] INFO: Matching to wheel layout...
+2025-07-09 17:28:32 [src.solving.layout_matcher] INFO: Matched 6/17 detections to 6-letter wheel
+2025-07-09 17:28:32 [src.solving.layout_matcher] INFO: Matched 6/17 detections to 6-letter wheel
+2025-07-09 17:28:32 [src.solving.layout_matcher] INFO: Matched 6/17 detections to 6-letter wheel
+2025-07-09 17:28:32 [src.solving.layout_matcher] INFO: Matched 6/17 detections to 6-letter wheel
+2025-07-09 17:28:32 [__main__] INFO: Matched 6 letters
+2025-07-09 17:28:32 [__main__] INFO: Letters found: O E R C E F
+2025-07-09 17:28:32 [src.solving.word_solver] INFO: Found 42 words from 6 letters
+2025-07-09 17:28:32 [__main__] INFO: Found 42 valid words
+2025-07-09 17:28:32 [__main__] INFO: Swiping word: FEROCE
+2025-07-09 17:28:32 [__main__] INFO: Interrupted by user
+2025-07-09 17:28:32 [__main__] INFO: Bot stopped

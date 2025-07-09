@@ -25,17 +25,61 @@ class LayoutMatcher:
         """Load layout templates from file."""
         if not os.path.exists(self.config.layouts_file):
             self.logger.warning(f"Layouts file not found: {self.config.layouts_file}")
-            return {}
+            return self._generate_default_layouts()
         
-        with open(self.config.layouts_file, 'r', encoding='utf-8') as f:
-            raw_layouts = json.load(f)
-        
-        # Convert string keys to integers and lists to tuples
+        try:
+            with open(self.config.layouts_file, 'r', encoding='utf-8') as f:
+                raw_data = json.load(f)
+            
+            # Handle different possible JSON structures
+            layouts = {}
+            
+            # If the JSON has a nested structure with layout type
+            if isinstance(raw_data, dict) and 'circular_layout' in raw_data:
+                # Extract the circular layout data
+                circular_data = raw_data.get('circular_layout', {})
+                for size_str, positions in circular_data.items():
+                    try:
+                        size = int(size_str)
+                        layouts[size] = [tuple(pos) for pos in positions]
+                    except (ValueError, TypeError) as e:
+                        self.logger.warning(f"Skipping invalid layout entry {size_str}: {e}")
+            
+            # If the JSON is directly the layout data
+            elif isinstance(raw_data, dict):
+                for size_str, positions in raw_data.items():
+                    try:
+                        size = int(size_str)
+                        layouts[size] = [tuple(pos) for pos in positions]
+                    except (ValueError, TypeError) as e:
+                        self.logger.warning(f"Skipping invalid layout entry {size_str}: {e}")
+            
+            if not layouts:
+                self.logger.warning("No valid layouts found in file, using defaults")
+                return self._generate_default_layouts()
+            
+            self.logger.info(f"Loaded layouts for wheel sizes: {list(layouts.keys())}")
+            return layouts
+            
+        except Exception as e:
+            self.logger.error(f"Error loading layouts: {e}")
+            return self._generate_default_layouts()
+    
+    def _generate_default_layouts(self) -> Dict[int, List[Tuple[float, float]]]:
+        """Generate default circular layouts for common wheel sizes."""
         layouts = {}
-        for size_str, positions in raw_layouts.items():
-            layouts[int(size_str)] = [tuple(pos) for pos in positions]
         
-        self.logger.info(f"Loaded layouts for wheel sizes: {list(layouts.keys())}")
+        # Common wheel sizes
+        for size in [5, 6, 7, 8]:
+            positions = []
+            for i in range(size):
+                angle = 2 * math.pi * i / size - math.pi / 2  # Start from top
+                x = math.cos(angle)
+                y = math.sin(angle)
+                positions.append((x, y))
+            layouts[size] = positions
+        
+        self.logger.info(f"Generated default layouts for sizes: {list(layouts.keys())}")
         return layouts
     
     def match(self, detections: List[Tuple[str, Tuple[int, int]]], 
@@ -57,9 +101,10 @@ class LayoutMatcher:
         if wheel_size is None:
             wheel_size = self._estimate_wheel_size(len(detections))
         
+        # If we don't have a layout for this size, generate one
         if wheel_size not in self.layouts:
-            self.logger.warning(f"No layout for wheel size {wheel_size}")
-            return detections
+            self.logger.warning(f"No layout for wheel size {wheel_size}, generating one")
+            self._add_generated_layout(wheel_size)
         
         # Estimate wheel geometry
         center, radius = self._estimate_wheel_geometry(detections)
@@ -81,6 +126,16 @@ class LayoutMatcher:
         self.logger.info(f"Matched {len(matches)}/{len(detections)} detections to {wheel_size}-letter wheel")
         
         return matches
+    
+    def _add_generated_layout(self, size: int):
+        """Generate and add a layout for a specific size."""
+        positions = []
+        for i in range(size):
+            angle = 2 * math.pi * i / size - math.pi / 2  # Start from top
+            x = math.cos(angle)
+            y = math.sin(angle)
+            positions.append((x, y))
+        self.layouts[size] = positions
     
     def _estimate_wheel_size(self, num_detections: int) -> int:
         """Estimate wheel size based on number of detections."""
