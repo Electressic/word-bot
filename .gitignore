@@ -1,1 +1,8 @@
-debug_screenshots
+debug_screenshots/
+**/__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+.pytest_cache/
+.coverage
+.env

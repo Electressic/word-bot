@@ -86,6 +86,9 @@ class PreprocessingConfig:
     
     # Blur settings
     blur_kernel_size: Tuple[int, int] = (3, 3)
+    
+    # Black on white conversion
+    enable_black_on_white: bool = True
 
 
 @dataclass

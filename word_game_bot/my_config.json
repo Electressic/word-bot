@@ -61,7 +61,8 @@
     ],
     "morph_kernel_size": [2, 2],
     "dilate_iterations": 1,
-    "blur_kernel_size": [3, 3]
+    "blur_kernel_size": [3, 3],
+    "enable_black_on_white": true
   },
   "screen": {
     "window_title": "SM-A346B",

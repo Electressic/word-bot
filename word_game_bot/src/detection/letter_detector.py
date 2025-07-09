@@ -23,31 +23,23 @@ class LetterDetector:
     def detect_letters(self, image: np.ndarray) -> List[Tuple[str, Tuple[int, int]]]:
         """
         Detect letters and their positions from an image.
-        
-        Args:
-            image: The screenshot image (can be color or grayscale)
-            
-        Returns:
-            List of (letter, (x, y)) tuples
         """
-        # Preprocess the image
+        # Preprocess the image (now returns black-on-white images)
         processed_images = self.preprocessor.preprocess(image)
         
         all_detections = []
         
         # Run OCR on each preprocessed variant
         for i, processed in enumerate(processed_images):
-            self.logger.info(f"Running OCR on preprocessing variant {i+1}")
+            self.logger.info(f"Running OCR on black-on-white variant {i+1}")
             ocr_results = self.ocr_engine.detect_text(processed)
-            
-            # Convert OCR results to letter detections
             letter_results = self._process_ocr_results(ocr_results)
             all_detections.extend(letter_results)
         
-        # Special handling for 'I' detection if we haven't found any
+        # Special handling for 'I' detection if needed
         if not any(letter == 'I' for letter, _ in all_detections):
             self.logger.warning("No 'I' detected, trying specialized detection")
-            i_detections = self._detect_letter_i_specialized(image)
+            i_detections = self._detect_letter_i_specialized(processed_images[0] if processed_images else image)
             all_detections.extend(i_detections)
         
         # Deduplicate all detections

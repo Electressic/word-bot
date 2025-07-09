@@ -34,46 +34,53 @@ class DebugVisualizer:
     def visualize_detections(self, 
                            image: np.ndarray,
                            detections: List[Tuple[str, Tuple[int, int]]],
-                           layout_info: Optional[Dict] = None):
-        """Create visualization of letter detections."""
-        # Convert to color if grayscale
-        if len(image.shape) == 2:
-            vis_image = cv2.cvtColor(image, cv2.COLOR_GRAY2BGR)
+                           layout_info: Optional[Dict] = None,
+                           base_bw_image: Optional[np.ndarray] = None):
+        """Create visualization of letter detections on black-and-white base."""
+        
+        # Use black-and-white base if provided, otherwise convert input
+        if base_bw_image is not None:
+            # Convert B&W to color for overlay
+            vis_image = cv2.cvtColor(base_bw_image, cv2.COLOR_GRAY2BGR)
         else:
-            vis_image = image.copy()
+            # Fallback to original method
+            if len(image.shape) == 2:
+                vis_image = cv2.cvtColor(image, cv2.COLOR_GRAY2BGR)
+            else:
+                vis_image = image.copy()
         
         # Draw layout info if available
         if layout_info:
-            # Draw wheel circle
+            # Draw wheel circle in yellow
             if layout_info.get('wheel_center') and layout_info.get('wheel_radius'):
                 center = layout_info['wheel_center']
                 radius = layout_info['wheel_radius']
                 cv2.circle(vis_image, 
                           (int(center[0]), int(center[1])), 
                           int(radius), 
-                          (255, 255, 0), 2)  # Yellow circle
+                          (0, 255, 255), 2)  # Yellow circle
             
-            # Draw slot positions
+            # Draw slot positions in blue
             if layout_info.get('slot_positions'):
                 for slot_x, slot_y in layout_info['slot_positions']:
-                    cv2.circle(vis_image, (slot_x, slot_y), 30, (255, 0, 0), 1)  # Blue slots
+                    cv2.circle(vis_image, (int(slot_x), int(slot_y)), 8, (255, 0, 0), 2)  # Blue circles
         
         # Draw detections
         for letter, (x, y) in detections:
-            # Detection circle
-            cv2.circle(vis_image, (x, y), 15, (0, 255, 0), 2)  # Green circle
+            # Detection circle in green
+            cv2.circle(vis_image, (x, y), 15, (0, 255, 0), 2)
             
-            # Letter text
+            # Letter text in red
             cv2.putText(vis_image, letter, 
                        (x - 10, y - 20),
                        cv2.FONT_HERSHEY_SIMPLEX,
-                       0.8, (0, 0, 255), 2)  # Red text
+                       0.8, (0, 0, 255), 2)
             
-            # Position coordinates
+            # Position coordinates in white
             cv2.putText(vis_image, f"({x},{y})",
                        (x - 30, y + 40),
                        cv2.FONT_HERSHEY_SIMPLEX,
-                       0.4, (255, 255, 255), 1)  # White text
+                       0.4, (255, 255, 255), 1)
         
         # Add detection count
         cv2.putText(vis_image, f"Detections: {len(detections)}",
@@ -81,7 +88,7 @@ class DebugVisualizer:
                    cv2.FONT_HERSHEY_SIMPLEX,
                    0.7, (255, 255, 0), 2)
         
-        self.save_screenshot("3_detected_letters", vis_image)
+        self.save_screenshot("9_final_detections_overlay", vis_image)
     
     def create_preprocessing_comparison(self, images: List[Tuple[str, np.ndarray]]):
         """Create side-by-side comparison of preprocessing methods."""

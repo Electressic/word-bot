@@ -2,6 +2,7 @@
 
 import cv2
 import numpy as np
+import os
 from typing import List, Tuple, Optional
 import logging
 
@@ -14,16 +15,31 @@ class ImagePreprocessor:
     def __init__(self, config: PreprocessingConfig):
         self.config = config
         self.logger = logging.getLogger(__name__)
+        self.debug_dir = getattr(config, 'debug_dir', 'debug')
+        self._setup_debug_dir()
+    
+    def _setup_debug_dir(self):
+        """Create debug directory if it doesn't exist."""
+        if not os.path.exists(self.debug_dir):
+            os.makedirs(self.debug_dir)
+            self.logger.info(f"Created debug directory: {self.debug_dir}")
+    
+    def save_debug_image(self, name: str, image: np.ndarray):
+        """Save debug image to the debug directory."""
+        filename = os.path.join(self.debug_dir, f"{name}.png")
+        cv2.imwrite(filename, image)
+        self.logger.debug(f"Saved debug image: {filename}")
     
     def preprocess(self, image: np.ndarray) -> List[np.ndarray]:
         """
         Apply multiple preprocessing strategies and return all variants.
+        Focus on creating clean black-on-white images for OCR.
         
         Args:
             image: Input image (color or grayscale)
             
         Returns:
-            List of preprocessed images
+            List of preprocessed images (all black letters on white background)
         """
         # Convert to grayscale if needed
         if len(image.shape) == 3:
@@ -31,127 +47,211 @@ class ImagePreprocessor:
         else:
             gray = image.copy()
         
-        # Apply denoising
-        denoised = cv2.fastNlMeansDenoising(
-            gray, 
-            None, 
-            self.config.denoise_strength, 
-            7, 
-            21
-        )
+        # Save original for debugging
+        self.save_debug_image("1_original_cropped", gray)
+        self.logger.info(f"Original image stats: mean={np.mean(gray):.1f}, min={np.min(gray)}, max={np.max(gray)}")
+        
+        # Apply light denoising
+        denoised = cv2.fastNlMeansDenoising(gray, None, 10, 7, 21)
+        self.save_debug_image("2_denoised", denoised)
         
         preprocessed_images = []
         
-        # Apply different thresholding methods
-        for method in self.config.threshold_methods:
-            processed = self._apply_threshold(denoised, method)
-            if processed is not None:
-                preprocessed_images.append(processed)
+        # Method 1: Adaptive Threshold (primary method)
+        adaptive_bw = self._create_adaptive_black_on_white(denoised)
+        if adaptive_bw is not None:
+            preprocessed_images.append(adaptive_bw)
+            self.save_debug_image("3_adaptive_black_white", adaptive_bw)
         
-        # Create a combined image using multiple methods
-        combined = self._create_combined_image(preprocessed_images)
-        if combined is not None:
-            preprocessed_images.append(combined)
+        # Method 2: Otsu's method
+        otsu_bw = self._create_otsu_black_on_white(denoised)
+        if otsu_bw is not None:
+            preprocessed_images.append(otsu_bw)
+            self.save_debug_image("4_otsu_black_white", otsu_bw)
         
-        # Add a variant specifically optimized for thin letters
-        thin_optimized = self._optimize_for_thin_letters(denoised)
-        if thin_optimized is not None:
-            preprocessed_images.append(thin_optimized)
+        # Method 3: Manual threshold (for high contrast images)
+        manual_bw = self._create_manual_black_on_white(denoised)
+        if manual_bw is not None:
+            preprocessed_images.append(manual_bw)
+            self.save_debug_image("5_manual_black_white", manual_bw)
         
-        self.logger.info(f"Created {len(preprocessed_images)} preprocessed variants")
+        # Method 4: Enhanced for thin letters
+        thin_bw = self._create_thin_letter_black_on_white(denoised)
+        if thin_bw is not None:
+            preprocessed_images.append(thin_bw)
+            self.save_debug_image("6_thin_letter_black_white", thin_bw)
+        
+        # Create a combined image if we have multiple variants
+        if len(preprocessed_images) > 1:
+            combined = self._create_combined_black_on_white(preprocessed_images)
+            if combined is not None:
+                preprocessed_images.append(combined)
+                self.save_debug_image("7_combined_black_white", combined)
+        
+        self.logger.info(f"Created {len(preprocessed_images)} black-on-white variants")
+        
+        # Ensure we have at least one image
+        if not preprocessed_images:
+            # Fallback: simple threshold
+            _, fallback = cv2.threshold(denoised, 127, 255, cv2.THRESH_BINARY)
+            preprocessed_images.append(fallback)
+            self.save_debug_image("8_fallback_black_white", fallback)
+            self.logger.warning("Using fallback threshold method")
         
         return preprocessed_images
     
-    def _apply_threshold(self, image: np.ndarray, method: str) -> Optional[np.ndarray]:
-        """Apply a specific thresholding method."""
+    def _create_adaptive_black_on_white(self, image: np.ndarray) -> Optional[np.ndarray]:
+        """Create black-on-white using adaptive threshold."""
         try:
-            if method == 'adaptive_gaussian':
-                blurred = cv2.GaussianBlur(image, self.config.blur_kernel_size, 0)
-                return cv2.adaptiveThreshold(
-                    blurred, 
-                    255, 
-                    cv2.ADAPTIVE_THRESH_GAUSSIAN_C,
-                    cv2.THRESH_BINARY_INV, 
-                    21,  # Block size
-                    10   # C constant
-                )
+            # Apply gentle blur
+            blurred = cv2.GaussianBlur(image, (3, 3), 0)
             
-            elif method == 'otsu':
-                blurred = cv2.GaussianBlur(image, self.config.blur_kernel_size, 0)
-                _, result = cv2.threshold(
-                    blurred, 
-                    0, 
-                    255, 
-                    cv2.THRESH_BINARY_INV + cv2.THRESH_OTSU
-                )
-                return result
+            # Adaptive threshold
+            binary = cv2.adaptiveThreshold(
+                blurred,
+                255,
+                cv2.ADAPTIVE_THRESH_GAUSSIAN_C,
+                cv2.THRESH_BINARY,
+                21,  # Block size
+                10   # C constant
+            )
             
-            elif method.startswith('manual_'):
-                threshold_value = int(method.split('_')[1])
-                _, result = cv2.threshold(
-                    image, 
-                    threshold_value, 
-                    255, 
-                    cv2.THRESH_BINARY_INV
-                )
-                return result
+            # Check if we need to invert (letters should be black)
+            binary = self._ensure_black_letters_white_background(binary)
             
-            else:
-                self.logger.warning(f"Unknown threshold method: {method}")
-                return None
-                
+            # Clean up noise
+            binary = self._clean_binary_image(binary)
+            
+            return binary
+            
         except Exception as e:
-            self.logger.error(f"Failed to apply {method} threshold: {e}")
+            self.logger.error(f"Adaptive threshold failed: {e}")
             return None
     
-    def _create_combined_image(self, images: List[np.ndarray]) -> Optional[np.ndarray]:
-        """Combine multiple binary images using OR operation."""
-        if not images:
-            return None
-        
+    def _create_otsu_black_on_white(self, image: np.ndarray) -> Optional[np.ndarray]:
+        """Create black-on-white using Otsu's method."""
         try:
-            # Start with the first image
+            # Apply blur
+            blurred = cv2.GaussianBlur(image, (5, 5), 0)
+            
+            # Otsu's threshold
+            _, binary = cv2.threshold(blurred, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)
+            
+            # Ensure correct polarity
+            binary = self._ensure_black_letters_white_background(binary)
+            
+            # Clean up
+            binary = self._clean_binary_image(binary)
+            
+            return binary
+            
+        except Exception as e:
+            self.logger.error(f"Otsu threshold failed: {e}")
+            return None
+    
+    def _create_manual_black_on_white(self, image: np.ndarray) -> Optional[np.ndarray]:
+        """Create black-on-white using manual threshold."""
+        try:
+            # Determine threshold based on image characteristics
+            mean_val = np.mean(image)
+            if mean_val > 200:
+                threshold = 150  # High contrast image
+            elif mean_val > 100:
+                threshold = int(mean_val * 0.8)  # Medium contrast
+            else:
+                threshold = 80   # Low contrast
+            
+            _, binary = cv2.threshold(image, threshold, 255, cv2.THRESH_BINARY)
+            
+            # Ensure correct polarity
+            binary = self._ensure_black_letters_white_background(binary)
+            
+            # Clean up
+            binary = self._clean_binary_image(binary)
+            
+            return binary
+            
+        except Exception as e:
+            self.logger.error(f"Manual threshold failed: {e}")
+            return None
+    
+    def _create_thin_letter_black_on_white(self, image: np.ndarray) -> Optional[np.ndarray]:
+        """Create black-on-white optimized for thin letters like 'I'."""
+        try:
+            # Lower threshold to capture thin strokes
+            _, binary = cv2.threshold(image, 120, 255, cv2.THRESH_BINARY)
+            
+            # Ensure correct polarity
+            binary = self._ensure_black_letters_white_background(binary)
+            
+            # Enhance thin vertical lines
+            vertical_kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (1, 3))
+            binary = cv2.morphologyEx(binary, cv2.MORPH_CLOSE, vertical_kernel)
+            
+            # Clean up while preserving thin letters
+            kernel = np.ones((2, 2), np.uint8)
+            binary = cv2.morphologyEx(binary, cv2.MORPH_OPEN, kernel)
+            
+            return binary
+            
+        except Exception as e:
+            self.logger.error(f"Thin letter optimization failed: {e}")
+            return None
+    
+    def _create_combined_black_on_white(self, images: List[np.ndarray]) -> Optional[np.ndarray]:
+        """Combine multiple black-on-white images."""
+        try:
+            if not images:
+                return None
+            
+            # Start with first image
             combined = images[0].copy()
             
-            # OR with each subsequent image
+            # OR operation to combine all letter detections
             for img in images[1:]:
-                combined = cv2.bitwise_or(combined, img)
+                # Invert both images, OR them, then invert back
+                # This ensures we capture letters from all methods
+                inv_combined = cv2.bitwise_not(combined)
+                inv_img = cv2.bitwise_not(img)
+                inv_result = cv2.bitwise_or(inv_combined, inv_img)
+                combined = cv2.bitwise_not(inv_result)
             
-            # Clean up with morphological operations
-            kernel = np.ones(self.config.morph_kernel_size, np.uint8)
-            
-            # Close small gaps
-            combined = cv2.morphologyEx(combined, cv2.MORPH_CLOSE, kernel)
-            
-            # Remove small noise
-            kernel_small = np.ones((2, 2), np.uint8)
-            combined = cv2.morphologyEx(combined, cv2.MORPH_OPEN, kernel_small)
+            # Final cleanup
+            combined = self._clean_binary_image(combined)
             
             return combined
             
         except Exception as e:
-            self.logger.error(f"Failed to create combined image: {e}")
+            self.logger.error(f"Combined image creation failed: {e}")
             return None
     
-    def _optimize_for_thin_letters(self, image: np.ndarray) -> Optional[np.ndarray]:
-        """Create a variant specifically optimized for thin letters like 'I'."""
-        try:
-            # Use a lower threshold to capture thin strokes
-            _, binary = cv2.threshold(image, 120, 255, cv2.THRESH_BINARY_INV)
-            
-            # Enhance vertical lines
-            vertical_kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (1, 3))
-            vertical_enhanced = cv2.morphologyEx(binary, cv2.MORPH_CLOSE, vertical_kernel)
-            
-            # Slightly dilate to make letters more visible
-            dilate_kernel = np.ones((2, 1), np.uint8)
-            dilated = cv2.dilate(vertical_enhanced, dilate_kernel, iterations=1)
-            
-            return dilated
-            
-        except Exception as e:
-            self.logger.error(f"Failed to optimize for thin letters: {e}")
-            return None
+    def _ensure_black_letters_white_background(self, binary: np.ndarray) -> np.ndarray:
+        """Ensure binary image has black letters on white background."""
+        # Count black vs white pixels in center region (where letters likely are)
+        h, w = binary.shape
+        center_region = binary[h//4:3*h//4, w//4:3*w//4]
+        
+        black_pixels = np.sum(center_region == 0)
+        white_pixels = np.sum(center_region == 255)
+        
+        # If more black than white in center, likely white letters on black background
+        if black_pixels > white_pixels * 1.5:
+            self.logger.debug("Inverting image - detected white letters on black background")
+            return cv2.bitwise_not(binary)
+        
+        return binary
+    
+    def _clean_binary_image(self, binary: np.ndarray) -> np.ndarray:
+        """Clean up binary image noise while preserving letter structure."""
+        # Remove small noise with opening
+        kernel_open = np.ones((2, 2), np.uint8)
+        cleaned = cv2.morphologyEx(binary, cv2.MORPH_OPEN, kernel_open)
+        
+        # Fill small gaps in letters with closing
+        kernel_close = np.ones((3, 3), np.uint8)
+        cleaned = cv2.morphologyEx(cleaned, cv2.MORPH_CLOSE, kernel_close)
+        
+        return cleaned
     
     def crop_game_area(self, image: np.ndarray, window_rect: Tuple[int, int, int, int]) -> Tuple[np.ndarray, Tuple[int, int]]:
         """
@@ -167,12 +267,10 @@ class ImagePreprocessor:
         x, y, width, height = window_rect
         
         # Calculate crop area based on percentages from config
-        # Note: These values should come from ScreenConfig, not PreprocessingConfig
-        # Using default values here since PreprocessingConfig doesn't have screen settings
-        crop_x_start = 0.2
-        crop_y_start = 0.625
-        crop_width_pct = 0.6
-        crop_height_pct = 0.275
+        crop_x_start = getattr(self.config, 'crop_x_start', 0.2)
+        crop_y_start = getattr(self.config, 'crop_y_start', 0.625)
+        crop_width_pct = getattr(self.config, 'crop_width_pct', 0.6)
+        crop_height_pct = getattr(self.config, 'crop_height_pct', 0.275)
         
         crop_x = int(width * crop_x_start)
         crop_y = int(height * crop_y_start)
@@ -189,3 +287,11 @@ class ImagePreprocessor:
         cropped = image[crop_y:crop_y+crop_height, crop_x:crop_x+crop_width]
         
         return cropped, (crop_x, crop_y)
+    
+    def get_base_image_for_visualization(self) -> Optional[np.ndarray]:
+        """Get the best black-on-white image for visualization overlay."""
+        # Return the path to the best processed image for visualization
+        best_image_path = os.path.join(self.debug_dir, "3_adaptive_black_white.png")
+        if os.path.exists(best_image_path):
+            return cv2.imread(best_image_path, cv2.IMREAD_GRAYSCALE)
+        return None
