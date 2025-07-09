@@ -1,0 +1,88 @@
+{
+  "ocr": {
+    "min_confidence": 0.3,
+    "languages": ["en"],
+    "gpu": true,
+    "char_mappings": {
+      "1": "I",
+      "|": "I",
+      "l": "I",
+      "i": "I",
+      "0": "O",
+      "o": "O"
+    },
+    "letter_thresholds": {
+      "I": 0.05,
+      "N": 0.2,
+      "O": 0.2,
+      "C": 0.3,
+      "D": 0.3,
+      "Q": 0.3,
+      "G": 0.3,
+      "P": 0.3,
+      "R": 0.3,
+      "T": 0.5,
+      "A": 0.6,
+      "E": 0.6,
+      "DEFAULT": 0.4
+    },
+    "parameter_sets": [
+      {
+        "text_threshold": 0.1,
+        "low_text": 0.05,
+        "link_threshold": 0.1,
+        "width_ths": 0.3,
+        "height_ths": 0.3,
+        "mag_ratio": 2.0
+      },
+      {
+        "text_threshold": 0.4,
+        "low_text": 0.2,
+        "link_threshold": 0.3,
+        "width_ths": 0.5,
+        "height_ths": 0.5
+      },
+      {
+        "text_threshold": 0.7,
+        "low_text": 0.4,
+        "link_threshold": 0.4,
+        "width_ths": 0.7,
+        "height_ths": 0.7
+      }
+    ]
+  },
+  "preprocessing": {
+    "denoise_strength": 10,
+    "threshold_methods": [
+      "adaptive_gaussian",
+      "otsu",
+      "manual_140",
+      "manual_160"
+    ],
+    "morph_kernel_size": [2, 2],
+    "dilate_iterations": 1,
+    "blur_kernel_size": [3, 3]
+  },
+  "screen": {
+    "window_title": "SM-A346B",
+    "crop_x_start": 0.2,
+    "crop_y_start": 0.625,
+    "crop_width": 0.6,
+    "crop_height": 0.275,
+    "popup_close_positions": [
+      [0.95, 0.08],
+      [0.5, 0.88]
+    ]
+  },
+  "layout": {
+    "tolerance_px": 60,
+    "deduplication_radius": 30,
+    "layouts_file": "data/layouts.json"
+  },
+  "debug": false,
+  "debug_dir": "debug_screenshots",
+  "words_file": "data/words.txt",
+  "stop_hotkey": "ctrl+shift+f8",
+  "swipe_duration": 0.1,
+  "popup_wait_time": 0.3
+}

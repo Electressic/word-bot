@@ -1,0 +1,12 @@
+{
+  "circular_layout": {
+    "description": "Circular letter arrangement",
+    "positions": {
+    }
+  },
+  "grid_layout": {
+    "description": "Grid-based letter arrangement",
+    "positions": {
+    }
+  }
+}
