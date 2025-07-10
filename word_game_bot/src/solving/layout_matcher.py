@@ -83,7 +83,7 @@ class LayoutMatcher:
         return layouts
     
     def match(self, detections: List[Tuple[str, Tuple[int, int]]], 
-              wheel_size: Optional[int] = None) -> List[Tuple[str, Tuple[int, int]]]:
+          wheel_size: Optional[int] = None) -> List[Tuple[str, Tuple[int, int]]]:
         """
         Match detections to template slots.
         
@@ -101,22 +101,7 @@ class LayoutMatcher:
         if wheel_size is None:
             wheel_size = self._estimate_wheel_size(len(detections))
         
-        # Special handling for forced wheel sizes with many detections
-        if wheel_size and len(detections) > wheel_size * 2:
-            self.logger.warning(f"Many detections ({len(detections)}) for wheel size {wheel_size}. "
-                               "Trying progressive tolerance matching.")
-            
-            # Try increasing tolerances until we get a good match
-            for tolerance_multiplier in [1.0, 1.5, 2.0, 3.0]:
-                temp_tolerance = int(self.config.tolerance_px * tolerance_multiplier)
-                matches = self._match_with_tolerance(detections, wheel_size, temp_tolerance)
-                
-                if len(matches) >= wheel_size:
-                    self.logger.info(f"Found good match with {tolerance_multiplier}x tolerance "
-                                   f"({temp_tolerance}px): {len(matches)} letters")
-                    return matches[:wheel_size]  # Take first N matches
-        
-        # If we don't have a layout for this size, generate one
+        # First, try normal matching
         if wheel_size not in self.layouts:
             self.logger.warning(f"No layout for wheel size {wheel_size}, generating one")
             self._add_generated_layout(wheel_size)
@@ -135,10 +120,42 @@ class LayoutMatcher:
         slots = self._calculate_slot_positions(template, center, radius)
         self.last_matched_slots = slots
         
-        # Find optimal assignment
+        # Find optimal assignment with default tolerance
         matches = self._optimal_assignment(detections, slots)
         
         self.logger.info(f"Matched {len(matches)}/{len(detections)} detections to {wheel_size}-letter wheel")
+        
+        # Check if we need progressive tolerance matching
+        need_progressive = False
+        
+        # Condition 1: Many detections (original logic)
+        if len(detections) > wheel_size * 2:
+            self.logger.warning(f"Many detections ({len(detections)}) for wheel size {wheel_size}. "
+                               "Trying progressive tolerance matching.")
+            need_progressive = True
+        
+        # Condition 2: Not enough matches with default tolerance (NEW LOGIC)
+        elif len(matches) < wheel_size:
+            self.logger.warning(f"Only matched {len(matches)}/{wheel_size} required letters with "
+                               f"default tolerance ({self.config.tolerance_px}px). "
+                               "Trying progressive tolerance matching.")
+            need_progressive = True
+        
+        # Apply progressive tolerance if needed
+        if need_progressive:
+            # Try increasing tolerances until we get a good match
+            for tolerance_multiplier in [1.0, 1.5, 2.0, 3.0]:
+                temp_tolerance = int(self.config.tolerance_px * tolerance_multiplier)
+                progressive_matches = self._match_with_tolerance(detections, wheel_size, temp_tolerance)
+                
+                if len(progressive_matches) >= wheel_size:
+                    self.logger.info(f"Found good match with {tolerance_multiplier}x tolerance "
+                                   f"({temp_tolerance}px): {len(progressive_matches)} letters")
+                    return progressive_matches[:wheel_size]  # Take first N matches
+            
+            # If progressive tolerance didn't help, log a warning but continue with what we have
+            self.logger.warning(f"Progressive tolerance matching failed to find {wheel_size} matches. "
+                               f"Using {len(matches)} matches found with default tolerance.")
         
         return matches
     

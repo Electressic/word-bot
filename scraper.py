@@ -19,119 +19,109 @@ def scrape_word_collect():
         main_page_response = requests.get(base_url, headers=headers)
         main_page_response.raise_for_status()
 
-        # 2. Find all the chapter links with better debugging
+        # 2. Find all the chapter links
         print("Finding all the chapter links...")
         soup = BeautifulSoup(main_page_response.content, 'html.parser')
         
-        # Debug: Save the HTML to see what we're working with
-        with open("debug_main_page.html", "w", encoding="utf-8") as f:
-            f.write(soup.prettify())
-        print("Saved main page HTML to debug_main_page.html for inspection")
-        
-        # Try multiple approaches to find chapter links
+        # Look for chapter links using the pattern from the screenshots
         chapter_links = []
         
-        # Approach 1: Look for entry-content div
-        content_div = soup.find('div', class_='entry-content')
-        if content_div:
-            for link in content_div.find_all('a', href=re.compile(r'chapter')):
-                chapter_links.append(link['href'])
-        
-        # Approach 2: Look for any links containing 'chapter'
-        if not chapter_links:
-            for link in soup.find_all('a', href=re.compile(r'chapter')):
-                chapter_links.append(link['href'])
-        
-        # Approach 3: Look for links in article or main content areas
-        if not chapter_links:
-            content_areas = soup.find_all(['article', 'main', 'div'], class_=re.compile(r'content|post|entry'))
-            for area in content_areas:
-                for link in area.find_all('a', href=re.compile(r'chapter')):
-                    chapter_links.append(link['href'])
+        # Find all links that contain "chapter" and "answers"
+        for link in soup.find_all('a', href=True):
+            href = link['href']
+            if 'chapter' in href and 'answers' in href:
+                if href.startswith('/'):
+                    chapter_links.append(base_url.rstrip('/') + href)
+                elif href.startswith('http'):
+                    chapter_links.append(href)
+                else:
+                    chapter_links.append(base_url + href)
         
         # Remove duplicates while preserving order
         chapter_links = list(dict.fromkeys(chapter_links))
 
         if not chapter_links:
-            print("Could not find any chapter links. Checking for any game-related links...")
-            # Look for any links that might be game levels
-            all_links = soup.find_all('a', href=True)
-            for link in all_links:
-                href = link['href']
-                if any(keyword in href.lower() for keyword in ['level', 'answer', 'solution', 'pack']):
-                    chapter_links.append(href)
-            
-            if not chapter_links:
-                print("No relevant links found. Please check debug_main_page.html to see the page structure.")
-                return
+            print("Could not find any chapter links.")
+            return
 
-        print(f"Found {len(chapter_links)} chapter links. Now scraping each chapter...")
+        print(f"Found {len(chapter_links)} chapter links.")
 
-        # 3. Visit each chapter page and extract words
-        for i, link in enumerate(chapter_links[:5]):  # Limit to first 5 for testing
-            # Handle relative URLs
-            if link.startswith('/'):
-                chapter_url = base_url.rstrip('/') + link
-            elif link.startswith('http'):
-                chapter_url = link
-            else:
-                chapter_url = base_url + link
-                
+        # 3. Visit each chapter page to get level links
+        for i, chapter_url in enumerate(chapter_links[:3]):  # Limit to first 3 chapters for testing
             try:
-                print(f"Scraping {i+1}/{len(chapter_links[:5])}: {chapter_url}...")
+                print(f"Scraping chapter {i+1}/{len(chapter_links[:3])}: {chapter_url}...")
                 chapter_response = requests.get(chapter_url, headers=headers)
                 chapter_response.raise_for_status()
                 chapter_soup = BeautifulSoup(chapter_response.content, 'html.parser')
 
-                # Save first chapter page for debugging
-                if i == 0:
-                    with open("debug_chapter_page.html", "w", encoding="utf-8") as f:
-                        f.write(chapter_soup.prettify())
-                    print("Saved first chapter page HTML to debug_chapter_page.html")
+                # Find all level links in this chapter (like "/en/level-2.html")
+                level_links = []
+                for link in chapter_soup.find_all('a', href=True):
+                    href = link['href']
+                    if '/level-' in href and href.endswith('.html'):
+                        if href.startswith('/'):
+                            level_links.append(base_url.rstrip('/') + href)
+                        elif href.startswith('http'):
+                            level_links.append(href)
+                        else:
+                            level_links.append(base_url + href)
 
-                # Try multiple approaches to extract words
-                words = []
-                
-                # Approach 1: Look for word-answers div
-                answer_div = chapter_soup.find('div', class_='word-answers')
-                if answer_div:
-                    words = [li.get_text(strip=True) for li in answer_div.find_all('li')]
-                
-                # Approach 2: Look for any div containing answers
-                if not words:
-                    answer_divs = chapter_soup.find_all('div', class_=re.compile(r'answer|solution|word'))
-                    for div in answer_divs:
-                        word_elements = div.find_all(['li', 'span', 'p', 'div'])
-                        for elem in word_elements:
-                            text = elem.get_text(strip=True)
-                            if text and len(text) > 1 and text.isalpha():
-                                words.append(text)
-                
-                # Approach 3: Look in common content areas
-                if not words:
-                    content_areas = chapter_soup.find_all(['article', 'main', 'div'], class_=re.compile(r'content|entry|post'))
-                    for area in content_areas:
-                        # Look for lists of words
-                        lists = area.find_all(['ul', 'ol'])
-                        for ul in lists:
-                            for li in ul.find_all('li'):
-                                text = li.get_text(strip=True)
-                                if text and len(text) > 1 and text.isalpha():
-                                    words.append(text)
+                # Remove duplicates
+                level_links = list(dict.fromkeys(level_links))
+                print(f"Found {len(level_links)} level links in this chapter.")
 
-                if words:
-                    print(f"Found {len(words)} words from {chapter_url}")
-                    all_words.extend(words)
-                else:
-                    print(f"No words found in {chapter_url}")
+                # 4. Visit each level page to extract words
+                for j, level_url in enumerate(level_links):
+                    try:
+                        print(f"  Scraping level {j+1}/{len(level_links)}: {level_url}...")
+                        level_response = requests.get(level_url, headers=headers)
+                        level_response.raise_for_status()
+                        level_soup = BeautifulSoup(level_response.content, 'html.parser')
+
+                        # Save first level page for debugging
+                        if i == 0 and j == 0:
+                            with open("debug_level_page.html", "w", encoding="utf-8") as f:
+                                f.write(level_soup.prettify())
+                            print("  Saved first level page HTML to debug_level_page.html")
+
+                        # Extract words from the <div class="words"> section
+                        words = []
+                        
+                        # Look for the div with class="words"
+                        words_div = level_soup.find('div', class_='words')
+                        if words_div:
+                            # Find all divs inside the words div
+                            word_divs = words_div.find_all('div')
+                            for word_div in word_divs:
+                                # Extract all span elements with class="let"
+                                letter_spans = word_div.find_all('span', class_='let')
+                                if letter_spans:
+                                    # Combine the letters to form a word
+                                    word = ''.join(span.get_text(strip=True) for span in letter_spans)
+                                    if word and word.isalpha():
+                                        words.append(word)
+
+                        if words:
+                            # Remove duplicates from this level
+                            unique_level_words = list(dict.fromkeys(words))
+                            print(f"    Found {len(unique_level_words)} words: {', '.join(unique_level_words)}")
+                            all_words.extend(unique_level_words)
+                        else:
+                            print(f"    No words found in {level_url}")
+                        
+                        # Be respectful to the server
+                        time.sleep(0.5)
+
+                    except requests.exceptions.RequestException as e:
+                        print(f"    Could not scrape {level_url}: {e}")
                 
-                # Be respectful to the server
+                # Delay between chapters
                 time.sleep(1)
 
             except requests.exceptions.RequestException as e:
                 print(f"Could not scrape {chapter_url}: {e}")
 
-        # 4. Save the words to a file
+        # 5. Save the words to a file
         if all_words:
             # Remove duplicates and empty strings
             unique_words = list(dict.fromkeys([word for word in all_words if word and word.strip()]))
