@@ -20,26 +20,29 @@ class LetterDetector:
         self.preprocessor = ImagePreprocessor(config.preprocessing)
         self.logger = logging.getLogger(__name__)
     
-    def detect_letters(self, image: np.ndarray) -> List[Tuple[str, Tuple[int, int]]]:
+    def detect_letters(self, image: np.ndarray) -> Tuple[List[Tuple[str, Tuple[int, int]]], np.ndarray]:
         """
         Detect letters and their positions from an image.
+        Returns both the detections and the Otsu-processed image for visualization.
         """
-        # Preprocess the image (now returns black-on-white images)
+        # Preprocess the image (now returns only Otsu result)
         processed_images = self.preprocessor.preprocess(image)
+        
+        # Get the Otsu-processed image (first and only in the list)
+        otsu_image = processed_images[0] if processed_images else image
         
         all_detections = []
         
-        # Run OCR on each preprocessed variant
-        for i, processed in enumerate(processed_images):
-            self.logger.info(f"Running OCR on black-on-white variant {i+1}")
-            ocr_results = self.ocr_engine.detect_text(processed)
-            letter_results = self._process_ocr_results(ocr_results)
-            all_detections.extend(letter_results)
+        # Run OCR on the Otsu-processed image
+        self.logger.info("Running OCR on Otsu black-on-white image")
+        ocr_results = self.ocr_engine.detect_text(otsu_image)
+        letter_results = self._process_ocr_results(ocr_results)
+        all_detections.extend(letter_results)
         
         # Special handling for 'I' detection if needed
         if not any(letter == 'I' for letter, _ in all_detections):
             self.logger.warning("No 'I' detected, trying specialized detection")
-            i_detections = self._detect_letter_i_specialized(processed_images[0] if processed_images else image)
+            i_detections = self._detect_letter_i_specialized(otsu_image)
             all_detections.extend(i_detections)
         
         # Deduplicate all detections
@@ -49,7 +52,8 @@ class LetterDetector:
         detected_letters = [letter for letter, _ in unique_detections]
         self.logger.info(f"Final detected letters: {detected_letters}")
         
-        return unique_detections
+        # Return both detections and the Otsu image for visualization
+        return unique_detections, otsu_image
     
     def _process_ocr_results(self, ocr_results: List[OCRResult]) -> List[Tuple[str, Tuple[int, int]]]:
         """Convert OCR results to letter detections."""

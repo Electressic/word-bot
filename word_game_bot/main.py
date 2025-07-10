@@ -139,8 +139,8 @@ class WordGameBot:
             
             # Step 3: Detect letters
             self.logger.info("Detecting letters...")
-            detections = self.letter_detector.detect_letters(cropped)
-            
+            detections, otsu_image = self.letter_detector.detect_letters(cropped)
+
             # Adjust coordinates to screen space
             adjusted_detections = [
                 (letter, (x + crop_x, y + crop_y))
@@ -182,7 +182,8 @@ class WordGameBot:
                 self.debug_viz.visualize_detections(
                     cropped,
                     [(letter, (x - crop_x, y - crop_y)) for letter, (x, y) in matched_detections],
-                    debug_info
+                    debug_info,
+                    base_bw_image=otsu_image  # Pass the Otsu image for visualization
                 )
             
             if self._check_interrupts():

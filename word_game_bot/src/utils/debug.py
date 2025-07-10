@@ -32,13 +32,11 @@ class DebugVisualizer:
         self.logger.debug(f"Saved debug image: {filename}")
     
     def visualize_detections(self, 
-                           image: np.ndarray,
-                           detections: List[Tuple[str, Tuple[int, int]]],
-                           layout_info: Optional[Dict] = None,
-                           base_bw_image: Optional[np.ndarray] = None):
-        """Create visualization of letter detections on black-and-white base."""
-        
-        # Use black-and-white base if provided, otherwise convert input
+                       image: np.ndarray,
+                       detections: List[Tuple[str, Tuple[int, int]]],
+                       layout_info: Optional[Dict] = None,
+                       base_bw_image: Optional[np.ndarray] = None):    
+        # Use black-and-white base if provided (Otsu result)
         if base_bw_image is not None:
             # Convert B&W to color for overlay
             vis_image = cv2.cvtColor(base_bw_image, cv2.COLOR_GRAY2BGR)

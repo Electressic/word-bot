@@ -3983,3 +3983,96 @@
 2025-07-09 18:29:41 [__main__] INFO: Swiping word: REICE (1/20)
 2025-07-09 18:29:42 [__main__] INFO: Stop requested - will halt immediately
 2025-07-09 18:29:42 [__main__] INFO: Bot stopped
+2025-07-10 02:18:35 [root] INFO: Logging initialized
+2025-07-10 02:18:35 [src.automation.game_window] INFO: Found window: SM-A346B
+2025-07-10 02:18:37 [src.solving.layout_matcher] INFO: Loaded layouts for wheel sizes: [5, 6, 7, 8]
+2025-07-10 02:18:40 [src.solving.word_solver] INFO: Loaded 369652 words into solver
+2025-07-10 02:18:40 [src.utils.debug] INFO: Debug directory ready: debug_screenshots
+2025-07-10 02:18:40 [__main__] INFO: Press ctrl+shift+f8 to stop the bot
+2025-07-10 02:18:40 [__main__] INFO: Press ctrl+shift+f7 to pause/resume the bot
+2025-07-10 02:18:40 [__main__] INFO: Starting Word Game Bot...
+2025-07-10 02:18:40 [__main__] INFO: Capturing screenshot...
+2025-07-10 02:18:40 [__main__] INFO: Detecting letters...
+2025-07-10 02:18:40 [src.detection.preprocessor] INFO: Original image stats: mean=97.9, min=54, max=255
+2025-07-10 02:18:40 [src.detection.preprocessor] INFO: Created Otsu black-on-white (primary method)
+2025-07-10 02:18:40 [src.detection.preprocessor] INFO: Created 1 black-on-white variants
+2025-07-10 02:18:40 [src.detection.letter_detector] INFO: Running OCR on Otsu black-on-white image
+2025-07-10 02:18:40 [src.detection.ocr_engine] INFO: Trying OCR parameter set 1
+2025-07-10 02:18:41 [src.detection.ocr_engine] INFO: OCR run returned 6 results
+2025-07-10 02:18:41 [src.detection.ocr_engine] INFO: Trying OCR parameter set 2
+2025-07-10 02:18:41 [src.detection.ocr_engine] INFO: OCR run returned 2 results
+2025-07-10 02:18:41 [src.detection.ocr_engine] INFO: Trying OCR parameter set 3
+2025-07-10 02:18:41 [src.detection.ocr_engine] INFO: OCR run returned 4 results
+2025-07-10 02:18:41 [src.detection.ocr_engine] INFO: Trying OCR on enhanced image for thin letters
+2025-07-10 02:18:41 [src.detection.ocr_engine] INFO: OCR run returned 6 results
+2025-07-10 02:18:41 [src.detection.ocr_engine] INFO: Trying OCR on morphologically processed image
+2025-07-10 02:18:41 [src.detection.ocr_engine] INFO: OCR run returned 2 results
+2025-07-10 02:18:41 [src.detection.letter_detector] INFO: Splitting multi-character detection: 'EKR'
+2025-07-10 02:18:41 [src.detection.letter_detector] INFO: Splitting multi-character detection: 'E01'
+2025-07-10 02:18:41 [src.detection.letter_detector] INFO: Final detected letters: ['E', 'E', 'R', 'C', 'F', 'I']
+2025-07-10 02:18:41 [__main__] INFO: Matching to wheel layout...
+2025-07-10 02:18:41 [src.solving.layout_matcher] INFO: Analyzing 6 detections for 6 slots:
+2025-07-10 02:18:41 [src.solving.layout_matcher] INFO:   Detection 0: 'E' at (198, 1113) -> closest slot 4 (dist: 84.5px) [REJECTED]
+2025-07-10 02:18:41 [src.solving.layout_matcher] INFO:   Detection 1: 'E' at (443, 971) -> closest slot 1 (dist: 66.3px) [REJECTED]
+2025-07-10 02:18:41 [src.solving.layout_matcher] INFO:   Detection 2: 'R' at (442, 1104) -> closest slot 2 (dist: 47.4px) [ACCEPTED]
+2025-07-10 02:18:41 [src.solving.layout_matcher] INFO:   Detection 3: 'C' at (339, 1181) -> closest slot 3 (dist: 38.5px) [ACCEPTED]
+2025-07-10 02:18:41 [src.solving.layout_matcher] INFO:   Detection 4: 'F' at (210, 977) -> closest slot 5 (dist: 86.7px) [REJECTED]
+2025-07-10 02:18:41 [src.solving.layout_matcher] INFO:   Detection 5: 'I' at (445, 1073) -> closest slot 1 (dist: 47.5px) [ACCEPTED]
+2025-07-10 02:18:41 [src.solving.layout_matcher] INFO: MATCHED 'C' to slot 3 (distance: 38.5)
+2025-07-10 02:18:41 [src.solving.layout_matcher] INFO: MATCHED 'R' to slot 2 (distance: 47.4)
+2025-07-10 02:18:41 [src.solving.layout_matcher] INFO: MATCHED 'I' to slot 1 (distance: 47.5)
+2025-07-10 02:18:41 [src.solving.layout_matcher] WARNING: UNMATCHED detection: 'E' at (198, 1113)
+2025-07-10 02:18:41 [src.solving.layout_matcher] WARNING: UNMATCHED detection: 'E' at (443, 971)
+2025-07-10 02:18:41 [src.solving.layout_matcher] WARNING: UNMATCHED detection: 'F' at (210, 977)
+2025-07-10 02:18:41 [src.solving.layout_matcher] INFO: Matched 3/6 detections to 6-letter wheel
+2025-07-10 02:18:41 [src.solving.layout_matcher] INFO: Analyzing 6 detections for 6 slots:
+2025-07-10 02:18:41 [src.solving.layout_matcher] INFO:   Detection 0: 'E' at (198, 1113) -> closest slot 4 (dist: 84.5px) [REJECTED]
+2025-07-10 02:18:41 [src.solving.layout_matcher] INFO:   Detection 1: 'E' at (443, 971) -> closest slot 1 (dist: 66.3px) [REJECTED]
+2025-07-10 02:18:41 [src.solving.layout_matcher] INFO:   Detection 2: 'R' at (442, 1104) -> closest slot 2 (dist: 47.4px) [ACCEPTED]
+2025-07-10 02:18:41 [src.solving.layout_matcher] INFO:   Detection 3: 'C' at (339, 1181) -> closest slot 3 (dist: 38.5px) [ACCEPTED]
+2025-07-10 02:18:41 [src.solving.layout_matcher] INFO:   Detection 4: 'F' at (210, 977) -> closest slot 5 (dist: 86.7px) [REJECTED]
+2025-07-10 02:18:41 [src.solving.layout_matcher] INFO:   Detection 5: 'I' at (445, 1073) -> closest slot 1 (dist: 47.5px) [ACCEPTED]
+2025-07-10 02:18:41 [src.solving.layout_matcher] INFO: MATCHED 'C' to slot 3 (distance: 38.5)
+2025-07-10 02:18:41 [src.solving.layout_matcher] INFO: MATCHED 'R' to slot 2 (distance: 47.4)
+2025-07-10 02:18:41 [src.solving.layout_matcher] INFO: MATCHED 'I' to slot 1 (distance: 47.5)
+2025-07-10 02:18:41 [src.solving.layout_matcher] WARNING: UNMATCHED detection: 'E' at (198, 1113)
+2025-07-10 02:18:41 [src.solving.layout_matcher] WARNING: UNMATCHED detection: 'E' at (443, 971)
+2025-07-10 02:18:41 [src.solving.layout_matcher] WARNING: UNMATCHED detection: 'F' at (210, 977)
+2025-07-10 02:18:41 [src.solving.layout_matcher] INFO: Matched 3/6 detections to 6-letter wheel
+2025-07-10 02:18:41 [src.solving.layout_matcher] INFO: Analyzing 6 detections for 6 slots:
+2025-07-10 02:18:41 [src.solving.layout_matcher] INFO:   Detection 0: 'E' at (198, 1113) -> closest slot 4 (dist: 84.5px) [REJECTED]
+2025-07-10 02:18:41 [src.solving.layout_matcher] INFO:   Detection 1: 'E' at (443, 971) -> closest slot 1 (dist: 66.3px) [REJECTED]
+2025-07-10 02:18:41 [src.solving.layout_matcher] INFO:   Detection 2: 'R' at (442, 1104) -> closest slot 2 (dist: 47.4px) [ACCEPTED]
+2025-07-10 02:18:41 [src.solving.layout_matcher] INFO:   Detection 3: 'C' at (339, 1181) -> closest slot 3 (dist: 38.5px) [ACCEPTED]
+2025-07-10 02:18:41 [src.solving.layout_matcher] INFO:   Detection 4: 'F' at (210, 977) -> closest slot 5 (dist: 86.7px) [REJECTED]
+2025-07-10 02:18:41 [src.solving.layout_matcher] INFO:   Detection 5: 'I' at (445, 1073) -> closest slot 1 (dist: 47.5px) [ACCEPTED]
+2025-07-10 02:18:41 [src.solving.layout_matcher] INFO: MATCHED 'C' to slot 3 (distance: 38.5)
+2025-07-10 02:18:41 [src.solving.layout_matcher] INFO: MATCHED 'R' to slot 2 (distance: 47.4)
+2025-07-10 02:18:41 [src.solving.layout_matcher] INFO: MATCHED 'I' to slot 1 (distance: 47.5)
+2025-07-10 02:18:41 [src.solving.layout_matcher] WARNING: UNMATCHED detection: 'E' at (198, 1113)
+2025-07-10 02:18:41 [src.solving.layout_matcher] WARNING: UNMATCHED detection: 'E' at (443, 971)
+2025-07-10 02:18:41 [src.solving.layout_matcher] WARNING: UNMATCHED detection: 'F' at (210, 977)
+2025-07-10 02:18:41 [src.solving.layout_matcher] INFO: Matched 3/6 detections to 6-letter wheel
+2025-07-10 02:18:41 [src.solving.layout_matcher] INFO: Analyzing 6 detections for 6 slots:
+2025-07-10 02:18:41 [src.solving.layout_matcher] INFO:   Detection 0: 'E' at (198, 1113) -> closest slot 4 (dist: 84.5px) [REJECTED]
+2025-07-10 02:18:41 [src.solving.layout_matcher] INFO:   Detection 1: 'E' at (443, 971) -> closest slot 1 (dist: 66.3px) [REJECTED]
+2025-07-10 02:18:41 [src.solving.layout_matcher] INFO:   Detection 2: 'R' at (442, 1104) -> closest slot 2 (dist: 47.4px) [ACCEPTED]
+2025-07-10 02:18:41 [src.solving.layout_matcher] INFO:   Detection 3: 'C' at (339, 1181) -> closest slot 3 (dist: 38.5px) [ACCEPTED]
+2025-07-10 02:18:41 [src.solving.layout_matcher] INFO:   Detection 4: 'F' at (210, 977) -> closest slot 5 (dist: 86.7px) [REJECTED]
+2025-07-10 02:18:41 [src.solving.layout_matcher] INFO:   Detection 5: 'I' at (445, 1073) -> closest slot 1 (dist: 47.5px) [ACCEPTED]
+2025-07-10 02:18:41 [src.solving.layout_matcher] INFO: MATCHED 'C' to slot 3 (distance: 38.5)
+2025-07-10 02:18:41 [src.solving.layout_matcher] INFO: MATCHED 'R' to slot 2 (distance: 47.4)
+2025-07-10 02:18:41 [src.solving.layout_matcher] INFO: MATCHED 'I' to slot 1 (distance: 47.5)
+2025-07-10 02:18:41 [src.solving.layout_matcher] WARNING: UNMATCHED detection: 'E' at (198, 1113)
+2025-07-10 02:18:41 [src.solving.layout_matcher] WARNING: UNMATCHED detection: 'E' at (443, 971)
+2025-07-10 02:18:41 [src.solving.layout_matcher] WARNING: UNMATCHED detection: 'F' at (210, 977)
+2025-07-10 02:18:41 [src.solving.layout_matcher] INFO: Matched 3/6 detections to 6-letter wheel
+2025-07-10 02:18:41 [__main__] INFO: Matched 3 letters
+2025-07-10 02:18:41 [__main__] INFO: Letters found: I R C
+2025-07-10 02:18:41 [src.solving.word_solver] INFO: Found 2 words from 3 letters
+2025-07-10 02:18:41 [__main__] INFO: Found 2 valid words
+2025-07-10 02:18:41 [__main__] INFO: Swiping word: RIC (1/2)
+2025-07-10 02:18:42 [__main__] INFO: Swiping word: CIR (2/2)
+2025-07-10 02:18:43 [__main__] INFO: Waiting for next round...
+2025-07-10 02:18:43 [__main__] INFO: Stop requested - will halt immediately
+2025-07-10 02:18:43 [__main__] INFO: Bot stopped
