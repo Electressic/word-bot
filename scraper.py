@@ -84,13 +84,15 @@ def scrape_word_collect():
                                 f.write(level_soup.prettify())
                             print("  Saved first level page HTML to debug_level_page.html")
 
-                        # Extract words from the <div class="words"> section
                         words = []
                         
-                        # Look for the div with class="words"
-                        words_div = level_soup.find('div', class_='words')
-                        if words_div:
-                            # Find all divs inside the words div
+                        # Extract words from ALL versions (tabs)
+                        # Look for all div elements with class="words" (each version has its own)
+                        words_divs = level_soup.find_all('div', class_='words')
+                        
+                        for version_idx, words_div in enumerate(words_divs):
+                            version_words = []
+                            # Find all divs inside this words div
                             word_divs = words_div.find_all('div')
                             for word_div in word_divs:
                                 # Extract all span elements with class="let"
@@ -99,12 +101,30 @@ def scrape_word_collect():
                                     # Combine the letters to form a word
                                     word = ''.join(span.get_text(strip=True) for span in letter_spans)
                                     if word and word.isalpha():
-                                        words.append(word)
+                                        version_words.append(word)
+                            
+                            if version_words:
+                                print(f"    Version {version_idx + 1}: {', '.join(version_words)}")
+                                words.extend(version_words)
+
+                        # Extract additional words from "Here are more words, useful to this puzzle level" section
+                        more_words_h3 = level_soup.find('h3', string=re.compile(r'Here are more words.*useful.*puzzle.*level', re.IGNORECASE))
+                        if more_words_h3:
+                            # Find the next p tag after this h3
+                            next_p = more_words_h3.find_next_sibling('p')
+                            if next_p:
+                                additional_text = next_p.get_text(strip=True)
+                                # Split by common separators and clean up
+                                additional_words = re.split(r'[,\s]+', additional_text)
+                                additional_words = [word.strip() for word in additional_words if word.strip() and word.strip().isalpha() and len(word.strip()) > 1]
+                                if additional_words:
+                                    print(f"    Additional words: {', '.join(additional_words)}")
+                                    words.extend(additional_words)
 
                         if words:
                             # Remove duplicates from this level
                             unique_level_words = list(dict.fromkeys(words))
-                            print(f"    Found {len(unique_level_words)} words: {', '.join(unique_level_words)}")
+                            print(f"    Total found {len(unique_level_words)} unique words for this level")
                             all_words.extend(unique_level_words)
                         else:
                             print(f"    No words found in {level_url}")
