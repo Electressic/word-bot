@@ -15,7 +15,7 @@ class ImagePreprocessor:
     def __init__(self, config: PreprocessingConfig):
         self.config = config
         self.logger = logging.getLogger(__name__)
-        self.debug_dir = getattr(config, 'debug_dir', 'debug')
+        self.debug_dir = getattr(config, 'debug_dir', 'debug_screenshots')  # Use debug_screenshots by default
         self._setup_debug_dir()
     
     def _setup_debug_dir(self):

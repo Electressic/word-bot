@@ -168,6 +168,8 @@ class OCREngine:
         if not results:
             return []
         
+        self.logger.info(f"OCR deduplication: Starting with {len(results)} results")
+        
         # Sort by confidence (highest first)
         sorted_results = sorted(results, key=lambda x: x.confidence, reverse=True)
         
@@ -184,13 +186,23 @@ class OCREngine:
                     result.center[0] - kept.center[0],
                     result.center[1] - kept.center[1]
                 )
-                if dist < radius:
+                
+                # Use stricter radius for thin letters that often get duplicated
+                effective_radius = radius
+                if result.text.upper() in ['I', 'L', '1', '|'] and kept.text.upper() in ['I', 'L', '1', '|']:
+                    effective_radius = radius * 1.3  # More aggressive deduplication for thin letters
+                
+                if dist < effective_radius:
+                    self.logger.info(f"OCR: FILTERED OUT '{result.text}' at {result.center} - "
+                                   f"too close to '{kept.text}' at {kept.center} (distance: {dist:.1f}px)")
                     too_close = True
                     break
             
             if not too_close:
                 unique.append(result)
+                self.logger.info(f"OCR: ACCEPTED '{result.text}' at {result.center} (conf: {result.confidence:.3f})")
         
+        self.logger.info(f"OCR deduplication: {len(results)} -> {len(unique)} results")
         return unique
     
     def map_character(self, char: str) -> Optional[str]:

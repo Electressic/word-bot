@@ -4297,3 +4297,1053 @@
 2025-07-10 02:29:41 [__main__] INFO: Swiping word: ERIC (11/20)
 2025-07-10 02:29:42 [__main__] INFO: Stop requested - will halt immediately
 2025-07-10 02:29:42 [__main__] INFO: Bot stopped
+2025-07-10 02:53:59 [root] INFO: Logging initialized
+2025-07-10 02:53:59 [src.automation.game_window] INFO: Found window: SM-A346B
+2025-07-10 02:53:59 [src.detection.preprocessor] INFO: Created debug directory: debug
+2025-07-10 02:54:00 [src.solving.layout_matcher] INFO: Loaded layouts for wheel sizes: [5, 6, 7, 8]
+2025-07-10 02:54:03 [src.solving.word_solver] INFO: Loaded 369652 words into solver
+2025-07-10 02:54:03 [__main__] INFO: Press ctrl+shift+f8 to stop the bot
+2025-07-10 02:54:03 [__main__] INFO: Press ctrl+shift+f7 to pause/resume the bot
+2025-07-10 02:54:03 [__main__] INFO: Starting Word Game Bot...
+2025-07-10 02:54:03 [__main__] INFO: Capturing screenshot...
+2025-07-10 02:54:04 [__main__] ERROR: Bot error: 'DebugVisualizer' object has no attribute 'save_screenshot'
+Traceback (most recent call last):
+  File "C:\Users\maxim\Brain\GitProjects\private\word-bot\word_game_bot\main.py", line 137, in run_once
+    self.debug_viz.save_screenshot("1_raw_screenshot", screenshot)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'DebugVisualizer' object has no attribute 'save_screenshot'
+2025-07-10 02:54:04 [__main__] INFO: Waiting for next round...
+2025-07-10 02:54:06 [__main__] INFO: Stop requested - will halt immediately
+2025-07-10 02:54:07 [__main__] INFO: Bot stopped
+2025-07-10 02:57:22 [root] INFO: Logging initialized
+2025-07-10 02:57:22 [src.automation.game_window] INFO: Found window: SM-A346B
+2025-07-10 02:57:24 [src.solving.layout_matcher] INFO: Loaded layouts for wheel sizes: [5, 6, 7, 8]
+2025-07-10 02:57:26 [src.solving.word_solver] INFO: Loaded 369652 words into solver
+2025-07-10 02:57:27 [__main__] INFO: Press ctrl+shift+f8 to stop the bot
+2025-07-10 02:57:27 [__main__] INFO: Press ctrl+shift+f7 to pause/resume the bot
+2025-07-10 02:57:27 [__main__] INFO: Starting Word Game Bot...
+2025-07-10 02:57:27 [__main__] INFO: Capturing screenshot...
+2025-07-10 02:57:27 [__main__] INFO: Detecting letters...
+2025-07-10 02:57:27 [src.detection.preprocessor] INFO: Original image stats: mean=97.9, min=54, max=255
+2025-07-10 02:57:27 [src.detection.preprocessor] INFO: Created Otsu black-on-white (primary method)
+2025-07-10 02:57:27 [src.detection.preprocessor] INFO: Created 1 black-on-white variants
+2025-07-10 02:57:27 [src.detection.letter_detector] INFO: Running OCR on Otsu black-on-white image
+2025-07-10 02:57:27 [src.detection.ocr_engine] INFO: Trying OCR parameter set 1
+2025-07-10 02:57:27 [src.detection.ocr_engine] INFO: OCR run returned 6 results
+2025-07-10 02:57:27 [src.detection.ocr_engine] INFO: Trying OCR parameter set 2
+2025-07-10 02:57:27 [src.detection.ocr_engine] INFO: OCR run returned 2 results
+2025-07-10 02:57:27 [src.detection.ocr_engine] INFO: Trying OCR parameter set 3
+2025-07-10 02:57:27 [src.detection.ocr_engine] INFO: OCR run returned 4 results
+2025-07-10 02:57:27 [src.detection.ocr_engine] INFO: Trying OCR on enhanced image for thin letters
+2025-07-10 02:57:27 [src.detection.ocr_engine] INFO: OCR run returned 6 results
+2025-07-10 02:57:27 [src.detection.ocr_engine] INFO: Trying OCR on morphologically processed image
+2025-07-10 02:57:27 [src.detection.ocr_engine] INFO: OCR run returned 2 results
+2025-07-10 02:57:27 [src.detection.letter_detector] INFO: Splitting multi-character detection: 'EKR'
+2025-07-10 02:57:27 [src.detection.letter_detector] INFO: Splitting multi-character detection: 'E01'
+2025-07-10 02:57:27 [src.detection.letter_detector] INFO: Final detected letters: ['E', 'E', 'R', 'C', 'F', 'I']
+2025-07-10 02:57:27 [__main__] INFO: Matching to wheel layout...
+2025-07-10 02:57:27 [src.solving.layout_matcher] INFO: Analyzing 6 detections for 6 slots:
+2025-07-10 02:57:27 [src.solving.layout_matcher] INFO:   Detection 0: 'E' at (198, 1113) -> closest slot 4 (dist: 83.9px) [REJECTED]
+2025-07-10 02:57:27 [src.solving.layout_matcher] INFO:   Detection 1: 'E' at (443, 971) -> closest slot 1 (dist: 66.3px) [REJECTED]
+2025-07-10 02:57:27 [src.solving.layout_matcher] INFO:   Detection 2: 'R' at (442, 1106) -> closest slot 2 (dist: 46.6px) [ACCEPTED]
+2025-07-10 02:57:27 [src.solving.layout_matcher] INFO:   Detection 3: 'C' at (339, 1181) -> closest slot 3 (dist: 38.5px) [ACCEPTED]
+2025-07-10 02:57:27 [src.solving.layout_matcher] INFO:   Detection 4: 'F' at (210, 977) -> closest slot 5 (dist: 85.9px) [REJECTED]
+2025-07-10 02:57:27 [src.solving.layout_matcher] INFO:   Detection 5: 'I' at (445, 1071) -> closest slot 1 (dist: 45.8px) [ACCEPTED]
+2025-07-10 02:57:27 [src.solving.layout_matcher] INFO: MATCHED 'C' to slot 3 (distance: 38.5)
+2025-07-10 02:57:27 [src.solving.layout_matcher] INFO: MATCHED 'I' to slot 1 (distance: 45.8)
+2025-07-10 02:57:27 [src.solving.layout_matcher] INFO: MATCHED 'R' to slot 2 (distance: 46.6)
+2025-07-10 02:57:27 [src.solving.layout_matcher] WARNING: UNMATCHED detection: 'E' at (198, 1113)
+2025-07-10 02:57:27 [src.solving.layout_matcher] WARNING: UNMATCHED detection: 'E' at (443, 971)
+2025-07-10 02:57:27 [src.solving.layout_matcher] WARNING: UNMATCHED detection: 'F' at (210, 977)
+2025-07-10 02:57:27 [src.solving.layout_matcher] INFO: Matched 3/6 detections to 6-letter wheel
+2025-07-10 02:57:27 [src.solving.layout_matcher] WARNING: Only matched 3/6 required letters with default tolerance (60px). Trying progressive tolerance matching.
+2025-07-10 02:57:27 [src.solving.layout_matcher] INFO: Analyzing 6 detections for 6 slots:
+2025-07-10 02:57:27 [src.solving.layout_matcher] INFO:   Detection 0: 'E' at (198, 1113) -> closest slot 4 (dist: 83.9px) [REJECTED]
+2025-07-10 02:57:27 [src.solving.layout_matcher] INFO:   Detection 1: 'E' at (443, 971) -> closest slot 1 (dist: 66.3px) [REJECTED]
+2025-07-10 02:57:27 [src.solving.layout_matcher] INFO:   Detection 2: 'R' at (442, 1106) -> closest slot 2 (dist: 46.6px) [ACCEPTED]
+2025-07-10 02:57:27 [src.solving.layout_matcher] INFO:   Detection 3: 'C' at (339, 1181) -> closest slot 3 (dist: 38.5px) [ACCEPTED]
+2025-07-10 02:57:27 [src.solving.layout_matcher] INFO:   Detection 4: 'F' at (210, 977) -> closest slot 5 (dist: 85.9px) [REJECTED]
+2025-07-10 02:57:27 [src.solving.layout_matcher] INFO:   Detection 5: 'I' at (445, 1071) -> closest slot 1 (dist: 45.8px) [ACCEPTED]
+2025-07-10 02:57:27 [src.solving.layout_matcher] INFO: MATCHED 'C' to slot 3 (distance: 38.5)
+2025-07-10 02:57:27 [src.solving.layout_matcher] INFO: MATCHED 'I' to slot 1 (distance: 45.8)
+2025-07-10 02:57:27 [src.solving.layout_matcher] INFO: MATCHED 'R' to slot 2 (distance: 46.6)
+2025-07-10 02:57:27 [src.solving.layout_matcher] WARNING: UNMATCHED detection: 'E' at (198, 1113)
+2025-07-10 02:57:27 [src.solving.layout_matcher] WARNING: UNMATCHED detection: 'E' at (443, 971)
+2025-07-10 02:57:27 [src.solving.layout_matcher] WARNING: UNMATCHED detection: 'F' at (210, 977)
+2025-07-10 02:57:27 [src.solving.layout_matcher] INFO: Matched 3/6 detections to 6-letter wheel with 60px tolerance
+2025-07-10 02:57:27 [src.solving.layout_matcher] INFO: Analyzing 6 detections for 6 slots:
+2025-07-10 02:57:27 [src.solving.layout_matcher] INFO:   Detection 0: 'E' at (198, 1113) -> closest slot 4 (dist: 83.9px) [ACCEPTED]
+2025-07-10 02:57:27 [src.solving.layout_matcher] INFO:   Detection 1: 'E' at (443, 971) -> closest slot 1 (dist: 66.3px) [ACCEPTED]
+2025-07-10 02:57:27 [src.solving.layout_matcher] INFO:   Detection 2: 'R' at (442, 1106) -> closest slot 2 (dist: 46.6px) [ACCEPTED]
+2025-07-10 02:57:27 [src.solving.layout_matcher] INFO:   Detection 3: 'C' at (339, 1181) -> closest slot 3 (dist: 38.5px) [ACCEPTED]
+2025-07-10 02:57:27 [src.solving.layout_matcher] INFO:   Detection 4: 'F' at (210, 977) -> closest slot 5 (dist: 85.9px) [ACCEPTED]
+2025-07-10 02:57:27 [src.solving.layout_matcher] INFO:   Detection 5: 'I' at (445, 1071) -> closest slot 1 (dist: 45.8px) [ACCEPTED]
+2025-07-10 02:57:27 [src.solving.layout_matcher] INFO: MATCHED 'C' to slot 3 (distance: 38.5)
+2025-07-10 02:57:27 [src.solving.layout_matcher] INFO: MATCHED 'I' to slot 1 (distance: 45.8)
+2025-07-10 02:57:27 [src.solving.layout_matcher] INFO: MATCHED 'R' to slot 2 (distance: 46.6)
+2025-07-10 02:57:27 [src.solving.layout_matcher] INFO: MATCHED 'E' to slot 0 (distance: 70.3)
+2025-07-10 02:57:27 [src.solving.layout_matcher] INFO: MATCHED 'E' to slot 4 (distance: 83.9)
+2025-07-10 02:57:27 [src.solving.layout_matcher] INFO: MATCHED 'F' to slot 5 (distance: 85.9)
+2025-07-10 02:57:27 [src.solving.layout_matcher] INFO: Matched 6/6 detections to 6-letter wheel with 90px tolerance
+2025-07-10 02:57:27 [src.solving.layout_matcher] INFO: Found good match with 1.5x tolerance (90px): 6 letters
+2025-07-10 02:57:27 [src.solving.layout_matcher] INFO: Analyzing 6 detections for 6 slots:
+2025-07-10 02:57:27 [src.solving.layout_matcher] INFO:   Detection 0: 'E' at (198, 1113) -> closest slot 4 (dist: 83.9px) [REJECTED]
+2025-07-10 02:57:27 [src.solving.layout_matcher] INFO:   Detection 1: 'E' at (443, 971) -> closest slot 1 (dist: 66.3px) [REJECTED]
+2025-07-10 02:57:27 [src.solving.layout_matcher] INFO:   Detection 2: 'R' at (442, 1106) -> closest slot 2 (dist: 46.6px) [ACCEPTED]
+2025-07-10 02:57:27 [src.solving.layout_matcher] INFO:   Detection 3: 'C' at (339, 1181) -> closest slot 3 (dist: 38.5px) [ACCEPTED]
+2025-07-10 02:57:27 [src.solving.layout_matcher] INFO:   Detection 4: 'F' at (210, 977) -> closest slot 5 (dist: 85.9px) [REJECTED]
+2025-07-10 02:57:27 [src.solving.layout_matcher] INFO:   Detection 5: 'I' at (445, 1071) -> closest slot 1 (dist: 45.8px) [ACCEPTED]
+2025-07-10 02:57:27 [src.solving.layout_matcher] INFO: MATCHED 'C' to slot 3 (distance: 38.5)
+2025-07-10 02:57:27 [src.solving.layout_matcher] INFO: MATCHED 'I' to slot 1 (distance: 45.8)
+2025-07-10 02:57:27 [src.solving.layout_matcher] INFO: MATCHED 'R' to slot 2 (distance: 46.6)
+2025-07-10 02:57:27 [src.solving.layout_matcher] WARNING: UNMATCHED detection: 'E' at (198, 1113)
+2025-07-10 02:57:27 [src.solving.layout_matcher] WARNING: UNMATCHED detection: 'E' at (443, 971)
+2025-07-10 02:57:27 [src.solving.layout_matcher] WARNING: UNMATCHED detection: 'F' at (210, 977)
+2025-07-10 02:57:27 [src.solving.layout_matcher] INFO: Matched 3/6 detections to 6-letter wheel
+2025-07-10 02:57:27 [src.solving.layout_matcher] WARNING: Only matched 3/6 required letters with default tolerance (60px). Trying progressive tolerance matching.
+2025-07-10 02:57:27 [src.solving.layout_matcher] INFO: Analyzing 6 detections for 6 slots:
+2025-07-10 02:57:27 [src.solving.layout_matcher] INFO:   Detection 0: 'E' at (198, 1113) -> closest slot 4 (dist: 83.9px) [REJECTED]
+2025-07-10 02:57:27 [src.solving.layout_matcher] INFO:   Detection 1: 'E' at (443, 971) -> closest slot 1 (dist: 66.3px) [REJECTED]
+2025-07-10 02:57:27 [src.solving.layout_matcher] INFO:   Detection 2: 'R' at (442, 1106) -> closest slot 2 (dist: 46.6px) [ACCEPTED]
+2025-07-10 02:57:27 [src.solving.layout_matcher] INFO:   Detection 3: 'C' at (339, 1181) -> closest slot 3 (dist: 38.5px) [ACCEPTED]
+2025-07-10 02:57:27 [src.solving.layout_matcher] INFO:   Detection 4: 'F' at (210, 977) -> closest slot 5 (dist: 85.9px) [REJECTED]
+2025-07-10 02:57:27 [src.solving.layout_matcher] INFO:   Detection 5: 'I' at (445, 1071) -> closest slot 1 (dist: 45.8px) [ACCEPTED]
+2025-07-10 02:57:27 [src.solving.layout_matcher] INFO: MATCHED 'C' to slot 3 (distance: 38.5)
+2025-07-10 02:57:27 [src.solving.layout_matcher] INFO: MATCHED 'I' to slot 1 (distance: 45.8)
+2025-07-10 02:57:27 [src.solving.layout_matcher] INFO: MATCHED 'R' to slot 2 (distance: 46.6)
+2025-07-10 02:57:27 [src.solving.layout_matcher] WARNING: UNMATCHED detection: 'E' at (198, 1113)
+2025-07-10 02:57:27 [src.solving.layout_matcher] WARNING: UNMATCHED detection: 'E' at (443, 971)
+2025-07-10 02:57:27 [src.solving.layout_matcher] WARNING: UNMATCHED detection: 'F' at (210, 977)
+2025-07-10 02:57:27 [src.solving.layout_matcher] INFO: Matched 3/6 detections to 6-letter wheel with 60px tolerance
+2025-07-10 02:57:27 [src.solving.layout_matcher] INFO: Analyzing 6 detections for 6 slots:
+2025-07-10 02:57:27 [src.solving.layout_matcher] INFO:   Detection 0: 'E' at (198, 1113) -> closest slot 4 (dist: 83.9px) [ACCEPTED]
+2025-07-10 02:57:27 [src.solving.layout_matcher] INFO:   Detection 1: 'E' at (443, 971) -> closest slot 1 (dist: 66.3px) [ACCEPTED]
+2025-07-10 02:57:27 [src.solving.layout_matcher] INFO:   Detection 2: 'R' at (442, 1106) -> closest slot 2 (dist: 46.6px) [ACCEPTED]
+2025-07-10 02:57:27 [src.solving.layout_matcher] INFO:   Detection 3: 'C' at (339, 1181) -> closest slot 3 (dist: 38.5px) [ACCEPTED]
+2025-07-10 02:57:27 [src.solving.layout_matcher] INFO:   Detection 4: 'F' at (210, 977) -> closest slot 5 (dist: 85.9px) [ACCEPTED]
+2025-07-10 02:57:27 [src.solving.layout_matcher] INFO:   Detection 5: 'I' at (445, 1071) -> closest slot 1 (dist: 45.8px) [ACCEPTED]
+2025-07-10 02:57:27 [src.solving.layout_matcher] INFO: MATCHED 'C' to slot 3 (distance: 38.5)
+2025-07-10 02:57:27 [src.solving.layout_matcher] INFO: MATCHED 'I' to slot 1 (distance: 45.8)
+2025-07-10 02:57:27 [src.solving.layout_matcher] INFO: MATCHED 'R' to slot 2 (distance: 46.6)
+2025-07-10 02:57:27 [src.solving.layout_matcher] INFO: MATCHED 'E' to slot 0 (distance: 70.3)
+2025-07-10 02:57:27 [src.solving.layout_matcher] INFO: MATCHED 'E' to slot 4 (distance: 83.9)
+2025-07-10 02:57:27 [src.solving.layout_matcher] INFO: MATCHED 'F' to slot 5 (distance: 85.9)
+2025-07-10 02:57:27 [src.solving.layout_matcher] INFO: Matched 6/6 detections to 6-letter wheel with 90px tolerance
+2025-07-10 02:57:27 [src.solving.layout_matcher] INFO: Found good match with 1.5x tolerance (90px): 6 letters
+2025-07-10 02:57:27 [src.solving.layout_matcher] INFO: Analyzing 6 detections for 6 slots:
+2025-07-10 02:57:27 [src.solving.layout_matcher] INFO:   Detection 0: 'E' at (198, 1113) -> closest slot 4 (dist: 83.9px) [REJECTED]
+2025-07-10 02:57:27 [src.solving.layout_matcher] INFO:   Detection 1: 'E' at (443, 971) -> closest slot 1 (dist: 66.3px) [REJECTED]
+2025-07-10 02:57:27 [src.solving.layout_matcher] INFO:   Detection 2: 'R' at (442, 1106) -> closest slot 2 (dist: 46.6px) [ACCEPTED]
+2025-07-10 02:57:27 [src.solving.layout_matcher] INFO:   Detection 3: 'C' at (339, 1181) -> closest slot 3 (dist: 38.5px) [ACCEPTED]
+2025-07-10 02:57:27 [src.solving.layout_matcher] INFO:   Detection 4: 'F' at (210, 977) -> closest slot 5 (dist: 85.9px) [REJECTED]
+2025-07-10 02:57:27 [src.solving.layout_matcher] INFO:   Detection 5: 'I' at (445, 1071) -> closest slot 1 (dist: 45.8px) [ACCEPTED]
+2025-07-10 02:57:27 [src.solving.layout_matcher] INFO: MATCHED 'C' to slot 3 (distance: 38.5)
+2025-07-10 02:57:27 [src.solving.layout_matcher] INFO: MATCHED 'I' to slot 1 (distance: 45.8)
+2025-07-10 02:57:27 [src.solving.layout_matcher] INFO: MATCHED 'R' to slot 2 (distance: 46.6)
+2025-07-10 02:57:27 [src.solving.layout_matcher] WARNING: UNMATCHED detection: 'E' at (198, 1113)
+2025-07-10 02:57:27 [src.solving.layout_matcher] WARNING: UNMATCHED detection: 'E' at (443, 971)
+2025-07-10 02:57:27 [src.solving.layout_matcher] WARNING: UNMATCHED detection: 'F' at (210, 977)
+2025-07-10 02:57:27 [src.solving.layout_matcher] INFO: Matched 3/6 detections to 6-letter wheel
+2025-07-10 02:57:27 [src.solving.layout_matcher] WARNING: Only matched 3/6 required letters with default tolerance (60px). Trying progressive tolerance matching.
+2025-07-10 02:57:27 [src.solving.layout_matcher] INFO: Analyzing 6 detections for 6 slots:
+2025-07-10 02:57:27 [src.solving.layout_matcher] INFO:   Detection 0: 'E' at (198, 1113) -> closest slot 4 (dist: 83.9px) [REJECTED]
+2025-07-10 02:57:27 [src.solving.layout_matcher] INFO:   Detection 1: 'E' at (443, 971) -> closest slot 1 (dist: 66.3px) [REJECTED]
+2025-07-10 02:57:27 [src.solving.layout_matcher] INFO:   Detection 2: 'R' at (442, 1106) -> closest slot 2 (dist: 46.6px) [ACCEPTED]
+2025-07-10 02:57:27 [src.solving.layout_matcher] INFO:   Detection 3: 'C' at (339, 1181) -> closest slot 3 (dist: 38.5px) [ACCEPTED]
+2025-07-10 02:57:27 [src.solving.layout_matcher] INFO:   Detection 4: 'F' at (210, 977) -> closest slot 5 (dist: 85.9px) [REJECTED]
+2025-07-10 02:57:27 [src.solving.layout_matcher] INFO:   Detection 5: 'I' at (445, 1071) -> closest slot 1 (dist: 45.8px) [ACCEPTED]
+2025-07-10 02:57:27 [src.solving.layout_matcher] INFO: MATCHED 'C' to slot 3 (distance: 38.5)
+2025-07-10 02:57:27 [src.solving.layout_matcher] INFO: MATCHED 'I' to slot 1 (distance: 45.8)
+2025-07-10 02:57:27 [src.solving.layout_matcher] INFO: MATCHED 'R' to slot 2 (distance: 46.6)
+2025-07-10 02:57:27 [src.solving.layout_matcher] WARNING: UNMATCHED detection: 'E' at (198, 1113)
+2025-07-10 02:57:27 [src.solving.layout_matcher] WARNING: UNMATCHED detection: 'E' at (443, 971)
+2025-07-10 02:57:27 [src.solving.layout_matcher] WARNING: UNMATCHED detection: 'F' at (210, 977)
+2025-07-10 02:57:27 [src.solving.layout_matcher] INFO: Matched 3/6 detections to 6-letter wheel with 60px tolerance
+2025-07-10 02:57:27 [src.solving.layout_matcher] INFO: Analyzing 6 detections for 6 slots:
+2025-07-10 02:57:27 [src.solving.layout_matcher] INFO:   Detection 0: 'E' at (198, 1113) -> closest slot 4 (dist: 83.9px) [ACCEPTED]
+2025-07-10 02:57:27 [src.solving.layout_matcher] INFO:   Detection 1: 'E' at (443, 971) -> closest slot 1 (dist: 66.3px) [ACCEPTED]
+2025-07-10 02:57:27 [src.solving.layout_matcher] INFO:   Detection 2: 'R' at (442, 1106) -> closest slot 2 (dist: 46.6px) [ACCEPTED]
+2025-07-10 02:57:27 [src.solving.layout_matcher] INFO:   Detection 3: 'C' at (339, 1181) -> closest slot 3 (dist: 38.5px) [ACCEPTED]
+2025-07-10 02:57:27 [src.solving.layout_matcher] INFO:   Detection 4: 'F' at (210, 977) -> closest slot 5 (dist: 85.9px) [ACCEPTED]
+2025-07-10 02:57:27 [src.solving.layout_matcher] INFO:   Detection 5: 'I' at (445, 1071) -> closest slot 1 (dist: 45.8px) [ACCEPTED]
+2025-07-10 02:57:27 [src.solving.layout_matcher] INFO: MATCHED 'C' to slot 3 (distance: 38.5)
+2025-07-10 02:57:27 [src.solving.layout_matcher] INFO: MATCHED 'I' to slot 1 (distance: 45.8)
+2025-07-10 02:57:27 [src.solving.layout_matcher] INFO: MATCHED 'R' to slot 2 (distance: 46.6)
+2025-07-10 02:57:27 [src.solving.layout_matcher] INFO: MATCHED 'E' to slot 0 (distance: 70.3)
+2025-07-10 02:57:27 [src.solving.layout_matcher] INFO: MATCHED 'E' to slot 4 (distance: 83.9)
+2025-07-10 02:57:27 [src.solving.layout_matcher] INFO: MATCHED 'F' to slot 5 (distance: 85.9)
+2025-07-10 02:57:27 [src.solving.layout_matcher] INFO: Matched 6/6 detections to 6-letter wheel with 90px tolerance
+2025-07-10 02:57:27 [src.solving.layout_matcher] INFO: Found good match with 1.5x tolerance (90px): 6 letters
+2025-07-10 02:57:27 [src.solving.layout_matcher] INFO: Analyzing 6 detections for 6 slots:
+2025-07-10 02:57:27 [src.solving.layout_matcher] INFO:   Detection 0: 'E' at (198, 1113) -> closest slot 4 (dist: 83.9px) [REJECTED]
+2025-07-10 02:57:27 [src.solving.layout_matcher] INFO:   Detection 1: 'E' at (443, 971) -> closest slot 1 (dist: 66.3px) [REJECTED]
+2025-07-10 02:57:27 [src.solving.layout_matcher] INFO:   Detection 2: 'R' at (442, 1106) -> closest slot 2 (dist: 46.6px) [ACCEPTED]
+2025-07-10 02:57:27 [src.solving.layout_matcher] INFO:   Detection 3: 'C' at (339, 1181) -> closest slot 3 (dist: 38.5px) [ACCEPTED]
+2025-07-10 02:57:27 [src.solving.layout_matcher] INFO:   Detection 4: 'F' at (210, 977) -> closest slot 5 (dist: 85.9px) [REJECTED]
+2025-07-10 02:57:27 [src.solving.layout_matcher] INFO:   Detection 5: 'I' at (445, 1071) -> closest slot 1 (dist: 45.8px) [ACCEPTED]
+2025-07-10 02:57:27 [src.solving.layout_matcher] INFO: MATCHED 'C' to slot 3 (distance: 38.5)
+2025-07-10 02:57:27 [src.solving.layout_matcher] INFO: MATCHED 'I' to slot 1 (distance: 45.8)
+2025-07-10 02:57:27 [src.solving.layout_matcher] INFO: MATCHED 'R' to slot 2 (distance: 46.6)
+2025-07-10 02:57:27 [src.solving.layout_matcher] WARNING: UNMATCHED detection: 'E' at (198, 1113)
+2025-07-10 02:57:27 [src.solving.layout_matcher] WARNING: UNMATCHED detection: 'E' at (443, 971)
+2025-07-10 02:57:27 [src.solving.layout_matcher] WARNING: UNMATCHED detection: 'F' at (210, 977)
+2025-07-10 02:57:27 [src.solving.layout_matcher] INFO: Matched 3/6 detections to 6-letter wheel
+2025-07-10 02:57:27 [src.solving.layout_matcher] WARNING: Only matched 3/6 required letters with default tolerance (60px). Trying progressive tolerance matching.
+2025-07-10 02:57:27 [src.solving.layout_matcher] INFO: Analyzing 6 detections for 6 slots:
+2025-07-10 02:57:27 [src.solving.layout_matcher] INFO:   Detection 0: 'E' at (198, 1113) -> closest slot 4 (dist: 83.9px) [REJECTED]
+2025-07-10 02:57:27 [src.solving.layout_matcher] INFO:   Detection 1: 'E' at (443, 971) -> closest slot 1 (dist: 66.3px) [REJECTED]
+2025-07-10 02:57:27 [src.solving.layout_matcher] INFO:   Detection 2: 'R' at (442, 1106) -> closest slot 2 (dist: 46.6px) [ACCEPTED]
+2025-07-10 02:57:27 [src.solving.layout_matcher] INFO:   Detection 3: 'C' at (339, 1181) -> closest slot 3 (dist: 38.5px) [ACCEPTED]
+2025-07-10 02:57:27 [src.solving.layout_matcher] INFO:   Detection 4: 'F' at (210, 977) -> closest slot 5 (dist: 85.9px) [REJECTED]
+2025-07-10 02:57:27 [src.solving.layout_matcher] INFO:   Detection 5: 'I' at (445, 1071) -> closest slot 1 (dist: 45.8px) [ACCEPTED]
+2025-07-10 02:57:27 [src.solving.layout_matcher] INFO: MATCHED 'C' to slot 3 (distance: 38.5)
+2025-07-10 02:57:27 [src.solving.layout_matcher] INFO: MATCHED 'I' to slot 1 (distance: 45.8)
+2025-07-10 02:57:27 [src.solving.layout_matcher] INFO: MATCHED 'R' to slot 2 (distance: 46.6)
+2025-07-10 02:57:27 [src.solving.layout_matcher] WARNING: UNMATCHED detection: 'E' at (198, 1113)
+2025-07-10 02:57:27 [src.solving.layout_matcher] WARNING: UNMATCHED detection: 'E' at (443, 971)
+2025-07-10 02:57:27 [src.solving.layout_matcher] WARNING: UNMATCHED detection: 'F' at (210, 977)
+2025-07-10 02:57:27 [src.solving.layout_matcher] INFO: Matched 3/6 detections to 6-letter wheel with 60px tolerance
+2025-07-10 02:57:27 [src.solving.layout_matcher] INFO: Analyzing 6 detections for 6 slots:
+2025-07-10 02:57:27 [src.solving.layout_matcher] INFO:   Detection 0: 'E' at (198, 1113) -> closest slot 4 (dist: 83.9px) [ACCEPTED]
+2025-07-10 02:57:27 [src.solving.layout_matcher] INFO:   Detection 1: 'E' at (443, 971) -> closest slot 1 (dist: 66.3px) [ACCEPTED]
+2025-07-10 02:57:27 [src.solving.layout_matcher] INFO:   Detection 2: 'R' at (442, 1106) -> closest slot 2 (dist: 46.6px) [ACCEPTED]
+2025-07-10 02:57:27 [src.solving.layout_matcher] INFO:   Detection 3: 'C' at (339, 1181) -> closest slot 3 (dist: 38.5px) [ACCEPTED]
+2025-07-10 02:57:27 [src.solving.layout_matcher] INFO:   Detection 4: 'F' at (210, 977) -> closest slot 5 (dist: 85.9px) [ACCEPTED]
+2025-07-10 02:57:27 [src.solving.layout_matcher] INFO:   Detection 5: 'I' at (445, 1071) -> closest slot 1 (dist: 45.8px) [ACCEPTED]
+2025-07-10 02:57:27 [src.solving.layout_matcher] INFO: MATCHED 'C' to slot 3 (distance: 38.5)
+2025-07-10 02:57:27 [src.solving.layout_matcher] INFO: MATCHED 'I' to slot 1 (distance: 45.8)
+2025-07-10 02:57:27 [src.solving.layout_matcher] INFO: MATCHED 'R' to slot 2 (distance: 46.6)
+2025-07-10 02:57:27 [src.solving.layout_matcher] INFO: MATCHED 'E' to slot 0 (distance: 70.3)
+2025-07-10 02:57:27 [src.solving.layout_matcher] INFO: MATCHED 'E' to slot 4 (distance: 83.9)
+2025-07-10 02:57:27 [src.solving.layout_matcher] INFO: MATCHED 'F' to slot 5 (distance: 85.9)
+2025-07-10 02:57:27 [src.solving.layout_matcher] INFO: Matched 6/6 detections to 6-letter wheel with 90px tolerance
+2025-07-10 02:57:27 [src.solving.layout_matcher] INFO: Found good match with 1.5x tolerance (90px): 6 letters
+2025-07-10 02:57:27 [__main__] INFO: Matched 6 letters
+2025-07-10 02:57:27 [src.utils.debug] INFO: === Letter Positioning Analysis ===
+2025-07-10 02:57:27 [src.utils.debug] WARNING:   'R' and 'I' are very close: 35.1px
+2025-07-10 02:57:27 [src.utils.debug] INFO: Closest pair: 'R' - 'I' (35.1px)
+2025-07-10 02:57:27 [src.utils.debug] INFO: === End Positioning Analysis ===
+2025-07-10 02:57:27 [__main__] INFO: Letters found: E I R C E F
+2025-07-10 02:57:27 [src.solving.word_solver] INFO: Found 44 words from 6 letters
+2025-07-10 02:57:27 [__main__] INFO: Found 44 valid words
+2025-07-10 02:57:27 [__main__] INFO: Swiping word: FIERCE (1/20)
+2025-07-10 02:57:29 [__main__] INFO: Swiping word: IFREE (2/20)
+2025-07-10 02:57:30 [__main__] INFO: Swiping word: FERIE (3/20)
+2025-07-10 02:57:31 [__main__] INFO: Swiping word: REICE (4/20)
+2025-07-10 02:57:32 [__main__] INFO: Swiping word: CIRE (5/20)
+2025-07-10 02:57:33 [__main__] INFO: Swiping word: EIRE (6/20)
+2025-07-10 02:57:33 [__main__] INFO: Swiping word: FEER (7/20)
+2025-07-10 02:57:34 [__main__] INFO: Stop requested - will halt immediately
+2025-07-10 02:57:34 [__main__] INFO: Bot stopped
+2025-07-10 03:01:24 [root] INFO: Logging initialized
+2025-07-10 03:01:24 [src.automation.game_window] INFO: Found window: SM-A346B
+2025-07-10 03:01:25 [src.solving.layout_matcher] INFO: Loaded layouts for wheel sizes: [5, 6, 7, 8]
+2025-07-10 03:01:28 [src.solving.word_solver] INFO: Loaded 369652 words into solver
+2025-07-10 03:01:28 [__main__] INFO: Press ctrl+shift+f8 to stop the bot
+2025-07-10 03:01:28 [__main__] INFO: Press ctrl+shift+f7 to pause/resume the bot
+2025-07-10 03:01:28 [__main__] INFO: Starting Word Game Bot...
+2025-07-10 03:01:28 [__main__] INFO: Capturing screenshot...
+2025-07-10 03:01:28 [__main__] INFO: Detecting letters...
+2025-07-10 03:01:28 [src.detection.preprocessor] INFO: Original image stats: mean=97.9, min=54, max=255
+2025-07-10 03:01:28 [src.detection.preprocessor] INFO: Created Otsu black-on-white (primary method)
+2025-07-10 03:01:28 [src.detection.preprocessor] INFO: Created 1 black-on-white variants
+2025-07-10 03:01:28 [src.detection.letter_detector] INFO: Running OCR on Otsu black-on-white image
+2025-07-10 03:01:28 [src.detection.ocr_engine] INFO: Trying OCR parameter set 1
+2025-07-10 03:01:28 [src.detection.ocr_engine] INFO: OCR run returned 6 results
+2025-07-10 03:01:28 [src.detection.ocr_engine] INFO: Trying OCR parameter set 2
+2025-07-10 03:01:28 [src.detection.ocr_engine] INFO: OCR run returned 2 results
+2025-07-10 03:01:28 [src.detection.ocr_engine] INFO: Trying OCR parameter set 3
+2025-07-10 03:01:28 [src.detection.ocr_engine] INFO: OCR run returned 4 results
+2025-07-10 03:01:28 [src.detection.ocr_engine] INFO: Trying OCR on enhanced image for thin letters
+2025-07-10 03:01:29 [src.detection.ocr_engine] INFO: OCR run returned 6 results
+2025-07-10 03:01:29 [src.detection.ocr_engine] INFO: Trying OCR on morphologically processed image
+2025-07-10 03:01:29 [src.detection.ocr_engine] INFO: OCR run returned 2 results
+2025-07-10 03:01:29 [src.detection.letter_detector] INFO: Splitting multi-character detection: 'EKR'
+2025-07-10 03:01:29 [src.detection.letter_detector] INFO: Splitting multi-character detection: 'E01'
+2025-07-10 03:01:29 [src.detection.letter_detector] INFO: Final letter separations after refinement:
+2025-07-10 03:01:29 [src.detection.letter_detector] INFO: Final detected letters: ['E', 'E', 'R', 'C', 'F', 'I']
+2025-07-10 03:01:29 [__main__] INFO: Matching to wheel layout...
+2025-07-10 03:01:29 [src.solving.layout_matcher] INFO: Analyzing 6 detections for 6 slots:
+2025-07-10 03:01:29 [src.solving.layout_matcher] INFO:   Detection 0: 'E' at (198, 1113) -> closest slot 4 (dist: 84.6px) [REJECTED]
+2025-07-10 03:01:29 [src.solving.layout_matcher] INFO:   Detection 1: 'E' at (443, 971) -> closest slot 1 (dist: 69.5px) [REJECTED]
+2025-07-10 03:01:29 [src.solving.layout_matcher] INFO:   Detection 2: 'R' at (440, 1127) -> closest slot 2 (dist: 36.6px) [ACCEPTED]
+2025-07-10 03:01:29 [src.solving.layout_matcher] INFO:   Detection 3: 'C' at (339, 1181) -> closest slot 3 (dist: 41.0px) [ACCEPTED]
+2025-07-10 03:01:29 [src.solving.layout_matcher] INFO:   Detection 4: 'F' at (210, 977) -> closest slot 5 (dist: 87.1px) [REJECTED]
+2025-07-10 03:01:29 [src.solving.layout_matcher] INFO:   Detection 5: 'I' at (445, 1068) -> closest slot 1 (dist: 41.4px) [ACCEPTED]
+2025-07-10 03:01:29 [src.solving.layout_matcher] INFO: MATCHED 'R' to slot 2 (distance: 36.6)
+2025-07-10 03:01:29 [src.solving.layout_matcher] INFO: MATCHED 'C' to slot 3 (distance: 41.0)
+2025-07-10 03:01:29 [src.solving.layout_matcher] INFO: MATCHED 'I' to slot 1 (distance: 41.4)
+2025-07-10 03:01:29 [src.solving.layout_matcher] WARNING: UNMATCHED detection: 'E' at (198, 1113)
+2025-07-10 03:01:29 [src.solving.layout_matcher] WARNING: UNMATCHED detection: 'E' at (443, 971)
+2025-07-10 03:01:29 [src.solving.layout_matcher] WARNING: UNMATCHED detection: 'F' at (210, 977)
+2025-07-10 03:01:29 [src.solving.layout_matcher] INFO: Matched 3/6 detections to 6-letter wheel
+2025-07-10 03:01:29 [src.solving.layout_matcher] WARNING: Only matched 3/6 required letters with default tolerance (60px). Trying progressive tolerance matching.
+2025-07-10 03:01:29 [src.solving.layout_matcher] INFO: Analyzing 6 detections for 6 slots:
+2025-07-10 03:01:29 [src.solving.layout_matcher] INFO:   Detection 0: 'E' at (198, 1113) -> closest slot 4 (dist: 84.6px) [REJECTED]
+2025-07-10 03:01:29 [src.solving.layout_matcher] INFO:   Detection 1: 'E' at (443, 971) -> closest slot 1 (dist: 69.5px) [REJECTED]
+2025-07-10 03:01:29 [src.solving.layout_matcher] INFO:   Detection 2: 'R' at (440, 1127) -> closest slot 2 (dist: 36.6px) [ACCEPTED]
+2025-07-10 03:01:29 [src.solving.layout_matcher] INFO:   Detection 3: 'C' at (339, 1181) -> closest slot 3 (dist: 41.0px) [ACCEPTED]
+2025-07-10 03:01:29 [src.solving.layout_matcher] INFO:   Detection 4: 'F' at (210, 977) -> closest slot 5 (dist: 87.1px) [REJECTED]
+2025-07-10 03:01:29 [src.solving.layout_matcher] INFO:   Detection 5: 'I' at (445, 1068) -> closest slot 1 (dist: 41.4px) [ACCEPTED]
+2025-07-10 03:01:29 [src.solving.layout_matcher] INFO: MATCHED 'R' to slot 2 (distance: 36.6)
+2025-07-10 03:01:29 [src.solving.layout_matcher] INFO: MATCHED 'C' to slot 3 (distance: 41.0)
+2025-07-10 03:01:29 [src.solving.layout_matcher] INFO: MATCHED 'I' to slot 1 (distance: 41.4)
+2025-07-10 03:01:29 [src.solving.layout_matcher] WARNING: UNMATCHED detection: 'E' at (198, 1113)
+2025-07-10 03:01:29 [src.solving.layout_matcher] WARNING: UNMATCHED detection: 'E' at (443, 971)
+2025-07-10 03:01:29 [src.solving.layout_matcher] WARNING: UNMATCHED detection: 'F' at (210, 977)
+2025-07-10 03:01:29 [src.solving.layout_matcher] INFO: Matched 3/6 detections to 6-letter wheel with 60px tolerance
+2025-07-10 03:01:29 [src.solving.layout_matcher] INFO: Analyzing 6 detections for 6 slots:
+2025-07-10 03:01:29 [src.solving.layout_matcher] INFO:   Detection 0: 'E' at (198, 1113) -> closest slot 4 (dist: 84.6px) [ACCEPTED]
+2025-07-10 03:01:29 [src.solving.layout_matcher] INFO:   Detection 1: 'E' at (443, 971) -> closest slot 1 (dist: 69.5px) [ACCEPTED]
+2025-07-10 03:01:29 [src.solving.layout_matcher] INFO:   Detection 2: 'R' at (440, 1127) -> closest slot 2 (dist: 36.6px) [ACCEPTED]
+2025-07-10 03:01:29 [src.solving.layout_matcher] INFO:   Detection 3: 'C' at (339, 1181) -> closest slot 3 (dist: 41.0px) [ACCEPTED]
+2025-07-10 03:01:29 [src.solving.layout_matcher] INFO:   Detection 4: 'F' at (210, 977) -> closest slot 5 (dist: 87.1px) [ACCEPTED]
+2025-07-10 03:01:29 [src.solving.layout_matcher] INFO:   Detection 5: 'I' at (445, 1068) -> closest slot 1 (dist: 41.4px) [ACCEPTED]
+2025-07-10 03:01:29 [src.solving.layout_matcher] INFO: MATCHED 'R' to slot 2 (distance: 36.6)
+2025-07-10 03:01:29 [src.solving.layout_matcher] INFO: MATCHED 'C' to slot 3 (distance: 41.0)
+2025-07-10 03:01:29 [src.solving.layout_matcher] INFO: MATCHED 'I' to slot 1 (distance: 41.4)
+2025-07-10 03:01:29 [src.solving.layout_matcher] INFO: MATCHED 'E' to slot 0 (distance: 70.5)
+2025-07-10 03:01:29 [src.solving.layout_matcher] INFO: MATCHED 'E' to slot 4 (distance: 84.6)
+2025-07-10 03:01:29 [src.solving.layout_matcher] INFO: MATCHED 'F' to slot 5 (distance: 87.1)
+2025-07-10 03:01:29 [src.solving.layout_matcher] INFO: Matched 6/6 detections to 6-letter wheel with 90px tolerance
+2025-07-10 03:01:29 [src.solving.layout_matcher] INFO: Found good match with 1.5x tolerance (90px): 6 letters
+2025-07-10 03:01:29 [src.solving.layout_matcher] INFO: Analyzing 6 detections for 6 slots:
+2025-07-10 03:01:29 [src.solving.layout_matcher] INFO:   Detection 0: 'E' at (198, 1113) -> closest slot 4 (dist: 84.6px) [REJECTED]
+2025-07-10 03:01:29 [src.solving.layout_matcher] INFO:   Detection 1: 'E' at (443, 971) -> closest slot 1 (dist: 69.5px) [REJECTED]
+2025-07-10 03:01:29 [src.solving.layout_matcher] INFO:   Detection 2: 'R' at (440, 1127) -> closest slot 2 (dist: 36.6px) [ACCEPTED]
+2025-07-10 03:01:29 [src.solving.layout_matcher] INFO:   Detection 3: 'C' at (339, 1181) -> closest slot 3 (dist: 41.0px) [ACCEPTED]
+2025-07-10 03:01:29 [src.solving.layout_matcher] INFO:   Detection 4: 'F' at (210, 977) -> closest slot 5 (dist: 87.1px) [REJECTED]
+2025-07-10 03:01:29 [src.solving.layout_matcher] INFO:   Detection 5: 'I' at (445, 1068) -> closest slot 1 (dist: 41.4px) [ACCEPTED]
+2025-07-10 03:01:29 [src.solving.layout_matcher] INFO: MATCHED 'R' to slot 2 (distance: 36.6)
+2025-07-10 03:01:29 [src.solving.layout_matcher] INFO: MATCHED 'C' to slot 3 (distance: 41.0)
+2025-07-10 03:01:29 [src.solving.layout_matcher] INFO: MATCHED 'I' to slot 1 (distance: 41.4)
+2025-07-10 03:01:29 [src.solving.layout_matcher] WARNING: UNMATCHED detection: 'E' at (198, 1113)
+2025-07-10 03:01:29 [src.solving.layout_matcher] WARNING: UNMATCHED detection: 'E' at (443, 971)
+2025-07-10 03:01:29 [src.solving.layout_matcher] WARNING: UNMATCHED detection: 'F' at (210, 977)
+2025-07-10 03:01:29 [src.solving.layout_matcher] INFO: Matched 3/6 detections to 6-letter wheel
+2025-07-10 03:01:29 [src.solving.layout_matcher] WARNING: Only matched 3/6 required letters with default tolerance (60px). Trying progressive tolerance matching.
+2025-07-10 03:01:29 [src.solving.layout_matcher] INFO: Analyzing 6 detections for 6 slots:
+2025-07-10 03:01:29 [src.solving.layout_matcher] INFO:   Detection 0: 'E' at (198, 1113) -> closest slot 4 (dist: 84.6px) [REJECTED]
+2025-07-10 03:01:29 [src.solving.layout_matcher] INFO:   Detection 1: 'E' at (443, 971) -> closest slot 1 (dist: 69.5px) [REJECTED]
+2025-07-10 03:01:29 [src.solving.layout_matcher] INFO:   Detection 2: 'R' at (440, 1127) -> closest slot 2 (dist: 36.6px) [ACCEPTED]
+2025-07-10 03:01:29 [src.solving.layout_matcher] INFO:   Detection 3: 'C' at (339, 1181) -> closest slot 3 (dist: 41.0px) [ACCEPTED]
+2025-07-10 03:01:29 [src.solving.layout_matcher] INFO:   Detection 4: 'F' at (210, 977) -> closest slot 5 (dist: 87.1px) [REJECTED]
+2025-07-10 03:01:29 [src.solving.layout_matcher] INFO:   Detection 5: 'I' at (445, 1068) -> closest slot 1 (dist: 41.4px) [ACCEPTED]
+2025-07-10 03:01:29 [src.solving.layout_matcher] INFO: MATCHED 'R' to slot 2 (distance: 36.6)
+2025-07-10 03:01:29 [src.solving.layout_matcher] INFO: MATCHED 'C' to slot 3 (distance: 41.0)
+2025-07-10 03:01:29 [src.solving.layout_matcher] INFO: MATCHED 'I' to slot 1 (distance: 41.4)
+2025-07-10 03:01:29 [src.solving.layout_matcher] WARNING: UNMATCHED detection: 'E' at (198, 1113)
+2025-07-10 03:01:29 [src.solving.layout_matcher] WARNING: UNMATCHED detection: 'E' at (443, 971)
+2025-07-10 03:01:29 [src.solving.layout_matcher] WARNING: UNMATCHED detection: 'F' at (210, 977)
+2025-07-10 03:01:29 [src.solving.layout_matcher] INFO: Matched 3/6 detections to 6-letter wheel with 60px tolerance
+2025-07-10 03:01:29 [src.solving.layout_matcher] INFO: Analyzing 6 detections for 6 slots:
+2025-07-10 03:01:29 [src.solving.layout_matcher] INFO:   Detection 0: 'E' at (198, 1113) -> closest slot 4 (dist: 84.6px) [ACCEPTED]
+2025-07-10 03:01:29 [src.solving.layout_matcher] INFO:   Detection 1: 'E' at (443, 971) -> closest slot 1 (dist: 69.5px) [ACCEPTED]
+2025-07-10 03:01:29 [src.solving.layout_matcher] INFO:   Detection 2: 'R' at (440, 1127) -> closest slot 2 (dist: 36.6px) [ACCEPTED]
+2025-07-10 03:01:29 [src.solving.layout_matcher] INFO:   Detection 3: 'C' at (339, 1181) -> closest slot 3 (dist: 41.0px) [ACCEPTED]
+2025-07-10 03:01:29 [src.solving.layout_matcher] INFO:   Detection 4: 'F' at (210, 977) -> closest slot 5 (dist: 87.1px) [ACCEPTED]
+2025-07-10 03:01:29 [src.solving.layout_matcher] INFO:   Detection 5: 'I' at (445, 1068) -> closest slot 1 (dist: 41.4px) [ACCEPTED]
+2025-07-10 03:01:29 [src.solving.layout_matcher] INFO: MATCHED 'R' to slot 2 (distance: 36.6)
+2025-07-10 03:01:29 [src.solving.layout_matcher] INFO: MATCHED 'C' to slot 3 (distance: 41.0)
+2025-07-10 03:01:29 [src.solving.layout_matcher] INFO: MATCHED 'I' to slot 1 (distance: 41.4)
+2025-07-10 03:01:29 [src.solving.layout_matcher] INFO: MATCHED 'E' to slot 0 (distance: 70.5)
+2025-07-10 03:01:29 [src.solving.layout_matcher] INFO: MATCHED 'E' to slot 4 (distance: 84.6)
+2025-07-10 03:01:29 [src.solving.layout_matcher] INFO: MATCHED 'F' to slot 5 (distance: 87.1)
+2025-07-10 03:01:29 [src.solving.layout_matcher] INFO: Matched 6/6 detections to 6-letter wheel with 90px tolerance
+2025-07-10 03:01:29 [src.solving.layout_matcher] INFO: Found good match with 1.5x tolerance (90px): 6 letters
+2025-07-10 03:01:29 [src.solving.layout_matcher] INFO: Analyzing 6 detections for 6 slots:
+2025-07-10 03:01:29 [src.solving.layout_matcher] INFO:   Detection 0: 'E' at (198, 1113) -> closest slot 4 (dist: 84.6px) [REJECTED]
+2025-07-10 03:01:29 [src.solving.layout_matcher] INFO:   Detection 1: 'E' at (443, 971) -> closest slot 1 (dist: 69.5px) [REJECTED]
+2025-07-10 03:01:29 [src.solving.layout_matcher] INFO:   Detection 2: 'R' at (440, 1127) -> closest slot 2 (dist: 36.6px) [ACCEPTED]
+2025-07-10 03:01:29 [src.solving.layout_matcher] INFO:   Detection 3: 'C' at (339, 1181) -> closest slot 3 (dist: 41.0px) [ACCEPTED]
+2025-07-10 03:01:29 [src.solving.layout_matcher] INFO:   Detection 4: 'F' at (210, 977) -> closest slot 5 (dist: 87.1px) [REJECTED]
+2025-07-10 03:01:29 [src.solving.layout_matcher] INFO:   Detection 5: 'I' at (445, 1068) -> closest slot 1 (dist: 41.4px) [ACCEPTED]
+2025-07-10 03:01:29 [src.solving.layout_matcher] INFO: MATCHED 'R' to slot 2 (distance: 36.6)
+2025-07-10 03:01:29 [src.solving.layout_matcher] INFO: MATCHED 'C' to slot 3 (distance: 41.0)
+2025-07-10 03:01:29 [src.solving.layout_matcher] INFO: MATCHED 'I' to slot 1 (distance: 41.4)
+2025-07-10 03:01:29 [src.solving.layout_matcher] WARNING: UNMATCHED detection: 'E' at (198, 1113)
+2025-07-10 03:01:29 [src.solving.layout_matcher] WARNING: UNMATCHED detection: 'E' at (443, 971)
+2025-07-10 03:01:29 [src.solving.layout_matcher] WARNING: UNMATCHED detection: 'F' at (210, 977)
+2025-07-10 03:01:29 [src.solving.layout_matcher] INFO: Matched 3/6 detections to 6-letter wheel
+2025-07-10 03:01:29 [src.solving.layout_matcher] WARNING: Only matched 3/6 required letters with default tolerance (60px). Trying progressive tolerance matching.
+2025-07-10 03:01:29 [src.solving.layout_matcher] INFO: Analyzing 6 detections for 6 slots:
+2025-07-10 03:01:29 [src.solving.layout_matcher] INFO:   Detection 0: 'E' at (198, 1113) -> closest slot 4 (dist: 84.6px) [REJECTED]
+2025-07-10 03:01:29 [src.solving.layout_matcher] INFO:   Detection 1: 'E' at (443, 971) -> closest slot 1 (dist: 69.5px) [REJECTED]
+2025-07-10 03:01:29 [src.solving.layout_matcher] INFO:   Detection 2: 'R' at (440, 1127) -> closest slot 2 (dist: 36.6px) [ACCEPTED]
+2025-07-10 03:01:29 [src.solving.layout_matcher] INFO:   Detection 3: 'C' at (339, 1181) -> closest slot 3 (dist: 41.0px) [ACCEPTED]
+2025-07-10 03:01:29 [src.solving.layout_matcher] INFO:   Detection 4: 'F' at (210, 977) -> closest slot 5 (dist: 87.1px) [REJECTED]
+2025-07-10 03:01:29 [src.solving.layout_matcher] INFO:   Detection 5: 'I' at (445, 1068) -> closest slot 1 (dist: 41.4px) [ACCEPTED]
+2025-07-10 03:01:29 [src.solving.layout_matcher] INFO: MATCHED 'R' to slot 2 (distance: 36.6)
+2025-07-10 03:01:29 [src.solving.layout_matcher] INFO: MATCHED 'C' to slot 3 (distance: 41.0)
+2025-07-10 03:01:29 [src.solving.layout_matcher] INFO: MATCHED 'I' to slot 1 (distance: 41.4)
+2025-07-10 03:01:29 [src.solving.layout_matcher] WARNING: UNMATCHED detection: 'E' at (198, 1113)
+2025-07-10 03:01:29 [src.solving.layout_matcher] WARNING: UNMATCHED detection: 'E' at (443, 971)
+2025-07-10 03:01:29 [src.solving.layout_matcher] WARNING: UNMATCHED detection: 'F' at (210, 977)
+2025-07-10 03:01:29 [src.solving.layout_matcher] INFO: Matched 3/6 detections to 6-letter wheel with 60px tolerance
+2025-07-10 03:01:29 [src.solving.layout_matcher] INFO: Analyzing 6 detections for 6 slots:
+2025-07-10 03:01:29 [src.solving.layout_matcher] INFO:   Detection 0: 'E' at (198, 1113) -> closest slot 4 (dist: 84.6px) [ACCEPTED]
+2025-07-10 03:01:29 [src.solving.layout_matcher] INFO:   Detection 1: 'E' at (443, 971) -> closest slot 1 (dist: 69.5px) [ACCEPTED]
+2025-07-10 03:01:29 [src.solving.layout_matcher] INFO:   Detection 2: 'R' at (440, 1127) -> closest slot 2 (dist: 36.6px) [ACCEPTED]
+2025-07-10 03:01:29 [src.solving.layout_matcher] INFO:   Detection 3: 'C' at (339, 1181) -> closest slot 3 (dist: 41.0px) [ACCEPTED]
+2025-07-10 03:01:29 [src.solving.layout_matcher] INFO:   Detection 4: 'F' at (210, 977) -> closest slot 5 (dist: 87.1px) [ACCEPTED]
+2025-07-10 03:01:29 [src.solving.layout_matcher] INFO:   Detection 5: 'I' at (445, 1068) -> closest slot 1 (dist: 41.4px) [ACCEPTED]
+2025-07-10 03:01:29 [src.solving.layout_matcher] INFO: MATCHED 'R' to slot 2 (distance: 36.6)
+2025-07-10 03:01:29 [src.solving.layout_matcher] INFO: MATCHED 'C' to slot 3 (distance: 41.0)
+2025-07-10 03:01:29 [src.solving.layout_matcher] INFO: MATCHED 'I' to slot 1 (distance: 41.4)
+2025-07-10 03:01:29 [src.solving.layout_matcher] INFO: MATCHED 'E' to slot 0 (distance: 70.5)
+2025-07-10 03:01:29 [src.solving.layout_matcher] INFO: MATCHED 'E' to slot 4 (distance: 84.6)
+2025-07-10 03:01:29 [src.solving.layout_matcher] INFO: MATCHED 'F' to slot 5 (distance: 87.1)
+2025-07-10 03:01:29 [src.solving.layout_matcher] INFO: Matched 6/6 detections to 6-letter wheel with 90px tolerance
+2025-07-10 03:01:29 [src.solving.layout_matcher] INFO: Found good match with 1.5x tolerance (90px): 6 letters
+2025-07-10 03:01:29 [src.solving.layout_matcher] INFO: Analyzing 6 detections for 6 slots:
+2025-07-10 03:01:29 [src.solving.layout_matcher] INFO:   Detection 0: 'E' at (198, 1113) -> closest slot 4 (dist: 84.6px) [REJECTED]
+2025-07-10 03:01:29 [src.solving.layout_matcher] INFO:   Detection 1: 'E' at (443, 971) -> closest slot 1 (dist: 69.5px) [REJECTED]
+2025-07-10 03:01:29 [src.solving.layout_matcher] INFO:   Detection 2: 'R' at (440, 1127) -> closest slot 2 (dist: 36.6px) [ACCEPTED]
+2025-07-10 03:01:29 [src.solving.layout_matcher] INFO:   Detection 3: 'C' at (339, 1181) -> closest slot 3 (dist: 41.0px) [ACCEPTED]
+2025-07-10 03:01:29 [src.solving.layout_matcher] INFO:   Detection 4: 'F' at (210, 977) -> closest slot 5 (dist: 87.1px) [REJECTED]
+2025-07-10 03:01:29 [src.solving.layout_matcher] INFO:   Detection 5: 'I' at (445, 1068) -> closest slot 1 (dist: 41.4px) [ACCEPTED]
+2025-07-10 03:01:29 [src.solving.layout_matcher] INFO: MATCHED 'R' to slot 2 (distance: 36.6)
+2025-07-10 03:01:29 [src.solving.layout_matcher] INFO: MATCHED 'C' to slot 3 (distance: 41.0)
+2025-07-10 03:01:29 [src.solving.layout_matcher] INFO: MATCHED 'I' to slot 1 (distance: 41.4)
+2025-07-10 03:01:29 [src.solving.layout_matcher] WARNING: UNMATCHED detection: 'E' at (198, 1113)
+2025-07-10 03:01:29 [src.solving.layout_matcher] WARNING: UNMATCHED detection: 'E' at (443, 971)
+2025-07-10 03:01:29 [src.solving.layout_matcher] WARNING: UNMATCHED detection: 'F' at (210, 977)
+2025-07-10 03:01:29 [src.solving.layout_matcher] INFO: Matched 3/6 detections to 6-letter wheel
+2025-07-10 03:01:29 [src.solving.layout_matcher] WARNING: Only matched 3/6 required letters with default tolerance (60px). Trying progressive tolerance matching.
+2025-07-10 03:01:29 [src.solving.layout_matcher] INFO: Analyzing 6 detections for 6 slots:
+2025-07-10 03:01:29 [src.solving.layout_matcher] INFO:   Detection 0: 'E' at (198, 1113) -> closest slot 4 (dist: 84.6px) [REJECTED]
+2025-07-10 03:01:29 [src.solving.layout_matcher] INFO:   Detection 1: 'E' at (443, 971) -> closest slot 1 (dist: 69.5px) [REJECTED]
+2025-07-10 03:01:29 [src.solving.layout_matcher] INFO:   Detection 2: 'R' at (440, 1127) -> closest slot 2 (dist: 36.6px) [ACCEPTED]
+2025-07-10 03:01:29 [src.solving.layout_matcher] INFO:   Detection 3: 'C' at (339, 1181) -> closest slot 3 (dist: 41.0px) [ACCEPTED]
+2025-07-10 03:01:29 [src.solving.layout_matcher] INFO:   Detection 4: 'F' at (210, 977) -> closest slot 5 (dist: 87.1px) [REJECTED]
+2025-07-10 03:01:29 [src.solving.layout_matcher] INFO:   Detection 5: 'I' at (445, 1068) -> closest slot 1 (dist: 41.4px) [ACCEPTED]
+2025-07-10 03:01:29 [src.solving.layout_matcher] INFO: MATCHED 'R' to slot 2 (distance: 36.6)
+2025-07-10 03:01:29 [src.solving.layout_matcher] INFO: MATCHED 'C' to slot 3 (distance: 41.0)
+2025-07-10 03:01:29 [src.solving.layout_matcher] INFO: MATCHED 'I' to slot 1 (distance: 41.4)
+2025-07-10 03:01:29 [src.solving.layout_matcher] WARNING: UNMATCHED detection: 'E' at (198, 1113)
+2025-07-10 03:01:29 [src.solving.layout_matcher] WARNING: UNMATCHED detection: 'E' at (443, 971)
+2025-07-10 03:01:29 [src.solving.layout_matcher] WARNING: UNMATCHED detection: 'F' at (210, 977)
+2025-07-10 03:01:29 [src.solving.layout_matcher] INFO: Matched 3/6 detections to 6-letter wheel with 60px tolerance
+2025-07-10 03:01:29 [src.solving.layout_matcher] INFO: Analyzing 6 detections for 6 slots:
+2025-07-10 03:01:29 [src.solving.layout_matcher] INFO:   Detection 0: 'E' at (198, 1113) -> closest slot 4 (dist: 84.6px) [ACCEPTED]
+2025-07-10 03:01:29 [src.solving.layout_matcher] INFO:   Detection 1: 'E' at (443, 971) -> closest slot 1 (dist: 69.5px) [ACCEPTED]
+2025-07-10 03:01:29 [src.solving.layout_matcher] INFO:   Detection 2: 'R' at (440, 1127) -> closest slot 2 (dist: 36.6px) [ACCEPTED]
+2025-07-10 03:01:29 [src.solving.layout_matcher] INFO:   Detection 3: 'C' at (339, 1181) -> closest slot 3 (dist: 41.0px) [ACCEPTED]
+2025-07-10 03:01:29 [src.solving.layout_matcher] INFO:   Detection 4: 'F' at (210, 977) -> closest slot 5 (dist: 87.1px) [ACCEPTED]
+2025-07-10 03:01:29 [src.solving.layout_matcher] INFO:   Detection 5: 'I' at (445, 1068) -> closest slot 1 (dist: 41.4px) [ACCEPTED]
+2025-07-10 03:01:29 [src.solving.layout_matcher] INFO: MATCHED 'R' to slot 2 (distance: 36.6)
+2025-07-10 03:01:29 [src.solving.layout_matcher] INFO: MATCHED 'C' to slot 3 (distance: 41.0)
+2025-07-10 03:01:29 [src.solving.layout_matcher] INFO: MATCHED 'I' to slot 1 (distance: 41.4)
+2025-07-10 03:01:29 [src.solving.layout_matcher] INFO: MATCHED 'E' to slot 0 (distance: 70.5)
+2025-07-10 03:01:29 [src.solving.layout_matcher] INFO: MATCHED 'E' to slot 4 (distance: 84.6)
+2025-07-10 03:01:29 [src.solving.layout_matcher] INFO: MATCHED 'F' to slot 5 (distance: 87.1)
+2025-07-10 03:01:29 [src.solving.layout_matcher] INFO: Matched 6/6 detections to 6-letter wheel with 90px tolerance
+2025-07-10 03:01:29 [src.solving.layout_matcher] INFO: Found good match with 1.5x tolerance (90px): 6 letters
+2025-07-10 03:01:29 [__main__] INFO: Matched 6 letters
+2025-07-10 03:01:29 [src.utils.debug] INFO: === Letter Positioning Analysis ===
+2025-07-10 03:01:29 [src.utils.debug] INFO: Closest pair: 'R' - 'I' (59.2px)
+2025-07-10 03:01:29 [src.utils.debug] INFO: === End Positioning Analysis ===
+2025-07-10 03:01:29 [__main__] INFO: Letters found: E R I C E F
+2025-07-10 03:01:29 [src.solving.word_solver] INFO: Found 44 words from 6 letters
+2025-07-10 03:01:29 [__main__] INFO: Found 44 valid words
+2025-07-10 03:01:29 [__main__] INFO: Swiping word: FIERCE (1/20)
+2025-07-10 03:01:30 [__main__] INFO: Swiping word: FERIE (2/20)
+2025-07-10 03:01:31 [__main__] INFO: Swiping word: IFREE (3/20)
+2025-07-10 03:01:32 [__main__] INFO: Swiping word: REICE (4/20)
+2025-07-10 03:01:33 [__main__] INFO: Swiping word: FREE (5/20)
+2025-07-10 03:01:33 [__main__] INFO: Stop requested - will halt immediately
+2025-07-10 03:01:34 [__main__] INFO: Bot stopped
+2025-07-10 03:05:03 [root] INFO: Logging initialized
+2025-07-10 03:05:03 [src.automation.game_window] INFO: Found window: SM-A346B
+2025-07-10 03:05:04 [src.solving.layout_matcher] INFO: Loaded layouts for wheel sizes: [5, 6, 7, 8]
+2025-07-10 03:05:07 [src.solving.word_solver] INFO: Loaded 369652 words into solver
+2025-07-10 03:05:07 [__main__] INFO: Press ctrl+shift+f8 to stop the bot
+2025-07-10 03:05:07 [__main__] INFO: Press ctrl+shift+f7 to pause/resume the bot
+2025-07-10 03:05:07 [__main__] INFO: Starting Word Game Bot...
+2025-07-10 03:05:07 [__main__] INFO: Capturing screenshot...
+2025-07-10 03:05:07 [__main__] INFO: Detecting letters...
+2025-07-10 03:05:07 [src.detection.preprocessor] INFO: Original image stats: mean=97.9, min=54, max=255
+2025-07-10 03:05:07 [src.detection.preprocessor] INFO: Created Otsu black-on-white (primary method)
+2025-07-10 03:05:07 [src.detection.preprocessor] INFO: Created 1 black-on-white variants
+2025-07-10 03:05:07 [src.detection.letter_detector] INFO: Running OCR on Otsu black-on-white image
+2025-07-10 03:05:07 [src.detection.ocr_engine] INFO: Trying OCR parameter set 1
+2025-07-10 03:05:07 [src.detection.ocr_engine] INFO: OCR run returned 6 results
+2025-07-10 03:05:07 [src.detection.ocr_engine] INFO: Trying OCR parameter set 2
+2025-07-10 03:05:07 [src.detection.ocr_engine] INFO: OCR run returned 2 results
+2025-07-10 03:05:07 [src.detection.ocr_engine] INFO: Trying OCR parameter set 3
+2025-07-10 03:05:08 [src.detection.ocr_engine] INFO: OCR run returned 4 results
+2025-07-10 03:05:08 [src.detection.ocr_engine] INFO: Trying OCR on enhanced image for thin letters
+2025-07-10 03:05:08 [src.detection.ocr_engine] INFO: OCR run returned 6 results
+2025-07-10 03:05:08 [src.detection.ocr_engine] INFO: Trying OCR on morphologically processed image
+2025-07-10 03:05:08 [src.detection.ocr_engine] INFO: OCR run returned 2 results
+2025-07-10 03:05:08 [src.detection.letter_detector] INFO: Splitting multi-character detection: 'EKR'
+2025-07-10 03:05:08 [src.detection.letter_detector] INFO: Splitting multi-character detection: 'E01'
+2025-07-10 03:05:08 [src.detection.letter_detector] INFO: Starting position refinement for 6 letters
+2025-07-10 03:05:08 [src.detection.letter_detector] INFO: Initial letter distances:
+2025-07-10 03:05:08 [src.detection.letter_detector] INFO:   'E' - 'E': 283.2px
+2025-07-10 03:05:08 [src.detection.letter_detector] INFO:   'E' - 'R': 244.2px
+2025-07-10 03:05:08 [src.detection.letter_detector] INFO:   'E' - 'C': 156.5px
+2025-07-10 03:05:08 [src.detection.letter_detector] INFO:   'E' - 'F': 136.5px
+2025-07-10 03:05:08 [src.detection.letter_detector] INFO:   'E' - 'I': 250.2px
+2025-07-10 03:05:08 [src.detection.letter_detector] INFO:   'E' - 'R': 133.0px
+2025-07-10 03:05:08 [src.detection.letter_detector] INFO:   'E' - 'C': 234.3px
+2025-07-10 03:05:08 [src.detection.letter_detector] INFO:   'E' - 'F': 233.1px
+2025-07-10 03:05:08 [src.detection.letter_detector] INFO:   'E' - 'I': 102.0px
+2025-07-10 03:05:08 [src.detection.letter_detector] INFO:   'R' - 'C': 128.6px
+2025-07-10 03:05:08 [src.detection.letter_detector] INFO:   'R' - 'F': 264.5px
+2025-07-10 03:05:08 [src.detection.letter_detector] INFO:   'R' - 'I': 31.1px
+2025-07-10 03:05:08 [src.detection.letter_detector] INFO:   'C' - 'F': 241.4px
+2025-07-10 03:05:08 [src.detection.letter_detector] INFO:   'C' - 'I': 151.3px
+2025-07-10 03:05:08 [src.detection.letter_detector] INFO:   'F' - 'I': 253.9px
+2025-07-10 03:05:08 [src.detection.letter_detector] INFO: Position refinement iteration 1
+2025-07-10 03:05:08 [src.detection.letter_detector] INFO:   Adjusted 'R' from [315, 240] to [313, 262] (was 31.1px from 'I')
+2025-07-10 03:05:08 [src.detection.letter_detector] INFO:   Adjusted 'I' from [318, 209] to [318, 204] (was 53.2px from 'R')
+2025-07-10 03:05:08 [src.detection.letter_detector] INFO: Position refinement iteration 2
+2025-07-10 03:05:08 [src.detection.letter_detector] INFO:   Adjusted 'R' from [313, 262] to [313, 263] (was 58.2px from 'I')
+2025-07-10 03:05:08 [src.detection.letter_detector] INFO:   Adjusted 'I' from [318, 204] to [318, 204] (was 59.2px from 'R')
+2025-07-10 03:05:08 [src.detection.letter_detector] INFO: Position refinement iteration 3
+2025-07-10 03:05:08 [src.detection.letter_detector] INFO:   Adjusted 'R' from [313, 263] to [313, 263] (was 59.2px from 'I')
+2025-07-10 03:05:08 [src.detection.letter_detector] INFO:   Adjusted 'I' from [318, 204] to [318, 204] (was 59.2px from 'R')
+2025-07-10 03:05:08 [src.detection.letter_detector] INFO: Final letter separations after refinement:
+2025-07-10 03:05:08 [src.detection.letter_detector] INFO:   'E' - 'E': 283.2px
+2025-07-10 03:05:08 [src.detection.letter_detector] INFO:   'E' - 'R': 242.4px
+2025-07-10 03:05:08 [src.detection.letter_detector] INFO:   'E' - 'C': 156.5px
+2025-07-10 03:05:08 [src.detection.letter_detector] INFO:   'E' - 'F': 136.5px
+2025-07-10 03:05:08 [src.detection.letter_detector] INFO:   'E' - 'I': 251.1px
+2025-07-10 03:05:08 [src.detection.letter_detector] INFO:   'E' - 'R': 156.0px
+2025-07-10 03:05:08 [src.detection.letter_detector] INFO:   'E' - 'C': 234.3px
+2025-07-10 03:05:08 [src.detection.letter_detector] INFO:   'E' - 'F': 233.1px
+2025-07-10 03:05:08 [src.detection.letter_detector] INFO:   'E' - 'I': 97.0px
+2025-07-10 03:05:08 [src.detection.letter_detector] INFO:   'R' - 'C': 114.5px
+2025-07-10 03:05:08 [src.detection.letter_detector] INFO:   'R' - 'F': 274.6px
+2025-07-10 03:05:08 [src.detection.letter_detector] INFO:   'R' - 'I': 59.2px
+2025-07-10 03:05:08 [src.detection.letter_detector] INFO:   'C' - 'F': 241.4px
+2025-07-10 03:05:08 [src.detection.letter_detector] INFO:   'C' - 'I': 154.9px
+2025-07-10 03:05:08 [src.detection.letter_detector] INFO:   'F' - 'I': 252.0px
+2025-07-10 03:05:08 [src.detection.letter_detector] INFO: Final detected letters: ['E', 'E', 'R', 'C', 'F', 'I']
+2025-07-10 03:05:08 [__main__] INFO: Matching to wheel layout...
+2025-07-10 03:05:08 [__main__] INFO: Using raw detection positions (bypassing layout matcher)
+2025-07-10 03:05:08 [__main__] INFO: Using 6 raw detections
+2025-07-10 03:05:08 [src.utils.debug] INFO: === Letter Positioning Analysis ===
+2025-07-10 03:05:08 [src.utils.debug] INFO: Closest pair: 'R' - 'I' (59.2px)
+2025-07-10 03:05:08 [src.utils.debug] INFO: === End Positioning Analysis ===
+2025-07-10 03:05:08 [__main__] INFO: Letters found: E E R C F I
+2025-07-10 03:05:08 [src.solving.word_solver] INFO: Found 44 words from 6 letters
+2025-07-10 03:05:08 [__main__] INFO: Found 44 valid words
+2025-07-10 03:05:08 [__main__] INFO: Swiping word: FIERCE (1/20)
+2025-07-10 03:05:09 [__main__] INFO: Swiping word: FERIE (2/20)
+2025-07-10 03:05:10 [__main__] INFO: Swiping word: IFREE (3/20)
+2025-07-10 03:05:11 [__main__] INFO: Swiping word: REICE (4/20)
+2025-07-10 03:05:12 [__main__] INFO: Swiping word: FEER (5/20)
+2025-07-10 03:05:13 [__main__] INFO: Swiping word: ERIE (6/20)
+2025-07-10 03:05:14 [__main__] INFO: Swiping word: EIRE (7/20)
+2025-07-10 03:05:15 [__main__] INFO: Swiping word: FREE (8/20)
+2025-07-10 03:05:16 [__main__] INFO: Swiping word: FIRE (9/20)
+2025-07-10 03:05:16 [__main__] INFO: Stop requested - will halt immediately
+2025-07-10 03:05:16 [__main__] INFO: Bot stopped
+2025-07-10 03:08:57 [root] INFO: Logging initialized
+2025-07-10 03:08:57 [src.automation.game_window] INFO: Found window: SM-A346B
+2025-07-10 03:08:57 [src.detection.preprocessor] INFO: Created debug directory: debug
+2025-07-10 03:08:59 [src.solving.layout_matcher] INFO: Loaded layouts for wheel sizes: [5, 6, 7, 8]
+2025-07-10 03:09:02 [src.solving.word_solver] INFO: Loaded 369652 words into solver
+2025-07-10 03:09:02 [__main__] INFO: Press ctrl+shift+f8 to stop the bot
+2025-07-10 03:09:02 [__main__] INFO: Press ctrl+shift+f7 to pause/resume the bot
+2025-07-10 03:09:02 [__main__] INFO: Starting Word Game Bot...
+2025-07-10 03:09:02 [__main__] INFO: Capturing screenshot...
+2025-07-10 03:09:02 [__main__] INFO: Detecting letters...
+2025-07-10 03:09:02 [src.detection.preprocessor] INFO: Original image stats: mean=97.9, min=54, max=255
+2025-07-10 03:09:02 [src.detection.preprocessor] INFO: Created Otsu black-on-white (primary method)
+2025-07-10 03:09:02 [src.detection.preprocessor] INFO: Created 1 black-on-white variants
+2025-07-10 03:09:02 [src.detection.letter_detector] INFO: Running OCR on Otsu black-on-white image
+2025-07-10 03:09:02 [src.detection.ocr_engine] INFO: Trying OCR parameter set 1
+2025-07-10 03:09:02 [src.detection.ocr_engine] INFO: OCR run returned 6 results
+2025-07-10 03:09:02 [src.detection.ocr_engine] INFO: Trying OCR parameter set 2
+2025-07-10 03:09:02 [src.detection.ocr_engine] INFO: OCR run returned 2 results
+2025-07-10 03:09:02 [src.detection.ocr_engine] INFO: Trying OCR parameter set 3
+2025-07-10 03:09:02 [src.detection.ocr_engine] INFO: OCR run returned 4 results
+2025-07-10 03:09:02 [src.detection.ocr_engine] INFO: Trying OCR on enhanced image for thin letters
+2025-07-10 03:09:03 [src.detection.ocr_engine] INFO: OCR run returned 6 results
+2025-07-10 03:09:03 [src.detection.ocr_engine] INFO: Trying OCR on morphologically processed image
+2025-07-10 03:09:03 [src.detection.ocr_engine] INFO: OCR run returned 2 results
+2025-07-10 03:09:03 [src.detection.letter_detector] INFO: Splitting multi-character detection: 'EKR'
+2025-07-10 03:09:03 [src.detection.letter_detector] INFO: Splitting multi-character detection: 'E01'
+2025-07-10 03:09:03 [src.detection.letter_detector] INFO: Final detected letters: ['E', 'E', 'R', 'C', 'F', 'I']
+2025-07-10 03:09:03 [__main__] INFO: Matching to wheel layout...
+2025-07-10 03:09:03 [__main__] INFO: Using raw detection positions (bypassing layout matcher)
+2025-07-10 03:09:03 [__main__] INFO: Using 6 raw detections
+2025-07-10 03:09:03 [src.utils.debug] INFO: === Letter Positioning Analysis ===
+2025-07-10 03:09:03 [src.utils.debug] WARNING:   'R' and 'I' are very close: 31.1px
+2025-07-10 03:09:03 [src.utils.debug] INFO: Closest pair: 'R' - 'I' (31.1px)
+2025-07-10 03:09:03 [src.utils.debug] INFO: === End Positioning Analysis ===
+2025-07-10 03:09:03 [__main__] INFO: Letters found: E E R C F I
+2025-07-10 03:09:03 [src.solving.word_solver] INFO: Found 44 words from 6 letters
+2025-07-10 03:09:03 [__main__] INFO: Found 44 valid words
+2025-07-10 03:09:03 [__main__] INFO: Swiping word: FIERCE (1/20)
+2025-07-10 03:09:04 [__main__] INFO: Swiping word: FERIE (2/20)
+2025-07-10 03:09:05 [__main__] INFO: Swiping word: IFREE (3/20)
+2025-07-10 03:09:06 [__main__] INFO: Swiping word: REICE (4/20)
+2025-07-10 03:09:07 [__main__] INFO: Stop requested - will halt immediately
+2025-07-10 03:09:07 [__main__] INFO: Bot stopped
+2025-07-10 03:13:15 [root] INFO: Logging initialized
+2025-07-10 03:13:15 [src.automation.game_window] INFO: Found window: SM-A346B
+2025-07-10 03:13:17 [src.solving.layout_matcher] INFO: Loaded layouts for wheel sizes: [5, 6, 7, 8]
+2025-07-10 03:13:19 [src.solving.word_solver] INFO: Loaded 369652 words into solver
+2025-07-10 03:13:20 [__main__] INFO: Press ctrl+shift+f8 to stop the bot
+2025-07-10 03:13:20 [__main__] INFO: Press ctrl+shift+f7 to pause/resume the bot
+2025-07-10 03:13:20 [__main__] INFO: Starting Word Game Bot...
+2025-07-10 03:13:20 [__main__] INFO: Capturing screenshot...
+2025-07-10 03:13:20 [__main__] INFO: Detecting letters...
+2025-07-10 03:13:20 [src.detection.preprocessor] INFO: Original image stats: mean=97.9, min=54, max=255
+2025-07-10 03:13:20 [src.detection.preprocessor] INFO: Created Otsu black-on-white (primary method)
+2025-07-10 03:13:20 [src.detection.preprocessor] INFO: Created 1 black-on-white variants
+2025-07-10 03:13:20 [src.detection.letter_detector] INFO: Running OCR on Otsu black-on-white image
+2025-07-10 03:13:20 [src.detection.ocr_engine] INFO: Trying OCR parameter set 1
+2025-07-10 03:13:20 [src.detection.ocr_engine] INFO: OCR run returned 6 results
+2025-07-10 03:13:20 [src.detection.ocr_engine] INFO: Trying OCR parameter set 2
+2025-07-10 03:13:20 [src.detection.ocr_engine] INFO: OCR run returned 2 results
+2025-07-10 03:13:20 [src.detection.ocr_engine] INFO: Trying OCR parameter set 3
+2025-07-10 03:13:20 [src.detection.ocr_engine] INFO: OCR run returned 4 results
+2025-07-10 03:13:20 [src.detection.ocr_engine] INFO: Trying OCR on enhanced image for thin letters
+2025-07-10 03:13:20 [src.detection.ocr_engine] INFO: OCR run returned 6 results
+2025-07-10 03:13:20 [src.detection.ocr_engine] INFO: Trying OCR on morphologically processed image
+2025-07-10 03:13:20 [src.detection.ocr_engine] INFO: OCR run returned 2 results
+2025-07-10 03:13:20 [src.detection.letter_detector] INFO: Splitting multi-character detection: 'EKR'
+2025-07-10 03:13:20 [src.detection.letter_detector] INFO: Splitting multi-character detection: 'E01'
+2025-07-10 03:13:20 [src.detection.letter_detector] INFO: Final detected letters: ['E', 'E', 'R', 'C', 'F', 'I']
+2025-07-10 03:13:20 [__main__] INFO: Matching to wheel layout...
+2025-07-10 03:13:20 [__main__] INFO: Using raw detection positions (bypassing layout matcher)
+2025-07-10 03:13:20 [__main__] INFO: Using 6 raw detections
+2025-07-10 03:13:20 [src.utils.debug] INFO: === Letter Positioning Analysis ===
+2025-07-10 03:13:20 [src.utils.debug] WARNING:   'R' and 'I' are very close: 31.1px
+2025-07-10 03:13:20 [src.utils.debug] INFO: Closest pair: 'R' - 'I' (31.1px)
+2025-07-10 03:13:20 [src.utils.debug] INFO: === End Positioning Analysis ===
+2025-07-10 03:13:20 [src.utils.debug] INFO: Saved final detection overlay: debug_screenshots\9_final_detections_overlay.png
+2025-07-10 03:13:20 [src.utils.debug] INFO: Saved detection overlay: debug_screenshots\9_enhanced_analysis.png
+2025-07-10 03:13:20 [__main__] INFO: Letters found: E E R C F I
+2025-07-10 03:13:20 [src.solving.word_solver] INFO: Found 44 words from 6 letters
+2025-07-10 03:13:20 [__main__] INFO: Found 44 valid words
+2025-07-10 03:13:20 [__main__] INFO: Swiping word: FIERCE (1/20)
+2025-07-10 03:13:21 [__main__] INFO: Swiping word: FERIE (2/20)
+2025-07-10 03:13:22 [__main__] INFO: Stop requested - will halt immediately
+2025-07-10 03:13:22 [__main__] INFO: Bot stopped
+2025-07-10 03:18:49 [root] INFO: Logging initialized
+2025-07-10 03:18:49 [src.automation.game_window] INFO: Found window: SM-A346B
+2025-07-10 03:18:50 [src.solving.layout_matcher] INFO: Loaded layouts for wheel sizes: [5, 6, 7, 8]
+2025-07-10 03:18:53 [src.solving.word_solver] INFO: Loaded 369652 words into solver
+2025-07-10 03:18:53 [__main__] INFO: Press ctrl+shift+f8 to stop the bot
+2025-07-10 03:18:53 [__main__] INFO: Press ctrl+shift+f7 to pause/resume the bot
+2025-07-10 03:18:53 [__main__] INFO: Starting Word Game Bot...
+2025-07-10 03:18:53 [__main__] INFO: Capturing screenshot...
+2025-07-10 03:18:53 [__main__] INFO: Detecting letters...
+2025-07-10 03:18:53 [src.detection.preprocessor] INFO: Original image stats: mean=97.9, min=54, max=255
+2025-07-10 03:18:54 [src.detection.preprocessor] INFO: Created Otsu black-on-white (primary method)
+2025-07-10 03:18:54 [src.detection.preprocessor] INFO: Created 1 black-on-white variants
+2025-07-10 03:18:54 [src.detection.letter_detector] WARNING: No wheel circle detected, using fallback estimation
+2025-07-10 03:18:54 [src.detection.letter_detector] INFO: Detected wheel at center (191, 190) with radius 126
+2025-07-10 03:18:54 [src.detection.letter_detector] INFO: Running OCR on Otsu black-on-white image
+2025-07-10 03:18:54 [src.detection.ocr_engine] INFO: Trying OCR parameter set 1
+2025-07-10 03:18:54 [src.detection.ocr_engine] INFO: OCR run returned 6 results
+2025-07-10 03:18:54 [src.detection.ocr_engine] INFO: Trying OCR parameter set 2
+2025-07-10 03:18:54 [src.detection.ocr_engine] INFO: OCR run returned 2 results
+2025-07-10 03:18:54 [src.detection.ocr_engine] INFO: Trying OCR parameter set 3
+2025-07-10 03:18:54 [src.detection.ocr_engine] INFO: OCR run returned 4 results
+2025-07-10 03:18:54 [src.detection.ocr_engine] INFO: Trying OCR on enhanced image for thin letters
+2025-07-10 03:18:54 [src.detection.ocr_engine] INFO: OCR run returned 6 results
+2025-07-10 03:18:54 [src.detection.ocr_engine] INFO: Trying OCR on morphologically processed image
+2025-07-10 03:18:54 [src.detection.ocr_engine] INFO: OCR run returned 2 results
+2025-07-10 03:18:54 [src.detection.letter_detector] INFO: Processing 9 OCR results with wheel filtering
+2025-07-10 03:18:54 [src.detection.letter_detector] INFO: After wheel filtering: 7 valid detections
+2025-07-10 03:18:54 [src.detection.letter_detector] INFO: After deduplication: 5 unique detections
+2025-07-10 03:18:54 [src.detection.letter_detector] INFO: Final detected letters: ['E', 'E', 'R', 'C', 'F']
+2025-07-10 03:18:54 [__main__] INFO: Matching to wheel layout...
+2025-07-10 03:18:54 [__main__] INFO: Using raw detection positions (bypassing layout matcher)
+2025-07-10 03:18:54 [__main__] INFO: Using 5 raw detections
+2025-07-10 03:18:54 [src.utils.debug] INFO: === Letter Positioning Analysis ===
+2025-07-10 03:18:54 [src.utils.debug] INFO: Closest pair: 'R' - 'C' (128.6px)
+2025-07-10 03:18:54 [src.utils.debug] INFO: === End Positioning Analysis ===
+2025-07-10 03:18:54 [src.utils.debug] INFO: Saved final detection overlay: debug_screenshots\9_final_detections_overlay.png
+2025-07-10 03:18:54 [src.utils.debug] INFO: Saved detection overlay: debug_screenshots\9_enhanced_analysis.png
+2025-07-10 03:18:54 [__main__] INFO: Letters found: E E R C F
+2025-07-10 03:18:54 [src.solving.word_solver] INFO: Found 17 words from 5 letters
+2025-07-10 03:18:54 [__main__] INFO: Found 17 valid words
+2025-07-10 03:18:54 [__main__] INFO: Swiping word: FERE (1/17)
+2025-07-10 03:18:55 [__main__] INFO: Swiping word: FREE (2/17)
+2025-07-10 03:18:56 [__main__] INFO: Stop requested - will halt immediately
+2025-07-10 03:18:56 [__main__] INFO: Bot stopped
+2025-07-10 04:04:50 [root] INFO: Logging initialized
+2025-07-10 04:04:50 [src.automation.game_window] INFO: Found window: SM-A346B
+2025-07-10 04:04:51 [src.solving.layout_matcher] INFO: Loaded layouts for wheel sizes: [5, 6, 7, 8]
+2025-07-10 04:04:54 [src.solving.word_solver] INFO: Loaded 369652 words into solver
+2025-07-10 04:04:54 [__main__] INFO: Press ctrl+shift+f8 to stop the bot
+2025-07-10 04:04:54 [__main__] INFO: Press ctrl+shift+f7 to pause/resume the bot
+2025-07-10 04:04:54 [__main__] INFO: Starting Word Game Bot...
+2025-07-10 04:04:54 [__main__] INFO: Capturing screenshot...
+2025-07-10 04:04:54 [__main__] INFO: Detecting letters...
+2025-07-10 04:04:54 [src.detection.preprocessor] INFO: Original image stats: mean=97.9, min=54, max=255
+2025-07-10 04:04:54 [src.detection.preprocessor] INFO: Created Otsu black-on-white (primary method)
+2025-07-10 04:04:54 [src.detection.preprocessor] INFO: Created 1 black-on-white variants
+2025-07-10 04:04:54 [src.detection.letter_detector] WARNING: No wheel circle detected, using fallback estimation
+2025-07-10 04:04:54 [src.detection.letter_detector] INFO: Detected wheel at center (191, 190) with radius 126
+2025-07-10 04:04:54 [src.detection.letter_detector] INFO: Running OCR on Otsu black-on-white image
+2025-07-10 04:04:54 [src.detection.ocr_engine] INFO: Trying OCR parameter set 1
+2025-07-10 04:04:54 [src.detection.ocr_engine] INFO: OCR run returned 6 results
+2025-07-10 04:04:54 [src.detection.ocr_engine] INFO: Trying OCR parameter set 2
+2025-07-10 04:04:54 [src.detection.ocr_engine] INFO: OCR run returned 2 results
+2025-07-10 04:04:54 [src.detection.ocr_engine] INFO: Trying OCR parameter set 3
+2025-07-10 04:04:54 [src.detection.ocr_engine] INFO: OCR run returned 4 results
+2025-07-10 04:04:54 [src.detection.ocr_engine] INFO: Trying OCR on enhanced image for thin letters
+2025-07-10 04:04:55 [src.detection.ocr_engine] INFO: OCR run returned 6 results
+2025-07-10 04:04:55 [src.detection.ocr_engine] INFO: Trying OCR on morphologically processed image
+2025-07-10 04:04:55 [src.detection.ocr_engine] INFO: OCR run returned 2 results
+2025-07-10 04:04:55 [src.detection.letter_detector] INFO: Processing 9 OCR results with wheel filtering
+2025-07-10 04:04:55 [src.detection.letter_detector] INFO: ACCEPTED 'R' at (315, 240) (conf: 1.000 >= 0.300)
+2025-07-10 04:04:55 [src.detection.letter_detector] INFO: ACCEPTED 'C' at (212, 317) (conf: 1.000 >= 0.300)
+2025-07-10 04:04:55 [src.detection.letter_detector] INFO: ACCEPTED 'C' at (192, 314) (conf: 1.000 >= 0.300)
+2025-07-10 04:04:55 [src.detection.letter_detector] INFO: ACCEPTED 'E' at (71, 249) (conf: 0.999 >= 0.600)
+2025-07-10 04:04:55 [src.detection.letter_detector] INFO: ACCEPTED 'E' at (316, 107) (conf: 0.999 >= 0.600)
+2025-07-10 04:04:55 [src.detection.letter_detector] INFO: ACCEPTED 'F' at (83, 113) (conf: 0.998 >= 0.400)
+2025-07-10 04:04:55 [src.detection.letter_detector] INFO: Splitting multi-character detection: 'EKR'
+2025-07-10 04:04:55 [src.detection.letter_detector] INFO: Split into 1 individual letters
+2025-07-10 04:04:55 [src.detection.letter_detector] INFO: FILTERED OUT 'E01' at (191, 209) - too close to center (distance: 19.0px < 25.2px)
+2025-07-10 04:04:55 [src.detection.letter_detector] INFO: REJECTED 'M' at (191, 39) - low confidence (0.015 < 0.400)
+2025-07-10 04:04:55 [src.detection.letter_detector] INFO: After wheel filtering: 7 valid detections
+2025-07-10 04:04:55 [src.detection.letter_detector] INFO: After deduplication: 5 unique detections
+2025-07-10 04:04:55 [src.detection.letter_detector] WARNING: No 'I' detected by OCR, trying specialized line detection
+2025-07-10 04:04:55 [src.detection.letter_detector] INFO: Detected 'I' using line detection at (306, 107)
+2025-07-10 04:04:55 [src.detection.letter_detector] INFO: Detected 'I' using line detection at (299, 108)
+2025-07-10 04:04:55 [src.detection.letter_detector] INFO: Detected 'I' using line detection at (304, 107)
+2025-07-10 04:04:55 [src.detection.letter_detector] INFO: Detected 'I' using line detection at (302, 107)
+2025-07-10 04:04:55 [src.detection.letter_detector] INFO: Detected 'I' using line detection at (57, 249)
+2025-07-10 04:04:55 [src.detection.letter_detector] INFO: Detected 'I' using line detection at (52, 248)
+2025-07-10 04:04:55 [src.detection.letter_detector] INFO: Detected 'I' using line detection at (57, 107)
+2025-07-10 04:04:55 [src.detection.letter_detector] INFO: Detected 'I' using line detection at (301, 249)
+2025-07-10 04:04:55 [src.detection.letter_detector] INFO: Detected 'I' using line detection at (60, 249)
+2025-07-10 04:04:55 [src.detection.letter_detector] INFO: Detected 'I' using line detection at (195, 37)
+2025-07-10 04:04:55 [src.detection.letter_detector] INFO: Detected 'I' using line detection at (59, 107)
+2025-07-10 04:04:55 [src.detection.letter_detector] INFO: Detected 'I' using line detection at (55, 249)
+2025-07-10 04:04:55 [src.detection.letter_detector] INFO: Detected 'I' using line detection at (299, 247)
+2025-07-10 04:04:55 [src.detection.letter_detector] INFO: Detected 'I' using line detection at (192, 36)
+2025-07-10 04:04:55 [src.detection.letter_detector] INFO: Detected 'I' using line detection at (190, 36)
+2025-07-10 04:04:55 [src.detection.letter_detector] INFO: Detected 'I' using line detection at (191, 36)
+2025-07-10 04:04:55 [src.detection.letter_detector] INFO: Detected 'I' using line detection at (54, 107)
+2025-07-10 04:04:55 [src.detection.letter_detector] INFO: Detected 'I' using line detection at (329, 247)
+2025-07-10 04:04:55 [src.detection.letter_detector] INFO: Detected 'I' using line detection at (53, 248)
+2025-07-10 04:04:55 [src.detection.letter_detector] INFO: Detected 'I' using line detection at (177, 318)
+2025-07-10 04:04:55 [src.detection.letter_detector] INFO: Detected 'I' using line detection at (56, 249)
+2025-07-10 04:04:55 [src.detection.letter_detector] INFO: Detected 'I' using line detection at (296, 249)
+2025-07-10 04:04:55 [src.detection.letter_detector] INFO: Detected 'I' using line detection at (302, 264)
+2025-07-10 04:04:55 [src.detection.letter_detector] INFO: Detected 'I' using line detection at (328, 253)
+2025-07-10 04:04:55 [src.detection.letter_detector] INFO: Detected 'I' using line detection at (61, 249)
+2025-07-10 04:04:55 [src.detection.letter_detector] INFO: Detected 'I' using line detection at (333, 238)
+2025-07-10 04:04:55 [src.detection.letter_detector] INFO: Detected 'I' using line detection at (171, 318)
+2025-07-10 04:04:55 [src.detection.letter_detector] INFO: Detected 'I' using line detection at (61, 103)
+2025-07-10 04:04:55 [src.detection.letter_detector] INFO: Detected 'I' using line detection at (173, 319)
+2025-07-10 04:04:55 [src.detection.letter_detector] INFO: Detected 'I' using line detection at (197, 38)
+2025-07-10 04:04:55 [src.detection.letter_detector] INFO: Detected 'I' using line detection at (189, 28)
+2025-07-10 04:04:55 [src.detection.letter_detector] INFO: Detected 'I' using line detection at (298, 247)
+2025-07-10 04:04:55 [src.detection.letter_detector] INFO: Detected 'I' using line detection at (328, 237)
+2025-07-10 04:04:55 [src.detection.letter_detector] INFO: Detected 'I' using line detection at (295, 249)
+2025-07-10 04:04:55 [src.detection.letter_detector] INFO: Detected 'I' using line detection at (327, 258)
+2025-07-10 04:04:55 [src.detection.letter_detector] INFO: Detected 'I' using line detection at (301, 235)
+2025-07-10 04:04:55 [src.detection.letter_detector] INFO: Detected 'I' using line detection at (300, 107)
+2025-07-10 04:04:55 [src.detection.letter_detector] INFO: Detected 'I' using line detection at (298, 108)
+2025-07-10 04:04:55 [src.detection.letter_detector] INFO: Detected 'I' using line detection at (52, 101)
+2025-07-10 04:04:55 [src.detection.letter_detector] INFO: Detected 'I' using line detection at (334, 238)
+2025-07-10 04:04:55 [src.detection.letter_detector] INFO: Detected 'I' using line detection at (56, 105)
+2025-07-10 04:04:55 [src.detection.letter_detector] INFO: Detected 'I' using line detection at (332, 238)
+2025-07-10 04:04:55 [src.detection.letter_detector] INFO: Detected 'I' using line detection at (302, 263)
+2025-07-10 04:04:55 [src.detection.letter_detector] INFO: Detected 'I' using line detection at (60, 107)
+2025-07-10 04:04:55 [src.detection.letter_detector] INFO: Detected 'I' using line detection at (299, 268)
+2025-07-10 04:04:55 [src.detection.letter_detector] INFO: Detected 'I' using line detection at (331, 240)
+2025-07-10 04:04:55 [src.detection.letter_detector] INFO: Detected 'I' using line detection at (325, 257)
+2025-07-10 04:04:55 [src.detection.letter_detector] INFO: Detected 'I' using line detection at (335, 238)
+2025-07-10 04:04:55 [src.detection.letter_detector] INFO: Detected 'I' using line detection at (58, 252)
+2025-07-10 04:04:55 [src.detection.letter_detector] INFO: Detected 'I' using line detection at (175, 318)
+2025-07-10 04:04:55 [src.detection.letter_detector] INFO: Detected 'I' using line detection at (297, 117)
+2025-07-10 04:04:55 [src.detection.letter_detector] INFO: Detected 'I' using line detection at (188, 36)
+2025-07-10 04:04:55 [src.detection.letter_detector] INFO: Detected 'I' using line detection at (306, 114)
+2025-07-10 04:04:55 [src.detection.letter_detector] INFO: Detected 'I' using line detection at (197, 51)
+2025-07-10 04:04:55 [src.detection.letter_detector] INFO: Detected 'I' using line detection at (304, 263)
+2025-07-10 04:04:55 [src.detection.letter_detector] INFO: Detected 'I' using line detection at (336, 238)
+2025-07-10 04:04:55 [src.detection.letter_detector] INFO: Detected 'I' using line detection at (55, 101)
+2025-07-10 04:04:55 [src.detection.letter_detector] INFO: Detected 'I' using line detection at (193, 42)
+2025-07-10 04:04:55 [src.detection.letter_detector] INFO: Detected 'I' using line detection at (55, 125)
+2025-07-10 04:04:55 [src.detection.letter_detector] INFO: Detected 'I' using line detection at (195, 19)
+2025-07-10 04:04:55 [src.detection.letter_detector] INFO: Detected 'I' using line detection at (58, 254)
+2025-07-10 04:04:55 [src.detection.letter_detector] INFO: Detected 'I' using line detection at (298, 242)
+2025-07-10 04:04:55 [src.detection.letter_detector] INFO: Detected 'I' using line detection at (52, 122)
+2025-07-10 04:04:55 [src.detection.letter_detector] INFO: Detected 'I' using line detection at (302, 96)
+2025-07-10 04:04:55 [src.detection.letter_detector] INFO: Detected 'I' using line detection at (294, 248)
+2025-07-10 04:04:55 [src.detection.letter_detector] INFO: Detected 'I' using line detection at (306, 94)
+2025-07-10 04:04:55 [src.detection.letter_detector] INFO: Detected 'I' using line detection at (326, 258)
+2025-07-10 04:04:55 [src.detection.letter_detector] INFO: Found 67 'I' letters using line detection
+2025-07-10 04:04:55 [src.detection.letter_detector] INFO: Final detected letters: ['E', 'E', 'R', 'C', 'F', 'I', 'I', 'I', 'I', 'I', 'I', 'I']
+2025-07-10 04:04:55 [__main__] INFO: Matching to wheel layout...
+2025-07-10 04:04:55 [__main__] INFO: Using raw detection positions (bypassing layout matcher)
+2025-07-10 04:04:55 [__main__] INFO: Using 12 raw detections
+2025-07-10 04:04:55 [src.utils.debug] INFO: === Letter Positioning Analysis ===
+2025-07-10 04:04:55 [src.utils.debug] WARNING:   'E' and 'I' are very close: 14.0px
+2025-07-10 04:04:55 [src.utils.debug] WARNING:   'E' and 'I' are very close: 10.0px
+2025-07-10 04:04:55 [src.utils.debug] WARNING:   'R' and 'I' are very close: 16.6px
+2025-07-10 04:04:55 [src.utils.debug] WARNING:   'R' and 'I' are very close: 18.1px
+2025-07-10 04:04:55 [src.utils.debug] WARNING:   'C' and 'I' are very close: 35.0px
+2025-07-10 04:04:55 [src.utils.debug] WARNING:   'F' and 'I' are very close: 26.7px
+2025-07-10 04:04:55 [src.utils.debug] WARNING:   'I' and 'I' are very close: 33.8px
+2025-07-10 04:04:55 [src.utils.debug] INFO: Closest pair: 'E' - 'I' (10.0px)
+2025-07-10 04:04:55 [src.utils.debug] INFO: === End Positioning Analysis ===
+2025-07-10 04:04:55 [src.utils.debug] INFO: Saved final detection overlay: debug_screenshots\9_final_detections_overlay.png
+2025-07-10 04:04:55 [src.utils.debug] INFO: Saved detection overlay: debug_screenshots\9_enhanced_analysis.png
+2025-07-10 04:04:55 [__main__] INFO: Letters found: E E R C F I I I I I I I
+2025-07-10 04:04:55 [src.solving.word_solver] INFO: Found 0 words from 12 letters
+2025-07-10 04:04:55 [__main__] INFO: Found 0 valid words
+2025-07-10 04:04:55 [__main__] WARNING: No words found!
+2025-07-10 04:04:55 [__main__] INFO: Waiting for next round...
+2025-07-10 04:04:55 [__main__] INFO: Stop requested - will halt immediately
+2025-07-10 04:04:55 [__main__] INFO: Bot stopped
+2025-07-10 16:55:10 [root] INFO: Logging initialized
+2025-07-10 16:55:10 [src.automation.game_window] INFO: Found window: SM-A346B
+2025-07-10 16:55:12 [src.solving.layout_matcher] INFO: Loaded layouts for wheel sizes: [5, 6, 7, 8]
+2025-07-10 16:55:14 [src.solving.word_solver] INFO: Loaded 369652 words into solver
+2025-07-10 16:55:14 [__main__] INFO: Press ctrl+shift+f8 to stop the bot
+2025-07-10 16:55:14 [__main__] INFO: Press ctrl+shift+f7 to pause/resume the bot
+2025-07-10 16:55:14 [__main__] INFO: Starting Word Game Bot...
+2025-07-10 16:55:15 [__main__] INFO: Capturing screenshot...
+2025-07-10 16:55:15 [__main__] INFO: Detecting letters...
+2025-07-10 16:55:15 [src.detection.preprocessor] INFO: Original image stats: mean=97.9, min=54, max=255
+2025-07-10 16:55:15 [src.detection.preprocessor] INFO: Created Otsu black-on-white (primary method)
+2025-07-10 16:55:15 [src.detection.preprocessor] INFO: Created 1 black-on-white variants
+2025-07-10 16:55:15 [src.detection.letter_detector] WARNING: No wheel circle detected, using fallback estimation
+2025-07-10 16:55:15 [src.detection.letter_detector] INFO: Detected wheel at center (191, 190) with radius 126
+2025-07-10 16:55:15 [src.detection.letter_detector] INFO: Running OCR on Otsu black-on-white image
+2025-07-10 16:55:15 [src.detection.ocr_engine] INFO: Trying OCR parameter set 1
+2025-07-10 16:55:15 [src.detection.ocr_engine] INFO: OCR run returned 6 results
+2025-07-10 16:55:15 [src.detection.ocr_engine] INFO: Trying OCR parameter set 2
+2025-07-10 16:55:15 [src.detection.ocr_engine] INFO: OCR run returned 2 results
+2025-07-10 16:55:15 [src.detection.ocr_engine] INFO: Trying OCR parameter set 3
+2025-07-10 16:55:15 [src.detection.ocr_engine] INFO: OCR run returned 4 results
+2025-07-10 16:55:15 [src.detection.ocr_engine] INFO: Trying OCR on enhanced image for thin letters
+2025-07-10 16:55:15 [src.detection.ocr_engine] INFO: OCR run returned 6 results
+2025-07-10 16:55:15 [src.detection.ocr_engine] INFO: Trying OCR on morphologically processed image
+2025-07-10 16:55:16 [src.detection.ocr_engine] INFO: OCR run returned 2 results
+2025-07-10 16:55:16 [src.detection.ocr_engine] INFO: Deduplicating 20 OCR results
+2025-07-10 16:55:16 [src.detection.ocr_engine] INFO: OCR: ACCEPTED 'R' at (315, 240) (conf: 1.000)
+2025-07-10 16:55:16 [src.detection.ocr_engine] INFO: OCR: FILTERED OUT duplicate 'R' at (316, 240) - too close to 'R' at (315, 240) (distance: 1.0px)
+2025-07-10 16:55:16 [src.detection.ocr_engine] INFO: OCR: ACCEPTED 'C' at (212, 317) (conf: 1.000)
+2025-07-10 16:55:16 [src.detection.ocr_engine] INFO: OCR: FILTERED OUT duplicate 'C' at (192, 314) - too close to 'C' at (212, 317) (distance: 20.2px)
+2025-07-10 16:55:16 [src.detection.ocr_engine] INFO: OCR: ACCEPTED 'E' at (71, 249) (conf: 0.999)
+2025-07-10 16:55:16 [src.detection.ocr_engine] INFO: OCR: ACCEPTED 'E' at (316, 107) (conf: 0.999)
+2025-07-10 16:55:16 [src.detection.ocr_engine] INFO: OCR: ACCEPTED 'F' at (83, 113) (conf: 0.998)
+2025-07-10 16:55:16 [src.detection.ocr_engine] INFO: OCR: FILTERED OUT duplicate 'F' at (83, 113) - too close to 'F' at (83, 113) (distance: 0.0px)
+2025-07-10 16:55:16 [src.detection.ocr_engine] INFO: OCR: FILTERED OUT duplicate 'E' at (71, 249) - too close to 'E' at (71, 249) (distance: 0.0px)
+2025-07-10 16:55:16 [src.detection.ocr_engine] INFO: OCR: FILTERED OUT duplicate 'F' at (74, 109) - too close to 'F' at (83, 113) (distance: 9.8px)
+2025-07-10 16:55:16 [src.detection.ocr_engine] INFO: OCR: FILTERED OUT duplicate 'E' at (318, 109) - too close to 'E' at (316, 107) (distance: 2.8px)
+2025-07-10 16:55:16 [src.detection.ocr_engine] INFO: OCR: FILTERED OUT duplicate 'C' at (191, 312) - too close to 'C' at (212, 317) (distance: 21.6px)
+2025-07-10 16:55:16 [src.detection.ocr_engine] INFO: OCR: FILTERED OUT duplicate 'F' at (73, 107) - too close to 'F' at (83, 113) (distance: 11.7px)
+2025-07-10 16:55:16 [src.detection.ocr_engine] INFO: OCR: FILTERED OUT duplicate 'F' at (68, 106) - too close to 'F' at (83, 113) (distance: 16.6px)
+2025-07-10 16:55:16 [src.detection.ocr_engine] INFO: OCR: FILTERED OUT duplicate 'E' at (320, 111) - too close to 'E' at (316, 107) (distance: 5.7px)
+2025-07-10 16:55:16 [src.detection.ocr_engine] INFO: OCR: ACCEPTED 'EKR' at (195, 242) (conf: 0.305)
+2025-07-10 16:55:16 [src.detection.ocr_engine] INFO: OCR: ACCEPTED 'E01' at (191, 209) (conf: 0.188)
+2025-07-10 16:55:16 [src.detection.ocr_engine] INFO: OCR: FILTERED OUT duplicate 'E01' at (191, 209) - too close to 'E01' at (191, 209) (distance: 0.0px)
+2025-07-10 16:55:16 [src.detection.ocr_engine] INFO: OCR: ACCEPTED 'M' at (191, 39) (conf: 0.015)
+2025-07-10 16:55:16 [src.detection.ocr_engine] INFO: OCR: FILTERED OUT duplicate 'U' at (192, 42) - too close to 'M' at (191, 39) (distance: 3.2px)
+2025-07-10 16:55:16 [src.detection.ocr_engine] INFO: OCR deduplication: 20 -> 8 results
+2025-07-10 16:55:16 [src.detection.letter_detector] INFO: Processing 8 OCR results with wheel filtering
+2025-07-10 16:55:16 [src.detection.letter_detector] INFO: ACCEPTED 'R' at (315, 240) (conf: 1.000 >= 0.300)
+2025-07-10 16:55:16 [src.detection.letter_detector] INFO: ACCEPTED 'C' at (212, 317) (conf: 1.000 >= 0.300)
+2025-07-10 16:55:16 [src.detection.letter_detector] INFO: ACCEPTED 'E' at (71, 249) (conf: 0.999 >= 0.600)
+2025-07-10 16:55:16 [src.detection.letter_detector] INFO: ACCEPTED 'E' at (316, 107) (conf: 0.999 >= 0.600)
+2025-07-10 16:55:16 [src.detection.letter_detector] INFO: ACCEPTED 'F' at (83, 113) (conf: 0.998 >= 0.400)
+2025-07-10 16:55:16 [src.detection.letter_detector] INFO: Splitting multi-character detection: 'EKR'
+2025-07-10 16:55:16 [src.detection.letter_detector] INFO: Split into 1 individual letters
+2025-07-10 16:55:16 [src.detection.letter_detector] INFO: FILTERED OUT 'E01' at (191, 209) - too close to center (distance: 19.0px < 25.2px)
+2025-07-10 16:55:16 [src.detection.letter_detector] INFO: REJECTED 'M' at (191, 39) - low confidence (0.015 < 0.400)
+2025-07-10 16:55:16 [src.detection.letter_detector] INFO: After wheel filtering: 6 valid detections
+2025-07-10 16:55:16 [src.detection.letter_detector] INFO: ACCEPTED 'E' at (71, 249) (conf: 1.000)
+2025-07-10 16:55:16 [src.detection.letter_detector] INFO: ACCEPTED 'E' at (316, 107) (conf: 1.000)
+2025-07-10 16:55:16 [src.detection.letter_detector] INFO: ACCEPTED 'R' at (315, 240) (conf: 0.500)
+2025-07-10 16:55:16 [src.detection.letter_detector] INFO: ACCEPTED 'C' at (212, 317) (conf: 0.500)
+2025-07-10 16:55:16 [src.detection.letter_detector] INFO: ACCEPTED 'F' at (83, 113) (conf: 0.500)
+2025-07-10 16:55:16 [src.detection.letter_detector] INFO: FILTERED OUT duplicate 'R' at (303, 242) - too close to existing 'R' at (315, 240) (distance: 12.2px)
+2025-07-10 16:55:16 [src.detection.letter_detector] INFO: After deduplication: ['E', 'E', 'R', 'C', 'F']
+2025-07-10 16:55:16 [src.detection.letter_detector] INFO: After deduplication: 5 unique detections
+2025-07-10 16:55:16 [src.detection.letter_detector] WARNING: No 'I' detected by OCR, trying specialized line detection
+2025-07-10 16:55:16 [src.detection.letter_detector] INFO: Analyzing 145 detected lines for potential 'I' letters
+2025-07-10 16:55:16 [src.detection.letter_detector] INFO: Detected potential 'I' using line detection at (306, 107) (line 1: length=59.1, width=4.0, distance=141.8)
+2025-07-10 16:55:16 [src.detection.letter_detector] INFO: Detected potential 'I' using line detection at (299, 108) (line 2: length=58.0, width=2.0, distance=135.6)
+2025-07-10 16:55:16 [src.detection.letter_detector] INFO: Detected potential 'I' using line detection at (304, 107) (line 3: length=59.1, width=3.0, distance=140.2)
+2025-07-10 16:55:16 [src.detection.letter_detector] INFO: Detected potential 'I' using line detection at (302, 107) (line 4: length=59.0, width=1.0, distance=138.6)
+2025-07-10 16:55:16 [src.detection.letter_detector] INFO: Detected potential 'I' using line detection at (57, 249) (line 5: length=59.0, width=1.0, distance=146.4)
+2025-07-10 16:55:16 [src.detection.letter_detector] INFO: Detected potential 'I' using line detection at (52, 248) (line 6: length=56.1, width=3.0, distance=150.6)
+2025-07-10 16:55:16 [src.detection.letter_detector] INFO: Detected potential 'I' using line detection at (57, 107) (line 7: length=59.0, width=1.0, distance=157.6)
+2025-07-10 16:55:16 [src.detection.letter_detector] INFO: Detected potential 'I' using line detection at (301, 249) (line 8: length=59.7, width=9.0, distance=124.8)
+2025-07-10 16:55:16 [src.detection.letter_detector] INFO: Detected potential 'I' using line detection at (60, 249) (line 9: length=59.0, width=0.0, distance=143.7)
+2025-07-10 16:55:16 [src.detection.letter_detector] INFO: Detected potential 'I' using line detection at (195, 37) (line 10: length=57.1, width=4.0, distance=153.1)
+2025-07-10 16:55:16 [src.detection.letter_detector] INFO: Detected potential 'I' using line detection at (59, 107) (line 11: length=58.0, width=1.0, distance=155.9)
+2025-07-10 16:55:16 [src.detection.letter_detector] INFO: Detected potential 'I' using line detection at (55, 249) (line 12: length=59.0, width=0.0, distance=148.2)
+2025-07-10 16:55:16 [src.detection.letter_detector] INFO: Detected potential 'I' using line detection at (299, 247) (line 13: length=55.1, width=11.0, distance=122.1)
+2025-07-10 16:55:16 [src.detection.letter_detector] INFO: Detected potential 'I' using line detection at (192, 36) (line 14: length=59.1, width=3.0, distance=154.0)
+2025-07-10 16:55:16 [src.detection.letter_detector] INFO: Detected potential 'I' using line detection at (190, 36) (line 15: length=58.1, width=3.0, distance=154.0)
+2025-07-10 16:55:16 [src.detection.letter_detector] INFO: Detected potential 'I' using line detection at (191, 36) (line 16: length=59.1, width=3.0, distance=154.0)
+2025-07-10 16:55:16 [src.detection.letter_detector] INFO: Detected potential 'I' using line detection at (54, 107) (line 17: length=59.0, width=0.0, distance=160.2)
+2025-07-10 16:55:16 [src.detection.letter_detector] INFO: Detected potential 'I' using line detection at (329, 247) (line 19: length=51.1, width=3.0, distance=149.3)
+2025-07-10 16:55:16 [src.detection.letter_detector] INFO: Detected potential 'I' using line detection at (53, 248) (line 20: length=54.0, width=2.0, distance=149.7)
+2025-07-10 16:55:16 [src.detection.letter_detector] INFO: Detected potential 'I' using line detection at (177, 318) (line 22: length=47.2, width=4.0, distance=128.8)
+2025-07-10 16:55:16 [src.detection.letter_detector] INFO: Detected potential 'I' using line detection at (56, 249) (line 23: length=59.0, width=0.0, distance=147.3)
+2025-07-10 16:55:16 [src.detection.letter_detector] INFO: Detected potential 'I' using line detection at (296, 249) (line 24: length=58.0, width=1.0, distance=120.4)
+2025-07-10 16:55:16 [src.detection.letter_detector] INFO: Detected potential 'I' using line detection at (302, 264) (line 25: length=27.0, width=1.0, distance=133.4)
+2025-07-10 16:55:16 [src.detection.letter_detector] INFO: Detected potential 'I' using line detection at (328, 253) (line 26: length=21.0, width=0.0, distance=150.8)
+2025-07-10 16:55:16 [src.detection.letter_detector] INFO: Detected potential 'I' using line detection at (61, 249) (line 27: length=59.0, width=0.0, distance=142.8)
+2025-07-10 16:55:16 [src.detection.letter_detector] INFO: Detected potential 'I' using line detection at (333, 238) (line 28: length=29.0, width=0.0, distance=149.9)
+2025-07-10 16:55:16 [src.detection.letter_detector] INFO: Detected potential 'I' using line detection at (171, 318) (line 29: length=35.1, width=3.0, distance=129.6)
+2025-07-10 16:55:16 [src.detection.letter_detector] INFO: Detected potential 'I' using line detection at (61, 103) (line 30: length=51.0, width=0.0, distance=156.4)
+2025-07-10 16:55:16 [src.detection.letter_detector] INFO: Detected potential 'I' using line detection at (173, 319) (line 31: length=40.1, width=3.0, distance=130.2)
+2025-07-10 16:55:16 [src.detection.letter_detector] INFO: Detected potential 'I' using line detection at (197, 38) (line 32: length=54.0, width=2.0, distance=152.1)
+2025-07-10 16:55:16 [src.detection.letter_detector] INFO: Detected potential 'I' using line detection at (189, 28) (line 34: length=42.0, width=1.0, distance=162.0)
+2025-07-10 16:55:16 [src.detection.letter_detector] INFO: Detected potential 'I' using line detection at (298, 247) (line 35: length=55.1, width=3.0, distance=121.2)
+2025-07-10 16:55:16 [src.detection.letter_detector] INFO: Detected potential 'I' using line detection at (328, 237) (line 36: length=33.1, width=3.0, distance=144.8)
+2025-07-10 16:55:16 [src.detection.letter_detector] INFO: Detected potential 'I' using line detection at (295, 249) (line 39: length=56.0, width=1.0, distance=119.6)
+2025-07-10 16:55:16 [src.detection.letter_detector] INFO: Detected potential 'I' using line detection at (327, 258) (line 40: length=27.0, width=0.0, distance=152.1)
+2025-07-10 16:55:16 [src.detection.letter_detector] INFO: Detected potential 'I' using line detection at (301, 235) (line 43: length=30.0, width=0.0, distance=118.8)
+2025-07-10 16:55:16 [src.detection.letter_detector] INFO: Detected potential 'I' using line detection at (300, 107) (line 44: length=59.0, width=1.0, distance=137.0)
+2025-07-10 16:55:16 [src.detection.letter_detector] INFO: Detected potential 'I' using line detection at (298, 108) (line 45: length=55.0, width=2.0, distance=134.8)
+2025-07-10 16:55:16 [src.detection.letter_detector] INFO: Detected potential 'I' using line detection at (52, 101) (line 46: length=42.0, width=1.0, distance=165.1)
+2025-07-10 16:55:16 [src.detection.letter_detector] INFO: Detected potential 'I' using line detection at (334, 238) (line 47: length=28.0, width=0.0, distance=150.8)
+2025-07-10 16:55:16 [src.detection.letter_detector] INFO: Detected potential 'I' using line detection at (56, 105) (line 49: length=54.0, width=2.0, distance=159.5)
+2025-07-10 16:55:16 [src.detection.letter_detector] INFO: Detected potential 'I' using line detection at (332, 238) (line 50: length=30.0, width=0.0, distance=148.9)
+2025-07-10 16:55:16 [src.detection.letter_detector] INFO: Detected potential 'I' using line detection at (302, 263) (line 51: length=31.4, width=5.0, distance=132.9)
+2025-07-10 16:55:16 [src.detection.letter_detector] INFO: Detected potential 'I' using line detection at (60, 107) (line 52: length=43.0, width=0.0, distance=155.1)
+2025-07-10 16:55:16 [src.detection.letter_detector] INFO: Detected potential 'I' using line detection at (299, 268) (line 57: length=21.2, width=3.0, distance=133.2)
+2025-07-10 16:55:16 [src.detection.letter_detector] INFO: Detected potential 'I' using line detection at (331, 240) (line 63: length=27.0, width=0.0, distance=148.7)
+2025-07-10 16:55:16 [src.detection.letter_detector] INFO: Detected potential 'I' using line detection at (325, 257) (line 64: length=23.0, width=0.0, distance=149.8)
+2025-07-10 16:55:16 [src.detection.letter_detector] INFO: Detected potential 'I' using line detection at (335, 238) (line 71: length=26.0, width=0.0, distance=151.8)
+2025-07-10 16:55:16 [src.detection.letter_detector] INFO: Detected potential 'I' using line detection at (58, 252) (line 73: length=54.0, width=1.0, distance=146.7)
+2025-07-10 16:55:16 [src.detection.letter_detector] INFO: Detected potential 'I' using line detection at (175, 318) (line 75: length=43.2, width=4.0, distance=129.0)
+2025-07-10 16:55:16 [src.detection.letter_detector] INFO: Detected potential 'I' using line detection at (297, 117) (line 85: length=35.0, width=1.0, distance=128.7)
+2025-07-10 16:55:16 [src.detection.letter_detector] INFO: Detected potential 'I' using line detection at (188, 36) (line 86: length=53.0, width=0.0, distance=154.0)
+2025-07-10 16:55:16 [src.detection.letter_detector] INFO: Detected potential 'I' using line detection at (306, 114) (line 88: length=46.2, width=4.0, distance=137.8)
+2025-07-10 16:55:16 [src.detection.letter_detector] INFO: Detected potential 'I' using line detection at (197, 51) (line 91: length=26.0, width=1.0, distance=139.1)
+2025-07-10 16:55:16 [src.detection.letter_detector] INFO: Detected potential 'I' using line detection at (304, 263) (line 92: length=31.6, width=6.0, distance=134.5)
+2025-07-10 16:55:16 [src.detection.letter_detector] INFO: Detected potential 'I' using line detection at (336, 238) (line 96: length=23.0, width=0.0, distance=152.7)
+2025-07-10 16:55:16 [src.detection.letter_detector] INFO: Detected potential 'I' using line detection at (55, 101) (line 97: length=46.0, width=1.0, distance=162.5)
+2025-07-10 16:55:16 [src.detection.letter_detector] INFO: Detected potential 'I' using line detection at (193, 42) (line 99: length=36.0, width=1.0, distance=148.0)
+2025-07-10 16:55:16 [src.detection.letter_detector] INFO: Detected potential 'I' using line detection at (55, 125) (line 104: length=23.0, width=1.0, distance=150.7)
+2025-07-10 16:55:16 [src.detection.letter_detector] INFO: Detected potential 'I' using line detection at (195, 19) (line 105: length=24.0, width=0.0, distance=171.0)
+2025-07-10 16:55:16 [src.detection.letter_detector] INFO: Detected potential 'I' using line detection at (58, 254) (line 108: length=29.0, width=1.0, distance=147.6)
+2025-07-10 16:55:16 [src.detection.letter_detector] INFO: Detected potential 'I' using line detection at (298, 242) (line 116: length=40.0, width=2.0, distance=119.0)
+2025-07-10 16:55:16 [src.detection.letter_detector] INFO: Detected potential 'I' using line detection at (52, 122) (line 128: length=25.0, width=0.0, distance=154.7)
+2025-07-10 16:55:16 [src.detection.letter_detector] INFO: Detected potential 'I' using line detection at (302, 96) (line 130: length=31.1, width=2.0, distance=145.5)
+2025-07-10 16:55:16 [src.detection.letter_detector] INFO: Detected potential 'I' using line detection at (294, 248) (line 132: length=43.0, width=0.0, distance=118.2)
+2025-07-10 16:55:16 [src.detection.letter_detector] INFO: Detected potential 'I' using line detection at (306, 94) (line 136: length=33.4, width=5.0, distance=149.8)
+2025-07-10 16:55:16 [src.detection.letter_detector] INFO: Detected potential 'I' using line detection at (326, 258) (line 138: length=24.0, width=0.0, distance=151.2)
+2025-07-10 16:55:16 [src.detection.letter_detector] INFO: Removing duplicates among 67 specialized 'I' detections
+2025-07-10 16:55:16 [src.detection.letter_detector] INFO: Specialized 'I' detection: 67 -> 10 after internal deduplication
+2025-07-10 16:55:16 [src.detection.letter_detector] INFO: Found 10 'I' letters using line detection
+2025-07-10 16:55:16 [src.detection.letter_detector] INFO: ACCEPTED 'I' at (np.int32(306), np.int32(107)) (conf: 1.200)
+2025-07-10 16:55:16 [src.detection.letter_detector] INFO: ACCEPTED 'I' at (np.int32(57), np.int32(249)) (conf: 1.200)
+2025-07-10 16:55:16 [src.detection.letter_detector] INFO: ACCEPTED 'I' at (np.int32(57), np.int32(107)) (conf: 1.200)
+2025-07-10 16:55:16 [src.detection.letter_detector] INFO: ACCEPTED 'I' at (np.int32(301), np.int32(249)) (conf: 1.200)
+2025-07-10 16:55:16 [src.detection.letter_detector] INFO: ACCEPTED 'I' at (np.int32(195), np.int32(37)) (conf: 1.200)
+2025-07-10 16:55:16 [src.detection.letter_detector] INFO: FILTERED OUT duplicate 'I' at (np.int32(329), np.int32(247)) - too close to existing 'I' at (np.int32(301), np.int32(249)) (distance: 28.1px)
+2025-07-10 16:55:16 [src.detection.letter_detector] INFO: ACCEPTED 'I' at (np.int32(177), np.int32(318)) (conf: 1.200)
+2025-07-10 16:55:16 [src.detection.letter_detector] INFO: FILTERED OUT duplicate 'I' at (np.int32(302), np.int32(264)) - too close to existing 'I' at (np.int32(301), np.int32(249)) (distance: 15.0px)
+2025-07-10 16:55:16 [src.detection.letter_detector] INFO: FILTERED OUT duplicate 'I' at (np.int32(55), np.int32(125)) - too close to existing 'I' at (np.int32(57), np.int32(107)) (distance: 18.1px)
+2025-07-10 16:55:16 [src.detection.letter_detector] INFO: FILTERED OUT duplicate 'I' at (np.int32(195), np.int32(19)) - too close to existing 'I' at (np.int32(195), np.int32(37)) (distance: 18.0px)
+2025-07-10 16:55:16 [src.detection.letter_detector] INFO: FILTERED OUT 'E' at (71, 249) - too close to different letter 'I' at (np.int32(57), np.int32(249)) (distance: 14.0px)
+2025-07-10 16:55:16 [src.detection.letter_detector] INFO: FILTERED OUT 'E' at (316, 107) - too close to different letter 'I' at (np.int32(306), np.int32(107)) (distance: 10.0px)
+2025-07-10 16:55:16 [src.detection.letter_detector] INFO: FILTERED OUT 'R' at (315, 240) - too close to different letter 'I' at (np.int32(301), np.int32(249)) (distance: 16.6px)
+2025-07-10 16:55:16 [src.detection.letter_detector] INFO: ACCEPTED 'C' at (212, 317) (conf: 0.500)
+2025-07-10 16:55:16 [src.detection.letter_detector] INFO: ACCEPTED 'F' at (83, 113) (conf: 0.500)
+2025-07-10 16:55:16 [src.detection.letter_detector] INFO: After deduplication: ['I', 'I', 'I', 'I', 'I', 'I', 'C', 'F']
+2025-07-10 16:55:16 [src.detection.letter_detector] INFO: After adding specialized 'I' detection: 8 unique detections
+2025-07-10 16:55:16 [src.detection.letter_detector] INFO: Final detected letters: ['I', 'I', 'I', 'I', 'I', 'I', 'C', 'F']
+2025-07-10 16:55:16 [__main__] INFO: Matching to wheel layout...
+2025-07-10 16:55:16 [__main__] INFO: Using raw detection positions (bypassing layout matcher)
+2025-07-10 16:55:16 [__main__] INFO: Using 8 raw detections
+2025-07-10 16:55:16 [src.utils.debug] INFO: === Letter Positioning Analysis ===
+2025-07-10 16:55:16 [src.utils.debug] WARNING:   'I' and 'F' are very close: 26.7px
+2025-07-10 16:55:16 [src.utils.debug] WARNING:   'I' and 'C' are very close: 35.0px
+2025-07-10 16:55:16 [src.utils.debug] INFO: Closest pair: 'I' - 'F' (26.7px)
+2025-07-10 16:55:16 [src.utils.debug] INFO: === End Positioning Analysis ===
+2025-07-10 16:55:16 [src.utils.debug] INFO: Saved final detection overlay: debug_screenshots\9_final_detections_overlay.png
+2025-07-10 16:55:16 [src.utils.debug] INFO: Saved detection overlay: debug_screenshots\9_enhanced_analysis.png
+2025-07-10 16:55:16 [__main__] INFO: Letters found: I I I I I I C F
+2025-07-10 16:55:16 [src.solving.word_solver] INFO: Found 3 words from 8 letters
+2025-07-10 16:55:16 [__main__] INFO: Found 3 valid words
+2025-07-10 16:55:16 [__main__] INFO: Swiping word: CFI (1/3)
+2025-07-10 16:55:16 [__main__] INFO: Swiping word: III (2/3)
+2025-07-10 16:55:17 [__main__] INFO: Stop requested - will halt immediately
+2025-07-10 16:55:17 [__main__] INFO: Bot stopped
+2025-07-10 16:58:51 [root] INFO: Logging initialized
+2025-07-10 16:58:51 [src.automation.game_window] INFO: Found window: SM-A346B
+2025-07-10 16:58:53 [src.solving.layout_matcher] INFO: Loaded layouts for wheel sizes: [5, 6, 7, 8]
+2025-07-10 16:58:55 [src.solving.word_solver] INFO: Loaded 369652 words into solver
+2025-07-10 16:58:55 [__main__] INFO: Press ctrl+shift+f8 to stop the bot
+2025-07-10 16:58:55 [__main__] INFO: Press ctrl+shift+f7 to pause/resume the bot
+2025-07-10 16:58:55 [__main__] INFO: Starting Word Game Bot...
+2025-07-10 16:58:56 [__main__] INFO: Capturing screenshot...
+2025-07-10 16:58:56 [__main__] INFO: Detecting letters...
+2025-07-10 16:58:56 [src.detection.preprocessor] INFO: Original image stats: mean=97.9, min=54, max=255
+2025-07-10 16:58:56 [src.detection.preprocessor] INFO: Created Otsu black-on-white (primary method)
+2025-07-10 16:58:56 [src.detection.preprocessor] INFO: Created 1 black-on-white variants
+2025-07-10 16:58:56 [src.detection.letter_detector] INFO: Running OCR on Otsu black-on-white image
+2025-07-10 16:58:56 [src.detection.ocr_engine] INFO: Trying OCR parameter set 1
+2025-07-10 16:58:56 [src.detection.ocr_engine] INFO: OCR run returned 6 results
+2025-07-10 16:58:56 [src.detection.ocr_engine] INFO: Trying OCR parameter set 2
+2025-07-10 16:58:56 [src.detection.ocr_engine] INFO: OCR run returned 2 results
+2025-07-10 16:58:56 [src.detection.ocr_engine] INFO: Trying OCR parameter set 3
+2025-07-10 16:58:56 [src.detection.ocr_engine] INFO: OCR run returned 4 results
+2025-07-10 16:58:56 [src.detection.ocr_engine] INFO: Trying OCR on enhanced image for thin letters
+2025-07-10 16:58:56 [src.detection.ocr_engine] INFO: OCR run returned 6 results
+2025-07-10 16:58:56 [src.detection.ocr_engine] INFO: Trying OCR on morphologically processed image
+2025-07-10 16:58:56 [src.detection.ocr_engine] INFO: OCR run returned 2 results
+2025-07-10 16:58:56 [src.detection.ocr_engine] INFO: OCR deduplication: Starting with 20 results
+2025-07-10 16:58:56 [src.detection.ocr_engine] INFO: OCR: ACCEPTED 'R' at (315, 240) (conf: 1.000)
+2025-07-10 16:58:56 [src.detection.ocr_engine] INFO: OCR: FILTERED OUT 'R' at (316, 240) - too close to 'R' at (315, 240) (distance: 1.0px)
+2025-07-10 16:58:56 [src.detection.ocr_engine] INFO: OCR: ACCEPTED 'C' at (212, 317) (conf: 1.000)
+2025-07-10 16:58:56 [src.detection.ocr_engine] INFO: OCR: ACCEPTED 'C' at (192, 314) (conf: 1.000)
+2025-07-10 16:58:56 [src.detection.ocr_engine] INFO: OCR: ACCEPTED 'E' at (71, 249) (conf: 0.999)
+2025-07-10 16:58:56 [src.detection.ocr_engine] INFO: OCR: ACCEPTED 'E' at (316, 107) (conf: 0.999)
+2025-07-10 16:58:56 [src.detection.ocr_engine] INFO: OCR: ACCEPTED 'F' at (83, 113) (conf: 0.998)
+2025-07-10 16:58:56 [src.detection.ocr_engine] INFO: OCR: FILTERED OUT 'F' at (83, 113) - too close to 'F' at (83, 113) (distance: 0.0px)
+2025-07-10 16:58:56 [src.detection.ocr_engine] INFO: OCR: FILTERED OUT 'E' at (71, 249) - too close to 'E' at (71, 249) (distance: 0.0px)
+2025-07-10 16:58:56 [src.detection.ocr_engine] INFO: OCR: FILTERED OUT 'F' at (74, 109) - too close to 'F' at (83, 113) (distance: 9.8px)
+2025-07-10 16:58:56 [src.detection.ocr_engine] INFO: OCR: FILTERED OUT 'E' at (318, 109) - too close to 'E' at (316, 107) (distance: 2.8px)
+2025-07-10 16:58:56 [src.detection.ocr_engine] INFO: OCR: FILTERED OUT 'C' at (191, 312) - too close to 'C' at (192, 314) (distance: 2.2px)
+2025-07-10 16:58:56 [src.detection.ocr_engine] INFO: OCR: FILTERED OUT 'F' at (73, 107) - too close to 'F' at (83, 113) (distance: 11.7px)
+2025-07-10 16:58:56 [src.detection.ocr_engine] INFO: OCR: FILTERED OUT 'F' at (68, 106) - too close to 'F' at (83, 113) (distance: 16.6px)
+2025-07-10 16:58:56 [src.detection.ocr_engine] INFO: OCR: FILTERED OUT 'E' at (320, 111) - too close to 'E' at (316, 107) (distance: 5.7px)
+2025-07-10 16:58:56 [src.detection.ocr_engine] INFO: OCR: ACCEPTED 'EKR' at (195, 242) (conf: 0.305)
+2025-07-10 16:58:56 [src.detection.ocr_engine] INFO: OCR: ACCEPTED 'E01' at (191, 209) (conf: 0.188)
+2025-07-10 16:58:56 [src.detection.ocr_engine] INFO: OCR: FILTERED OUT 'E01' at (191, 209) - too close to 'E01' at (191, 209) (distance: 0.0px)
+2025-07-10 16:58:56 [src.detection.ocr_engine] INFO: OCR: ACCEPTED 'M' at (191, 39) (conf: 0.015)
+2025-07-10 16:58:56 [src.detection.ocr_engine] INFO: OCR: FILTERED OUT 'U' at (192, 42) - too close to 'M' at (191, 39) (distance: 3.2px)
+2025-07-10 16:58:56 [src.detection.ocr_engine] INFO: OCR deduplication: 20 -> 9 results
+2025-07-10 16:58:56 [src.detection.letter_detector] INFO: Splitting multi-character detection: 'EKR'
+2025-07-10 16:58:56 [src.detection.letter_detector] INFO: Splitting multi-character detection: 'E01'
+2025-07-10 16:58:56 [src.detection.letter_detector] INFO: 'I' already detected by OCR, skipping specialized detection
+2025-07-10 16:58:56 [src.detection.letter_detector] INFO: Deduplicating 8 detections: ['R', 'C', 'C', 'E', 'E', 'F', 'R', 'I']
+2025-07-10 16:58:56 [src.detection.letter_detector] INFO: ACCEPTED 'E' at (71, 249)
+2025-07-10 16:58:56 [src.detection.letter_detector] INFO: ACCEPTED 'E' at (316, 107)
+2025-07-10 16:58:56 [src.detection.letter_detector] INFO: ACCEPTED 'R' at (315, 240)
+2025-07-10 16:58:56 [src.detection.letter_detector] INFO: ACCEPTED 'C' at (212, 317)
+2025-07-10 16:58:56 [src.detection.letter_detector] INFO: FILTERED OUT 'C' at (192, 314) - too close to 'C' at (212, 317) (distance: 20.2px)
+2025-07-10 16:58:56 [src.detection.letter_detector] INFO: ACCEPTED 'F' at (83, 113)
+2025-07-10 16:58:56 [src.detection.letter_detector] INFO: FILTERED OUT 'R' at (303, 242) - too close to 'R' at (315, 240) (distance: 12.2px)
+2025-07-10 16:58:56 [src.detection.letter_detector] INFO: ACCEPTED 'I' at (318, 209)
+2025-07-10 16:58:56 [src.detection.letter_detector] INFO: After deduplication: 6 unique detections: ['E', 'E', 'R', 'C', 'F', 'I']
+2025-07-10 16:58:56 [src.detection.letter_detector] INFO: Final detected letters: ['E', 'E', 'R', 'C', 'F', 'I']
+2025-07-10 16:58:56 [__main__] INFO: Matching to wheel layout...
+2025-07-10 16:58:56 [__main__] INFO: Using raw detection positions (bypassing layout matcher)
+2025-07-10 16:58:56 [__main__] INFO: Using 6 raw detections
+2025-07-10 16:58:56 [src.utils.debug] INFO: === Letter Positioning Analysis ===
+2025-07-10 16:58:56 [src.utils.debug] WARNING:   'R' and 'I' are very close: 31.1px
+2025-07-10 16:58:56 [src.utils.debug] INFO: Closest pair: 'R' - 'I' (31.1px)
+2025-07-10 16:58:56 [src.utils.debug] INFO: === End Positioning Analysis ===
+2025-07-10 16:58:56 [src.utils.debug] INFO: Saved final detection overlay: debug_screenshots\9_final_detections_overlay.png
+2025-07-10 16:58:56 [src.utils.debug] INFO: Saved detection overlay: debug_screenshots\9_enhanced_analysis.png
+2025-07-10 16:58:56 [__main__] INFO: Letters found: E E R C F I
+2025-07-10 16:58:56 [src.solving.word_solver] INFO: Found 44 words from 6 letters
+2025-07-10 16:58:56 [__main__] INFO: Found 44 valid words
+2025-07-10 16:58:56 [__main__] INFO: Swiping word: FIERCE (1/20)
+2025-07-10 16:58:57 [__main__] INFO: Stop requested - will halt immediately
+2025-07-10 16:58:57 [__main__] INFO: Bot stopped

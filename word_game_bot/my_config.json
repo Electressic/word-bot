@@ -66,18 +66,18 @@
   },
   "screen": {
     "window_title": "SM-A346B",
-    "crop_x_start": 0.2,
-    "crop_y_start": 0.625,
-    "crop_width": 0.6,
-    "crop_height": 0.275,
+    "crop_x_start": 0.15,
+    "crop_y_start": 0.65,
+    "crop_width": 0.7,
+    "crop_height": 0.3,
     "popup_close_positions": [
       [0.95, 0.08],
       [0.5, 0.88]
     ]
   },
   "layout": {
-    "tolerance_px": 80,
-    "deduplication_radius": 30,
+    "tolerance_px": 60,
+    "deduplication_radius": 35,
     "layouts_file": "data/layouts.json"
   },
   "debug": false,

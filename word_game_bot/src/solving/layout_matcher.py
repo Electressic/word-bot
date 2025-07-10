@@ -266,7 +266,7 @@ class LayoutMatcher:
             self.logger.info(f"  Detection {i}: '{letter}' at {det_pos} -> closest slot {closest_slot} "
                             f"(dist: {min_distance:.1f}px) [{status}]")
 
-        # Simple greedy assignment (can be replaced with scipy.optimize.linear_sum_assignment)
+        # Enhanced assignment algorithm that considers clustering
         matches = []
         used_detections = set()
         used_slots = set()
@@ -281,15 +281,37 @@ class LayoutMatcher:
         # Sort by distance
         assignments.sort(key=lambda x: x[0])
         
-        # Assign greedily
+        # Assign greedily but check for clustering issues
         for dist, det_idx, slot_idx in assignments:
             if det_idx not in used_detections and slot_idx not in used_slots:
                 letter, det_pos = detections[det_idx]
-                matches.append((letter, det_pos))
-                used_detections.add(det_idx)
-                used_slots.add(slot_idx)
+                slot_pos = slots[slot_idx]
                 
-                self.logger.info(f"MATCHED '{letter}' to slot {slot_idx} (distance: {dist:.1f})")
+                # Check if this assignment would create problematic clustering
+                would_cluster = False
+                for existing_letter, existing_pos in matches:
+                    existing_dist = math.hypot(det_pos[0] - existing_pos[0], det_pos[1] - existing_pos[1])
+                    if existing_dist < 35:  # Too close to existing match
+                        # Only reject if this is a worse assignment
+                        better_alternative = False
+                        for alt_dist, alt_det_idx, alt_slot_idx in assignments:
+                            if (alt_det_idx == det_idx and alt_slot_idx != slot_idx and 
+                                alt_slot_idx not in used_slots and alt_dist < dist * 1.5):
+                                better_alternative = True
+                                break
+                        
+                        if better_alternative:
+                            would_cluster = True
+                            self.logger.debug(f"Rejecting '{letter}' at slot {slot_idx} due to clustering with '{existing_letter}'")
+                            break
+                
+                if not would_cluster:
+                    matches.append((letter, det_pos))  # Use actual detection position, not slot position
+                    used_detections.add(det_idx)
+                    used_slots.add(slot_idx)
+                    
+                    self.logger.info(f"MATCHED '{letter}' to slot {slot_idx} (distance: {dist:.1f})")
+                    self.logger.debug(f"Using detection position {det_pos} instead of slot position {slot_pos}")
 
         # Log which detections were not matched
         for i, (letter, pos) in enumerate(detections):
@@ -298,13 +320,13 @@ class LayoutMatcher:
         
         # Sort matches by slot order to maintain consistency
         if matches:
-            # Create mapping from detection to slot
+            # Create mapping from match to slot
             match_to_slot = {}
             for dist, det_idx, slot_idx in assignments:
                 if det_idx in used_detections:
-                    letter, pos = detections[det_idx]
+                    letter, det_pos = detections[det_idx]
                     for match in matches:
-                        if match[0] == letter and match[1] == pos:
+                        if match[0] == letter and match[1] == det_pos:  # Compare with detection position
                             match_to_slot[match] = slot_idx
                             break
             

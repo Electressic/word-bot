@@ -156,35 +156,68 @@ class WordGameBot:
             if self._check_interrupts():
                 return True
             
-            # Step 4: Match to layout
+            # Step 4: Match to layout (or use raw detections)
             self.logger.info("Matching to wheel layout...")
             
-            # Try automatic layout detection first
-            best_matches = None
-            best_count = 0
+            # Option to bypass layout matching - use raw detections
+            use_raw_detections = True  # Toggle this to test
             
-            for wheel_size in self.layout_matcher.layouts.keys():
-                matches = self.layout_matcher.match(adjusted_detections, wheel_size)
-                if len(matches) > best_count:
-                    best_count = len(matches)
-                    best_matches = matches
-            
-            if best_matches is None or best_count < 3:
-                self.logger.warning("Poor layout matching, using raw detections")
+            if use_raw_detections:
+                self.logger.info("Using raw detection positions (bypassing layout matcher)")
                 matched_detections = adjusted_detections
+                self.logger.info(f"Using {len(matched_detections)} raw detections")
             else:
-                matched_detections = best_matches
-                self.logger.info(f"Matched {len(matched_detections)} letters")
+                # Try automatic layout detection first
+                best_matches = None
+                best_count = 0
+                
+                for wheel_size in self.layout_matcher.layouts.keys():
+                    matches = self.layout_matcher.match(adjusted_detections, wheel_size)
+                    if len(matches) > best_count:
+                        best_count = len(matches)
+                        best_matches = matches
+                
+                if best_matches is None or best_count < 3:
+                    self.logger.warning("Poor layout matching, using raw detections")
+                    matched_detections = adjusted_detections
+                else:
+                    matched_detections = best_matches
+                    self.logger.info(f"Matched {len(matched_detections)} letters")
             
-            # Debug visualization
+            # Debug visualization with enhanced positioning analysis
             if self.debug_viz:
-                debug_info = self.layout_matcher.get_debug_info()
-                self.debug_viz.visualize_detections(
-                    cropped,
-                    [(letter, (x - crop_x, y - crop_y)) for letter, (x, y) in matched_detections],
-                    debug_info,
-                    base_bw_image=otsu_image  # Pass the Otsu image for visualization
-                )
+                # Log positioning statistics
+                self.debug_viz.log_positioning_stats(adjusted_detections)
+                
+                # Get wheel info from letter detector if available
+                wheel_debug_info = None
+                if hasattr(self.letter_detector, '_last_wheel_info') and self.letter_detector._last_wheel_info:
+                    wheel_info = self.letter_detector._last_wheel_info
+                    wheel_debug_info = {
+                        'center': wheel_info.center,
+                        'radius': wheel_info.radius,
+                        'confidence': wheel_info.confidence
+                    }
+                
+                if use_raw_detections:
+                    # For raw detections, visualize with wheel info
+                    self.debug_viz.visualize_detections(
+                        cropped,
+                        [(letter, (x - crop_x, y - crop_y)) for letter, (x, y) in matched_detections],
+                        layout_info=None,  # No layout template when using raw detections
+                        base_bw_image=otsu_image,
+                        wheel_info=wheel_debug_info
+                    )
+                else:
+                    # Use existing visualization method with layout info
+                    debug_info = self.layout_matcher.get_debug_info()
+                    self.debug_viz.visualize_detections(
+                        cropped,
+                        [(letter, (x - crop_x, y - crop_y)) for letter, (x, y) in matched_detections],
+                        debug_info,
+                        base_bw_image=otsu_image,
+                        wheel_info=wheel_debug_info
+                    )
             
             if self._check_interrupts():
                 return True
